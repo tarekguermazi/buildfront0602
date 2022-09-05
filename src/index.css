@@ -1,0 +1,108 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url(/public/fonts/Proxima\ Nova\ Font.otf);
+}
+
+@font-face {
+  font-family: "Bebas Neue Pro";
+  src: url(/public/fonts/BebasNeue\ Bold.ttf);
+}
+
+:root {
+  /* Primary Color  */
+  --red: #e1011a;
+  --white: #ffffff;
+  --violet: #2b2840;
+  /* Secodary Color */
+  --background: #f1f1f1;
+  --gray1: #e5e5e5;
+  --gray2: #4f4f4f;
+  --gray3: #828282;
+  --gray4: #f1f1f1;
+  --navigate__left: #bfbfc6;
+  --dark--red: #c40720;
+}
+
+h1 {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 32px;
+}
+
+h2 {
+  font-family: "Bebas Neue Pro";
+  font-size: 35px;
+  line-height: 39px;
+  font-weight: 800;
+  color: var(--violet);
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 38px;
+  line-height: 42px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 27px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--violet);
+  text-transform: uppercase;
+  font-family: "Bebas Neue Pro";
+}
+
+h5 {
+  color: var(--violet);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 39px;
+  font-family: "Bebas Neue Pro";
+}
+
+li {
+  font-family: "Bebas Neue";
+  color: var(--violet);
+  list-style: none;
+  font-size: 19px;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+a {
+  text-decoration: none;
+}
+
+input {
+  color: var(--gray3);
+  border: 0;
+  background-color: transparent;
+}
+input:focus {
+  outline: 0;
+}
+
+body {
+  font-family: "Proxima Nova Pro";
+  font-weight: 400;
+}
