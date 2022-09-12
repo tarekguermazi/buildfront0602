@@ -74,10 +74,12 @@ function Header(props) {
                     id='down'
                   />
                   <ul className='header__dropdown'>
+                    <Link to='/profile/suggest'>
                     <li>
                       <img src={pen} alt='pen' />
                       Suggérer des données
                     </li>
+                    </Link>
                     <Link to='/profile'>
                       <li>
                         <img src={profile} alt='profile' className='lazyload' />

@@ -27,6 +27,12 @@ const privateRoutes = [
     permissionRequired: null,
     exact: true,
   },
+  {
+    path: "/profile/suggest",
+    loader: () => import("src/view/auth/Profile/Suggest"),
+    permissionRequired: null,
+    exact: true,
+  },
 ].filter(Boolean);
 const publicRoutes = [
   { path: "/auth/signin", loader: () => import("src/view/auth/SigninPage") },
