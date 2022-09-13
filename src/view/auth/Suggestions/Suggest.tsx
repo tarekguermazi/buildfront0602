@@ -23,6 +23,12 @@ export default function Suggest() {
   );
   // state for conditionally rendering form fields according to chosen content type
   const [contentType, setContentType] = useState('Text');
+
+  const handleChange = event => {
+    setContentType(event.target.value);
+  }
+
+
   return (
     <div className='app__profile'>
       <div className='profile'>
@@ -69,7 +75,14 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Text">
-                        <input type="radio" value="Text" name="contentTypeRadio" className="contentTypeRadio" id="Text" />
+                        <input
+                          type="radio"
+                          value="Text"
+                          name="contentTypeRadio"
+                          className="contentTypeRadio"
+                          id="Text"
+                          onChange={handleChange}
+                        />
                         <div className="TypeCard">
                           <GrTextAlignFull className="icon" />
                           <span>Text</span>
@@ -79,7 +92,14 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Audio">
-                        <input type="radio" value="Audio" name="contentTypeRadio" className="contentTypeRadio" id="Audio" />
+                        <input
+                          type="radio"
+                          value="Audio"
+                          name="contentTypeRadio"
+                          className="contentTypeRadio"
+                          id="Audio"
+                          onChange={handleChange}
+                        />
                         <div className="TypeCard">
                           <BiMicrophone className="icon" />
                           <span>Audio</span>
@@ -89,7 +109,14 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Video">
-                        <input type="radio" value="Video" name="contentTypeRadio" className="contentTypeRadio" id="Video" />
+                        <input
+                          type="radio"
+                          value="Video"
+                          name="contentTypeRadio"
+                          className="contentTypeRadio"
+                          id="Video"
+                          onChange={handleChange}
+                        />
                         <div className="TypeCard">
                           <IoVideocamOutline className="icon" />
                           <span>Video</span>
@@ -99,7 +126,14 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Lien">
-                        <input type="radio" value="Lien" name="contentTypeRadio" className="contentTypeRadio" id="Lien" />
+                        <input
+                          type="radio"
+                          value="Lien"
+                          name="contentTypeRadio"
+                          className="contentTypeRadio"
+                          id="Lien"
+                          onChange={handleChange}
+                        />
                         <div className="TypeCard">
                           <CgLink className="icon" />
                           <span>Lien</span>
@@ -109,7 +143,14 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Photo">
-                        <input type="radio" value="Photo" name="contentTypeRadio" className="contentTypeRadio" id="Photo" />
+                        <input
+                          type="radio"
+                          value="Photo"
+                          name="contentTypeRadio"
+                          className="contentTypeRadio"
+                          id="Photo"
+                          onChange={handleChange}
+                        />
                         <div className="TypeCard">
                           <BsCamera className="icon" />
                           <span>Photo</span>
@@ -119,7 +160,14 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="PLACEHOLDER">
-                        <input type="radio" value="PLACEHOLDER" name="contentTypeRadio" className="contentTypeRadio" id="PLACEHOLDER" />
+                        <input
+                          type="radio"
+                          value="PLACEHOLDER"
+                          name="contentTypeRadio"
+                          className="contentTypeRadio"
+                          id="PLACEHOLDER"
+                          onChange={handleChange}
+                        />
                         <div className="TypeCard">
                           <AiOutlineQuestion className="icon" />
                           <span>N.A</span>
@@ -131,28 +179,33 @@ export default function Suggest() {
                 </section>
 
                 {/* SUPPORT (Audio, Video, Photo)*/}
-                <section className="support">
-                  <span>Support</span>
+                {
+                  (contentType === "Audio" || contentType === "Video" || contentType === "Photo") &&
+                  <section className="support">
+                    <span>Support</span>
 
-                  <div className="dragAndDropAreaFlex">
-                    <div className="DADControls">
-                      <CgSoftwareUpload className="icon" />
-                      <span>Drop files here</span>
-                      <span>or</span>
-                      <label htmlFor="file-upload" className="customFileUpload">
-                        <input type="file" id="file-upload" />
-                        Select files
-                      </label>
+                    <div className="dragAndDropAreaFlex">
+                      <div className="DADControls">
+                        <CgSoftwareUpload className="icon" />
+                        <span>Drop files here</span>
+                        <span>or</span>
+                        <label htmlFor="file-upload" className="customFileUpload">
+                          <input type="file" id="file-upload" />
+                          Select files
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                </section>
+                  </section>
+                }
 
                 {/* DESCRIPTION (Text, Link)*/}
-                <section className="description">
-                  <span>Description</span>
-                  <Editor editorState={editorState} onChange={setEditorState} />
-                </section>
-
+                {
+                  (contentType === "Text" || contentType === "Lien") &&
+                  <section className="description">
+                    <span>Description</span>
+                    <Editor editorState={editorState} onChange={setEditorState} />
+                  </section>
+                }
                 {/* ACTION BUTTONS */}
                 <section className="formActions">
                   <input type="submit" value="Valider" />
