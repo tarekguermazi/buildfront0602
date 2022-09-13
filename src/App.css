@@ -2467,12 +2467,13 @@ button {
 }
 
 .mainContent .TypeCard .icon{
-  font-size: 1.5rem;
-  color: var(--gray3)
+  font-size: 2rem;
+  color: var(--gray3);
 }
 
 .mainContent .TypeCard span{
-  font-size: .8rem;
+  font-size: 1rem;
+  font-weight: 100;
 }
 
 .mainContent input[type="radio"]:checked + .TypeCard{
@@ -2481,6 +2482,10 @@ button {
 
 .mainContent input[type="radio"]:checked + .TypeCard .icon{
   color: red;
+}
+
+.mainContent input[type="radio"]:checked + .TypeCard span{
+  font-weight: bold;
 }
 
 .mainContent .splide {

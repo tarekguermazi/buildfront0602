@@ -21,6 +21,8 @@ export default function Suggest() {
   const [editorState, setEditorState] = useState(
     () => EditorState.createEmpty(),
   );
+  // state for conditionally rendering form fields according to chosen content type
+  const [contentType, setContentType] = useState('Text');
   return (
     <div className='app__profile'>
       <div className='profile'>
@@ -67,7 +69,7 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Text">
-                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Text" />
+                        <input type="radio" value="Text" name="contentTypeRadio" className="contentTypeRadio" id="Text" />
                         <div className="TypeCard">
                           <GrTextAlignFull className="icon" />
                           <span>Text</span>
@@ -77,7 +79,7 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Audio">
-                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Audio" />
+                        <input type="radio" value="Audio" name="contentTypeRadio" className="contentTypeRadio" id="Audio" />
                         <div className="TypeCard">
                           <BiMicrophone className="icon" />
                           <span>Audio</span>
@@ -87,7 +89,7 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Video">
-                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Video" />
+                        <input type="radio" value="Video" name="contentTypeRadio" className="contentTypeRadio" id="Video" />
                         <div className="TypeCard">
                           <IoVideocamOutline className="icon" />
                           <span>Video</span>
@@ -97,7 +99,7 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Lien">
-                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Lien" />
+                        <input type="radio" value="Lien" name="contentTypeRadio" className="contentTypeRadio" id="Lien" />
                         <div className="TypeCard">
                           <CgLink className="icon" />
                           <span>Lien</span>
@@ -107,7 +109,7 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="Photo">
-                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Photo" />
+                        <input type="radio" value="Photo" name="contentTypeRadio" className="contentTypeRadio" id="Photo" />
                         <div className="TypeCard">
                           <BsCamera className="icon" />
                           <span>Photo</span>
@@ -117,10 +119,10 @@ export default function Suggest() {
 
                     <SplideSlide>
                       <label htmlFor="PLACEHOLDER">
-                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="PLACEHOLDER" />
+                        <input type="radio" value="PLACEHOLDER" name="contentTypeRadio" className="contentTypeRadio" id="PLACEHOLDER" />
                         <div className="TypeCard">
                           <AiOutlineQuestion className="icon" />
-                          <span>PLACEHOLDER</span>
+                          <span>N.A</span>
                         </div>
                       </label>
                     </SplideSlide>
@@ -128,7 +130,7 @@ export default function Suggest() {
                   </Splide>
                 </section>
 
-                {/* SUPPORT */}
+                {/* SUPPORT (Audio, Video, Photo)*/}
                 <section className="support">
                   <span>Support</span>
 
@@ -145,7 +147,7 @@ export default function Suggest() {
                   </div>
                 </section>
 
-                {/* DESCRIPTION */}
+                {/* DESCRIPTION (Text, Link)*/}
                 <section className="description">
                   <span>Description</span>
                   <Editor editorState={editorState} onChange={setEditorState} />
