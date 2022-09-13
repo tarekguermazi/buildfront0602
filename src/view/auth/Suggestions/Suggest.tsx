@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import TypeCard from '../styles/TypeCard';
 // ICONS
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoVideocamOutline } from "react-icons/io5"
 import { CgLink, CgSoftwareUpload } from "react-icons/cg"
 import { BsCamera } from "react-icons/bs"
 import { BiMicrophone } from "react-icons/bi"
+import { AiOutlineQuestion } from "react-icons/ai"
 
 // SPLIDE
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -35,100 +35,129 @@ export default function Suggest() {
                 <h2>Suggérer&nbsp;DU&nbsp;contenu</h2>
                 <div className='communiquer__bar'></div>
               </div>
-              {/* DESCRIPTION */}
-              <section className="description">
-                Description lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis voluptates deserunt optio maxime ad vero voluptatum quibusdam laborum nulla architecto recusandae nam, nihil quos. Rerum incidunt tenetur accusantium rem voluptates, voluptas iste nihil, ipsam
-              </section>
 
-              {/* CATEGORIES */}
-              <section className="contentCategory">
-                <span>Catégorie</span>
 
-                <select name="categories" >
-                  <option value="manifestation">Manifestation</option>
-                  <option value="placeholder">placeholder</option>
-                </select>
-              </section>
+              <form>
+                {/* DESCRIPTION */}
+                <section className="description">
+                  Description lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis voluptates deserunt optio maxime ad vero voluptatum quibusdam laborum nulla architecto recusandae nam, nihil quos. Rerum incidunt tenetur accusantium rem voluptates, voluptas iste nihil, ipsam
+                </section>
 
-              {/* CONTENT TYPE */}
-              <section className="contentTypes">
-                <span>Type de contenu</span>
+                {/* CATEGORIES */}
+                <section className="contentCategory">
+                  <span>Catégorie</span>
 
-                <Splide className="splide" options={{
-                  gap: '.2rem',
-                  perPage: 5,
-                  pagination: false,
-                  Wheel: true,
-                  width: '100%'
-                }}>
+                  <select name="categories" >
+                    <option value="manifestation">Manifestation</option>
+                    <option value="placeholder">placeholder</option>
+                  </select>
+                </section>
 
-                  <SplideSlide>
-                    <TypeCard>
-                      <GrTextAlignFull className="icon" />
-                      <span>TEXT</span>
-                    </TypeCard>
-                  </SplideSlide>
+                {/* CONTENT TYPE */}
+                <section className="contentTypes">
+                  <span>Type de contenu</span>
 
-                  <SplideSlide>
-                    <TypeCard>
-                      <BiMicrophone className="icon" />
-                      <span>Audio</span>
-                    </TypeCard>
-                  </SplideSlide>
+                  <Splide className="splide" options={{
+                    gap: '.2rem',
+                    perPage: 5,
+                    pagination: false,
+                    Wheel: true,
+                    width: '100%'
+                  }}>
 
-                  <SplideSlide>
-                    <TypeCard>
-                      <IoVideocamOutline className="icon" />
-                      <span>Video</span>
-                    </TypeCard>
-                  </SplideSlide>
+                    <SplideSlide>
+                      <label htmlFor="Text">
+                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Text" />
+                        <div className="TypeCard">
+                          <GrTextAlignFull className="icon" />
+                          <span>Text</span>
+                        </div>
+                      </label>
+                    </SplideSlide>
 
-                  <SplideSlide>
-                    <TypeCard>
-                      <CgLink className="icon" />
-                      <span>Lien</span>
-                    </TypeCard>
-                  </SplideSlide>
+                    <SplideSlide>
+                      <label htmlFor="Audio">
+                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Audio" />
+                        <div className="TypeCard">
+                          <BiMicrophone className="icon" />
+                          <span>Audio</span>
+                        </div>
+                      </label>
+                    </SplideSlide>
 
-                  <SplideSlide>
-                    <TypeCard>
-                      <BsCamera className="icon" />
-                      <span>Photo</span>
-                    </TypeCard>
-                  </SplideSlide>
+                    <SplideSlide>
+                      <label htmlFor="Video">
+                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Video" />
+                        <div className="TypeCard">
+                          <IoVideocamOutline className="icon" />
+                          <span>Video</span>
+                        </div>
+                      </label>
+                    </SplideSlide>
 
-                  <SplideSlide>
-                    <TypeCard>
-                      <BsCamera className="icon" />
-                      <span>PLACEHOLDER</span>
-                    </TypeCard>
-                  </SplideSlide>
+                    <SplideSlide>
+                      <label htmlFor="Lien">
+                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Lien" />
+                        <div className="TypeCard">
+                          <CgLink className="icon" />
+                          <span>Lien</span>
+                        </div>
+                      </label>
+                    </SplideSlide>
 
-                </Splide>
-              </section>
+                    <SplideSlide>
+                      <label htmlFor="Photo">
+                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="Photo" />
+                        <div className="TypeCard">
+                          <BsCamera className="icon" />
+                          <span>Photo</span>
+                        </div>
+                      </label>
+                    </SplideSlide>
 
-              {/* SUPPORT */}
-              <section className="support">
-                <span>Support</span>
+                    <SplideSlide>
+                      <label htmlFor="PLACEHOLDER">
+                        <input type="radio" name="contentTypeRadio" className="contentTypeRadio" id="PLACEHOLDER" />
+                        <div className="TypeCard">
+                          <AiOutlineQuestion className="icon" />
+                          <span>PLACEHOLDER</span>
+                        </div>
+                      </label>
+                    </SplideSlide>
 
-                <div className="dragAndDropAreaFlex">
-                  <div className="DADControls">
-                    <CgSoftwareUpload className="icon" />
-                    <span>Drop files here</span>
-                    <span>or</span>
-                    <label htmlFor="file-upload" className="customFileUpload">
-                      <input type="file" id="file-upload" />
-                      Select files
-                    </label>
+                  </Splide>
+                </section>
+
+                {/* SUPPORT */}
+                <section className="support">
+                  <span>Support</span>
+
+                  <div className="dragAndDropAreaFlex">
+                    <div className="DADControls">
+                      <CgSoftwareUpload className="icon" />
+                      <span>Drop files here</span>
+                      <span>or</span>
+                      <label htmlFor="file-upload" className="customFileUpload">
+                        <input type="file" id="file-upload" />
+                        Select files
+                      </label>
+                    </div>
                   </div>
-                </div>
-              </section>
+                </section>
 
-              {/* DESCRIPTION */}
-              <section className="description">
-                <span>Description</span>
-                <Editor editorState={editorState} onChange={setEditorState} />
-              </section>
+                {/* DESCRIPTION */}
+                <section className="description">
+                  <span>Description</span>
+                  <Editor editorState={editorState} onChange={setEditorState} />
+                </section>
+
+                {/* ACTION BUTTONS */}
+                <section className="formActions">
+                  <input type="submit" value="Valider" />
+                  <input type="reset" value="Annuler" />
+                </section>
+
+              </form>
             </div>
           </section>
         </div>

@@ -2450,6 +2450,39 @@ button {
   margin-top: 2rem;
 }
 
+.mainContent .contentTypeRadio {
+  display: none;
+}
+
+.mainContent .TypeCard{
+  width: 100px;
+    height: 120px;
+    border: 1px solid var(--gray3);
+    color: var(--violet);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.mainContent .TypeCard .icon{
+  font-size: 1.5rem;
+  color: var(--gray3)
+}
+
+.mainContent .TypeCard span{
+  font-size: .8rem;
+}
+
+.mainContent input[type="radio"]:checked + .TypeCard{
+  border: 2px solid var(--violet);
+}
+
+.mainContent input[type="radio"]:checked + .TypeCard .icon{
+  color: red;
+}
+
 .mainContent .splide {
   margin-top: .6rem;
 }
@@ -2458,7 +2491,6 @@ button {
   /* SUPPORT */
   margin-top: 2rem;
 }
-
 
 .mainContent .dragAndDropAreaFlex{
   margin-top: .6rem;
