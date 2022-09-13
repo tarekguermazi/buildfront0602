@@ -2363,3 +2363,146 @@ button {
   left: 0;
   position: absolute;
 }
+
+
+/* Styling for the Profile Section */
+/* CONTENT SUGGESTIONS */
+
+.mainFlex{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  /* setting the font here, so I don't have to worry about it later */
+  font-size: 1rem;
+  font-family: "Proxima Nova";
+  font-weight: 500;
+
+  /* basic spacing */
+  margin-top: 2rem;
+}
+
+.backTigger{
+  /* icon + span container */
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backTigger i, span{
+  font-size: 1rem;
+  color: var(--violet);
+}
+
+.suggestionsPanel{
+  width: 90%;
+  height: auto;
+}
+
+.suggestionsPanel h1{
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.mainContent{
+  width: 600px;
+  margin: 0 auto;
+  /* background-color: yellow; */
+}
+
+.mainContent .description{
+  /* DESCRIPTION */
+  margin: 1.06rem 0;
+  font-size: .8rem;
+  text-align: justify;
+  line-height: 1.5;
+  color: var(--violet);
+}
+
+.mainContent .contentCategory {
+  /* CATEGORIES */
+  margin-top: 2rem;
+}
+
+.mainContent .contentCategory span, .mainContent .contentTypes span, .mainContent .support span{
+  font-size: 1rem;
+  display: block;
+}
+
+.mainContent .contentCategory select{
+  margin-top: .6rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem 1rem;
+  color: var(--violet);
+
+  border: 1px solid #E0E0E0;
+  background-color: #fff;
+}
+
+.mainContent .contentTypes {
+  /* CONTENT TYPE */
+  margin-top: 2rem;
+}
+
+.mainContent .splide {
+  margin-top: .6rem;
+}
+
+.mainContent .support {
+  /* SUPPORT */
+  margin-top: 2rem;
+}
+
+
+.mainContent .dragAndDropAreaFlex{
+  margin-top: .6rem;
+  width: 100%;
+  height: 200px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='Gainsboro' stroke-width='5' stroke-dasharray='5%2c 10' stroke-dashoffset='64' stroke-linecap='square'/%3e%3c/svg%3e");
+  background-color: #F1F1F1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainContent .DADControls{
+  width: 50%;
+  text-align: center;
+}
+
+.mainContent .DADControls .icon{
+  font-size: 2rem;
+  color: var(--violet);
+}
+
+.mainContent .DADControls span{
+  font-size: .9rem;
+  color: var(--gray3);
+  margin: .5rem 0;
+}
+
+.mainContent .DADControls .customFileUpload{
+  font-size: .8rem;
+  font-weight: 100;
+  padding: .5rem 1rem;
+  color: var(--violet);
+  background-color: #fff;
+  border: 1px solid var(--violet);
+}
+
+.mainContent .DADControls .customFileUpload input{
+  display: none;
+}
+
+.mainContent .description{
+  /* DESCRIPTION */
+  margin-top: 2rem;
+  margin-bottom: .6rem;
+}
