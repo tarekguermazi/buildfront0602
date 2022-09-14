@@ -5,8 +5,9 @@ import { GrTextAlignFull } from "react-icons/gr";
 import { IoVideocamOutline } from "react-icons/io5"
 import { CgLink, CgSoftwareUpload } from "react-icons/cg"
 import { BsCamera } from "react-icons/bs"
-import { BiMicrophone } from "react-icons/bi"
+import { BiMicrophone, BiStats } from "react-icons/bi"
 import { AiOutlineQuestion } from "react-icons/ai"
+import { VscGraphScatter } from "react-icons/vsc"
 
 // SPLIDE
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -170,18 +171,52 @@ export default function Suggest() {
                     </SplideSlide>
 
                     <SplideSlide>
-                      <label htmlFor="PLACEHOLDER">
+                      <label htmlFor="Infographie">
                         <input
                           type="radio"
                           ref={register}
-                          value="PLACEHOLDER"
+                          value="infographie"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
-                          id="PLACEHOLDER"
+                          id="Infographie"
+                        />
+                        <div className="TypeCard">
+                          <VscGraphScatter className="icon" />
+                          <span>Infographie</span>
+                        </div>
+                      </label>
+                    </SplideSlide>
+
+                    <SplideSlide>
+                      <label htmlFor="Statistiques">
+                        <input
+                          type="radio"
+                          ref={register}
+                          value="statistiques"
+                          name="contentTypeRadio"
+                          className="contentTypeRadio"
+                          id="Statistiques"
+                        />
+                        <div className="TypeCard">
+                          <BiStats className="icon" />
+                          <span>Statistiques</span>
+                        </div>
+                      </label>
+                    </SplideSlide>
+
+                    <SplideSlide>
+                      <label htmlFor="Autre">
+                        <input
+                          type="radio"
+                          ref={register}
+                          value="autre"
+                          name="contentTypeRadio"
+                          className="contentTypeRadio"
+                          id="Autre"
                         />
                         <div className="TypeCard">
                           <AiOutlineQuestion className="icon" />
-                          <span>N.A</span>
+                          <span>Autre</span>
                         </div>
                       </label>
                     </SplideSlide>
