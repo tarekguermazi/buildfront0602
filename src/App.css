@@ -2543,3 +2543,24 @@ button {
   margin-top: 2rem;
   margin-bottom: .6rem;
 }
+
+.mainContent .formActions{
+  /* FORM ACTIONS */
+  margin-top: 2rem;
+  margin-bottom: .6rem;
+  text-align: right;
+}
+
+.mainContent .formActions input{
+  font-size: 1rem;
+  padding: .8rem 2rem;
+
+  color: var(--violet);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.mainContent .formActions input[type="submit"]{
+  background-color: red;
+  color: #fff;
+}

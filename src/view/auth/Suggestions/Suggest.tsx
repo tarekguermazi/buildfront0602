@@ -208,8 +208,8 @@ export default function Suggest() {
                 }
                 {/* ACTION BUTTONS */}
                 <section className="formActions">
-                  <input type="submit" value="Valider" />
                   <input type="reset" value="Annuler" />
+                  <input type="submit" value="Valider" />
                 </section>
 
               </form>
