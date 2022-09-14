@@ -16,6 +16,7 @@ const Alert = styled.div`
     margin: 1rem 0;
     color: #721c24;
     background-color: #f8d7da;
+    border: 1px solid;
     border-color: #f5c6cb;
     border-radius: .5rem;
 `;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 // ICONS
 import { GrTextAlignFull } from "react-icons/gr";
@@ -12,10 +12,6 @@ import { AiOutlineQuestion } from "react-icons/ai"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
-// RICH TEXT EDITOR (DRAFT.JS)
-import { Editor, EditorState } from 'draft-js';
-import 'draft-js/dist/Draft.css';
-
 // FORM HANDLING
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -24,25 +20,16 @@ import FormError from "../styles/FormError";
 
 // FORM SCHEMA
 const schema = yup.object().shape({
-  categories: yup.string().required('Veuillez choisir une catégorie'),
-  contentTypeRadio: yup.string().required('Veuillez indiquer le type du contenu')
+  description: yup.string().required('Veuillez fournir une description'),
+  category: yup.string(),
+  contentType: yup.string()
 });
 
 export default function Suggest() {
-  const [editorState, setEditorState] = useState(
-    () => EditorState.createEmpty(),
-  );
-  // state for conditionally rendering form fields according to chosen content type
-  const [contentType, setContentType] = useState('Text');
-
-  const handleChange = event => {
-    setContentType(event.target.value);
-  }
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
-  console.log(errors);
   const handleFormSubmission = data => {
     console.table(data);
   }
@@ -73,15 +60,11 @@ export default function Suggest() {
                 <section className="contentCategory">
                   <span>Catégorie</span>
 
-                  <select ref={register} name="categories">
+                  <select name="categories" ref={register}>
                     <option value="">Select category...</option>
                     <option value="manifestation">Manifestation</option>
                     <option value="placeholder">placeholder</option>
                   </select>
-                  {
-                    errors.categories &&
-                    <FormError message={errors.categories?.message} />
-                  }
                 </section>
 
                 {/* CONTENT TYPE */}
@@ -105,7 +88,6 @@ export default function Suggest() {
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Text"
-                          onChange={handleChange}
                         />
                         <div className="TypeCard">
                           <GrTextAlignFull className="icon" />
@@ -123,7 +105,6 @@ export default function Suggest() {
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Audio"
-                          onChange={handleChange}
                         />
                         <div className="TypeCard">
                           <BiMicrophone className="icon" />
@@ -141,7 +122,6 @@ export default function Suggest() {
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Video"
-                          onChange={handleChange}
                         />
                         <div className="TypeCard">
                           <IoVideocamOutline className="icon" />
@@ -159,7 +139,6 @@ export default function Suggest() {
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Lien"
-                          onChange={handleChange}
                         />
                         <div className="TypeCard">
                           <CgLink className="icon" />
@@ -177,7 +156,6 @@ export default function Suggest() {
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Photo"
-                          onChange={handleChange}
                         />
                         <div className="TypeCard">
                           <BsCamera className="icon" />
@@ -195,7 +173,6 @@ export default function Suggest() {
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="PLACEHOLDER"
-                          onChange={handleChange}
                         />
                         <div className="TypeCard">
                           <AiOutlineQuestion className="icon" />
@@ -205,40 +182,41 @@ export default function Suggest() {
                     </SplideSlide>
 
                   </Splide>
-                  {
-                    errors.contentTypeRadio &&
-                    <FormError message={errors.contentTypeRadio?.message} />
-                  }
                 </section>
 
                 {/* SUPPORT (Audio, Video, Photo)*/}
-                {
-                  (contentType === "Audio" || contentType === "Video" || contentType === "Photo") &&
-                  <section className="support">
-                    <span>Support</span>
+                <section className="support">
+                  <span>Support</span>
 
-                    <div className="dragAndDropAreaFlex">
-                      <div className="DADControls">
-                        <CgSoftwareUpload className="icon" />
-                        <span>Drop files here</span>
-                        <span>or</span>
-                        <label htmlFor="file-upload" className="customFileUpload">
-                          <input type="file" id="file-upload" />
-                          Select files
-                        </label>
-                      </div>
+                  <div className="dragAndDropAreaFlex">
+                    <div className="DADControls">
+                      <CgSoftwareUpload className="icon" />
+                      <span>Drop files here</span>
+                      <span>or</span>
+                      <label htmlFor="file-upload" className="customFileUpload">
+                        <input type="file" id="file-upload" />
+                        Select files
+                      </label>
                     </div>
-                  </section>
-                }
+                  </div>
+                </section>
 
                 {/* DESCRIPTION (Text, Link)*/}
-                {
-                  (contentType === "Text" || contentType === "Lien") &&
-                  <section className="description">
-                    <span>Description</span>
-                    <Editor editorState={editorState} onChange={setEditorState} />
-                  </section>
-                }
+                <section className="description">
+                  <span>Description</span>
+                  <textarea
+                    cols={30}
+                    rows={10}
+                    placeholder="Description...."
+                    name="description"
+                    ref={register}
+                  ></textarea>
+                  {
+                    errors.description &&
+                    <FormError message={errors.description?.message} />
+                  }
+                </section>
+
                 {/* ACTION BUTTONS */}
                 <section className="formActions">
                   <input type="reset" value="Annuler" />
