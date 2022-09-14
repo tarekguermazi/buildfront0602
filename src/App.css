@@ -2678,6 +2678,8 @@ span {
 
   border: 1px solid #E0E0E0;
   background-color: #fff;
+
+  text-transform: capitalize;
 }
 
 .mainContent .contentTypes {

@@ -63,7 +63,12 @@ export default function Suggest() {
                   <select name="categories" ref={register}>
                     <option value="">Select category...</option>
                     <option value="manifestation">Manifestation</option>
-                    <option value="placeholder">placeholder</option>
+                    <option value="article scientifique">article scientifique</option>
+                    <option value="article journalistique">article journalistique</option>
+                    <option value="rapport">rapport</option>
+                    <option value="entretien">entretien</option>
+                    <option value="données numériques">données numériques</option>
+                    <option value="autre">autre</option>
                   </select>
                 </section>
 
