@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import authAxios from "src/modules/shared/axios/authAxios";
+
 // ICONS
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoVideocamOutline } from "react-icons/io5"
@@ -18,6 +20,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import FormError from "../styles/FormError";
+import toast, { Toaster } from 'react-hot-toast';
 
 // FORM SCHEMA
 const schema = yup.object().shape({
@@ -28,12 +31,46 @@ const schema = yup.object().shape({
 
 export default function Suggest() {
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });
-  const handleFormSubmission = data => {
-    console.table(data);
+
+  const handleFormSubmission = async data => {
+    let now: Date = new Date();
+    const obj = {
+      "data": {
+        "thematique": null,
+        "categorie": data.categories,
+        "type": data.contentTypeRadio,
+        "supports": [
+          {
+            "name": "string",
+            "sizeInBytes": 0,
+            "privateUrl": "string",
+            "publicUrl": "string",
+            "new": true
+          }
+        ],
+        "description": data.description,
+        "statut": "en_attente",
+        "date": now.toISOString().split('T')[0]
+      }
+    }
+    try {
+      const currentTenantID: any = localStorage.getItem('tenant');
+      const response = await authAxios.post(
+        `/tenant/${JSON.parse(currentTenantID)._id}/publication/`,
+        obj
+      )
+      if (response.status === 200) {
+        reset();
+        toast.success('Suggestion ajoutée avec succès!')
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
+
 
   return (
     <div className='app__profile'>
@@ -45,6 +82,7 @@ export default function Suggest() {
           </Link>
           <section className="suggestionsPanel">
             <div className="mainContent">
+              <Toaster />
               <div className='archieve__header'>
                 <h2>Suggérer&nbsp;DU&nbsp;contenu</h2>
                 <div className='communiquer__bar'></div>
@@ -90,7 +128,7 @@ export default function Suggest() {
                         <input
                           type="radio"
                           ref={register}
-                          value="Text"
+                          value="Texte"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Text"
@@ -107,7 +145,7 @@ export default function Suggest() {
                         <input
                           type="radio"
                           ref={register}
-                          value="Audio"
+                          value="audio"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Audio"
@@ -124,7 +162,7 @@ export default function Suggest() {
                         <input
                           type="radio"
                           ref={register}
-                          value="Video"
+                          value="vidéo"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Video"
@@ -141,7 +179,7 @@ export default function Suggest() {
                         <input
                           type="radio"
                           ref={register}
-                          value="Lien"
+                          value="lien web"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Lien"
@@ -158,7 +196,7 @@ export default function Suggest() {
                         <input
                           type="radio"
                           ref={register}
-                          value="Photo"
+                          value="photo"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
                           id="Photo"
