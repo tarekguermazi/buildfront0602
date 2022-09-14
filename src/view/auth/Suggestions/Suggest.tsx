@@ -16,6 +16,17 @@ import '@splidejs/react-splide/css';
 import { Editor, EditorState } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 
+// FORM HANDLING
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import FormError from "../styles/FormError";
+
+// FORM SCHEMA
+const schema = yup.object().shape({
+  categories: yup.string().required('Veuillez choisir une catégorie'),
+  contentTypeRadio: yup.string().required('Veuillez indiquer le type du contenu')
+});
 
 export default function Suggest() {
   const [editorState, setEditorState] = useState(
@@ -28,6 +39,13 @@ export default function Suggest() {
     setContentType(event.target.value);
   }
 
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema),
+  });
+  console.log(errors);
+  const handleFormSubmission = data => {
+    console.table(data);
+  }
 
   return (
     <div className='app__profile'>
@@ -45,7 +63,7 @@ export default function Suggest() {
               </div>
 
 
-              <form>
+              <form onSubmit={handleSubmit(handleFormSubmission)}>
                 {/* DESCRIPTION */}
                 <section className="description">
                   Description lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis voluptates deserunt optio maxime ad vero voluptatum quibusdam laborum nulla architecto recusandae nam, nihil quos. Rerum incidunt tenetur accusantium rem voluptates, voluptas iste nihil, ipsam
@@ -55,10 +73,15 @@ export default function Suggest() {
                 <section className="contentCategory">
                   <span>Catégorie</span>
 
-                  <select name="categories" >
+                  <select ref={register} name="categories">
+                    <option value="">Select category...</option>
                     <option value="manifestation">Manifestation</option>
                     <option value="placeholder">placeholder</option>
                   </select>
+                  {
+                    errors.categories &&
+                    <FormError message={errors.categories?.message} />
+                  }
                 </section>
 
                 {/* CONTENT TYPE */}
@@ -77,6 +100,7 @@ export default function Suggest() {
                       <label htmlFor="Text">
                         <input
                           type="radio"
+                          ref={register}
                           value="Text"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
@@ -94,6 +118,7 @@ export default function Suggest() {
                       <label htmlFor="Audio">
                         <input
                           type="radio"
+                          ref={register}
                           value="Audio"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
@@ -111,6 +136,7 @@ export default function Suggest() {
                       <label htmlFor="Video">
                         <input
                           type="radio"
+                          ref={register}
                           value="Video"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
@@ -128,6 +154,7 @@ export default function Suggest() {
                       <label htmlFor="Lien">
                         <input
                           type="radio"
+                          ref={register}
                           value="Lien"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
@@ -145,6 +172,7 @@ export default function Suggest() {
                       <label htmlFor="Photo">
                         <input
                           type="radio"
+                          ref={register}
                           value="Photo"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
@@ -162,6 +190,7 @@ export default function Suggest() {
                       <label htmlFor="PLACEHOLDER">
                         <input
                           type="radio"
+                          ref={register}
                           value="PLACEHOLDER"
                           name="contentTypeRadio"
                           className="contentTypeRadio"
@@ -176,6 +205,10 @@ export default function Suggest() {
                     </SplideSlide>
 
                   </Splide>
+                  {
+                    errors.contentTypeRadio &&
+                    <FormError message={errors.contentTypeRadio?.message} />
+                  }
                 </section>
 
                 {/* SUPPORT (Audio, Video, Photo)*/}
