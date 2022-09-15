@@ -43,7 +43,8 @@ function SigninPage() {
     <AuthWrapper>
       <div className='app__signin'>
         <div className='app__login'>
-          <div className='archieve__header'>
+          <div className='login__header'>
+            <div className='communiquer__bar'></div>
             <h2>Se&nbsp;Connecter</h2>
             <div className='communiquer__bar'></div>
           </div>
