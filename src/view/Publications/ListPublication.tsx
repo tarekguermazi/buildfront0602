@@ -60,7 +60,7 @@ function ListPublication(props) {
               <tr>
                 <td colSpan={100}>
                   <div className='d-flex justify-content-center'>
-                    {"noData"}
+                    {"Aucune donnée"}
                   </div>
                 </td>
               </tr>

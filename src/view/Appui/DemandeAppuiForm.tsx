@@ -10,6 +10,7 @@ import ButtonIcon from "../shared/ButtonIcon";
 import SelectFormItem from "../shared/form/items/SelectFormItem";
 import FilesFormItem from "../shared/form/items/FilesFormItem";
 import Storage from "../../security/storage";
+import InputFormItem from "../shared/form/items/InputFormItem";
 
 const schema = yup.object().shape({
   gouvernorat: yupFormSchemas.enumerator(
@@ -40,16 +41,12 @@ function DemandeAppuiForm(props) {
 
   const [initialValues] = useState(() => {
     const record = props.record || {};
-
+    setActiveTab(record.personne);
     return {
-      type: record.type,
-      etat: record.etat,
-      gouvernorat: record.gouvernorat,
-      category: record.category,
-      importance: record.importance,
+      email: record.email,
+      personne: record.personne,
+      phoneNumber: record.phoneNumber,
       descriptionFR: record.descriptionFR,
-      descriptionAR: record.descriptionAR,
-      descriptionEN: record.descriptionEN,
       supports: record.supports || [],
     };
   });
@@ -66,6 +63,7 @@ function DemandeAppuiForm(props) {
   };
 
   const onSubmit = (values) => {
+    values.personne = activeTab;
     props.onSubmit(props?.record?.id, values);
   };
   const { saveLoading } = props;
@@ -85,15 +83,6 @@ function DemandeAppuiForm(props) {
             <select name='Gouvernorat' id=''></select>
           </div> */}
 
-          <SelectFormItem
-            name='gouvernorat'
-            label='gouvernorat'
-            options={demandeAppuiEnumerators.gouvernorat.map((value) => ({
-              value,
-              label: value,
-            }))}
-            required={true}
-          />
           <div className='form__importance'>
             <label htmlFor='Importance'>Personne</label>
             <div className='importance__status'>
@@ -109,7 +98,18 @@ function DemandeAppuiForm(props) {
               </div>
             </div>
           </div>
-
+          <InputFormItem
+            name='email'
+            label={"Email"}
+            autoComplete='email'
+            autoFocus
+          />
+          <InputFormItem
+            name='phoneNumber'
+            label={"phone Number"}
+            autoComplete='phoneNumber'
+            autoFocus
+          />
           <FilesFormItem
             name='supports'
             label='pièces jointes.'

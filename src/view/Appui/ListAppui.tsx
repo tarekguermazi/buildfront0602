@@ -38,11 +38,11 @@ function ListAppui(props) {
         <table>
           <thead>
             <tr>
-              <td>Type</td>
-              <td>Etat</td>
-              <td>Gouvernorat</td>
-              <td>Categorie</td>
-              <td>Importance</td>
+              <td>Personne</td>
+              <td>Email</td>
+              <td>Phone Number</td>
+              <td>Description</td>
+
               <td></td>
             </tr>
           </thead>
@@ -58,7 +58,7 @@ function ListAppui(props) {
               <tr>
                 <td colSpan={100}>
                   <div className='d-flex justify-content-center'>
-                    {"noData"}
+                    {"Aucune donnée"}
                   </div>
                 </td>
               </tr>
@@ -66,13 +66,11 @@ function ListAppui(props) {
             {!loading &&
               rows.map((row) => (
                 <tr key={row.id}>
-                  <td>{row.type}</td>
-                  <td>{row.etat}</td>
-                  <td>{row.gouvernorat}</td>
-                  <td>Category</td>
-                  <td>
-                    <span className='valider'>{row.importance}</span>
-                  </td>
+                  <td>{row.personne}</td>
+                  <td>{row.email}</td>
+                  <td>{row.phoneNumber}</td>
+                  <td>{row.descriptionFR}</td>
+
                   <td className='actions'>
                     <Link to={`/appui/${row.id}/edit`}>
                       <i className='fa-solid fa-pen'></i>
