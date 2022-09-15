@@ -44,6 +44,22 @@ const AuthWrapper = styled.div`
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
+  .form__select {
+    display: flex;
+    flex-direction: column;
+  }
+  select,
+  textarea {
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 21px;
+    padding: 15px;
+  }
+  select {
+    height: 50px;
+  }
   .form__button:hover {
     color: #fff;
     background: #ff5444;

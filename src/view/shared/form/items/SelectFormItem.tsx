@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import Select from "react-select";
 import { i18n } from "src/i18n";
 import { useFormContext } from "react-hook-form";
 import FormErrors from "src/view/shared/form/formErrors";
@@ -116,49 +115,29 @@ function SelectFormItem(props) {
     props.onChange && props.onChange(data.value);
   };
 
-  const controlStyles = Boolean(errorMessage)
-    ? {
-        container: (provided) => ({
-          ...provided,
-          color: "hsl(0,0%,20%)",
-        }),
-        control: (provided) => ({
-          ...provided,
-          borderColor: "red",
-        }),
-      }
-    : {
-        container: (provided) => ({
-          ...provided,
-          color: "hsl(0,0%,20%)",
-        }),
-      };
-
   return (
-    <div className='form-select'>
+    <div className='form__select'>
       {Boolean(label) && (
         <label className={`col-form-label ${required ? "required" : null}`}>
           {label}
         </label>
       )}
-      <div style={{ paddingBottom: `7px` }}></div>
-      <Select
+      <select
         value={value()}
-        onChange={handleSelect}
+        onChange={(event) => {
+          props.onChange && props.onChange(event.target.value);
+        }}
         onBlur={(event) => {
           props.onBlur && props.onBlur(event);
         }}
+        ref={register}
         id={name}
         name={name}
-        options={options}
-        isMulti={mode === "multiple"}
-        placeholder={placeholder || ""}
-        isClearable={isClearable}
-        styles={controlStyles}
-        loadingMessage={() => i18n("autocomplete.loading")}
-        noOptionsMessage={() => i18n("autocomplete.noOptions")}
-      />
-
+        placeholder={placeholder || ""}>
+        {options.map((item) => (
+          <option value={item.value}>{item.label}</option>
+        ))}
+      </select>
       <div className='invalid-feedback'>{errorMessage}</div>
 
       {Boolean(hint) && <small className='form-text text-muted'>{hint}</small>}

@@ -44,6 +44,9 @@ const FormWrapper = styled.div`
     text-transform: Uppercase;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
+  .form-group {
+    text-align: start;
+  }
   .form__button:hover {
     color: #fff;
     background: #ff5444;

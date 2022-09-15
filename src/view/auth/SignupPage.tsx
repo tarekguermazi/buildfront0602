@@ -60,9 +60,27 @@ function SignupPage() {
     mode: "onSubmit",
     defaultValues: initialValues,
   });
-  const onSubmit = ({ firstName, lastName, email, password }) => {
+  const onSubmit = ({
+    firstName,
+    lastName,
+    email,
+    password,
+    phoneNumber,
+    pays,
+    occupation,
+    region,
+  }) => {
     dispatch(
-      actions.doRegisterEmailAndPassword(firstName, lastName, email, password)
+      actions.doRegisterEmailAndPassword(
+        firstName,
+        lastName,
+        email,
+        password,
+        phoneNumber,
+        pays,
+        occupation,
+        region
+      )
     );
   };
   return (
@@ -94,7 +112,6 @@ function SignupPage() {
                       placeholder='Nom'
                       autoComplete='Nom'
                       autoFocus
-                      externalErrorMessage={externalErrorMessage}
                     />
                     <InputFormItem
                       name='lastName'
@@ -102,7 +119,6 @@ function SignupPage() {
                       placeholder='prenom'
                       autoComplete='prenom'
                       autoFocus
-                      externalErrorMessage={externalErrorMessage}
                     />
                   </div>
                   <InputFormItem
@@ -119,7 +135,6 @@ function SignupPage() {
                     placeholder='password'
                     autoComplete='email'
                     autoFocus
-                    externalErrorMessage={externalErrorMessage}
                   />
                   <InputFormItem
                     name='newPasswordConfirmation'
@@ -127,8 +142,8 @@ function SignupPage() {
                     placeholder='password'
                     autoComplete='email'
                     autoFocus
-                    externalErrorMessage={externalErrorMessage}
                   />
+
                   <SelectFormItem
                     name={"pays"}
                     label={"pays"}
@@ -137,15 +152,8 @@ function SignupPage() {
                       label: value,
                     }))}
                   />
-                  <SelectFormItem
-                    name={"occupation"}
-                    label={"Occupation"}
-                    options={userEnumerators.occupation.map((value) => ({
-                      value,
-                      label: value,
-                    }))}
-                  />
-                  {form.watch().pays && form.watch().pays === "Tunisia" ? (
+
+                  {form.watch().pays && form.watch().pays === "Tunisia" && (
                     <SelectFormItem
                       name={"regionTunisie"}
                       label={"Région"}
@@ -154,41 +162,21 @@ function SignupPage() {
                         label: value,
                       }))}
                     />
-                  ) : (
-                    <InputFormItem
-                      name='region'
-                      label={"Région"}
-                      autoComplete='region'
-                    />
                   )}
+                  <SelectFormItem
+                    name={"occupation"}
+                    label={"Occupation"}
+                    options={userEnumerators.occupation.map((value) => ({
+                      value,
+                      label: value,
+                    }))}
+                  />
                   <InputFormItem
                     name='phoneNumber'
                     label={"phone Number"}
                     autoComplete='phoneNumber'
                     autoFocus
                   />
-                  {/* <div className='form__group'>
-                    <label htmlFor='Login'>Pays</label>
-                    <input
-                      type='text'
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                  <div className='form__group'>
-                    <label htmlFor='Login'>Région</label>
-                    <input
-                      type='text'
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                  <div className='form__group'>
-                    <label htmlFor='Login'>Occupation</label>
-                    <input
-                      type='text'
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div> */}
-
                   <button className='form__button' disabled={loading}>
                     <ButtonIcon loading={loading} />
                     Créer un compte

@@ -54,7 +54,17 @@ const authActions = {
   },
 
   doRegisterEmailAndPassword:
-    (firstName, lastName, email, password) => async (dispatch) => {
+    (
+      firstName,
+      lastName,
+      email,
+      password,
+      phoneNumber,
+      pays,
+      occupation,
+      region
+    ) =>
+    async (dispatch) => {
       try {
         dispatch({ type: authActions.AUTH_START });
 
@@ -62,7 +72,11 @@ const authActions = {
           firstName,
           lastName,
           email,
-          password
+          password,
+          phoneNumber,
+          pays,
+          occupation,
+          region
         );
 
         await AuthToken.set(token);

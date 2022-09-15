@@ -106,7 +106,7 @@ function ProfileForm() {
                   <div className='container__form'>
                     <InputFormItem
                       name='firstName'
-                      label={i18n("Prènom")}
+                      label={i18n("Nom")}
                       placeholder='Nom'
                       autoComplete='firstName'
                       autoFocus
@@ -120,13 +120,6 @@ function ProfileForm() {
                       autoFocus
                     />
 
-                    <InputFormItem
-                      name='lastName'
-                      label='Prénom'
-                      placeholder='Prénom'
-                      autoComplete='Prénom'
-                    />
-
                     <SelectFormItem
                       name={"pays"}
                       label={"pays"}
@@ -135,15 +128,7 @@ function ProfileForm() {
                         label: value,
                       }))}
                     />
-                    <SelectFormItem
-                      name={"occupation"}
-                      label='Occupation'
-                      options={userEnumerators.occupation.map((value) => ({
-                        value,
-                        label: value,
-                      }))}
-                    />
-                    {form.watch().pays && form.watch().pays === "Tunisia" ? (
+                    {form.watch().pays && form.watch().pays === "Tunisia" && (
                       <SelectFormItem
                         name={"regionTunisie"}
                         label='Region'
@@ -152,13 +137,16 @@ function ProfileForm() {
                           label: value,
                         }))}
                       />
-                    ) : (
-                      <InputFormItem
-                        name='region'
-                        label='region'
-                        autoComplete='region'
-                      />
                     )}
+                    <SelectFormItem
+                      name={"occupation"}
+                      label='Occupation'
+                      options={userEnumerators.occupation.map((value) => ({
+                        value,
+                        label: value,
+                      }))}
+                    />
+
                     <InputFormItem
                       name='phoneNumber'
                       label={"phone Number"}

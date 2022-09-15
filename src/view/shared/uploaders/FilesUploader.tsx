@@ -82,8 +82,10 @@ function FilesUploader(props) {
     <label
       className='btn btn-outline-secondary px-4 mb-2'
       style={{ cursor: "pointer" }}>
-      <ButtonIcon loading={loading} iconClass='fas fa-plus' />
-      {i18n("fileUploader.upload")}
+      <div className='upload__file'>
+        {"upload"} &nbsp;{" "}
+        <ButtonIcon loading={loading} iconClass='fas fa-plus' />
+      </div>
       <input
         style={{ display: "none" }}
         disabled={loading || readonly}
@@ -103,9 +105,8 @@ function FilesUploader(props) {
         <div>
           {value().map((item) => {
             return (
-              <div key={item.id}>
+              <div className='file__show' key={item.id}>
                 <i className='fas fa-link text-muted mr-2'></i>
-
                 <a
                   href={item.downloadUrl}
                   target='_blank'
@@ -113,7 +114,6 @@ function FilesUploader(props) {
                   download>
                   {item.name}
                 </a>
-
                 {!readonly && (
                   <button
                     className='btn btn-link'

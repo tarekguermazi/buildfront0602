@@ -7,13 +7,21 @@ export default class AuthService {
     firstName,
     lastName,
     email,
-    password
+    password,
+    phoneNumber,
+    pays,
+    occupation,
+    region
   ) {
     const response = await authAxios.post("/auth/sign-up", {
       firstName,
       lastName,
       email,
       password,
+      phoneNumber,
+      pays,
+      occupation,
+      region,
     });
 
     return response.data;

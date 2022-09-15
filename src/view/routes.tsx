@@ -72,6 +72,14 @@ const simpleRoutes = [
     loader: () => import("src/view/auth/PasswordResetPage"),
   },
   {
+    path: "/403",
+    loader: () => import("src/view/shared/errors/Error403Page"),
+  },
+  {
+    path: "/500",
+    loader: () => import("src/view/shared/errors/Error500Page"),
+  },
+  {
     path: "**",
     loader: () => import("src/view/shared/errors/Error404Page"),
   },
