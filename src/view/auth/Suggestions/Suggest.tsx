@@ -26,7 +26,8 @@ import toast, { Toaster } from 'react-hot-toast';
 const schema = yup.object().shape({
   description: yup.string().required('Veuillez fournir une description'),
   category: yup.string(),
-  contentType: yup.string()
+  contentType: yup.string(),
+  support: yup.mixed()
 });
 
 export default function Suggest() {
@@ -51,7 +52,7 @@ export default function Suggest() {
             "new": true
           }
         ],
-        "description": data.description,
+        "descriptionFR": data.description,
         "statut": "en_attente",
         "date": now.toISOString().split('T')[0]
       }
@@ -272,7 +273,7 @@ export default function Suggest() {
                       <span>Drop files here</span>
                       <span>or</span>
                       <label htmlFor="file-upload" className="customFileUpload">
-                        <input type="file" id="file-upload" />
+                        <input type="file" id="file-upload" name="support" ref={register} />
                         Select files
                       </label>
                     </div>
