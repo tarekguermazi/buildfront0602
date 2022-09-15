@@ -36,7 +36,7 @@ export default function Suggest() {
     resolver: yupResolver(schema),
   });
 
-  const handleFormSubmission = async data => {
+  const handleFormSubmission = async (data, event) => {
     let now: Date = new Date();
     const obj = {
       "data": {
@@ -58,6 +58,7 @@ export default function Suggest() {
       }
     }
     try {
+      event?.preventDefault();
       const currentTenantID: any = localStorage.getItem('tenant');
       const response = await authAxios.post(
         `/tenant/${JSON.parse(currentTenantID)._id}/publication/`,
