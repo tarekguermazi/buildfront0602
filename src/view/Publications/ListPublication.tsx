@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "src/modules/publication/list/publicationListActions";
-import destroyActions from "src/modules/publication/destroy/publicationDestroyActions";
 import selectors from "src/modules/publication/list/publicationListSelectors";
-import destroySelectors from "src/modules/publication/destroy/publicationDestroySelectors";
-import publicationSelectors from "src/modules/publication/publicationSelectors";
 import Spinner from "../shared/Spinner";
 import Pagination from "../shared/table/Pagination";
 
@@ -21,7 +18,6 @@ function ListPublication(props) {
   const count = useSelector(selectors.selectCount);
 
   const pagination = useSelector(selectors.selectPagination);
-  const selectedKeys = useSelector(selectors.selectSelectedKeys);
   const doChangePagination = (pagination) => {
     dispatch(actions.doChangePaginationAndSort(pagination, {}));
   };

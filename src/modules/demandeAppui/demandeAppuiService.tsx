@@ -1,5 +1,5 @@
-import authAxios from 'src/modules/shared/axios/authAxios';
-import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
+import authAxios from "src/modules/shared/axios/authAxios";
+import AuthCurrentTenant from "src/modules/auth/authCurrentTenant";
 
 export default class DemandeAppuiService {
   static async update(id, data) {
@@ -12,7 +12,7 @@ export default class DemandeAppuiService {
 
     const response = await authAxios.put(
       `/tenant/${tenantId}/demande-appui/${id}`,
-      body,
+      body
     );
 
     return response.data;
@@ -29,7 +29,7 @@ export default class DemandeAppuiService {
       `/tenant/${tenantId}/demande-appui`,
       {
         params,
-      },
+      }
     );
 
     return response.data;
@@ -44,7 +44,7 @@ export default class DemandeAppuiService {
 
     const response = await authAxios.post(
       `/tenant/${tenantId}/demande-appui`,
-      body,
+      body
     );
 
     return response.data;
@@ -60,7 +60,7 @@ export default class DemandeAppuiService {
 
     const response = await authAxios.post(
       `/tenant/${tenantId}/demande-appui/import`,
-      body,
+      body
     );
 
     return response.data;
@@ -70,7 +70,7 @@ export default class DemandeAppuiService {
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.get(
-      `/tenant/${tenantId}/demande-appui/${id}`,
+      `/tenant/${tenantId}/demande-appui/${id}`
     );
 
     return response.data;
@@ -87,10 +87,10 @@ export default class DemandeAppuiService {
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.get(
-      `/tenant/${tenantId}/demande-appui`,
+      `/tenant/${tenantId}/demande-appuibyuser`,
       {
         params,
-      },
+      }
     );
 
     return response.data;
@@ -110,7 +110,7 @@ export default class DemandeAppuiService {
       `/tenant/${tenantId}/demande-appui/search`,
       {
         params,
-      },
+      }
     );
 
     return response.data;
@@ -128,7 +128,7 @@ export default class DemandeAppuiService {
       `/tenant/${tenantId}/demande-appui/autocomplete`,
       {
         params,
-      },
+      }
     );
 
     return response.data;

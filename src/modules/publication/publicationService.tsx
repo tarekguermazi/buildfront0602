@@ -76,7 +76,10 @@ export default class PublicationService {
   static async list() {
     const tenantId = AuthCurrentTenant.get();
 
-    const response = await authAxios.get(`/tenant/${tenantId}/publication`, {});
+    const response = await authAxios.get(
+      `/tenant/${tenantId}/publicationByUser`,
+      {}
+    );
 
     return response.data;
   }

@@ -1,15 +1,38 @@
-import React, { useState } from "react";
-import { emptyImage } from "../../assets/images";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import selectors from "src/modules/auth/authSelectors";
 import ListAppui from "../Appui/ListAppui";
 import ListPublication from "../Publications/ListPublication";
+import selectorsAppui from "src/modules/demandeAppui/list/demandeAppuiListSelectors";
+import selectorsPublication from "src/modules/publication/list/publicationListSelectors";
+import actionsPublication from "src/modules/publication/list/publicationListActions";
+import actionsAppui from "src/modules/demandeAppui/list/demandeAppuiListActions";
+import ProfileHeader from "./ProfileHeader";
+import Spinner from "../shared/Spinner";
+
 function Profile() {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectors.selectCurrentUser);
   const userDropdownAvatar = useSelector(selectors.selectCurrentUserAvatar);
   const [activeTab, setActiveTab] = useState("tab1");
+  const countAppui = useSelector(selectorsAppui.selectCount);
+  const countPublications = useSelector(selectorsPublication.selectCount);
+  const publicationLoding = useSelector(selectorsPublication.selectLoading);
+  const appuiLoading = useSelector(selectorsAppui.selectLoading);
 
+  const loading = appuiLoading || publicationLoding;
+  const fetchAll = () => {
+    Promise.all([
+      dispatch(actionsPublication.doFetch()),
+      dispatch(actionsAppui.doFetch()),
+    ])
+      .then((res) => {})
+      .catch((error) => {});
+  };
+  useEffect(() => {
+    fetchAll();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const handleTab1 = () => {
     // update the state to tab1
     setActiveTab("tab1");
@@ -18,54 +41,24 @@ function Profile() {
     // update the state to tab1
     setActiveTab("tab2");
   };
-  const handleTab3 = () => {
-    // update the state to tab1
-    setActiveTab("tab3");
-  };
+  // const handleTab3 = () => {
+  //   // update the state to tab1
+  //   setActiveTab("tab3");
+  // };
 
   return (
     <div className='app__updateprofile'>
       <div className='updateprofile'>
-        <div className='profile__header'>
-          <div className='profile__avatar'>
-            <img
-              src={userDropdownAvatar || emptyImage}
-              alt=''
-              width='130'
-              height='130'
-              style={{ borderRadius: "50%", objectFit: "cover" }}
-              className='lazyload'
-            />
-            <div className='avatar__camera'>
-              <i className='fa-solid fa-camera'></i>
-            </div>
-          </div>
+        {loading && <Spinner />}
+        {!loading && (
+          <ProfileHeader
+            currentUser={currentUser}
+            countAppui={countAppui}
+            countPublication={countPublications}
+            Image={userDropdownAvatar}
+          />
+        )}
 
-          <div className='profile__description'>
-            <div className='description__top'>
-              <div>
-                <div className='title__profile'>{currentUser.fullName}</div>
-                <div className='title__description'>
-                  {currentUser.occupation}, {currentUser.pays}
-                </div>
-              </div>
-              <Link to='/updateprofile'>
-                <div className='modify'>Modifier</div>
-              </Link>
-            </div>
-            <div className='description__bottom'>
-              <div>
-                <div className='description__number'>13</div> Contenus
-              </div>
-              <div>
-                <div className='description__number'>4</div> Discussions
-              </div>
-              <div>
-                <div className='description__number'>0</div> Demandes d’appui
-              </div>
-            </div>
-          </div>
-        </div>
         <div className='profile__list'>
           <div className='tabs'>
             <ul className='nav'>

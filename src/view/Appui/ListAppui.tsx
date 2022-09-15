@@ -16,7 +16,6 @@ function ListAppui(props) {
   const rows = useSelector(selectors.selectRows);
   const hasRows = useSelector(selectors.selectHasRows);
   const pagination = useSelector(selectors.selectPagination);
-  const selectedKeys = useSelector(selectors.selectSelectedKeys);
   const count = useSelector(selectors.selectCount);
   const doChangePagination = (pagination) => {
     dispatch(actions.doChangePaginationAndSort(pagination, {}));
