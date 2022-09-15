@@ -2234,7 +2234,7 @@ button {
 .profile {
   padding-top: 15px;
   margin: auto;
-  max-width: 1170px;
+  max-width: 501px;
 }
 .porfile__form {
   padding: 150px;
@@ -2245,11 +2245,9 @@ button {
 /* styling the singup Page */
 .app__signup {
   width: 100%;
-  max-width: 1170px;
+  max-width: 501px;
   margin: auto;
   display: grid;
-  grid-template-columns: 570px 501px;
-  column-gap: 99px;
   padding-top: 36px;
   padding-bottom: 39px;
 }

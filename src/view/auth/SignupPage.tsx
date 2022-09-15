@@ -67,36 +67,11 @@ function SignupPage() {
   };
   return (
     <div className='app__signup'>
-      <div className='app__member'>
-        <div className='member__header'>Devenez membre</div>
-        <div className='member__list'>
-          <ul>
-            <li>
-              <img src={check__list} alt='list' className='lazyload' /> Lorem
-              ipsum dolor sit amet, consectetur
-            </li>
-            <li>
-              {" "}
-              <img src={check__list} alt='list' className='lazyload' /> Nunc
-              feugiat consectetur enim, eu sagittis magna accumsan
-            </li>
-            <li>
-              {" "}
-              <img src={check__list} alt='list' className='lazyload' /> Donec
-              mattis, nunc et venenatis porta
-            </li>
-            <li>
-              {" "}
-              <img src={check__list} alt='list' className='lazyload' /> Donec
-              mattis, nunc et venenatis porta
-            </li>
-          </ul>
-        </div>
-      </div>
       <AuthWrapper>
         <div className='app__login'>
           <div className='Login__container' style={{ paddingTop: 0 }}>
-            <div className='archieve__header'>
+            <div className='login__header'>
+              <div className='communiquer__bar'></div>
               <h2>Inscription</h2>
               <div className='communiquer__bar'></div>
             </div>
