@@ -72,17 +72,6 @@ function DemandeAppuiForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className='container__form'>
-          {/* <div className='form__select'>
-            <label htmlFor='Où'>Où</label>
-            <select name='ou' id=''>
-              <option value=''>physique</option>
-            </select>
-          </div>
-          <div className='form__select'>
-            <label htmlFor='Gouvernorat'>Gouvernorat</label>
-            <select name='Gouvernorat' id=''></select>
-          </div> */}
-
           <div className='form__importance'>
             <label htmlFor='Importance'>Personne</label>
             <div className='importance__status'>

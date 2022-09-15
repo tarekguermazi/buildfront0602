@@ -49,7 +49,7 @@ function Profile() {
   return (
     <div className='app__updateprofile'>
       <div className='updateprofile'>
-        {loading && <Spinner />}
+        {loading && <Spinner styles={134.545} />}
         {!loading && (
           <ProfileHeader
             currentUser={currentUser}

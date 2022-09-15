@@ -37,16 +37,21 @@ export const SpinnerWrapper = styled.div`
       transform: rotate(360deg);
     }
   }
+  // 134.545
 `;
 
-function Spinner() {
+function Spinner(props) {
+  const { styles } = props;
+
   return (
     <SpinnerWrapper>
-      <div className='lds-ring'>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+      <div style={{ height: styles }}>
+        <div className='lds-ring'>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </SpinnerWrapper>
   );
