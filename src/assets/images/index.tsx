@@ -37,7 +37,7 @@ import header__image__mobile from "./header__image__mobile.png";
 // import image__header from "./image__header.png";
 import instagram from "./instagram.png";
 import invitation from "./invitation.png";
-
+import profileAvatar from "./profile.png";
 import list1 from "./list1.png";
 import list2 from "./list2.png";
 import list3 from "./list3.png";
@@ -80,7 +80,10 @@ import pen from "./pen-write.svg";
 import logout from "./logout.svg";
 import profile from "./profile.svg";
 import question from "./question.svg";
+import emptyImage from "./emptyImage.png";
+
 export {
+  emptyImage,
   Logo__header,
   check__list,
   school,
@@ -160,4 +163,5 @@ export {
   twitter,
   users,
   youtube,
+  profileAvatar,
 };

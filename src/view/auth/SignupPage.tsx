@@ -13,26 +13,28 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
+import SelectFormItem from "../shared/form/items/SelectFormItem";
+import userEnumerators from "../user/userEnumerators";
 const schema = yup.object().shape({
-  firstName: yupFormSchemas.string("user.fields.firstName", {
+  firstName: yupFormSchemas.string("Prènom", {
     max: 80,
     required: true,
   }),
-  lastName: yupFormSchemas.string("user.fields.lastName", {
+  lastName: yupFormSchemas.string("Nom", {
     max: 175,
     required: true,
   }),
-  email: yupFormSchemas.string("user.fields.email", {
+  email: yupFormSchemas.string("Email", {
     required: true,
   }),
-  password: yupFormSchemas.string("user.fields.password", {
+  password: yupFormSchemas.string("Mot de passe", {
     required: true,
   }),
   avatars: yupFormSchemas.images("user.fields.avatars", {
     max: 1,
   }),
   newPasswordConfirmation: yupFormSchemas
-    .string("user.fields.newPasswordConfirmation", {
+    .string("Confirmation du nouveau mot de passe", {
       required: true,
     })
     .oneOf([yup.ref("password"), null], "auth.passwordChange.mustMatch"),
@@ -47,6 +49,10 @@ function SignupPage() {
     email: "",
     password: "",
     newPasswordConfirmation: "",
+    phoneNumber: "",
+    pays: "",
+    occupation: "",
+    region: "",
     avatars: [],
   });
   const form = useForm({
@@ -98,14 +104,13 @@ function SignupPage() {
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <div className='container__form'>
                   <div className='form__avatar'>
-                    <div className='avatar'>
+                    {/* <div className='avatar'>
                       <label htmlFor='Avatar'>Avatar</label>
                       <div className='avatar__photo'>
                         <img src={user} alt='avatar ' className='lazyload' />
                       </div>
                     </div>
-
-                    <div className='button__avatar'>Modifier</div>
+                    <div className='button__avatar'>Modifier</div> */}
                   </div>
                   <div className='group__input'>
                     <InputFormItem
@@ -148,6 +153,44 @@ function SignupPage() {
                     autoComplete='email'
                     autoFocus
                     externalErrorMessage={externalErrorMessage}
+                  />
+                  <SelectFormItem
+                    name={"pays"}
+                    label={"pays"}
+                    options={userEnumerators.pays.map((value) => ({
+                      value,
+                      label: value,
+                    }))}
+                  />
+                  <SelectFormItem
+                    name={"occupation"}
+                    label={"Occupation"}
+                    options={userEnumerators.occupation.map((value) => ({
+                      value,
+                      label: value,
+                    }))}
+                  />
+                  {form.watch().pays && form.watch().pays === "Tunisia" ? (
+                    <SelectFormItem
+                      name={"regionTunisie"}
+                      label={"Région"}
+                      options={userEnumerators.regionTunisie.map((value) => ({
+                        value,
+                        label: value,
+                      }))}
+                    />
+                  ) : (
+                    <InputFormItem
+                      name='region'
+                      label={"Région"}
+                      autoComplete='region'
+                    />
+                  )}
+                  <InputFormItem
+                    name='phoneNumber'
+                    label={"phone Number"}
+                    autoComplete='phoneNumber'
+                    autoFocus
                   />
                   {/* <div className='form__group'>
                     <label htmlFor='Login'>Pays</label>

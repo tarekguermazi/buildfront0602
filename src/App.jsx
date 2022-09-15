@@ -5,7 +5,6 @@ import { configureStore, getHistory } from "src/modules/store";
 import "./App.css";
 import { Provider } from "react-redux";
 import RoutesComponent from "src/view/shared/routes/RoutesComponent";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const store = configureStore();
 const App = (props) => {

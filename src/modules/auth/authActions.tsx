@@ -208,8 +208,8 @@ const authActions = {
         type: authActions.UPDATE_PROFILE_SUCCESS,
       });
       await dispatch(authActions.doRefreshCurrentUser());
-      Message.success(i18n("auth.profile.success"));
-      getHistory().push("/");
+      Message.success("Mise à jour du profil réussie");
+      getHistory().push("/profile");
     } catch (error) {
       Errors.handle(error);
 

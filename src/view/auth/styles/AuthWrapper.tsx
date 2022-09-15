@@ -18,10 +18,8 @@ const AuthWrapper = styled.div`
     border: 1px solid #bdbdbd;
     height: 50px;
     padding: 14px 0 14px 12px;
-
     color: var(--violet);
     margin-top: 7px;
-
     font-family: "Proxima Nova";
     font-style: normal;
     font-weight: 700;

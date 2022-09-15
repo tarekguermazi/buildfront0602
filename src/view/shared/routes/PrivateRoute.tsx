@@ -2,6 +2,9 @@ import PermissionChecker from "src/modules/auth/permissionChecker";
 import React from "react";
 import { Redirect, Route, useLocation } from "react-router-dom";
 import Layout from "src/view/Layout/Layout";
+
+import { Blurhash } from "react-blurhash";
+
 // import config from "src/config";
 // import { tenantSubdomain } from "src/modules/tenant/tenantSubdomain";
 
@@ -23,6 +26,9 @@ function PrivateRoute({
           currentUser
         );
 
+        if (permissionChecker.isEmptyPermissions) {
+          return <Redirect to='/auth/empty-permissions' />;
+        }
         if (!permissionChecker.isAuthenticated) {
           return (
             <Redirect
@@ -32,18 +38,6 @@ function PrivateRoute({
               }}
             />
           );
-        }
-
-        if (!permissionChecker.isEmailVerified) {
-          return <Redirect to='/auth/email-unverified' />;
-        } else {
-          if (permissionChecker.isEmptyPermissions) {
-            return <Redirect to='/auth/empty-permissions' />;
-          }
-        }
-
-        if (!permissionChecker.match(permissionRequired)) {
-          return <Redirect to='/403' />;
         }
 
         return (

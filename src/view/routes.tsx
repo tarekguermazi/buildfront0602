@@ -1,3 +1,7 @@
+import Permissions from "src/security/permissions";
+
+const permissions = Permissions.values;
+
 const navigateRoutes = [
   {
     path: "/",
@@ -24,6 +28,30 @@ const privateRoutes = [
   {
     path: "/profile",
     loader: () => import("src/view/auth/Profile"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/contenu",
+    loader: () => import("src/view/contenu/Contenu"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/appui",
+    loader: () => import("src/view/Appui/Appui"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/appui/:id/edit",
+    loader: () => import("src/view/Appui/Appui"),
+    permissionRequired: permissions.demandeAppuiEdit,
+    exact: true,
+  },
+  {
+    path: "/updateprofile",
+    loader: () => import("src/view/auth/ProfileForm"),
     permissionRequired: null,
     exact: true,
   },

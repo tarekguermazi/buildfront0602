@@ -30,8 +30,12 @@
   --gray2: #4f4f4f;
   --gray3: #828282;
   --gray4: #f1f1f1;
+  --gray4: #a3a3a9;
   --navigate__left: #bfbfc6;
   --dark--red: #c40720;
+  --green: #14b685;
+  --border__green: #8bdfc7;
+  --background__green: #eaf9f6;
 }
 
 h1 {

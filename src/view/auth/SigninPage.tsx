@@ -12,10 +12,10 @@ import InputFormItem from "../shared/form/items/InputFormItem";
 import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 const schema = yup.object().shape({
-  email: yupFormSchemas.string("user.fields.email", {
+  email: yupFormSchemas.string("Email", {
     required: true,
   }),
-  password: yupFormSchemas.string("user.fields.password", {
+  password: yupFormSchemas.string("Mot de passe", {
     required: true,
   }),
   rememberMe: yupFormSchemas.boolean("user.fields.rememberMe"),
@@ -63,11 +63,10 @@ function SigninPage() {
                   <InputFormItem
                     label='password'
                     name='password'
-                    placeholder={"user.fields.password"}
+                    placeholder={"Mot de passe"}
                     autoComplete='password'
                     type='password'
                   />
-
                   <div className='form__oublier'>
                     <div className='oublier'>
                       <Link to='/auth/forgot-password' className='reset'>

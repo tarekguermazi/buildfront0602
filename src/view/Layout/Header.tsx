@@ -23,6 +23,7 @@ import {
   pen,
   logout,
   profile,
+  emptyImage,
 } from "src/assets/images";
 import menus from "../menus";
 import authSelectors from "src/modules/auth/authSelectors";
@@ -33,6 +34,8 @@ function Header(props) {
   const dispatch = useDispatch();
   const currentUser = useSelector(authSelectors.selectCurrentUser);
   const loading = useSelector(authSelectors.selectLoading);
+  const userDropdownAvatar = useSelector(authSelectors.selectCurrentUserAvatar);
+
   const doSignout = () => {
     dispatch(authActions.doSignout());
   };
@@ -42,6 +45,7 @@ function Header(props) {
       res = token.join("/");
     return res;
   };
+
   return (
     <React.Fragment>
       <div className='header__nav'>
@@ -64,7 +68,14 @@ function Header(props) {
               <>
                 <div className='button__profile'>
                   <div className='header__avatar'>
-                    <img src={ellipse} alt='' />
+                    <img
+                      src={userDropdownAvatar || emptyImage}
+                      alt=''
+                      width='36'
+                      height='36'
+                      style={{ borderRadius: "50%", objectFit: "cover" }}
+                      className='lazyload'
+                    />
                   </div>
                   <p>{currentUser.fullName}</p>
                   <img
@@ -74,20 +85,28 @@ function Header(props) {
                     id='down'
                   />
                   <ul className='header__dropdown'>
-                    <li>
-                      <img src={pen} alt='pen' />
-                      Suggérer des données
-                    </li>
+                    <Link to='/contenu'>
+                      <li>
+                        <img src={pen} alt='pen' />
+                        Suggérer des données
+                      </li>
+                    </Link>
                     <Link to='/profile'>
                       <li>
                         <img src={profile} alt='profile' className='lazyload' />
                         Profil
                       </li>
                     </Link>
-                    <li>
-                      <img src={question} alt='question' className='lazyload' />
-                      Demander d’appui
-                    </li>
+                    <Link to='/appui'>
+                      <li>
+                        <img
+                          src={question}
+                          alt='question'
+                          className='lazyload'
+                        />
+                        Demander d’appui
+                      </li>
+                    </Link>
                     <li onClick={doSignout}>
                       <img src={logout} alt='logout' className='lazyload' />
                       Déconnexion

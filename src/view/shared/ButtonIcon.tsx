@@ -1,14 +1,8 @@
 import React from "react";
+import Spinner from "./Spinner";
 
 const ButtonIcon = (props) => {
-  return props.loading ? (
-    <div className='lds-ring'>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  ) : null;
+  return props.loading ? <Spinner /> : null;
 };
 
 export default ButtonIcon;
