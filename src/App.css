@@ -19,7 +19,30 @@
 }
 .css-yk16xz-control,
 .css-g1d714-ValueContainer {
-  height: 50px;
+  max-height: 50px;
+  color: var(--violet);
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
+  padding: 0 0 0 15px;
+}
+.css-yk16xz-control {
+  border: 1px solid var(--violet);
+}
+.css-g1d714-ValueContainer {
+  color: var(--violet);
+  padding: 0;
+}
+.css-tlfecz-indicatorContainer {
+  color: var(--violet);
+}
+.css-1hb7zxy-IndicatorsContainer div:nth-child(1) {
+  display: none;
+}
+.css-1hb7zxy-IndicatorsContainer {
+  color: var(--violet);
 }
 
 /* Styling the header sections */
