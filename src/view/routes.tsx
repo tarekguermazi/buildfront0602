@@ -29,7 +29,7 @@ const privateRoutes = [
   },
   {
     path: "/profile/suggest",
-    loader: () => import("src/view/auth/Suggestions/Suggest"),
+    loader: () => import("src/view/Profile/Suggestions/Suggest"),
     permissionRequired: null,
     exact: true,
   },

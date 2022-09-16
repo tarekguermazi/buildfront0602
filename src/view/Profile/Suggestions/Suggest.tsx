@@ -20,7 +20,7 @@ import '@splidejs/react-splide/css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import FormError from "../styles/FormError";
+import FormError from "../../auth/styles/FormError";
 import toast, { Toaster } from 'react-hot-toast';
 import { useDropzone } from 'react-dropzone'
 
