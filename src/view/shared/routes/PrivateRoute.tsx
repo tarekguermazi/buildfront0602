@@ -2,6 +2,7 @@ import PermissionChecker from "src/modules/auth/permissionChecker";
 import React from "react";
 import { Redirect, Route, useLocation } from "react-router-dom";
 import Layout from "src/view/Layout/Layout";
+import Footer from "../../Layout/Footer";
 
 // import config from "src/config";
 // import { tenantSubdomain } from "src/modules/tenant/tenantSubdomain";
@@ -41,6 +42,7 @@ function PrivateRoute({
         return (
           <Layout {...props}>
             <Component {...props} />
+            <Footer />
           </Layout>
         );
       }}

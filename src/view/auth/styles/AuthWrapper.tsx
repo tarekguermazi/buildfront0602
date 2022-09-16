@@ -84,6 +84,11 @@ const AuthWrapper = styled.div`
     position: absolute;
     text-decoration: underline;
     right: 0;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
   }
   .Login__container {
     padding-top: 44px;
@@ -95,10 +100,11 @@ const AuthWrapper = styled.div`
     column-gap: 12px;
   }
   .link__account {
+    font-family: 'Bebas Neue Pro';
+    font-style: normal;
+    font-weight: 400;
     font-size: 20px;
     line-height: 23px;
-    text-align: center;
-    font-family: "Bebas Neue Pro";
   }
   .link__create {
     font-family: "Bebas Neue Pro";

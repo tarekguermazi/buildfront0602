@@ -173,7 +173,7 @@ function SignupPage() {
                   />
                   <InputFormItem
                     name='phoneNumber'
-                    label={"phone Number"}
+                    label='Phone Number'
                     autoComplete='phoneNumber'
                     autoFocus
                   />

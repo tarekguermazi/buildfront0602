@@ -7,9 +7,9 @@ function Layout(props) {
   const match = useRouteMatch();
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <Header url={match.url} />
-      <div>{props.children}</div>
+      <div style={{ height: "max-content" }}>{props.children}</div>
     </div>
   );
 }

@@ -54,7 +54,7 @@ function SigninPage() {
                 <div className='container__form'>
                   <InputFormItem
                     name='email'
-                    label='email'
+                    label='Email'
                     placeholder='email'
                     autoComplete='email'
                     autoFocus
@@ -62,7 +62,7 @@ function SigninPage() {
                   />
 
                   <InputFormItem
-                    label='password'
+                    label='Password'
                     name='password'
                     placeholder={"Mot de passe"}
                     autoComplete='password'
@@ -71,7 +71,7 @@ function SigninPage() {
                   <div className='form__oublier'>
                     <div className='oublier'>
                       <Link to='/auth/forgot-password' className='reset'>
-                        Link Mot de passe oublié ?
+                        Mot de passe oublié ?
                       </Link>
                     </div>
                   </div>
@@ -84,7 +84,7 @@ function SigninPage() {
                     <div className='link__account'>Pas encore membre?</div>
                     <div className='__create'>
                       <Link to='/auth/signup' className='link__create'>
-                        Create an account
+                        Créer un compte
                       </Link>
                     </div>
                   </div>
