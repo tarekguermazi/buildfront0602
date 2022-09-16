@@ -2769,6 +2769,7 @@ span {
   color: var(--violet);
   background-color: #fff;
   border: 1px solid var(--violet);
+  pointer-events: none;
 }
 
 .mainContent .DADControls .customFileUpload input {
