@@ -11,11 +11,9 @@ function FilesUploader(props) {
 
   const value = () => {
     const { value } = props;
-
     if (!value) {
       return [];
     }
-
     return Array.isArray(value) ? value : [value];
   };
 
@@ -46,16 +44,12 @@ function FilesUploader(props) {
         storage: props.storage,
         formats: props.formats,
       });
-
       setLoading(true);
-
       file = await FileUploader.upload(file, {
         storage: props.storage,
         formats: props.formats,
       });
-
       input.current.value = "";
-
       setLoading(false);
       props.onChange([...value(), file]);
     } catch (error) {
@@ -68,11 +62,9 @@ function FilesUploader(props) {
 
   const formats = () => {
     const { schema } = props;
-
     if (schema && schema.formats) {
       return schema.formats.map((format) => `.${format}`).join(",");
     }
-
     return undefined;
   };
 

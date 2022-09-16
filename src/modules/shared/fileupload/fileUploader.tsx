@@ -1,9 +1,9 @@
-import filesize from 'filesize';
-import { i18n } from 'src/i18n';
-import authAxios from 'src/modules/shared/axios/authAxios';
-import { v4 as uuid } from 'uuid';
-import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
-import axios from 'axios';
+import filesize from "filesize";
+import { i18n } from "src/i18n";
+import authAxios from "src/modules/shared/axios/authAxios";
+import { v4 as uuid } from "uuid";
+import AuthCurrentTenant from "src/modules/auth/authCurrentTenant";
+import axios from "axios";
 
 export default class FileUploader {
   static validate(file, config) {
@@ -12,8 +12,8 @@ export default class FileUploader {
     }
 
     if (config.image) {
-      if (!file.type.startsWith('image')) {
-        throw new Error(i18n('fileUploader.image'));
+      if (!file.type.startsWith("image")) {
+        throw new Error(i18n("fileUploader.image"));
       }
     }
 
@@ -22,25 +22,14 @@ export default class FileUploader {
       file.size > config.storage.maxSizeInBytes
     ) {
       throw new Error(
-        i18n(
-          'fileUploader.size',
-          filesize(config.storage.maxSizeInBytes),
-        ),
+        i18n("fileUploader.size", filesize(config.storage.maxSizeInBytes))
       );
     }
 
     const extension = extractExtensionFrom(file.name);
 
-    if (
-      config.formats &&
-      !config.formats.includes(extension)
-    ) {
-      throw new Error(
-        i18n(
-          'fileUploader.formats',
-          config.formats.join(', '),
-        ),
-      );
+    if (config.formats && !config.formats.includes(extension)) {
+      throw new Error(i18n("fileUploader.formats", config.formats.join(", ")));
     }
   }
 
@@ -55,12 +44,8 @@ export default class FileUploader {
     const id = uuid();
     const filename = `${id}.${extension}`;
 
-    const {
-      uploadCredentials,
-      downloadUrl,
-      privateUrl,
-    } = await this.fetchFileCredentials(filename, config);
-
+    const { uploadCredentials, downloadUrl, privateUrl } =
+      await this.fetchFileCredentials(filename, config);
     await this.uploadToServer(file, uploadCredentials);
 
     return {
@@ -68,8 +53,7 @@ export default class FileUploader {
       name: file.name,
       sizeInBytes: file.size,
       publicUrl:
-        uploadCredentials &&
-        uploadCredentials.publicUrl
+        uploadCredentials && uploadCredentials.publicUrl
           ? uploadCredentials.publicUrl
           : null,
       privateUrl,
@@ -88,7 +72,7 @@ export default class FileUploader {
           filename: filename,
           storageId: config.storage.id,
         },
-      },
+      }
     );
 
     return data;
@@ -100,15 +84,15 @@ export default class FileUploader {
       const formData = new FormData();
 
       for (const [key, value] of Object.entries(
-        uploadCredentials.fields || {},
+        uploadCredentials.fields || {}
       )) {
         formData.append(key, value as string);
       }
-      formData.append('file', file);
+      formData.append("file", file);
 
       return axios.post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
     } catch (error) {
