@@ -40,12 +40,12 @@ export default function Suggest() {
     const obj = {
       "data": {
         "thematique": null,
-        "categorie": data.categories,
-        "type": data.contentTypeRadio,
+        "categorie": (data.categories) ? data.categories : "autre",
+        "type": (data.contentTypeRadio) ? data.contentTypeRadio : "autre",
         "supports": [
           {
-            "name": data.support[0]?.name,
-            "sizeInBytes": data.support[0]?.size,
+            "name": (data.support.length) ? data.support[0].name : "N.A",
+            "sizeInBytes": (data.support.length) ? data.support[0].size : 0,
             "privateUrl": "N.A",
             "publicUrl": "N.A",
             "new": true
