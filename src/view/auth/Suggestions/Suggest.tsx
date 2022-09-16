@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import authAxios from "src/modules/shared/axios/authAxios";
+import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
 
 // ICONS
 import { GrTextAlignFull } from "react-icons/gr";
@@ -58,9 +59,9 @@ export default function Suggest() {
     }
     try {
       event?.preventDefault();
-      const currentTenantID: any = localStorage.getItem('tenant');
+      const currentTenantID = AuthCurrentTenant.get();
       const response = await authAxios.post(
-        `/tenant/${JSON.parse(currentTenantID)._id}/publication/`,
+        `/tenant/${currentTenantID}/publication/`,
         obj
       )
       if (response.status === 200) {
