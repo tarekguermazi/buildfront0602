@@ -44,8 +44,8 @@ export default function Suggest() {
         "type": data.contentTypeRadio,
         "supports": [
           {
-            "name": data.support[0].name,
-            "sizeInBytes": data.support[0].size,
+            "name": data.support[0]?.name,
+            "sizeInBytes": data.support[0]?.size,
             "privateUrl": "N.A",
             "publicUrl": "N.A",
             "new": true
