@@ -28,7 +28,7 @@ function ListPublication(props) {
         <div className='list__title'>
           <h2>contenu récent </h2>
         </div>
-        <Link to='/contenu'>
+        <Link to='/profile/suggest'>
           <div className='button__contenue'>Suggérer de contenu</div>
         </Link>
       </div>
