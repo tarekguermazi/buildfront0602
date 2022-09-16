@@ -3,8 +3,6 @@ import React from "react";
 import { Redirect, Route, useLocation } from "react-router-dom";
 import Layout from "src/view/Layout/Layout";
 
-import { Blurhash } from "react-blurhash";
-
 // import config from "src/config";
 // import { tenantSubdomain } from "src/modules/tenant/tenantSubdomain";
 

@@ -171,12 +171,26 @@ const PaginationWrapper = styled.div`
     text-align: center;
   }
   .rc-pagination-prev a:after {
-    content: "‹";
+    content: "‹ Precedent";
     display: block;
+    font-size: 14px;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--vieolet);
   }
   .rc-pagination-next a:after {
-    content: "›";
+    content: "Suivant ›";
     display: block;
+    font-size: 14px;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--vieolet);
   }
   .rc-pagination-prev,
   .rc-pagination-next {
@@ -191,6 +205,7 @@ const PaginationWrapper = styled.div`
     height: 35px;
     display: grid;
     place-items: center;
+    color: var(--violet);
   }
   .rc-pagination-prev a,
   .rc-pagination-next a {
