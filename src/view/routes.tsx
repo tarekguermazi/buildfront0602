@@ -52,6 +52,10 @@ const privateRoutes = [
   {
     path: "/updateprofile",
     loader: () => import("src/view/auth/ProfileForm"),
+  },
+  {
+    path: "/profile/suggest",
+    loader: () => import("src/view/Profile/Suggestions/Suggest"),
     permissionRequired: null,
     exact: true,
   },
