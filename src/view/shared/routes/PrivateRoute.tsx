@@ -40,10 +40,12 @@ function PrivateRoute({
         }
 
         return (
-          <Layout {...props}>
-            <Component {...props} />
+          <div style={{ minHeight: "100%" }}>
+            <Layout {...props}>
+              <Component {...props} />
+            </Layout>
             <Footer />
-          </Layout>
+          </div>
         );
       }}
     />

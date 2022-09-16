@@ -106,7 +106,10 @@ input:focus {
   outline: 0;
 }
 
+html,
 body {
   font-family: "Proxima Nova Pro";
   font-weight: 400;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
