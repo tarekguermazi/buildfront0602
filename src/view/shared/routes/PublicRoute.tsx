@@ -17,7 +17,7 @@ function PublicRoute({
           currentTenant
         );
         if (permissionChecker.isAuthenticated) {
-          return <Redirect to='/profile' />;
+          return <Redirect to='/' />;
         }
         return (
           <Layout>

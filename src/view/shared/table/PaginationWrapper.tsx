@@ -254,6 +254,7 @@ const PaginationWrapper = styled.div`
   .rc-pagination-options-quick-jumper input:hover {
     border-color: var(--primary);
   }
+
   .rc-pagination-options-quick-jumper button {
     display: inline-block;
     margin: 0 8px;

@@ -91,7 +91,6 @@ const authActions = {
         });
       } catch (error) {
         await service.signout();
-
         if (Errors.errorCode(error) !== 400) {
           Errors.handle(error);
         }
@@ -145,6 +144,7 @@ const authActions = {
           currentUser: null,
         },
       });
+      getHistory().push("/");
     } catch (error) {
       Errors.handle(error);
 

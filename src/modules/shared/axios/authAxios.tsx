@@ -1,5 +1,5 @@
 import axios from "axios";
-import AuthToken from "../../auth/authToken";
+import AuthToken from "src/modules/auth/authToken";
 import { getLanguageCode } from "src/i18n";
 
 const authAxios = axios.create({

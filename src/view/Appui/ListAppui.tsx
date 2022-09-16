@@ -22,6 +22,14 @@ function ListAppui(props) {
   };
   return (
     <>
+      <div className='list__button'>
+        <div className='list__title'>
+          <h2>contenu récent </h2>
+        </div>
+        <Link to='/appui'>
+          <div className='button__contenue'>Demande d’appui</div>
+        </Link>
+      </div>
       <div className='list__search'>
         <div className='search__left'>{count} contenus </div>
 

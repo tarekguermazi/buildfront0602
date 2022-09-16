@@ -4,7 +4,7 @@ import actions from "src/modules/publication/list/publicationListActions";
 import selectors from "src/modules/publication/list/publicationListSelectors";
 import Spinner from "../shared/Spinner";
 import Pagination from "../shared/table/Pagination";
-
+import { Link } from "react-router-dom";
 function ListPublication(props) {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,6 +24,14 @@ function ListPublication(props) {
 
   return (
     <>
+      <div className='list__button'>
+        <div className='list__title'>
+          <h2>contenu récent </h2>
+        </div>
+        <Link to='/contenu'>
+          <div className='button__contenue'>Suggérer de contenu</div>
+        </Link>
+      </div>
       <div className='list__search'>
         <div className='search__left'>{count} contenus </div>
 

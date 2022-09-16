@@ -43,7 +43,6 @@ const schema = yup.object().shape({
   }),
   avatars: yupFormSchemas.images("Avatar", {
     max: 1,
-    required: true,
   }),
 });
 

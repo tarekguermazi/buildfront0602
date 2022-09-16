@@ -74,12 +74,7 @@ function Profile() {
               </li>
             </ul>
           </div>
-          <div className='list__button'>
-            <div className='list__title'>
-              <h2>contenu récent </h2>
-            </div>
-            <div className='button__contenue'>Suggérer de contenu</div>
-          </div>
+
           <React.Fragment>
             {activeTab === "tab1" && <ListPublication />}
             {activeTab === "tab2" && <ListAppui />}

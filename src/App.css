@@ -17,6 +17,9 @@
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
 }
+
+/* styling the select from 'react-select' */
+
 .css-yk16xz-control,
 .css-g1d714-ValueContainer {
   max-height: 50px;
