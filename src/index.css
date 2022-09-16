@@ -8,12 +8,10 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
 @font-face {
   font-family: "Proxima Nova";
   src: url(/public/fonts/Proxima\ Nova\ Font.otf);
 }
-
 @font-face {
   font-family: "Bebas Neue Pro";
   src: url(/public/fonts/BebasNeue\ Bold.ttf);
@@ -39,7 +37,7 @@
 }
 
 h1 {
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", cursive;
   font-style: normal;
   font-weight: 400;
   font-size: 54px;
@@ -80,7 +78,8 @@ h5 {
 }
 
 li {
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", cursive;
+
   color: var(--violet);
   list-style: none;
   font-size: 19px;
@@ -105,7 +104,9 @@ input {
 input:focus {
   outline: 0;
 }
-
+select:focus {
+  outline: 0;
+}
 html,
 body {
   font-family: "Proxima Nova Pro";

@@ -125,7 +125,7 @@
 }
 
 .button__connexion {
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", cursive;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -145,6 +145,7 @@
   width: max-content;
 }
 .button__profile p {
+  font-family: "Bebas Neue Pro";
   font-weight: 700;
   font-size: 18px;
   line-height: 21px;
@@ -505,7 +506,7 @@
 }
 .content__sliderBottom > div > p {
   color: var(--white);
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", cursive;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;

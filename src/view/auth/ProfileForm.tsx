@@ -129,7 +129,7 @@ function ProfileForm() {
                     />
                     {form.watch().pays && form.watch().pays === "Tunisia" && (
                       <SelectFormItem
-                        name={"regionTunisie"}
+                        name={"region"}
                         label='Region'
                         options={userEnumerators.regionTunisie.map((value) => ({
                           value,
