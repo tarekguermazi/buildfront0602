@@ -47,7 +47,15 @@
 .css-1hb7zxy-IndicatorsContainer {
   color: var(--violet);
 }
-
+.css-1hwfws3,
+.css-1wy0on6 {
+  height: 50px;
+  max-height: 50px;
+  padding: 0;
+}
+.css-1wy0on6 > div:nth-child(1) {
+  display: none;
+}
 /* Styling the header sections */
 .header__nav {
   width: 100%;
