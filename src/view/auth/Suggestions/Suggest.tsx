@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import authAxios from "src/modules/shared/axios/authAxios";
 import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
@@ -22,6 +22,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import FormError from "../styles/FormError";
 import toast, { Toaster } from 'react-hot-toast';
+import { useDropzone } from 'react-dropzone'
 
 // FORM SCHEMA
 const schema = yup.object().shape({
@@ -36,6 +37,10 @@ export default function Suggest() {
     resolver: yupResolver(schema),
   });
 
+  const [tmpObj, setTempObj] = useState({});
+  const onDrop = useCallback(acceptedFiles => { setTempObj(acceptedFiles); }, [])
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+
   const handleFormSubmission = async (data, event) => {
     let now: Date = new Date();
     const obj = {
@@ -45,8 +50,8 @@ export default function Suggest() {
         "type": (data.contentTypeRadio) ? data.contentTypeRadio : "autre",
         "supports": [
           {
-            "name": (data.support.length) ? data.support[0].name : "N.A",
-            "sizeInBytes": (data.support.length) ? data.support[0].size : 0,
+            "name": (Object.keys(tmpObj).length) ? tmpObj[0].name : "N.A",
+            "sizeInBytes": (Object.keys(tmpObj).length) ? tmpObj[0].size : 0,
             "privateUrl": "N.A",
             "publicUrl": "N.A",
             "new": true
@@ -72,7 +77,6 @@ export default function Suggest() {
       console.log(error);
     }
   }
-
 
   return (
     <div className='app__profile'>
@@ -268,20 +272,30 @@ export default function Suggest() {
                 <section className="support">
                   <span>Support</span>
 
-                  <div className="dragAndDropAreaFlex">
+                  <div className="dragAndDropAreaFlex" {...getRootProps()}>
                     <div className="DADControls">
                       <CgSoftwareUpload className="icon" />
-                      <span>Drop files here</span>
-                      <span>or</span>
-                      <label htmlFor="file-upload" className="customFileUpload">
-                        <input
-                          type="file"
-                          id="file-upload"
-                          name="support"
-                          ref={register}
-                        />
-                        Select files
-                      </label>
+                      {
+                        isDragActive
+                          ?
+                          <span>Drop here to upload</span>
+                          :
+                          <div>
+                            <span>Drop files here</span>
+                            <span>or</span>
+                            <label className="customFileUpload">
+                              <input
+                                id="file-upload"
+                                // type="file"
+                                // name="support"
+                                // ref={register}
+                                {...getInputProps()}
+                              />
+                              Select files
+                            </label>
+                          </div>
+                      }
+
                     </div>
                   </div>
                 </section>
