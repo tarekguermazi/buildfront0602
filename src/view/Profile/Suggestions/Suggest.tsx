@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import authAxios from "src/modules/shared/axios/authAxios";
 import AuthCurrentTenant from "src/modules/auth/authCurrentTenant";
@@ -23,6 +23,7 @@ import * as yup from "yup";
 import FormError from "../../auth/styles/FormError";
 import toast, { Toaster } from "react-hot-toast";
 import { useDropzone } from "react-dropzone";
+import FileUploader from "src/modules/shared/fileupload/fileUploader";
 
 // FORM SCHEMA
 const schema = yup.object().shape({
@@ -43,10 +44,18 @@ export default function Suggest() {
 
   const [tmpObj, setTempObj] = useState({});
   const onDrop = useCallback((acceptedFiles) => {
-    setTempObj(acceptedFiles);
+    console.log(acceptedFiles[0]);
+    setTempObj(acceptedFiles[0]);
   }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
+  useEffect(() => {
+    if (Object.keys(tmpObj).length > 0) {
+      const config = { storage: { id: "publicationSupports" } };
+      FileUploader.upload(tmpObj, config);
+    }
+  }, [tmpObj]);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   const handleFormSubmission = async (data, event) => {
     let now: Date = new Date();
     const obj = {
@@ -56,10 +65,10 @@ export default function Suggest() {
         type: data.contentTypeRadio ? data.contentTypeRadio : "autre",
         supports: [
           {
-            name: Object.keys(tmpObj).length ? tmpObj[0].name : "N.A",
-            sizeInBytes: Object.keys(tmpObj).length ? tmpObj[0].size : 0,
-            privateUrl: "N.A",
-            publicUrl: "N.A",
+            name: Object.keys(tmpObj).length ? tmpObj["name"] : "N.A",
+            sizeInBytes: Object.keys(tmpObj).length ? tmpObj["size"] : 0,
+            privateUrl: Object.keys(tmpObj).length ? tmpObj["private"] : "N.A",
+            publicUrl: Object.keys(tmpObj).length ? tmpObj["public"] : "N.A",
             new: true,
           },
         ],

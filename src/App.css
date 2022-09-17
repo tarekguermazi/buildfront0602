@@ -217,8 +217,7 @@
   text-decoration: underline;
 }
 
-.header__dropdown li > img,
-i {
+.header__dropdown li > img {
   padding-right: 15px;
 }
 

@@ -107,7 +107,11 @@ function Header(props) {
                     </Link>
                     <Link to='/favoris'>
                       <li>
-                        <i className='fa-sharp fa-solid fa-star'></i>
+                        <img
+                          src={question}
+                          alt='question'
+                          className='lazyload'
+                        />
                         Favoris
                       </li>
                     </Link>
