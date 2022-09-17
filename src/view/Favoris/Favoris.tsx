@@ -1,7 +1,7 @@
 import React from "react";
 
 function Favoris() {
-  return <div>Favoris</div>;
+  return <h1>Favoris</h1>;
 }
 
 export default Favoris;

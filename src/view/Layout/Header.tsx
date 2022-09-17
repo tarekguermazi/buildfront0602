@@ -11,7 +11,6 @@ import {
   search__mobile,
   twitter,
   youtube,
-  logo_svg,
   Etudes,
   Communique,
   petition,
@@ -106,13 +105,9 @@ function Header(props) {
                         Demander d’appui
                       </li>
                     </Link>
-                    <Link to='/appui'>
+                    <Link to='/favoris'>
                       <li>
-                        <img
-                          src={question}
-                          alt='question'
-                          className='lazyload'
-                        />
+                        <i className='fa-sharp fa-solid fa-star'></i>
                         Favoris
                       </li>
                     </Link>
