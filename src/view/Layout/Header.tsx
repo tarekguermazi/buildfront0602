@@ -113,7 +113,7 @@ function Header(props) {
                           alt='question'
                           className='lazyload'
                         />
-                        Demander d’appui
+                        Favoris
                       </li>
                     </Link>
                     <li onClick={doSignout}>

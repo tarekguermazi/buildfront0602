@@ -205,11 +205,11 @@
 
 .header__dropdown li:hover {
   color: var(--red);
-
   text-decoration: underline;
 }
 
-.header__dropdown li > img {
+.header__dropdown li > img,
+i {
   padding-right: 15px;
 }
 
