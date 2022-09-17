@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import authAxios from "src/modules/shared/axios/authAxios";
 import AuthCurrentTenant from "src/modules/auth/authCurrentTenant";
@@ -23,6 +23,7 @@ import * as yup from "yup";
 import FormError from "../../auth/styles/FormError";
 import toast, { Toaster } from "react-hot-toast";
 import { useDropzone } from "react-dropzone";
+import FileUploader from "src/modules/shared/fileupload/fileUploader";
 
 // FORM SCHEMA
 const schema = yup.object().shape({
@@ -43,8 +44,20 @@ export default function Suggest() {
 
   const [tmpObj, setTempObj] = useState({});
   const onDrop = useCallback((acceptedFiles) => {
-    setTempObj(acceptedFiles);
+    setTempObj(
+      {
+        name: acceptedFiles[0].name,
+        size: acceptedFiles[0].size
+      }
+    );
   }, []);
+
+  useEffect(() => {
+    if (Object.keys(tmpObj).length > 0) {
+      const config = { storage: { id: 'publicationSupports' } };
+      FileUploader.upload(tmpObj, config);
+    }
+  }, [tmpObj]);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   const handleFormSubmission = async (data, event) => {
@@ -58,8 +71,8 @@ export default function Suggest() {
           {
             name: Object.keys(tmpObj).length ? tmpObj[0].name : "N.A",
             sizeInBytes: Object.keys(tmpObj).length ? tmpObj[0].size : 0,
-            privateUrl: "N.A",
-            publicUrl: "N.A",
+            privateUrl: (Object.keys(tmpObj).length) ? tmpObj['private'] : "N.A",
+            publicUrl: (Object.keys(tmpObj).length) ? tmpObj['public'] : "N.A",
             new: true,
           },
         ],
