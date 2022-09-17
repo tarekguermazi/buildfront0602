@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Logo__header,
+  logos,
   arrow__down,
   down,
   facebook,
@@ -18,7 +18,6 @@ import {
   rapport,
   Poster,
   invitation,
-  ellipse,
   question,
   pen,
   logout,
@@ -51,7 +50,7 @@ function Header(props) {
       <div className='header__nav'>
         <div className='nav'>
           <div className='nav__logo'>
-            <img className='lazyload' src={logo_svg} alt='' />
+            <img className='lazyload' src={logos} alt='' />
           </div>
           <div className='nav__search'>
             <input type='text' placeholder='Recherche' />
@@ -95,6 +94,16 @@ function Header(props) {
                       <li>
                         <img src={profile} alt='profile' className='lazyload' />
                         Profil
+                      </li>
+                    </Link>
+                    <Link to='/appui'>
+                      <li>
+                        <img
+                          src={question}
+                          alt='question'
+                          className='lazyload'
+                        />
+                        Demander d’appui
                       </li>
                     </Link>
                     <Link to='/appui'>

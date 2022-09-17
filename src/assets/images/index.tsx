@@ -1,4 +1,3 @@
-import Logo__header from "./Logo__header.png";
 import image__header from "./image__header.png";
 import acheive from "./acheive.png";
 import arrow__down from "./arrow__down.png";
@@ -81,10 +80,11 @@ import logout from "./logout.svg";
 import profile from "./profile.svg";
 import question from "./question.svg";
 import emptyImage from "./emptyImage.png";
+import logos from "./logos.png";
 
 export {
   emptyImage,
-  Logo__header,
+  logos,
   check__list,
   school,
   user,
