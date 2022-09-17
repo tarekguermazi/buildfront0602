@@ -44,12 +44,8 @@ export default function Suggest() {
 
   const [tmpObj, setTempObj] = useState({});
   const onDrop = useCallback((acceptedFiles) => {
-    setTempObj(
-      {
-        name: acceptedFiles[0].name,
-        size: acceptedFiles[0].size
-      }
-    );
+    console.log(acceptedFiles[0]);
+    setTempObj(acceptedFiles[0]);
   }, []);
 
   useEffect(() => {
@@ -58,8 +54,8 @@ export default function Suggest() {
       FileUploader.upload(tmpObj, config);
     }
   }, [tmpObj]);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   const handleFormSubmission = async (data, event) => {
     let now: Date = new Date();
     const obj = {
@@ -69,8 +65,8 @@ export default function Suggest() {
         type: data.contentTypeRadio ? data.contentTypeRadio : "autre",
         supports: [
           {
-            name: Object.keys(tmpObj).length ? tmpObj[0].name : "N.A",
-            sizeInBytes: Object.keys(tmpObj).length ? tmpObj[0].size : 0,
+            name: (Object.keys(tmpObj).length) ? tmpObj['name'] : "N.A",
+            sizeInBytes: (Object.keys(tmpObj).length) ? tmpObj['size'] : 0,
             privateUrl: (Object.keys(tmpObj).length) ? tmpObj['private'] : "N.A",
             publicUrl: (Object.keys(tmpObj).length) ? tmpObj['public'] : "N.A",
             new: true,
