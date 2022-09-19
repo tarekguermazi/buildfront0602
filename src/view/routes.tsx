@@ -39,13 +39,13 @@ const privateRoutes = [
   },
   {
     path: "/appui",
-    loader: () => import("src/view/Appui/Appui"),
+    loader: () => import("src/view/Profile/Appui/Appui"),
     permissionRequired: null,
     exact: true,
   },
   {
     path: "/appui/:id/edit",
-    loader: () => import("src/view/Appui/Appui"),
+    loader: () => import("src/view/Profile/Appui/Appui"),
     permissionRequired: permissions.demandeAppuiEdit,
     exact: true,
   },

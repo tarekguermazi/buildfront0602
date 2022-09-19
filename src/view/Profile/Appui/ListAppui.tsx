@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import actions from "src/modules/demandeAppui/list/demandeAppuiListActions";
 import selectors from "src/modules/demandeAppui/list/demandeAppuiListSelectors";
 import { useDispatch, useSelector } from "react-redux";
-import Spinner from "../shared/Spinner";
+import Spinner from "../../shared/Spinner";
 import Pagination from "src/view/shared/table/Pagination";
 import { Link } from "react-router-dom";
 function ListAppui(props) {
