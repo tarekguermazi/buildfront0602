@@ -10,11 +10,10 @@ import { Link } from "react-router-dom";
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoVideocamOutline } from "react-icons/io5";
 import { CgLink, CgSoftwareUpload } from "react-icons/cg";
-import { BsCamera } from "react-icons/bs";
+import { BsCamera, BsPencil } from "react-icons/bs";
 import { BiMicrophone, BiStats } from "react-icons/bi";
-import { AiOutlineQuestion } from "react-icons/ai";
+import { AiOutlineQuestion, AiOutlineEye } from "react-icons/ai";
 import { VscGraphScatter } from "react-icons/vsc";
-
 
 function ListPublication(props) {
   const dispatch = useDispatch();
@@ -38,6 +37,14 @@ function ListPublication(props) {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+  }
+  const actionButtons = {
+    width: '60px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    color: '#A3A3A9',
+    fontSize: '1.2rem'
   }
 
   return (
@@ -117,9 +124,11 @@ function ListPublication(props) {
                     <span className='valider'>{row.statut}</span>
                   </td>
                   <td> {row.date}</td>
-                  <td className='actions'>
-                    <i className='fa-solid fa-pen'></i>
-                    <i className='fa-solid fa-eye'></i>
+                  <td>
+                    <div style={actionButtons}>
+                      <BsPencil className="icon" />
+                      <AiOutlineEye className="icon" />
+                    </div>
                   </td>
                 </tr>
               ))}
