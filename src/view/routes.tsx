@@ -50,7 +50,7 @@ const privateRoutes = [
     exact: true,
   },
   {
-    path: "/profile/updateprofile",
+    path: "/profile/update",
     loader: () => import("src/view/Profile/ProfileForm"),
   },
   {

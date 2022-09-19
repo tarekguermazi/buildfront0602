@@ -26,7 +26,7 @@ function ListAppui(props) {
         <div className='list__title'>
           <h2>contenu récent </h2>
         </div>
-        <Link to='/appui'>
+        <Link to='/profile/appui'>
           <div className='button__contenue'>Demande d’appui</div>
         </Link>
       </div>
@@ -80,11 +80,11 @@ function ListAppui(props) {
                   <td>{row.descriptionFR}</td>
 
                   <td className='actions'>
-                    <Link to={`/appui/${row.id}/edit`}>
+                    <Link to={`/profile/appui/${row.id}/edit`}>
                       <i className='fa-solid fa-pen'></i>
                     </Link>
                     &nbsp; &nbsp; &nbsp; &nbsp;
-                    <Link to={`/appui/${row.id}/edit`}>
+                    <Link to={`/profile/appui/${row.id}/edit`}>
                       <i className='fa-solid fa-eye'></i>
                     </Link>
                   </td>

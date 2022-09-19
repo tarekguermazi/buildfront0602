@@ -27,7 +27,7 @@ function ProfileHeader(props) {
               {currentUser.occupation}, {currentUser.pays}
             </div>
           </div>
-          <Link to='/updateprofile'>
+          <Link to='/profile/update'>
             <div className='modify'>Modifier</div>
           </Link>
         </div>
