@@ -1,4 +1,3 @@
-import Logo__header from "./Logo__header.png";
 import image__header from "./image__header.png";
 import acheive from "./acheive.png";
 import arrow__down from "./arrow__down.png";
@@ -37,7 +36,7 @@ import header__image__mobile from "./header__image__mobile.png";
 // import image__header from "./image__header.png";
 import instagram from "./instagram.png";
 import invitation from "./invitation.png";
-
+import profileAvatar from "./profile.png";
 import list1 from "./list1.png";
 import list2 from "./list2.png";
 import list3 from "./list3.png";
@@ -80,8 +79,12 @@ import pen from "./pen-write.svg";
 import logout from "./logout.svg";
 import profile from "./profile.svg";
 import question from "./question.svg";
+import emptyImage from "./emptyImage.png";
+import logos from "./logos.png";
+
 export {
-  Logo__header,
+  emptyImage,
+  logos,
   check__list,
   school,
   user,
@@ -160,4 +163,5 @@ export {
   twitter,
   users,
   youtube,
+  profileAvatar,
 };

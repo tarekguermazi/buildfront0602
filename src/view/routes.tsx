@@ -1,3 +1,7 @@
+import Permissions from "src/security/permissions";
+
+const permissions = Permissions.values;
+
 const navigateRoutes = [
   {
     path: "/",
@@ -27,6 +31,40 @@ const privateRoutes = [
     permissionRequired: null,
     exact: true,
   },
+  {
+    path: "/contenu",
+    loader: () => import("src/view/contenu/Contenu"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/appui",
+    loader: () => import("src/view/Appui/Appui"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/appui/:id/edit",
+    loader: () => import("src/view/Appui/Appui"),
+    permissionRequired: permissions.demandeAppuiEdit,
+    exact: true,
+  },
+  {
+    path: "/updateprofile",
+    loader: () => import("src/view/auth/ProfileForm"),
+  },
+  {
+    path: "/profile/suggest",
+    loader: () => import("src/view/Profile/Suggestions/Suggest"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/favoris",
+    loader: () => import("src/view/Favoris/Favoris"),
+    permissionRequired: null,
+    exact: true,
+  },
 ].filter(Boolean);
 const publicRoutes = [
   { path: "/auth/signin", loader: () => import("src/view/auth/SigninPage") },
@@ -42,6 +80,14 @@ const simpleRoutes = [
   {
     path: "/auth/forgot-password",
     loader: () => import("src/view/auth/PasswordResetPage"),
+  },
+  {
+    path: "/403",
+    loader: () => import("src/view/shared/errors/Error403Page"),
+  },
+  {
+    path: "/500",
+    loader: () => import("src/view/shared/errors/Error500Page"),
   },
   {
     path: "**",

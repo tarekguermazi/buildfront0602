@@ -10,7 +10,7 @@ const languages: {
     id: string;
     label: string;
     flag: string;
-    dateFns: any;
+    antd: any;
     dictionary: any;
   };
 } = {
@@ -18,14 +18,21 @@ const languages: {
     id: "en",
     label: "English",
     flag: "/images/flags/United-States.png",
-    dateFns: null,
+    antd: null,
     dictionary: null,
   },
   fr: {
     id: "fr",
     label: "Français",
     flag: "/images/flags/France.png",
-    dateFns: null,
+    antd: null,
+    dictionary: null,
+  },
+  ar: {
+    id: "ar",
+    label: "العربية",
+    flag: "/images/flags/Saudi-Arabia.png",
+    antd: null,
     dictionary: null,
   },
 };
@@ -38,9 +45,30 @@ export async function init() {
     await initEn();
   }
 
+  if (currentLanguageCode === "ar") {
+    await initAr();
+  }
+
   if (currentLanguageCode === "fr") {
     await initFr();
   }
+}
+
+async function initAr() {
+  const language = languages["ar"];
+
+  // @ts-ignore
+  const momentLocale = (await import("moment/locale/ar")).default;
+
+  language.dictionary = (await import("src/i18n/ar")).default;
+
+  moment.locale("ar", momentLocale);
+
+  if (language.dictionary.validation) {
+    setYupLocale(language.dictionary.validation);
+  }
+
+  return language;
 }
 
 async function initFr() {
@@ -72,7 +100,7 @@ async function initEn() {
   return language;
 }
 
-export function getLanguage() {
+function getLanguage() {
   return languages[getLanguageCode()];
 }
 
@@ -95,6 +123,10 @@ export function getLanguages() {
   return Object.keys(languages).map((language) => {
     return languages[language];
   });
+}
+
+export function getAntdLanguage() {
+  return getLanguage().antd;
 }
 
 export function getLanguageCode() {

@@ -18,10 +18,8 @@ const AuthWrapper = styled.div`
     border: 1px solid #bdbdbd;
     height: 50px;
     padding: 14px 0 14px 12px;
-
     color: var(--violet);
     margin-top: 7px;
-
     font-family: "Proxima Nova";
     font-style: normal;
     font-weight: 700;
@@ -46,10 +44,26 @@ const AuthWrapper = styled.div`
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
+  .form__select {
+    display: flex;
+    flex-direction: column;
+  }
+  select,
+  textarea {
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 21px;
+    padding: 15px;
+  }
+  select {
+    height: 50px;
+  }
   .form__button:hover {
     color: #fff;
     background: #ff5444;
-    border-color: ##ff5444;
+    border-color: #ff5444;
     text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
     box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
   }
@@ -70,6 +84,11 @@ const AuthWrapper = styled.div`
     position: absolute;
     text-decoration: underline;
     right: 0;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
   }
   .Login__container {
     padding-top: 44px;
@@ -81,10 +100,11 @@ const AuthWrapper = styled.div`
     column-gap: 12px;
   }
   .link__account {
+    font-family: 'Bebas Neue Pro';
+    font-style: normal;
+    font-weight: 400;
     font-size: 20px;
     line-height: 23px;
-    text-align: center;
-    font-family: "Bebas Neue Pro";
   }
   .link__create {
     font-family: "Bebas Neue Pro";

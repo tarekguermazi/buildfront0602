@@ -54,7 +54,17 @@ const authActions = {
   },
 
   doRegisterEmailAndPassword:
-    (firstName, lastName, email, password) => async (dispatch) => {
+    (
+      firstName,
+      lastName,
+      email,
+      password,
+      phoneNumber,
+      pays,
+      occupation,
+      region
+    ) =>
+    async (dispatch) => {
       try {
         dispatch({ type: authActions.AUTH_START });
 
@@ -62,7 +72,11 @@ const authActions = {
           firstName,
           lastName,
           email,
-          password
+          password,
+          phoneNumber,
+          pays,
+          occupation,
+          region
         );
 
         await AuthToken.set(token);
@@ -77,7 +91,6 @@ const authActions = {
         });
       } catch (error) {
         await service.signout();
-
         if (Errors.errorCode(error) !== 400) {
           Errors.handle(error);
         }
@@ -131,6 +144,7 @@ const authActions = {
           currentUser: null,
         },
       });
+      getHistory().push("/");
     } catch (error) {
       Errors.handle(error);
 
@@ -208,8 +222,8 @@ const authActions = {
         type: authActions.UPDATE_PROFILE_SUCCESS,
       });
       await dispatch(authActions.doRefreshCurrentUser());
-      Message.success(i18n("auth.profile.success"));
-      getHistory().push("/");
+      Message.success("Mise à jour du profil réussie");
+      getHistory().push("/profile");
     } catch (error) {
       Errors.handle(error);
 

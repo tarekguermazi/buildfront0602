@@ -30,11 +30,14 @@ function RoutesComponent(props) {
   }
   return (
     <Switch>
-      {routes.navigateRoutes.map((route) => (
-        <NavigateRoute
+      {routes.privateRoutes.map((route) => (
+        <PrivateRoute
           exact
           key={route.path}
           path={route.path}
+          currentUser={currentUser}
+          currentTenant={currentTenant}
+          permissionRequired={route.permissionRequired}
           component={CustomLoadable({ loader: route.loader })}
         />
       ))}
@@ -48,6 +51,14 @@ function RoutesComponent(props) {
           component={CustomLoadable({ loader: route.loader })}
         />
       ))}
+      {routes.navigateRoutes.map((route) => (
+        <NavigateRoute
+          exact
+          key={route.path}
+          path={route.path}
+          component={CustomLoadable({ loader: route.loader })}
+        />
+      ))}
       {routes.emptyPermissionsRoutes.map((route) => (
         <EmptyPermissionsRoute
           key={route.path}
@@ -58,17 +69,6 @@ function RoutesComponent(props) {
           component={CustomLoadable({
             loader: route.loader,
           })}
-        />
-      ))}
-      {routes.privateRoutes.map((route) => (
-        <PrivateRoute
-          exact
-          key={route.path}
-          path={route.path}
-          currentUser={currentUser}
-          currentTenant={currentTenant}
-          permissionRequired={route.permissionRequired}
-          component={CustomLoadable({ loader: route.loader })}
         />
       ))}
       {routes.simpleRoutes.map((route) => (

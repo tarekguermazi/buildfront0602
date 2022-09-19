@@ -7,7 +7,7 @@ function Layout(props) {
   const match = useRouteMatch();
 
   return (
-    <div>
+    <div style={{ minHeight: `calc(100vh - 52px)` }}>
       <Header url={match.url} />
       <div>{props.children}</div>
     </div>

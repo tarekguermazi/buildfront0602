@@ -13,26 +13,28 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
+import SelectFormItem from "../shared/form/items/SelectFormItem";
+import userEnumerators from "../user/userEnumerators";
 const schema = yup.object().shape({
-  firstName: yupFormSchemas.string("user.fields.firstName", {
+  firstName: yupFormSchemas.string("Prènom", {
     max: 80,
     required: true,
   }),
-  lastName: yupFormSchemas.string("user.fields.lastName", {
+  lastName: yupFormSchemas.string("Nom", {
     max: 175,
     required: true,
   }),
-  email: yupFormSchemas.string("user.fields.email", {
+  email: yupFormSchemas.string("Email", {
     required: true,
   }),
-  password: yupFormSchemas.string("user.fields.password", {
+  password: yupFormSchemas.string("Mot de passe", {
     required: true,
   }),
   avatars: yupFormSchemas.images("user.fields.avatars", {
     max: 1,
   }),
   newPasswordConfirmation: yupFormSchemas
-    .string("user.fields.newPasswordConfirmation", {
+    .string("Confirmation du nouveau mot de passe", {
       required: true,
     })
     .oneOf([yup.ref("password"), null], "auth.passwordChange.mustMatch"),
@@ -47,6 +49,10 @@ function SignupPage() {
     email: "",
     password: "",
     newPasswordConfirmation: "",
+    phoneNumber: "",
+    pays: "",
+    occupation: "",
+    region: "",
     avatars: [],
   });
   const form = useForm({
@@ -54,43 +60,36 @@ function SignupPage() {
     mode: "onSubmit",
     defaultValues: initialValues,
   });
-  const onSubmit = ({ firstName, lastName, email, password }) => {
+  const onSubmit = ({
+    firstName,
+    lastName,
+    email,
+    password,
+    phoneNumber,
+    pays,
+    occupation,
+    region,
+  }) => {
     dispatch(
-      actions.doRegisterEmailAndPassword(firstName, lastName, email, password)
+      actions.doRegisterEmailAndPassword(
+        firstName,
+        lastName,
+        email,
+        password,
+        phoneNumber,
+        pays,
+        occupation,
+        region
+      )
     );
   };
   return (
     <div className='app__signup'>
-      <div className='app__member'>
-        <div className='member__header'>Devenez membre</div>
-        <div className='member__list'>
-          <ul>
-            <li>
-              <img src={check__list} alt='list' className='lazyload' /> Lorem
-              ipsum dolor sit amet, consectetur
-            </li>
-            <li>
-              {" "}
-              <img src={check__list} alt='list' className='lazyload' /> Nunc
-              feugiat consectetur enim, eu sagittis magna accumsan
-            </li>
-            <li>
-              {" "}
-              <img src={check__list} alt='list' className='lazyload' /> Donec
-              mattis, nunc et venenatis porta
-            </li>
-            <li>
-              {" "}
-              <img src={check__list} alt='list' className='lazyload' /> Donec
-              mattis, nunc et venenatis porta
-            </li>
-          </ul>
-        </div>
-      </div>
       <AuthWrapper>
         <div className='app__login'>
           <div className='Login__container' style={{ paddingTop: 0 }}>
-            <div className='archieve__header'>
+            <div className='login__header'>
+              <div className='communiquer__bar'></div>
               <h2>Inscription</h2>
               <div className='communiquer__bar'></div>
             </div>
@@ -98,14 +97,13 @@ function SignupPage() {
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <div className='container__form'>
                   <div className='form__avatar'>
-                    <div className='avatar'>
+                    {/* <div className='avatar'>
                       <label htmlFor='Avatar'>Avatar</label>
                       <div className='avatar__photo'>
                         <img src={user} alt='avatar ' className='lazyload' />
                       </div>
                     </div>
-
-                    <div className='button__avatar'>Modifier</div>
+                    <div className='button__avatar'>Modifier</div> */}
                   </div>
                   <div className='group__input'>
                     <InputFormItem
@@ -114,7 +112,6 @@ function SignupPage() {
                       placeholder='Nom'
                       autoComplete='Nom'
                       autoFocus
-                      externalErrorMessage={externalErrorMessage}
                     />
                     <InputFormItem
                       name='lastName'
@@ -122,7 +119,6 @@ function SignupPage() {
                       placeholder='prenom'
                       autoComplete='prenom'
                       autoFocus
-                      externalErrorMessage={externalErrorMessage}
                     />
                   </div>
                   <InputFormItem
@@ -139,7 +135,6 @@ function SignupPage() {
                     placeholder='password'
                     autoComplete='email'
                     autoFocus
-                    externalErrorMessage={externalErrorMessage}
                   />
                   <InputFormItem
                     name='newPasswordConfirmation'
@@ -147,30 +142,41 @@ function SignupPage() {
                     placeholder='password'
                     autoComplete='email'
                     autoFocus
-                    externalErrorMessage={externalErrorMessage}
                   />
-                  {/* <div className='form__group'>
-                    <label htmlFor='Login'>Pays</label>
-                    <input
-                      type='text'
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                  <div className='form__group'>
-                    <label htmlFor='Login'>Région</label>
-                    <input
-                      type='text'
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                  <div className='form__group'>
-                    <label htmlFor='Login'>Occupation</label>
-                    <input
-                      type='text'
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div> */}
 
+                  <SelectFormItem
+                    name={"pays"}
+                    label={"pays"}
+                    options={userEnumerators.pays.map((value) => ({
+                      value,
+                      label: value,
+                    }))}
+                  />
+
+                  {form.watch().pays && form.watch().pays === "Tunisia" && (
+                    <SelectFormItem
+                      name={"regionTunisie"}
+                      label={"Région"}
+                      options={userEnumerators.regionTunisie.map((value) => ({
+                        value,
+                        label: value,
+                      }))}
+                    />
+                  )}
+                  <SelectFormItem
+                    name={"occupation"}
+                    label={"Occupation"}
+                    options={userEnumerators.occupation.map((value) => ({
+                      value,
+                      label: value,
+                    }))}
+                  />
+                  <InputFormItem
+                    name='phoneNumber'
+                    label='Phone Number'
+                    autoComplete='phoneNumber'
+                    autoFocus
+                  />
                   <button className='form__button' disabled={loading}>
                     <ButtonIcon loading={loading} />
                     Créer un compte

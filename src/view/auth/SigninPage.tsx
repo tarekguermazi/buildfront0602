@@ -12,10 +12,10 @@ import InputFormItem from "../shared/form/items/InputFormItem";
 import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 const schema = yup.object().shape({
-  email: yupFormSchemas.string("user.fields.email", {
+  email: yupFormSchemas.string("Email", {
     required: true,
   }),
-  password: yupFormSchemas.string("user.fields.password", {
+  password: yupFormSchemas.string("Mot de passe", {
     required: true,
   }),
   rememberMe: yupFormSchemas.boolean("user.fields.rememberMe"),
@@ -43,7 +43,8 @@ function SigninPage() {
     <AuthWrapper>
       <div className='app__signin'>
         <div className='app__login'>
-          <div className='archieve__header'>
+          <div className='login__header'>
+            <div className='communiquer__bar'></div>
             <h2>Se&nbsp;Connecter</h2>
             <div className='communiquer__bar'></div>
           </div>
@@ -53,7 +54,7 @@ function SigninPage() {
                 <div className='container__form'>
                   <InputFormItem
                     name='email'
-                    label='email'
+                    label='Email'
                     placeholder='email'
                     autoComplete='email'
                     autoFocus
@@ -61,17 +62,16 @@ function SigninPage() {
                   />
 
                   <InputFormItem
-                    label='password'
+                    label='Password'
                     name='password'
-                    placeholder={"user.fields.password"}
+                    placeholder={"Mot de passe"}
                     autoComplete='password'
                     type='password'
                   />
-
                   <div className='form__oublier'>
                     <div className='oublier'>
                       <Link to='/auth/forgot-password' className='reset'>
-                        Link Mot de passe oublié ?
+                        Mot de passe oublié ?
                       </Link>
                     </div>
                   </div>
@@ -84,7 +84,7 @@ function SigninPage() {
                     <div className='link__account'>Pas encore membre?</div>
                     <div className='__create'>
                       <Link to='/auth/signup' className='link__create'>
-                        Create an account
+                        Créer un compte
                       </Link>
                     </div>
                   </div>
