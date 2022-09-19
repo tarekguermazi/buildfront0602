@@ -2,9 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "src/modules/publication/list/publicationListActions";
 import selectors from "src/modules/publication/list/publicationListSelectors";
-import Spinner from "../shared/Spinner";
-import Pagination from "../shared/table/Pagination";
+import Spinner from "../../shared/Spinner";
+import Pagination from "../../shared/table/Pagination";
 import { Link } from "react-router-dom";
+
+// ICONS
+import { GrTextAlignFull } from "react-icons/gr";
+import { IoVideocamOutline } from "react-icons/io5";
+import { CgLink, CgSoftwareUpload } from "react-icons/cg";
+import { BsCamera } from "react-icons/bs";
+import { BiMicrophone, BiStats } from "react-icons/bi";
+import { AiOutlineQuestion } from "react-icons/ai";
+import { VscGraphScatter } from "react-icons/vsc";
+
+
 function ListPublication(props) {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,6 +32,13 @@ function ListPublication(props) {
   const doChangePagination = (pagination) => {
     dispatch(actions.doChangePaginationAndSort(pagination, {}));
   };
+
+  const IconAndType = {
+    width: '70px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  }
 
   return (
     <>
@@ -79,8 +97,21 @@ function ListPublication(props) {
                   <td> Lorem ipsum dalor</td>
                   <td>Category</td>
                   <td>
-                    <i className='fa-solid fa-camera'></i>
-                    {row.type}
+                    <div style={IconAndType}>
+                      {
+                        {
+                          'Texte': <GrTextAlignFull className="icon" />,
+                          'audio': <BiMicrophone className="icon" />,
+                          'vidéo': <IoVideocamOutline className="icon" />,
+                          'lien web': <CgLink className="icon" />,
+                          'photo': <BsCamera className="icon" />,
+                          'infographie': <VscGraphScatter className="icon" />,
+                          'statistiques': <BiStats className="icon" />,
+                          'autre': <AiOutlineQuestion className="icon" />
+                        }[row.type]
+                      }
+                      {row.type}
+                    </div>
                   </td>
                   <td>
                     <span className='valider'>{row.statut}</span>

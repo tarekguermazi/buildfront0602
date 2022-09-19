@@ -10,7 +10,7 @@ const navigateRoutes = [
   { path: "/A_propos", loader: () => import("src/view/Propos_nous/Propos") },
   {
     path: "/Publications",
-    loader: () => import("src/view/Publications/Publications"),
+    loader: () => import("src/view/Profile/Publications/Publications"),
   },
   { path: "/Archives", loader: () => import("src/view/Archive/Archives") },
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
