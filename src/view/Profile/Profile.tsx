@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import selectors from "src/modules/auth/authSelectors";
-import ListAppui from "../Profile/Appui/ListAppui";
+import ListAppui from "./Appui/ListAppui";
 import ListPublication from "../Publications/ListPublication";
 import selectorsAppui from "src/modules/demandeAppui/list/demandeAppuiListSelectors";
 import selectorsPublication from "src/modules/publication/list/publicationListSelectors";

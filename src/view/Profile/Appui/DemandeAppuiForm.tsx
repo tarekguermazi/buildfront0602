@@ -7,7 +7,6 @@ import demandeAppuiEnumerators from "../../../modules/demandeAppui/demandeAppuiE
 import { i18n } from "../../../i18n";
 import TextAreaFormItem from "../../shared/form/items/TextAreaFormItem";
 import ButtonIcon from "../../shared/ButtonIcon";
-import SelectFormItem from "../../shared/form/items/SelectFormItem";
 import FilesFormItem from "../../shared/form/items/FilesFormItem";
 import Storage from "../../../security/storage";
 import InputFormItem from "../../shared/form/items/InputFormItem";
