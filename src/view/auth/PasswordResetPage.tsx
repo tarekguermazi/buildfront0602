@@ -1,6 +1,6 @@
 import React from "react";
 import { logo_svg } from "src/assets/images";
-import AuthWrapper from "./styles/AuthWrapper";
+import AuthWrapper from "../Profile/styles/AuthWrapper";
 import { Link } from "react-router-dom";
 
 function PasswordResetPage() {

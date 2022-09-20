@@ -10,7 +10,7 @@ const navigateRoutes = [
   { path: "/A_propos", loader: () => import("src/view/Propos_nous/Propos") },
   {
     path: "/Publications",
-    loader: () => import("src/view/Publications/Publications"),
+    loader: () => import("src/view/Profile/Publications/Publications"),
   },
   { path: "/Archives", loader: () => import("src/view/Archive/Archives") },
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
@@ -27,31 +27,31 @@ const navigateRoutes = [
 const privateRoutes = [
   {
     path: "/profile",
-    loader: () => import("src/view/auth/Profile"),
+    loader: () => import("src/view/Profile/Profile"),
     permissionRequired: null,
     exact: true,
   },
   {
-    path: "/contenu",
+    path: "/profile/contenu",
     loader: () => import("src/view/contenu/Contenu"),
     permissionRequired: null,
     exact: true,
   },
   {
-    path: "/appui",
-    loader: () => import("src/view/Appui/Appui"),
+    path: "/profile/appui",
+    loader: () => import("src/view/Profile/Appui/Appui"),
     permissionRequired: null,
     exact: true,
   },
   {
-    path: "/appui/:id/edit",
-    loader: () => import("src/view/Appui/Appui"),
+    path: "/profile/appui/:id/edit",
+    loader: () => import("src/view/Profile/Appui/Appui"),
     permissionRequired: permissions.demandeAppuiEdit,
     exact: true,
   },
   {
-    path: "/updateprofile",
-    loader: () => import("src/view/auth/ProfileForm"),
+    path: "/profile/update",
+    loader: () => import("src/view/Profile/ProfileForm"),
   },
   {
     path: "/profile/suggest",

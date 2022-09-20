@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import actions from "src/modules/demandeAppui/list/demandeAppuiListActions";
+import selectors from "src/modules/demandeAppui/list/demandeAppuiListSelectors";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "src/modules/publication/list/publicationListActions";
-import selectors from "src/modules/publication/list/publicationListSelectors";
-import Spinner from "../shared/Spinner";
-import Pagination from "../shared/table/Pagination";
+import Spinner from "../../shared/Spinner";
+import Pagination from "src/view/shared/table/Pagination";
 import { Link } from "react-router-dom";
-function ListPublication(props) {
+function ListAppui(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.doFetch());
@@ -15,21 +15,19 @@ function ListPublication(props) {
   const loading = findLoading;
   const rows = useSelector(selectors.selectRows);
   const hasRows = useSelector(selectors.selectHasRows);
-  const count = useSelector(selectors.selectCount);
-
   const pagination = useSelector(selectors.selectPagination);
+  const count = useSelector(selectors.selectCount);
   const doChangePagination = (pagination) => {
     dispatch(actions.doChangePaginationAndSort(pagination, {}));
   };
-
   return (
     <>
       <div className='list__button'>
         <div className='list__title'>
           <h2>contenu récent </h2>
         </div>
-        <Link to='/profile/suggest'>
-          <div className='button__contenue'>Suggérer de contenu</div>
+        <Link to='/profile/appui'>
+          <div className='button__contenue'>Demande d’appui</div>
         </Link>
       </div>
       <div className='list__search'>
@@ -48,11 +46,11 @@ function ListPublication(props) {
         <table>
           <thead>
             <tr>
-              <td>Titre</td>
-              <td>Catégorie</td>
-              <td>Type</td>
-              <td>Statut</td>
-              <td>Date</td>
+              <td>Personne</td>
+              <td>Email</td>
+              <td>Phone Number</td>
+              <td>Description</td>
+
               <td></td>
             </tr>
           </thead>
@@ -76,19 +74,19 @@ function ListPublication(props) {
             {!loading &&
               rows.map((row) => (
                 <tr key={row.id}>
-                  <td> Lorem ipsum dalor</td>
-                  <td>Category</td>
-                  <td>
-                    <i className='fa-solid fa-camera'></i>
-                    {row.type}
-                  </td>
-                  <td>
-                    <span className='valider'>{row.statut}</span>
-                  </td>
-                  <td> {row.date}</td>
+                  <td>{row.personne}</td>
+                  <td>{row.email}</td>
+                  <td>{row.phoneNumber}</td>
+                  <td>{row.descriptionFR}</td>
+
                   <td className='actions'>
-                    <i className='fa-solid fa-pen'></i>
-                    <i className='fa-solid fa-eye'></i>
+                    <Link to={`/profile/appui/${row.id}/edit`}>
+                      <i className='fa-solid fa-pen'></i>
+                    </Link>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <Link to={`/profile/appui/${row.id}/edit`}>
+                      <i className='fa-solid fa-eye'></i>
+                    </Link>
                   </td>
                 </tr>
               ))}
@@ -106,4 +104,4 @@ function ListPublication(props) {
   );
 }
 
-export default ListPublication;
+export default ListAppui;

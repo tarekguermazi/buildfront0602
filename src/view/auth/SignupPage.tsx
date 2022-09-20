@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import Footer from "../Layout/Footer";
-import AuthWrapper from "./styles/AuthWrapper";
+import AuthWrapper from "../Profile/styles/AuthWrapper";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import actions from "src/modules/auth/authActions";
 import selectors from "src/modules/auth/authSelectors";
-import { check__list, user, background1, background2 } from "src/assets/images";
 import ButtonIcon from "../shared/ButtonIcon";
 import InputFormItem from "../shared/form/items/InputFormItem";
 import { FormProvider, useForm } from "react-hook-form";

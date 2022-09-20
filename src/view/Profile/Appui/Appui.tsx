@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import FormWrapper from "../shared/styles/FormWrapper";
+import FormWrapper from "../../shared/styles/FormWrapper";
 import { Link } from "react-router-dom";
 import DemandeAppuiForm from "./DemandeAppuiForm";
 import actions from "src/modules/demandeAppui/form/demandeAppuiFormActions";
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import selectors from "src/modules/demandeAppui/form/demandeAppuiFormSelectors";
 import { getHistory } from "src/modules/store";
 import { useRouteMatch } from "react-router-dom";
-import Spinner from "../shared/Spinner";
+import Spinner from "../../shared/Spinner";
 function Appui(props) {
   const [dispatched, setDispatched] = useState(false);
   const dispatch = useDispatch();

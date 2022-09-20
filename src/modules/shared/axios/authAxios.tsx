@@ -3,7 +3,7 @@ import AuthToken from "src/modules/auth/authToken";
 import { getLanguageCode } from "src/i18n";
 
 const authAxios = axios.create({
-  baseURL: "http://178.79.177.14:8080/api",
+  baseURL: "http://localhost:8080/api",
 });
 
 authAxios.interceptors.request.use(

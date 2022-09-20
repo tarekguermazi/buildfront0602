@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import selectors from "src/modules/auth/authSelectors";
-import ListAppui from "../Appui/ListAppui";
-import ListPublication from "../Publications/ListPublication";
+import ListAppui from "./Appui/ListAppui";
+import ListPublication from "./Publications/ListPublication";
 import selectorsAppui from "src/modules/demandeAppui/list/demandeAppuiListSelectors";
 import selectorsPublication from "src/modules/publication/list/publicationListSelectors";
 import actionsPublication from "src/modules/publication/list/publicationListActions";
@@ -26,8 +26,8 @@ function Profile() {
       dispatch(actionsPublication.doFetch()),
       dispatch(actionsAppui.doFetch()),
     ])
-      .then((res) => {})
-      .catch((error) => {});
+      .then((res) => { })
+      .catch((error) => { });
   };
   useEffect(() => {
     fetchAll();

@@ -87,7 +87,7 @@ export default class DemandeAppuiService {
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.get(
-      `/tenant/${tenantId}/demande-appuibyuser`,
+      `/tenant/${tenantId}/demande-appui`,
       {
         params,
       }
