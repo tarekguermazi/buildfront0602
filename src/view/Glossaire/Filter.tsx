@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import FilterStyles from './styles/FilterStyles'
 import { Link } from 'react-scroll'
 import GlossaireService from 'src/modules/Glossaire/GlossaireService';
