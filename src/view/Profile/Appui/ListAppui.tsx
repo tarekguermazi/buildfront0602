@@ -26,7 +26,7 @@ function ListAppui(props) {
         <div className='list__title'>
           <h2>contenu récent </h2>
         </div>
-        <Link to='/profile/appui'>
+        <Link to='/appui/new'>
           <div className='button__contenue'>Demande d’appui</div>
         </Link>
       </div>

@@ -26,8 +26,8 @@ function Profile() {
       dispatch(actionsPublication.doFetch()),
       dispatch(actionsAppui.doFetch()),
     ])
-      .then((res) => { })
-      .catch((error) => { });
+      .then((res) => {})
+      .catch((error) => {});
   };
   useEffect(() => {
     fetchAll();
@@ -58,7 +58,6 @@ function Profile() {
             Image={userDropdownAvatar}
           />
         )}
-
         <div className='profile__list'>
           <div className='tabs'>
             <ul className='nav'>

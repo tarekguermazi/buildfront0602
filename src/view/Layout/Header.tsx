@@ -83,7 +83,7 @@ function Header(props) {
                     id='down'
                   />
                   <ul className='header__dropdown'>
-                    <Link to='/profile/suggest'>
+                    <Link to='/suggest/new'>
                       <li>
                         <img src={pen} alt='pen' />
                         Suggérer des données
@@ -95,7 +95,7 @@ function Header(props) {
                         Profil
                       </li>
                     </Link>
-                    <Link to='/appui'>
+                    <Link to='/appui/new'>
                       <li>
                         <img
                           src={question}

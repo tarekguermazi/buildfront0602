@@ -52,7 +52,6 @@ function Appui(props) {
           pharetra lacus. Class aptent taciti sociosqu ad litora torquent per
           conubia nostra
         </div>
-
         <div className='contenue__formulaire'>
           <FormWrapper>
             <div className='Login__container'>

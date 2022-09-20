@@ -33,19 +33,19 @@ function ListPublication(props) {
   };
 
   const IconAndType = {
-    width: '70px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  }
+    width: "70px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  };
   const actionButtons = {
-    width: '60px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    color: '#A3A3A9',
-    fontSize: '1.2rem'
-  }
+    width: "60px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    color: "#A3A3A9",
+    fontSize: "1.2rem",
+  };
 
   return (
     <>
@@ -53,7 +53,7 @@ function ListPublication(props) {
         <div className='list__title'>
           <h2>contenu récent </h2>
         </div>
-        <Link to='/profile/suggest'>
+        <Link to='/suggest/new'>
           <div className='button__contenue'>Suggérer de contenu</div>
         </Link>
       </div>
@@ -107,14 +107,14 @@ function ListPublication(props) {
                     <div style={IconAndType}>
                       {
                         {
-                          'Texte': <GrTextAlignFull className="icon" />,
-                          'audio': <BiMicrophone className="icon" />,
-                          'vidéo': <IoVideocamOutline className="icon" />,
-                          'lien web': <CgLink className="icon" />,
-                          'photo': <BsCamera className="icon" />,
-                          'infographie': <VscGraphScatter className="icon" />,
-                          'statistiques': <BiStats className="icon" />,
-                          'autre': <AiOutlineQuestion className="icon" />
+                          Texte: <GrTextAlignFull className='icon' />,
+                          audio: <BiMicrophone className='icon' />,
+                          vidéo: <IoVideocamOutline className='icon' />,
+                          "lien web": <CgLink className='icon' />,
+                          photo: <BsCamera className='icon' />,
+                          infographie: <VscGraphScatter className='icon' />,
+                          statistiques: <BiStats className='icon' />,
+                          autre: <AiOutlineQuestion className='icon' />,
                         }[row.type]
                       }
                       {row.type}
@@ -126,8 +126,10 @@ function ListPublication(props) {
                   <td> {row.date}</td>
                   <td>
                     <div style={actionButtons}>
-                      <BsPencil className="icon" />
-                      <AiOutlineEye className="icon" />
+                      <Link to={`/suggest/${row.id}/edit`}>
+                        <BsPencil className='icon' />
+                      </Link>
+                      <AiOutlineEye className='icon' />
                     </div>
                   </td>
                 </tr>

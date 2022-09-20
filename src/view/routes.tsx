@@ -28,23 +28,17 @@ const privateRoutes = [
   {
     path: "/profile",
     loader: () => import("src/view/Profile/Profile"),
-    permissionRequired: null,
+    permissionRequired: permissions.userRead,
     exact: true,
   },
   {
-    path: "/profile/contenu",
-    loader: () => import("src/view/contenu/Contenu"),
-    permissionRequired: null,
-    exact: true,
-  },
-  {
-    path: "/profile/appui",
+    path: "/appui/new",
     loader: () => import("src/view/Profile/Appui/Appui"),
-    permissionRequired: null,
+    permissionRequired: permissions.demandeAppuiCreate,
     exact: true,
   },
   {
-    path: "/profile/appui/:id/edit",
+    path: "/appui/:id/edit",
     loader: () => import("src/view/Profile/Appui/Appui"),
     permissionRequired: permissions.demandeAppuiEdit,
     exact: true,
@@ -52,11 +46,19 @@ const privateRoutes = [
   {
     path: "/profile/update",
     loader: () => import("src/view/Profile/ProfileForm"),
+    permissionRequired: permissions.userEdit,
+    exact: true,
   },
   {
-    path: "/profile/suggest",
+    path: "/suggest/new",
     loader: () => import("src/view/Profile/Suggestions/Suggest"),
-    permissionRequired: null,
+    permissionRequired: permissions.publicationCreate,
+    exact: true,
+  },
+  {
+    path: "/suggest/:id/edit",
+    loader: () => import("src/view/Profile/Suggestions/Suggest"),
+    permissionRequired: permissions.publicationEdit,
     exact: true,
   },
   {
