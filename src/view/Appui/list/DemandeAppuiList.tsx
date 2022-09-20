@@ -80,7 +80,7 @@ function ListAppui(props) {
                   <td>{row.descriptionFR}</td>
 
                   <td className='actions'>
-                    <Link to={`/profile/appui/${row.id}/edit`}>
+                    <Link to={`/appui/${row.id}/edit`}>
                       <i className='fa-solid fa-pen'></i>
                     </Link>
                     &nbsp; &nbsp; &nbsp; &nbsp;
@@ -91,14 +91,12 @@ function ListAppui(props) {
                 </tr>
               ))}
           </tbody>
-          <tfoot>
-            <Pagination
-              onChange={doChangePagination}
-              disabled={loading}
-              pagination={pagination}
-            />
-          </tfoot>
         </table>
+        <Pagination
+          onChange={doChangePagination}
+          disabled={loading}
+          pagination={pagination}
+        />
       </div>
     </>
   );

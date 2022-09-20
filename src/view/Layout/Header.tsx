@@ -44,6 +44,38 @@ function Header(props) {
     return res;
   };
 
+  const userMenu = (
+    <ul className='header__dropdown'>
+      <Link to='/publication/new'>
+        <li>
+          <img src={pen} alt='pen' />
+          Suggérer des données
+        </li>
+      </Link>
+      <Link to='/profile'>
+        <li>
+          <img src={profile} alt='profile' className='lazyload' />
+          Profil
+        </li>
+      </Link>
+      <Link to='/appui/new'>
+        <li>
+          <img src={question} alt='question' className='lazyload' />
+          Demander d’appui
+        </li>
+      </Link>
+      <Link to='/favoris'>
+        <li>
+          <img src={question} alt='question' className='lazyload' />
+          Favoris
+        </li>
+      </Link>
+      <li onClick={doSignout}>
+        <img src={logout} alt='logout' className='lazyload' />
+        Déconnexion
+      </li>
+    </ul>
+  );
   return (
     <React.Fragment>
       <div className='header__nav'>
@@ -82,44 +114,7 @@ function Header(props) {
                     alt='Arrow Down Icon'
                     id='down'
                   />
-                  <ul className='header__dropdown'>
-                    <Link to='/suggest/new'>
-                      <li>
-                        <img src={pen} alt='pen' />
-                        Suggérer des données
-                      </li>
-                    </Link>
-                    <Link to='/profile'>
-                      <li>
-                        <img src={profile} alt='profile' className='lazyload' />
-                        Profil
-                      </li>
-                    </Link>
-                    <Link to='/appui/new'>
-                      <li>
-                        <img
-                          src={question}
-                          alt='question'
-                          className='lazyload'
-                        />
-                        Demander d’appui
-                      </li>
-                    </Link>
-                    <Link to='/favoris'>
-                      <li>
-                        <img
-                          src={question}
-                          alt='question'
-                          className='lazyload'
-                        />
-                        Favoris
-                      </li>
-                    </Link>
-                    <li onClick={doSignout}>
-                      <img src={logout} alt='logout' className='lazyload' />
-                      Déconnexion
-                    </li>
-                  </ul>
+                  {userMenu}
                 </div>
               </>
             )}

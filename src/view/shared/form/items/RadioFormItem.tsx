@@ -50,7 +50,7 @@ function RadioFormItem(props) {
           width: "100%",
         }}>
         {options.map((option) => (
-          <SplideSlide>
+          <SplideSlide key={option.value}>
             <label key={option.value} htmlFor={option.label}>
               <input
                 type='radio'

@@ -1,7 +1,7 @@
 import React from "react";
 
 function Publications() {
-  return <h1>Publications</h1>;
+  return <div>Publications</div>;
 }
 
 export default Publications;

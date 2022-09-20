@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import selectors from "src/modules/auth/authSelectors";
-import ListAppui from "./Appui/ListAppui";
-import ListPublication from "./Publications/ListPublication";
+import AppuiList from "src/view/Appui/list/DemandeAppuiList";
 import selectorsAppui from "src/modules/demandeAppui/list/demandeAppuiListSelectors";
 import selectorsPublication from "src/modules/publication/list/publicationListSelectors";
 import actionsPublication from "src/modules/publication/list/publicationListActions";
 import actionsAppui from "src/modules/demandeAppui/list/demandeAppuiListActions";
 import ProfileHeader from "./ProfileHeader";
 import Spinner from "../shared/Spinner";
+import PublicationList from "src/view/Publications/list/PublicationList";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -75,8 +75,8 @@ function Profile() {
           </div>
 
           <React.Fragment>
-            {activeTab === "tab1" && <ListPublication />}
-            {activeTab === "tab2" && <ListAppui />}
+            {activeTab === "tab1" && <PublicationList />}
+            {activeTab === "tab2" && <AppuiList />}
           </React.Fragment>
         </div>
       </div>

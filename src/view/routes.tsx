@@ -10,7 +10,7 @@ const navigateRoutes = [
   { path: "/A_propos", loader: () => import("src/view/Propos_nous/Propos") },
   {
     path: "/Publications",
-    loader: () => import("src/view/Profile/Publications/Publications"),
+    loader: () => import("src/view/Publications/Publications"),
   },
   { path: "/Archives", loader: () => import("src/view/Archive/Archives") },
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
@@ -33,13 +33,13 @@ const privateRoutes = [
   },
   {
     path: "/appui/new",
-    loader: () => import("src/view/Profile/Appui/Appui"),
+    loader: () => import("src/view/Appui/form/AppuiFormPage"),
     permissionRequired: permissions.demandeAppuiCreate,
     exact: true,
   },
   {
     path: "/appui/:id/edit",
-    loader: () => import("src/view/Profile/Appui/Appui"),
+    loader: () => import("src/view/Appui/form/AppuiFormPage"),
     permissionRequired: permissions.demandeAppuiEdit,
     exact: true,
   },
@@ -50,14 +50,14 @@ const privateRoutes = [
     exact: true,
   },
   {
-    path: "/suggest/new",
-    loader: () => import("src/view/Profile/Suggestions/Suggest"),
+    path: "/publication/new",
+    loader: () => import("src/view/Publications/form/PublicationFormPage"),
     permissionRequired: permissions.publicationCreate,
     exact: true,
   },
   {
-    path: "/suggest/:id/edit",
-    loader: () => import("src/view/Profile/Suggestions/Suggest"),
+    path: "/publication/:id/edit",
+    loader: () => import("src/view/Publications/form/PublicationFormPage"),
     permissionRequired: permissions.publicationEdit,
     exact: true,
   },

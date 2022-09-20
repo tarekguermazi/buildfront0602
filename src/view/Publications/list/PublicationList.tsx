@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "src/modules/publication/list/publicationListActions";
 import selectors from "src/modules/publication/list/publicationListSelectors";
-import Spinner from "../../shared/Spinner";
-import Pagination from "../../shared/table/Pagination";
+import Spinner from "src/view/shared/Spinner";
+import Pagination from "src/view/shared/table/Pagination";
 import { Link } from "react-router-dom";
 
 // ICONS
@@ -14,8 +14,9 @@ import { BsCamera, BsPencil } from "react-icons/bs";
 import { BiMicrophone, BiStats } from "react-icons/bi";
 import { AiOutlineQuestion, AiOutlineEye } from "react-icons/ai";
 import { VscGraphScatter } from "react-icons/vsc";
+import PublicationListItem from "src/view/Publications/list/PublicationListItem";
 
-function ListPublication(props) {
+function PublicationList(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.doFetch());
@@ -53,7 +54,7 @@ function ListPublication(props) {
         <div className='list__title'>
           <h2>contenu récent </h2>
         </div>
-        <Link to='/suggest/new'>
+        <Link to='/publication/new'>
           <div className='button__contenue'>Suggérer de contenu</div>
         </Link>
       </div>
@@ -101,32 +102,48 @@ function ListPublication(props) {
             {!loading &&
               rows.map((row) => (
                 <tr key={row.id}>
-                  <td> Lorem ipsum dalor</td>
-                  <td>Category</td>
+                  <td>
+                    <PublicationListItem value={row.thematique} />
+                  </td>
+                  <td>
+                    <PublicationListItem value={row.category} />
+                  </td>
                   <td>
                     <div style={IconAndType}>
                       {
                         {
-                          Texte: <GrTextAlignFull className='icon' />,
-                          audio: <BiMicrophone className='icon' />,
-                          vidéo: <IoVideocamOutline className='icon' />,
-                          "lien web": <CgLink className='icon' />,
-                          photo: <BsCamera className='icon' />,
-                          infographie: <VscGraphScatter className='icon' />,
-                          statistiques: <BiStats className='icon' />,
-                          autre: <AiOutlineQuestion className='icon' />,
+                          Texte: (
+                            <GrTextAlignFull className='icon' fontSize={20} />
+                          ),
+                          audio: (
+                            <BiMicrophone className='icon' fontSize={20} />
+                          ),
+                          vidéo: (
+                            <IoVideocamOutline className='icon' fontSize={20} />
+                          ),
+                          "lien web": <CgLink className='icon' fontSize={20} />,
+                          photo: <BsCamera className='icon' fontSize={20} />,
+                          infographie: (
+                            <VscGraphScatter className='icon' fontSize={20} />
+                          ),
+                          statistiques: (
+                            <BiStats className='icon' fontSize={20} />
+                          ),
+                          autre: (
+                            <AiOutlineQuestion className='icon' fontSize={20} />
+                          ),
                         }[row.type]
                       }
                       {row.type}
                     </div>
                   </td>
                   <td>
-                    <span className='valider'>{row.statut}</span>
+                    <span className={row.statut}>{row.statut}</span>
                   </td>
                   <td> {row.date}</td>
                   <td>
                     <div style={actionButtons}>
-                      <Link to={`/suggest/${row.id}/edit`}>
+                      <Link to={`/publication/${row.id}/edit`}>
                         <BsPencil className='icon' />
                       </Link>
                       <AiOutlineEye className='icon' />
@@ -135,17 +152,15 @@ function ListPublication(props) {
                 </tr>
               ))}
           </tbody>
-          <tfoot>
-            <Pagination
-              onChange={doChangePagination}
-              disabled={loading}
-              pagination={pagination}
-            />
-          </tfoot>
         </table>
+        <Pagination
+          onChange={doChangePagination}
+          disabled={loading}
+          pagination={pagination}
+        />
       </div>
     </>
   );
 }
 
-export default ListPublication;
+export default PublicationList;

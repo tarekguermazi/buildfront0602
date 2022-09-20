@@ -211,7 +211,7 @@
   align-items: flex-end;
 }
 
-.header__dropdown li:hover {
+.header__dropdown span:hover {
   color: var(--red);
 
   text-decoration: underline;
@@ -2946,13 +2946,31 @@ td {
   line-height: 22px;
   padding: 0 25px;
 }
+/*styling the color of status  */
 
-.valider {
+.valide,
+.en_attente,
+.archive,
+.rejete {
+  padding: 4px 20px;
+}
+.valide {
   color: var(--green);
   background: #eaf9f6;
   border: 1px solid var(--border__green);
+}
 
-  padding: 4px 20px;
+.en_attente {
+  color: #4aace0;
+  background-color: #d9edf7;
+  border: 1px solid #4aace0;
+}
+.archive {
+}
+.rejete {
+  color: #bc5351;
+  background-color: #f2dede;
+  border: 1px solid #bc5351;
 }
 
 .actions {

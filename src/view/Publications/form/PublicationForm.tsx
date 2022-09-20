@@ -24,10 +24,6 @@ const schema = yup.object().shape({
       required: false,
     }
   ),
-  //   type: yupFormSchemas.enumerator(i18n("entities.publication.fields.type"), {
-  //     required: true,
-  //     options: publicationEnumerators.type,
-  //   }),
   supports: yupFormSchemas.files(i18n("entities.publication.fields.supports"), {
     required: true,
   }),
@@ -49,13 +45,6 @@ const schema = yup.object().shape({
       required: false,
     }
   ),
-  //   statut: yupFormSchemas.enumerator(
-  //     i18n("entities.publication.fields.statut"),
-  //     {
-  //       required: true,
-  //       options: publicationEnumerators.statut,
-  //     }
-  //   ),
 });
 function PublicationForm(props) {
   const [initialValues] = useState(() => {
@@ -97,12 +86,11 @@ function PublicationForm(props) {
           {/* CATEGORIES */}
           <SelectFormItem
             name='category'
-            label='categorie'
+            label='Categorie'
             options={publicationEnumerators.categorie.map((value) => ({
               value,
               label: value,
             }))}
-            required={true}
           />
 
           <RadioFormItem

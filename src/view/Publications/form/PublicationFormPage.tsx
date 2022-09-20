@@ -6,14 +6,12 @@ import actions from "src/modules/publication/form/publicationFormActions";
 import selectors from "src/modules/publication/form/publicationFormSelectors";
 import { getHistory } from "src/modules/store";
 import { Link } from "react-router-dom";
-import * as yup from "yup";
 import PublicationForm from "./PublicationForm";
 import Spinner from "src/view/shared/Spinner";
 import FormWrapper from "../../shared/styles/FormWrapper";
-import { now } from "lodash";
 import moment from "moment";
 
-export default function Suggest(props) {
+function PublicationFormPage() {
   const [dispatched, setDispatched] = useState(false);
   const dispatch = useDispatch();
   const match = useRouteMatch();
@@ -35,7 +33,7 @@ export default function Suggest(props) {
     if (isEditing) {
       dispatch(actions.doUpdate(id, data));
     } else {
-      data.date = moment(now(), "YYYY-MM-DD");
+      data.date = moment().format("YYYY-MM-DD");
       data.statut = "en_attente";
       dispatch(actions.doCreate(data));
     }
@@ -80,3 +78,4 @@ export default function Suggest(props) {
     </div>
   );
 }
+export default PublicationFormPage;
