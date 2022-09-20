@@ -1,5 +1,6 @@
 import React from 'react'
 import BreadCrumbs from './BreadCrumbs'
+import styled from 'styled-components'
 
 export default function Header() {
     return (
@@ -14,13 +15,21 @@ export default function Header() {
             </div>
 
             {/* DESCRIPTION PLACEHOLDER */}
-            <section className='description'>
+            <DescriptionSection>
                 <p>
                     Description lorem ipsum, dolor sit amet consectetur adipisicing
                     elit. Omnis voluptates deserunt optio maxime ad vero voluptatum
                     quibusdam laborum nulla
                 </p>
-            </section>
+            </DescriptionSection>
         </div>
     )
 }
+
+const DescriptionSection = styled.section`
+    color: var(--violet);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 1rem 0;
+    text-align: justify;
+`
