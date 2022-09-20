@@ -38,6 +38,17 @@ const FilterStyles = styled.section`
     padding: 1rem;
     font-size: 1.4rem;
     color: var(--violet);
+
+    .letterLinkFilter{
+      display: inline-block;
+      padding: .2rem .2rem;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover{
+        color: red;
+      }
+    }
   }
 
 `
