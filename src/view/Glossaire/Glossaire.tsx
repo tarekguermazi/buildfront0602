@@ -1,7 +1,19 @@
 import React from "react";
+// COMPONENTS
+import Header from "./Header";
+import Filter from "./Filter";
+import GloassaireList from "./GloassaireList";
 
 function Glossaire() {
-  return <h1>Glossaire</h1>;
+  return (
+    <div className='app__contenu'>
+      <section className='contenu'>
+        <Header />
+        <Filter />
+        <GloassaireList />
+      </section>
+    </div>
+  );
 }
 
 export default Glossaire;
