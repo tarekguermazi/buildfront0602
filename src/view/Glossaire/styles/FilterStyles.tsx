@@ -50,25 +50,6 @@ const FilterStyles = styled.section`
       }
     }
 
-    .tabMessage{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .icon{
-        font-size: 2rem;
-        color: var(--violet);
-      }
-
-      .loadingIcon{
-        animation: spin infinite 2s ease-in-out;
-      }
-
-      span{
-        margin-top: 1rem;
-      }
-    }
-
     .categoryLink{
       font-size: 1rem;
       text-transform: uppercase;
@@ -83,12 +64,6 @@ const FilterStyles = styled.section`
       }
     }
   }
-
-  @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
-  }
-
 `
 
 export default FilterStyles

@@ -3,9 +3,9 @@ import FilterStyles from './styles/FilterStyles'
 import { Link } from 'react-scroll'
 import GlossaireService from 'src/modules/Glossaire/GlossaireService';
 
-// ICONS
-import { CgSmileNone } from 'react-icons/cg'
-import { MdOutlineHourglassEmpty } from 'react-icons/md'
+// COMPONENTS
+import LoadingData from './shared/LoadingData';
+import NoDataFound from './shared/NoDataFound';
 
 export default function Filter() {
 
@@ -99,17 +99,11 @@ export default function Filter() {
                                                     }
                                                 </section>
                                                 :
-                                                <p className='tabMessage'>
-                                                    <CgSmileNone className='icon' />
-                                                    <span>Aucune catégorie trouvée</span>
-                                                </p>
+                                                <NoDataFound />
                                         }
                                     </div>
                                     :
-                                    <p className='tabMessage'>
-                                        <MdOutlineHourglassEmpty className='icon loadingIcon' />
-                                        <span>Chargement des catégories</span>
-                                    </p>
+                                    <LoadingData />
                             }
                         </div>
                     }
