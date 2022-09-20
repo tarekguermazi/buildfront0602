@@ -8,7 +8,7 @@ export default function LoadingData() {
     return (
         <TabMessage>
             <MdOutlineHourglassEmpty className='icon loadingIcon' />
-            <span>Chargement des catégories</span>
+            <span>Chargement des données</span>
         </TabMessage>
     )
 }

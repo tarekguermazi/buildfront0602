@@ -9,7 +9,7 @@ export default function NoDataFound() {
     return (
         <TabMessage>
             <CgSmileNone className='icon' />
-            <span>Aucune catégorie trouvée</span>
+            <span>Aucune donnée disponible</span>
         </TabMessage>
     )
 }
