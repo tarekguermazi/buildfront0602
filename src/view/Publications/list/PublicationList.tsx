@@ -40,12 +40,8 @@ function PublicationList(props) {
     justifyContent: "space-between",
   };
   const actionButtons = {
-    width: "60px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    color: "#A3A3A9",
     fontSize: "1.2rem",
+    color: "#ffff",
   };
 
   return (
@@ -141,13 +137,10 @@ function PublicationList(props) {
                     <span className={row.statut}>{row.statut}</span>
                   </td>
                   <td> {row.date}</td>
-                  <td>
-                    <div style={actionButtons}>
-                      <Link to={`/publication/${row.id}/edit`}>
-                        <BsPencil className='icon' />
-                      </Link>
-                      <AiOutlineEye className='icon' />
-                    </div>
+                  <td style={actionButtons}>
+                    <Link to={`/publication/${row.id}/edit`}>
+                      <BsPencil className='icon' />
+                    </Link>
                   </td>
                 </tr>
               ))}

@@ -27,8 +27,14 @@ const navigateRoutes = [
 const privateRoutes = [
   {
     path: "/profile",
-    loader: () => import("src/view/Profile/Profile"),
+    loader: () => import("src/view/auth/Profile"),
     permissionRequired: permissions.userRead,
+    exact: true,
+  },
+  {
+    path: "/profile/update",
+    loader: () => import("src/view/auth/ProfileForm"),
+    permissionRequired: permissions.userEdit,
     exact: true,
   },
   {
@@ -43,12 +49,7 @@ const privateRoutes = [
     permissionRequired: permissions.demandeAppuiEdit,
     exact: true,
   },
-  {
-    path: "/profile/update",
-    loader: () => import("src/view/Profile/ProfileForm"),
-    permissionRequired: permissions.userEdit,
-    exact: true,
-  },
+
   {
     path: "/publication/new",
     loader: () => import("src/view/Publications/form/PublicationFormPage"),

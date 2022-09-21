@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AuthWrapper from "../Profile/styles/AuthWrapper";
+import AuthWrapper from "./styles/AuthWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import actions from "src/modules/auth/authActions";

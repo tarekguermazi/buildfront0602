@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import AuthWrapper from "../Profile/styles/AuthWrapper";
+import AuthWrapper from "./styles/AuthWrapper";
 import { Link } from "react-router-dom";
 import actions from "src/modules/auth/authActions";
 import selectors from "src/modules/auth/authSelectors";
