@@ -1,6 +1,7 @@
 import React from "react";
 import { emptyImage } from "../../assets/images";
 import { Link } from "react-router-dom";
+import { i18n } from "../../i18n";
 function ProfileHeader(props) {
   const { currentUser, countAppui, countPublication, Image } = props;
   return (
@@ -24,24 +25,25 @@ function ProfileHeader(props) {
           <div>
             <div className='title__profile'>{currentUser.fullName}</div>
             <div className='title__description'>
-              {currentUser.occupation}, {currentUser.pays}
+              {i18n(`user.enumerators.occupation.${currentUser.occupation}`)},
+              {i18n(`user.enumerators.pays.${currentUser.pays}`)}
             </div>
           </div>
           <Link to='/profile/update'>
-            <div className='modify'>Modifier</div>
+            <div className='modify'>{i18n("common.edit")}</div>
           </Link>
         </div>
         <div className='description__bottom'>
           <div>
             <div className='description__number'>{countPublication}</div>
-            Contenus
+            {i18n("entities.publication.label")}
           </div>
           <div>
             <div className='description__number'>0</div> Discussions
           </div>
           <div>
-            <div className='description__number'>{countAppui}</div> Demandes
-            d’appui
+            <div className='description__number'>{countAppui}</div>
+            {i18n("entities.demandeAppui.label")}
           </div>
         </div>
       </div>

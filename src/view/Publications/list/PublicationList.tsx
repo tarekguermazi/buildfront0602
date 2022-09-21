@@ -15,6 +15,7 @@ import { BiMicrophone, BiStats } from "react-icons/bi";
 import { AiOutlineQuestion, AiOutlineEye } from "react-icons/ai";
 import { VscGraphScatter } from "react-icons/vsc";
 import PublicationListItem from "src/view/Publications/list/PublicationListItem";
+import { i18n } from "src/i18n";
 
 function PublicationList(props) {
   const dispatch = useDispatch();
@@ -70,11 +71,11 @@ function PublicationList(props) {
         <table>
           <thead>
             <tr>
-              <td>Titre</td>
-              <td>Catégorie</td>
-              <td>Type</td>
-              <td>Statut</td>
-              <td>Date</td>
+              <td>{i18n("entities.publication.fields.thematique")}</td>
+              <td>{i18n("entities.publication.fields.categorie")}</td>
+              <td>{i18n("entities.publication.fields.type")}</td>
+              <td>{i18n("entities.publication.fields.statut")}</td>
+              <td>{i18n("entities.publication.fields.date")}</td>
               <td></td>
             </tr>
           </thead>
@@ -90,7 +91,7 @@ function PublicationList(props) {
               <tr>
                 <td colSpan={100}>
                   <div className='d-flex justify-content-center'>
-                    {"Aucune donnée"}
+                    {i18n("table.noData")}
                   </div>
                 </td>
               </tr>
@@ -134,7 +135,11 @@ function PublicationList(props) {
                     </div>
                   </td>
                   <td>
-                    <span className={row.statut}>{row.statut}</span>
+                    <span className={row.statut}>
+                      {i18n(
+                        `entities.publication.enumerators.statut.${row.statut}`
+                      )}
+                    </span>
                   </td>
                   <td> {row.date}</td>
                   <td style={actionButtons}>

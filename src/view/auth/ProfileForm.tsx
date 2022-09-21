@@ -17,28 +17,30 @@ import userEnumerators from "../user/userEnumerators";
 import { i18n } from "src/i18n";
 
 const schema = yup.object().shape({
-  firstName: yupFormSchemas.string("Mot de passe", {
-    required: true,
+  firstName: yupFormSchemas.string(i18n("user.fields.firstName"), {
+    max: 80,
   }),
-  lastName: yupFormSchemas.string("Mot de passe", {
-    required: true,
+  lastName: yupFormSchemas.string(i18n("user.fields.lastName"), {
+    max: 175,
   }),
-  phoneNumber: yupFormSchemas.string("Numéro de téléphone", {
+  phoneNumber: yupFormSchemas.string(i18n("user.fields.phoneNumber"), {
     matches: /^[0-9]/,
     max: 24,
-    required: true,
   }),
-  occupation: yupFormSchemas.string("Occupation", {
-    max: 175,
-    required: true,
-  }),
-  regionTunisie: yupFormSchemas.string("Region", {
+  pays: yupFormSchemas.string(i18n("user.fields.pays"), {
     max: 175,
   }),
-  region: yupFormSchemas.string("Region", {
+  occupation: yupFormSchemas.string(i18n("user.fields.occupation"), {
     max: 175,
   }),
-  avatars: yupFormSchemas.images("Avatar", {
+  regionTunisie: yupFormSchemas.string(i18n("user.fields.region"), {
+    max: 175,
+  }),
+  region: yupFormSchemas.string(i18n("user.fields.region"), {
+    max: 175,
+  }),
+
+  avatars: yupFormSchemas.images(i18n("user.fields.avatars"), {
     max: 1,
   }),
 });
@@ -102,7 +104,7 @@ function ProfileForm() {
                   <div className='container__form'>
                     <InputFormItem
                       name='firstName'
-                      label={i18n("Nom")}
+                      label={i18n("user.fields.firstName")}
                       placeholder='Nom'
                       autoComplete='firstName'
                       autoFocus
@@ -110,7 +112,7 @@ function ProfileForm() {
 
                     <InputFormItem
                       name='lastName'
-                      label='Prénom'
+                      label={i18n("user.fields.lastName")}
                       placeholder='Prénom'
                       autoComplete='Prénom'
                       autoFocus
@@ -118,40 +120,42 @@ function ProfileForm() {
 
                     <SelectFormItem
                       name={"pays"}
-                      label={"pays"}
+                      label={i18n("user.fields.pays")}
                       options={userEnumerators.pays.map((value) => ({
                         value,
-                        label: value,
+                        label: i18n(`user.enumerators.pays.${value}`),
                       }))}
                     />
                     {form.watch().pays && form.watch().pays === "Tunisia" && (
                       <SelectFormItem
                         name={"region"}
-                        label='Region'
+                        label={i18n("user.fields.region")}
                         options={userEnumerators.regionTunisie.map((value) => ({
                           value,
-                          label: value,
+                          label: i18n(`user.enumerators.region.${value}`),
                         }))}
                       />
                     )}
                     <SelectFormItem
                       name={"occupation"}
-                      label='Occupation'
+                      label={i18n("user.fields.occupation")}
                       options={userEnumerators.occupation.map((value) => ({
                         value,
-                        label: value,
+                        label: i18n(`user.enumerators.occupation.${value}`),
                       }))}
                     />
 
                     <InputFormItem
                       name='phoneNumber'
-                      label={"phone Number"}
+                      label={i18n("user.fields.phoneNumber")}
                       autoComplete='phoneNumber'
                       autoFocus
                     />
                     <div className='form__group'>
                       <div className={"input-group"}>
-                        <label htmlFor='email'>email</label>
+                        <label htmlFor='email'>
+                          {i18n("user.fields.email")}
+                        </label>
 
                         <input
                           type='text'
@@ -177,14 +181,14 @@ function ProfileForm() {
                         onClick={onReset}
                         type='button'
                         disabled={loading}>
-                        Annuler
+                        {i18n("common.reset")}
                       </button>
                       <button
                         className='form__button'
                         onClick={form.handleSubmit(onSubmit)}
                         disabled={loading}>
                         <ButtonIcon loading={loading} />
-                        Valider
+                        {i18n("common.save")}
                       </button>
                     </div>
                   </div>
