@@ -7,4 +7,10 @@ export default class GlossaireService {
         const response = await authAxios.get(`/tenant/${tenantId}/category-glossaire`, {});
         return response.data;
     }
+    // fetchin list of glossaire
+    static async getGloassaireList() {
+        const tenantId = AuthCurrentTenant.get();
+        const response = await authAxios.get(`/tenant/${tenantId}/glossaire`, {});
+        return response.data;
+    }
 }
