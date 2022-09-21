@@ -8,7 +8,8 @@ const FormWrapper = styled.div`
     display: grid;
     row-gap: 25px;
   }
-  input[type="text"] {
+  input[type="text"],
+  input[type="password"] {
     width: 100%;
     border: 1px solid #bdbdbd;
     height: 50px;
@@ -70,6 +71,11 @@ const FormWrapper = styled.div`
     cursor: pointer;
     position: absolute;
     left: 0;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
   }
   .Login__container {
     padding-top: 32px;

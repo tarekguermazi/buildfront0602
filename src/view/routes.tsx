@@ -38,6 +38,12 @@ const privateRoutes = [
     exact: true,
   },
   {
+    path: "/password-change",
+    loader: () => import("src/view/auth/PasswordChangeFormPage"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
     path: "/appui/new",
     loader: () => import("src/view/Appui/form/AppuiFormPage"),
     permissionRequired: permissions.demandeAppuiCreate,

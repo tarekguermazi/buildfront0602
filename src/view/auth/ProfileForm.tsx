@@ -16,8 +16,6 @@ import SelectFormItem from "../shared/form/items/SelectFormItem";
 import userEnumerators from "../user/userEnumerators";
 import { i18n } from "src/i18n";
 
-
-
 const schema = yup.object().shape({
   firstName: yupFormSchemas.string("Mot de passe", {
     required: true,
@@ -168,7 +166,7 @@ function ProfileForm() {
 
                     <div className='form__oublier'>
                       <div className='oublier'>
-                        <Link to='/auth/forgot-password' className='reset'>
+                        <Link to='/password-change' className='reset'>
                           Changer mot de passe
                         </Link>
                       </div>
