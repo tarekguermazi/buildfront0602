@@ -1,16 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import GlossaireService from 'src/modules/Glossaire/GlossaireService';
+
 // COMPONENTS
 import Header from "./Header";
 import Filter from "./Filter";
 import GloassaireList from "./GloassaireList";
+import LoadingData from './shared/LoadingData';
+import NoDataFound from './shared/NoDataFound';
 
 function Glossaire() {
+
+  // state to hold a copy of the glossaire list (with all data)
+  const [glossaireList, setGlossaireList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // FETCHING initial data from DB
+  const getGlossaire = () => {
+    GlossaireService.getGloassaireList()
+      .then(gl => {
+        console.log("USEEFFECT 00", gl.rows);
+        setGlossaireList(gl.rows);
+        setIsLoading(false);
+      })
+  }
+  useEffect(() => {
+    getGlossaire();
+  }, []);
+
+
   return (
     <div className='app__contenu'>
       <section className='contenu'>
         <Header />
         <Filter />
-        <GloassaireList />
+
+        {
+          isLoading
+            ?
+            <LoadingData />
+            :
+            <section>
+              {
+                !glossaireList.length
+                  ?
+                  <NoDataFound />
+                  :
+                  <GloassaireList data={glossaireList} />
+              }
+            </section>
+        }
       </section>
     </div>
   );
