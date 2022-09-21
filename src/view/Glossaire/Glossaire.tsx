@@ -18,7 +18,6 @@ function Glossaire() {
   const getGlossaire = () => {
     GlossaireService.getGloassaireList()
       .then(gl => {
-        console.log("USEEFFECT 00", gl.rows);
         setGlossaireList(gl.rows);
         setIsLoading(false);
       })

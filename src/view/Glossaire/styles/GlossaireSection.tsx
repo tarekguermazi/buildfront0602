@@ -20,6 +20,29 @@ const GlossaireSection = styled.section`
             }
         }
     }
+
+    .sectionBody{
+        .glossaireLink{
+            display: block;
+            width: auto;
+            height: 30px;
+            padding: .4rem 0;
+            margin: 1rem 0;
+
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+
+            background-color: transparent;
+            border: none;
+            color: var(--violet);
+
+            &:hover{
+                color: red;
+                border-bottom: 1px solid red;
+            }
+        }
+    }
 `
 
 export default GlossaireSection;
