@@ -6,7 +6,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoVideocamOutline } from "react-icons/io5";
-import { CgLink, CgSoftwareUpload } from "react-icons/cg";
+import { CgLink } from "react-icons/cg";
 import { BsCamera } from "react-icons/bs";
 import { BiMicrophone, BiStats } from "react-icons/bi";
 import { AiOutlineQuestion } from "react-icons/ai";
