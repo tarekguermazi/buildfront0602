@@ -3286,11 +3286,11 @@ span {
 .mainContent input[type="radio"]:checked + .TypeCard {
   border: 2px solid var(--violet);
 }
-.mainContent input[type="radio"] + .TypeCard i {
+.mainContent input[type="radio"] + .TypeCard .icon {
   font-size: 24px;
 }
 
-.mainContent input[type="radio"]:checked + .TypeCard i {
+.mainContent input[type="radio"]:checked + .TypeCard .icon {
   color: red;
 }
 
@@ -3400,4 +3400,34 @@ button.splide__arrow--next {
 
 button.splide__arrow--prev {
   left: -1em;
+}
+
+.file__show > a {
+  color: var(--violet);
+}
+
+.css-2b097c-container {
+  width: 100%;
+}
+
+/* Styling the select categoryPublication */
+
+#react-select3-option:hover .css-9gakcf-option {
+  background-color: var(--red);
+}
+.css-9gakcf-option,
+.css-1n7v3ny-option {
+  background-color: var(--white) !important;
+  color: var(--violet) !important;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 21px;
+}
+.css-9gakcf-option:hover {
+  background-color: var(--hover__select) !important;
+}
+
+/* styling the normal select  */
+.css-1n7v3ny-option:hover {
+  background-color: var(--hover__select) !important;
 }

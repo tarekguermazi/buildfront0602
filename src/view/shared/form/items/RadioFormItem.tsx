@@ -4,6 +4,13 @@ import FormErrors from "src/view/shared/form/formErrors";
 import { useFormContext } from "react-hook-form";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { GrTextAlignFull } from "react-icons/gr";
+import { IoVideocamOutline } from "react-icons/io5";
+import { CgLink, CgSoftwareUpload } from "react-icons/cg";
+import { BsCamera } from "react-icons/bs";
+import { BiMicrophone, BiStats } from "react-icons/bi";
+import { AiOutlineQuestion } from "react-icons/ai";
+import { VscGraphScatter } from "react-icons/vsc";
 function RadioFormItem(props) {
   const {
     label,
@@ -12,8 +19,6 @@ function RadioFormItem(props) {
     options,
     externalErrorMessage,
     required,
-    IconName,
-    iconType,
     className,
   } = props;
 
@@ -68,8 +73,20 @@ function RadioFormItem(props) {
                 }}
               />
               <div className='TypeCard'>
-                <i className='fa-thin fa-camera'></i>
-                {/* <IconName className='icon' /> */}
+                {
+                  {
+                    Texte: <GrTextAlignFull className='icon' fontSize={20} />,
+                    audio: <BiMicrophone className='icon' fontSize={20} />,
+                    vidéo: <IoVideocamOutline className='icon' fontSize={20} />,
+                    "lien web": <CgLink className='icon' fontSize={20} />,
+                    photo: <BsCamera className='icon' fontSize={20} />,
+                    infographie: (
+                      <VscGraphScatter className='icon' fontSize={20} />
+                    ),
+                    statistiques: <BiStats className='icon' fontSize={20} />,
+                    autre: <AiOutlineQuestion className='icon' fontSize={20} />,
+                  }[option.label]
+                }
                 <span>{option.label}</span>
               </div>
             </label>

@@ -154,7 +154,6 @@ function SelectFormItem(props) {
         isMulti={mode === "multiple"}
         placeholder={placeholder || ""}
         isClearable={isClearable}
-        styles={controlStyles}
         loadingMessage={() => i18n("autocomplete.loading")}
         noOptionsMessage={() => i18n("autocomplete.noOptions")}
       />

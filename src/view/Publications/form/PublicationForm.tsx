@@ -5,13 +5,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 import { i18n } from "src/i18n";
 import * as yup from "yup";
-import FilesFormItem from "../../shared/form/items/FilesFormItem";
-import Storage from "../../../security/storage";
-import TextAreaFormItem from "../../shared/form/items/TextAreaFormItem";
-import ButtonIcon from "../../shared/ButtonIcon";
-import SelectFormItem from "../../shared/form/items/SelectFormItem";
-import publicationEnumerators from "../../../modules/publication/publicationEnumerators";
-import RadioFormItem from "../../shared/form/items/RadioFormItem";
+import FilesFormItem from "src/view/shared/form/items/FilesFormItem";
+import Storage from "src/security/storage";
+import TextAreaFormItem from "src/view//shared/form/items/TextAreaFormItem";
+import ButtonIcon from "src/view/shared/ButtonIcon";
+import publicationEnumerators from "src/modules/publication/publicationEnumerators";
+import RadioFormItem from "src/view/shared/form/items/RadioFormItem";
+import CategoryPublicationAutocompleteFormItem from "../autocomplete/PublicationAutocompleteFormItem";
 
 const schema = yup.object().shape({
   thematique: yupFormSchemas.relationToOne(
@@ -84,13 +84,11 @@ function PublicationForm(props) {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className='container__form'>
           {/* CATEGORIES */}
-          <SelectFormItem
+          <CategoryPublicationAutocompleteFormItem
             name='category'
-            label='Categorie'
-            options={publicationEnumerators.categorie.map((value) => ({
-              value,
-              label: value,
-            }))}
+            label={"Categorie"}
+            required={false}
+            showCreate={!props.modal}
           />
 
           <RadioFormItem

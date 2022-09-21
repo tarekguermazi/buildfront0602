@@ -171,7 +171,7 @@ const PaginationWrapper = styled.div`
     text-align: center;
   }
   .rc-pagination-prev a:after {
-    content: "‹ Precedent";
+    content: " ‹ Precedent";
     display: block;
     font-size: 14px;
     font-family: "Proxima Nova";
@@ -182,7 +182,7 @@ const PaginationWrapper = styled.div`
     color: var(--vieolet);
   }
   .rc-pagination-next a:after {
-    content: "Suivant ›";
+    content: " Suivant ›";
     display: block;
     font-size: 14px;
     font-family: "Proxima Nova";
