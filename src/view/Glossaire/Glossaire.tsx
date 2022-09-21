@@ -8,6 +8,9 @@ import GloassaireList from "./GloassaireList";
 import LoadingData from './shared/LoadingData';
 import NoDataFound from './shared/NoDataFound';
 
+// Packages
+var arraySort = require('array-sort');
+
 function Glossaire() {
 
   // state to hold a copy of the glossaire list (with all data)
@@ -44,7 +47,7 @@ function Glossaire() {
                   ?
                   <NoDataFound />
                   :
-                  <GloassaireList data={glossaireList} />
+                  <GloassaireList data={arraySort(glossaireList, 'nomFR')} />
               }
             </section>
         }
