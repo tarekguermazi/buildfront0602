@@ -10,6 +10,7 @@
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
     "@types/react-redux": "7.1.15",
+    "array-sort": "^1.0.0",
     "axios": "0.21.1",
     "blurhash": "^1.1.5",
     "bootstrap": "4.5.3",
