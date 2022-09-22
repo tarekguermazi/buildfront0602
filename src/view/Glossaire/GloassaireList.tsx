@@ -9,14 +9,16 @@ export default function GloassaireList({ data, criteria }) {
     const [isShowing, setIsShowing] = useState(false)
 
     Modal.setAppElement('#root');
-    const [modalData, setModalData] = useState({})
+    const [modalData, setModalData] = useState([{ nomFR: '', definitionFR: '' }])
     const handleClick = (CAT, ID) => {
         setIsShowing(true);
         if (criteria === 'category') {
             const modalData = data[CAT].filter(glossaireObject => {
                 return glossaireObject.id === ID;
             });
-            setModalData(modalData);
+            if (modalData.length > 0) {
+                setModalData(modalData);
+            }
         }
     }
 
