@@ -9,6 +9,16 @@ export default function GloassaireList({ data, criteria }) {
     const [isShowing, setIsShowing] = useState(false)
 
     Modal.setAppElement('#root');
+    const [modalData, setModalData] = useState({})
+    const handleClick = (CAT, ID) => {
+        setIsShowing(true);
+        if (criteria === 'category') {
+            const modalData = data[CAT].filter(glossaireObject => {
+                return glossaireObject.id === ID;
+            });
+            setModalData(modalData);
+        }
+    }
 
     return (
         <div>
@@ -36,7 +46,7 @@ export default function GloassaireList({ data, criteria }) {
                                                         <section key={GLOSS.id}>
                                                             <button
                                                                 className='glossaireLink'
-                                                                onClick={() => setIsShowing(true)}
+                                                                onClick={() => handleClick(CAT, GLOSS.id)}
                                                             >
                                                                 {GLOSS.nomFR}
                                                             </button>
@@ -59,9 +69,9 @@ export default function GloassaireList({ data, criteria }) {
                                                                     }
                                                                 }}
                                                             >
-                                                                <ModalHeader title={GLOSS.nomFR} setIsShowing={setIsShowing} />
+                                                                <ModalHeader title={modalData[0]['nomFR']} setIsShowing={setIsShowing} />
                                                                 <ModalLabel label={CAT} />
-                                                                <p>{GLOSS.definitionFR}</p>
+                                                                <p>{modalData[0]['definitionFR']}</p>
                                                             </Modal>
                                                         </section>
                                                     )
