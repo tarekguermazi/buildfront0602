@@ -9,7 +9,6 @@ import LoadingData from './shared/LoadingData';
 import NoDataFound from './shared/NoDataFound';
 
 // Packages
-var arraySort = require('array-sort');
 var groupArray = require('group-array');
 
 function Glossaire() {
@@ -58,7 +57,7 @@ function Glossaire() {
                           data={groupArray(glossaireList, 'categorie.titleFR')}
                           criteria='category' />
                         :
-                        <GloassaireList data={arraySort(glossaireList, 'nomFR')} criteria='letter' />
+                        <GloassaireList data={glossaireList} criteria='letter' />
                     }
                   </>
               }

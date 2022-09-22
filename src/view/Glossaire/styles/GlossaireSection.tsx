@@ -14,7 +14,7 @@ const GlossaireSection = styled.section`
                 content: '';
                 display: block;
                 width: 100%;
-                height: 2px;
+                height: 1px;
                 background-color: red;
                 margin: 1rem 0;
             }
