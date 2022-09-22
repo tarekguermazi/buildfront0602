@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import GlossaireSection from "./styles/GlossaireSection";
+
+// MODAL
 import Modal from 'react-modal'
 import ModalHeader from './Modal/ModalHeader';
 import ModalLabel from './Modal/ModalLabel';
@@ -9,7 +11,7 @@ export default function GloassaireList({ data, criteria }) {
     const [isShowing, setIsShowing] = useState(false)
 
     Modal.setAppElement('#root');
-    const [modalData, setModalData] = useState([{ nomFR: '', definitionFR: '' }])
+    const [modalData, setModalData] = useState([{ nomFR: '', definitionFR: '', categorie: { titleFR: '' } }])
     const handleClick = (CAT, ID) => {
         setIsShowing(true);
         if (criteria === 'category') {
@@ -84,6 +86,16 @@ export default function GloassaireList({ data, criteria }) {
                                 )
                             })
                         }
+                    </div>
+                }
+
+                {/* RENDERING DATA BASED ON FILTER */}
+
+                {
+                    // ============ LETTER TAB ============
+                    criteria !== "category" &&
+                    <div>
+                        <h1>LETTER DATA HERE !!</h1>
                     </div>
                 }
             </section>

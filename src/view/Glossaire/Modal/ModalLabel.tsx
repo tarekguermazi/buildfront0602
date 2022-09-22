@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// ICONS
-import { VscChromeClose } from 'react-icons/vsc'
-
 export default function ModalLabel({ label }) {
     return (
         <Label>{label}</Label>
