@@ -7,14 +7,16 @@ import GlossaireService from 'src/modules/Glossaire/GlossaireService';
 import LoadingData from './shared/LoadingData';
 import NoDataFound from './shared/NoDataFound';
 
-export default function Filter() {
+export default function Filter({ setGroupByCategory }) {
 
     // current tab
     const [activeTab, setActiveTab] = useState(true);
     const toggleTabOnClick = _ => {
         setActiveTab(current => !current);
+        setGroupByCategory(false);
         if (activeTab) {
             setGetCategoriesTrigger(true);
+            setGroupByCategory(true);
         }
     }
 
@@ -93,7 +95,16 @@ export default function Filter() {
                                                     {
                                                         glossaireCategories.map(gc => {
                                                             return (
-                                                                <button key={gc['id']} className='categoryLink'>{gc['titleFR']}</button>
+                                                                <Link
+                                                                    to={gc['titleFR']}
+                                                                    smooth={true}
+                                                                    duration={300}
+                                                                    key={gc['id']}
+                                                                    className="categoryLink"
+                                                                >
+                                                                    {gc['titleFR']}
+                                                                </Link>
+
                                                             )
                                                         })
                                                     }

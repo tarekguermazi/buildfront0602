@@ -1,32 +1,47 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import GlossaireSection from "./styles/GlossaireSection";
 
-export default function GloassaireList({ data }) {
-
-    // state to hold minified version of glossaire list (id, name) (less api calls)
-    const initialState = { id: '', name: '' };
-    const [sortedData, setSortedData] = useState([initialState]);
-
-    useEffect(() => {
-        console.log("data fetched from parent component :: ", data);
-
-    }, [])
-
+export default function GloassaireList({ data, criteria }) {
+    const categoriesList: any = Object.keys(data);
 
     return (
         <div>
             {/* LIST OF ENTRIES */}
             <section className="listOfEntries">
-                <GlossaireSection>
-                    <div className="sectionHeader">
-                        <span>LETTER_GOES_HERE</span>
+                {
+                    criteria === "category" &&
+                    <div>
+                        {
+                            categoriesList.map(CAT => {
+                                const glossList = data[categoriesList];
+                                return (
+                                    <GlossaireSection
+                                        key={CAT}
+                                        id={CAT}
+                                    >
+                                        <div className="sectionHeader">
+                                            <span>{CAT}</span>
+                                        </div>
+                                        <section className="sectionBody">
+                                            {
+                                                glossList.map(GLOSS => {
+                                                    return (
+                                                        <button
+                                                            className='glossaireLink'
+                                                            key={GLOSS.id}
+                                                        >
+                                                            {GLOSS.nomFR}
+                                                        </button>
+                                                    )
+                                                })
+                                            }
+                                        </section>
+                                    </GlossaireSection>
+                                )
+                            })
+                        }
                     </div>
-                    <section className="sectionBody">
-                        <button className='glossaireLink'>GLOSS_NAME_HERE</button>
-                        <button className='glossaireLink'>GLOSS_NAME_HERE</button>
-                        <button className='glossaireLink'>GLOSS_NAME_HERE</button>
-                    </section>
-                </GlossaireSection>
+                }
             </section>
         </div>
     )

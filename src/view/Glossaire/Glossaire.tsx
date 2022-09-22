@@ -10,6 +10,7 @@ import NoDataFound from './shared/NoDataFound';
 
 // Packages
 var arraySort = require('array-sort');
+var groupArray = require('group-array');
 
 function Glossaire() {
 
@@ -29,13 +30,15 @@ function Glossaire() {
     getGlossaire();
   }, []);
 
+  // passing grouped data (category)
+  const [groupByCategory, setGroupByCategory] = useState(false);
+
 
   return (
     <div className='app__contenu'>
       <section className='contenu'>
         <Header />
-        <Filter />
-
+        <Filter setGroupByCategory={setGroupByCategory} />
         {
           isLoading
             ?
@@ -47,7 +50,17 @@ function Glossaire() {
                   ?
                   <NoDataFound />
                   :
-                  <GloassaireList data={arraySort(glossaireList, 'nomFR')} />
+                  <>
+                    {
+                      groupByCategory
+                        ?
+                        <GloassaireList
+                          data={groupArray(glossaireList, 'categorie.titleFR')}
+                          criteria='category' />
+                        :
+                        <GloassaireList data={arraySort(glossaireList, 'nomFR')} criteria='letter' />
+                    }
+                  </>
               }
             </section>
         }
