@@ -85,6 +85,7 @@ const emptyPermissionsRoutes = [
     loader: () => import("src/view/auth/EmptyPermissionsPage"),
   },
 ].filter(Boolean);
+
 const simpleRoutes = [
   {
     path: "/auth/forgot-password",

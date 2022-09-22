@@ -28,7 +28,6 @@ function PublicationList(props) {
   const rows = useSelector(selectors.selectRows);
   const hasRows = useSelector(selectors.selectHasRows);
   const count = useSelector(selectors.selectCount);
-
   const pagination = useSelector(selectors.selectPagination);
   const doChangePagination = (pagination) => {
     dispatch(actions.doChangePaginationAndSort(pagination, {}));
