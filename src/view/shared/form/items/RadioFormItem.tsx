@@ -11,6 +11,8 @@ import { BsCamera } from "react-icons/bs";
 import { BiMicrophone, BiStats } from "react-icons/bi";
 import { AiOutlineQuestion } from "react-icons/ai";
 import { VscGraphScatter } from "react-icons/vsc";
+import { i18n } from "src/i18n";
+
 function RadioFormItem(props) {
   const {
     label,
@@ -87,7 +89,11 @@ function RadioFormItem(props) {
                     autre: <AiOutlineQuestion className='icon' fontSize={20} />,
                   }[option.label]
                 }
-                <span>{option.label}</span>
+                <span>
+                  {i18n(
+                    `entities.publication.enumerators.type.${option.label}`
+                  )}
+                </span>
               </div>
             </label>
           </SplideSlide>

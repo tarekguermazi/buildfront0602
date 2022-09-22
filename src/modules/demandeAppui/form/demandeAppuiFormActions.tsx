@@ -81,7 +81,7 @@ const demandeAppuiFormActions = {
       dispatch({
         type: demandeAppuiFormActions.UPDATE_SUCCESS,
       });
-      Message.success("Appel enregistré avec succès");
+      Message.success(i18n("entities.demandeAppui.update.success"));
       getHistory().push("/profile");
     } catch (error) {
       Errors.handle(error);

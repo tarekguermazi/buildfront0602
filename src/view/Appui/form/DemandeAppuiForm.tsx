@@ -18,9 +18,10 @@ const schema = yup.object().shape({
       options: demandeAppuiEnumerators.gouvernorat,
     }
   ),
-  descriptionFR: yupFormSchemas.string(i18n("Description"), {
-    required: true,
-  }),
+  descriptionFR: yupFormSchemas.string(
+    i18n("entities.demandeAppui.fields.description"),
+    {}
+  ),
   supports: yupFormSchemas.files(
     i18n("entities.demandeAppui.fields.supports"),
     {}
@@ -88,19 +89,19 @@ function DemandeAppuiForm(props) {
           </div>
           <InputFormItem
             name='email'
-            label={"Email"}
+            label={i18n("user.fields.email")}
             autoComplete='email'
             autoFocus
           />
           <InputFormItem
             name='phoneNumber'
-            label={"phone Number"}
+            label={i18n("user.fields.phoneNumber")}
             autoComplete='phoneNumber'
             autoFocus
           />
           <FilesFormItem
             name='supports'
-            label='pièces jointes.'
+            label={i18n("entities.demandeAppui.fields.supports")}
             required={false}
             storage={Storage.values.demandeAppuiSupports}
             max={undefined}
@@ -108,7 +109,7 @@ function DemandeAppuiForm(props) {
           />
           <TextAreaFormItem
             name='descriptionFR'
-            label='Description'
+            label={i18n("entities.demandeAppui.fields.description")}
             required={false}
           />
           <div className='item__button'>
@@ -117,14 +118,14 @@ function DemandeAppuiForm(props) {
               onClick={onReset}
               type='button'
               disabled={saveLoading}>
-              Annuler
+              {i18n("common.reset")}
             </button>
             <button
               className='form__button'
               onClick={form.handleSubmit(onSubmit)}
               disabled={saveLoading}>
               <ButtonIcon loading={saveLoading} />
-              Valider
+              {i18n("common.save")}
             </button>
           </div>
         </div>

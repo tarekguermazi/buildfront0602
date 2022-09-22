@@ -86,14 +86,14 @@ function PublicationForm(props) {
           {/* CATEGORIES */}
           <CategoryPublicationAutocompleteFormItem
             name='category'
-            label={"Categorie"}
+            label={i18n("entities.publication.fields.categorie")}
             required={false}
             showCreate={!props.modal}
           />
 
           <RadioFormItem
             name='type'
-            label='Type de contenu'
+            label={i18n("entities.publication.fields.type")}
             options={publicationEnumerators.type.map((value) => ({
               value,
               label: value,
@@ -103,7 +103,7 @@ function PublicationForm(props) {
 
           <FilesFormItem
             name='supports'
-            label='supports'
+            label={i18n("entities.publication.fields.supports")}
             required={true}
             storage={Storage.values.publicationSupports}
             max={undefined}
@@ -112,7 +112,7 @@ function PublicationForm(props) {
 
           <TextAreaFormItem
             name='descriptionFR'
-            label='Description'
+            label={i18n("entities.demandeAppui.fields.description")}
             required={false}
           />
           <div className='item__button'>
@@ -121,14 +121,14 @@ function PublicationForm(props) {
               onClick={onReset}
               type='button'
               disabled={saveLoading}>
-              Annuler
+              {i18n("common.reset")}
             </button>
             <button
               className='form__button'
               onClick={form.handleSubmit(onSubmit)}
               disabled={saveLoading}>
               <ButtonIcon loading={saveLoading} />
-              Valider
+              {i18n("common.save")}
             </button>
           </div>
         </div>

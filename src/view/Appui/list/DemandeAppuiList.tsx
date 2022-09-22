@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../shared/Spinner";
 import Pagination from "src/view/shared/table/Pagination";
 import { Link } from "react-router-dom";
+import { i18n } from "src/i18n";
+
 function ListAppui(props) {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -46,11 +48,10 @@ function ListAppui(props) {
         <table>
           <thead>
             <tr>
-              <td>Personne</td>
-              <td>Email</td>
-              <td>Phone Number</td>
-              <td>Description</td>
-
+              <td> {i18n("entities.demandeAppui.fields.personne")}</td>
+              <td> {i18n("entities.demandeAppui.fields.email")}</td>
+              <td>{i18n("entities.demandeAppui.fields.phoneNumber")}</td>
+              <td> {i18n("entities.demandeAppui.fields.description")}</td>
               <td></td>
             </tr>
           </thead>
@@ -66,7 +67,7 @@ function ListAppui(props) {
               <tr>
                 <td colSpan={100}>
                   <div className='d-flex justify-content-center'>
-                    {"Aucune donnée"}
+                    {i18n("table.noData")}
                   </div>
                 </td>
               </tr>
@@ -82,10 +83,6 @@ function ListAppui(props) {
                   <td className='actions'>
                     <Link to={`/appui/${row.id}/edit`}>
                       <i className='fa-solid fa-pen'></i>
-                    </Link>
-                    &nbsp; &nbsp; &nbsp; &nbsp;
-                    <Link to={`/profile/appui/${row.id}/edit`}>
-                      <i className='fa-solid fa-eye'></i>
                     </Link>
                   </td>
                 </tr>

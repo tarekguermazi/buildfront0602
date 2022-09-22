@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AuthWrapper from "./styles/AuthWrapper";
@@ -10,11 +10,13 @@ import ButtonIcon from "../shared/ButtonIcon";
 import InputFormItem from "../shared/form/items/InputFormItem";
 import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
+import { i18n } from "src/i18n";
+
 const schema = yup.object().shape({
-  email: yupFormSchemas.string("Email", {
+  email: yupFormSchemas.string(i18n("user.fields.email"), {
     required: true,
   }),
-  password: yupFormSchemas.string("Mot de passe", {
+  password: yupFormSchemas.string(i18n("user.fields.password"), {
     required: true,
   }),
   rememberMe: yupFormSchemas.boolean("user.fields.rememberMe"),
@@ -37,7 +39,19 @@ function SigninPage() {
   const onSubmit = ({ email, password, rememberMe }) => {
     dispatch(actions.doSigninWithEmailAndPassword(email, password));
   };
-
+  const clearErrorMessage = () => {
+    dispatch(actions.doClearErrorMessage());
+  };
+  useEffect(() => {
+    clearErrorMessage();
+    form.register({ name: "rememberMe" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const handleChange = () => {
+    if (externalErrorMessage) {
+      clearErrorMessage();
+    }
+  };
   return (
     <AuthWrapper>
       <div className='app__signin'>
@@ -53,37 +67,38 @@ function SigninPage() {
                 <div className='container__form'>
                   <InputFormItem
                     name='email'
-                    label='Email'
-                    placeholder='email'
+                    label={i18n("user.fields.email")}
+                    placeholder={i18n("user.fields.email")}
                     autoComplete='email'
                     autoFocus
+                    onChange={handleChange}
                     externalErrorMessage={externalErrorMessage}
                   />
 
                   <InputFormItem
                     label='Password'
                     name='password'
-                    placeholder={"Mot de passe"}
+                    placeholder={i18n("user.fields.password")}
                     autoComplete='password'
                     type='password'
                   />
                   <div className='form__oublier'>
                     <div className='oublier'>
                       <Link to='/auth/forgot-password' className='reset'>
-                        Mot de passe oublié ?
+                        {i18n("auth.forgotPassword")}
                       </Link>
                     </div>
                   </div>
                   <button className='form__button' disabled={loading}>
                     <ButtonIcon loading={loading} />
-                    Valider
+                    {i18n("auth.signin")}
                   </button>
 
                   <div className='form__link'>
                     <div className='link__account'>Pas encore membre?</div>
                     <div className='__create'>
                       <Link to='/auth/signup' className='link__create'>
-                        Créer un compte
+                        {i18n("auth.createAnAccount")}
                       </Link>
                     </div>
                   </div>

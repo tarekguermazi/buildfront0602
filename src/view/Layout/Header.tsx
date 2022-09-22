@@ -27,6 +27,7 @@ import menus from "../menus";
 import authSelectors from "src/modules/auth/authSelectors";
 import authActions from "src/modules/auth/authActions";
 import { useSelector, useDispatch } from "react-redux";
+import I18nSelect from "./I18nSelect";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -126,14 +127,7 @@ function Header(props) {
                 </div>
               </Link>
             )}
-            <div className='button__language'>
-              <p>Français</p>
-              <img
-                className='lazyload'
-                src={arrow__down}
-                alt='Arrow Down Icon'
-              />
-            </div>
+            <I18nSelect />
           </div>
         </div>
         <div className='header__links'>
