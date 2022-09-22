@@ -13,7 +13,7 @@ export default function GloassaireList({ data, criteria }) {
                     <div>
                         {
                             categoriesList.map(CAT => {
-                                const glossList = data[categoriesList];
+                                const glossList = data[CAT];
                                 return (
                                     <GlossaireSection
                                         key={CAT}
