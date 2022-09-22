@@ -10,7 +10,15 @@ function I18nSelect(props) {
   return (
     <>
       <div className='button__language'>
-        <p>{getLanguageCode()} &nbsp;</p>
+        <p>
+          {getLanguages()
+            .filter((item) => {
+              return item.id === getLanguageCode();
+            })
+            .map((item) => {
+              return item.label;
+            })}
+        </p>
         <img className='lazyload' src={arrow__down} alt='Arrow Down Icon' />
         <ul className='dropdown__translate'>
           {getLanguages().map((language) => (
