@@ -72,7 +72,7 @@ export default function GloassaireList({ data, criteria }) {
                                                                 }}
                                                             >
                                                                 <ModalHeader title={modalData[0]['nomFR']} setIsShowing={setIsShowing} />
-                                                                <ModalLabel label={CAT} />
+                                                                <ModalLabel label={modalData[0]['categorie'].titleFR} />
                                                                 <p>{modalData[0]['definitionFR']}</p>
                                                             </Modal>
                                                         </section>
