@@ -33,7 +33,7 @@ const Header = styled.div`
     justify-content: space-between;
 
     .closeTrigger{
-        font-size: 2rem;
+        font-size: 3rem;
         cursor: pointer;
         
         &:hover{

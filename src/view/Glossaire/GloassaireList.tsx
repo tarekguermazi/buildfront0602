@@ -15,6 +15,7 @@ export default function GloassaireList({ data, criteria }) {
             {/* LIST OF ENTRIES */}
             <section className="listOfEntries">
                 {
+                    // ============ CATEGORY TAB ============
                     criteria === "category" &&
                     <div>
                         {
@@ -48,13 +49,13 @@ export default function GloassaireList({ data, criteria }) {
                                                                         backgroundColor: 'rgba(43, 40, 64, 0.5)'
                                                                     },
                                                                     content: {
-                                                                        width: '570px',
+                                                                        width: '700px',
                                                                         height: '500px',
                                                                         margin: 'auto',
-                                                                        padding: '2rem',
+                                                                        padding: '3.5rem',
                                                                         fontFamily: 'Proxima Nova',
-                                                                        color: 'var(--violet)',
-                                                                        textAlign: 'justify'
+                                                                        textAlign: 'justify',
+                                                                        color: 'var(--violet)'
                                                                     }
                                                                 }}
                                                             >
