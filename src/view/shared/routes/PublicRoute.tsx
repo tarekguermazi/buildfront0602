@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import PermissionChecker from "../../../modules/auth/permissionChecker";
+import Footer from "src/view/Layout/Footer";
 import Layout from "../../Layout/Layout";
 function PublicRoute({
   component: Component,

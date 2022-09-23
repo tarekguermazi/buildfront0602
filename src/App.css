@@ -3451,3 +3451,20 @@ button.splide__arrow--prev {
 .css-1n7v3ny-option:hover {
   background-color: var(--hover__select) !important;
 }
+
+/* Styling the archieve__page */
+
+.app__archieve__page {
+  background-image: url(/public/images/acheive.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-color: var(--background);
+  padding-top: 0;
+}
+
+.app__archieve__page .archeive {
+  padding-top: 59px;
+  max-width: 1170px;
+  position: relative;
+  height: 100%;
+}
