@@ -13,12 +13,13 @@ function PublicRoute({
       {...rest}
       render={(props) => {
         const permissionChecker = new PermissionChecker(
-          currentUser,
-          currentTenant
+          currentTenant,
+          currentUser
         );
         if (permissionChecker.isAuthenticated) {
           return <Redirect to='/' />;
         }
+
         return (
           <Layout>
             <Component {...props} />

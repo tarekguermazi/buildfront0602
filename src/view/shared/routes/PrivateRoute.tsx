@@ -25,9 +25,6 @@ function PrivateRoute({
           currentUser
         );
 
-        if (permissionChecker.isEmptyPermissions) {
-          return <Redirect to='/auth/empty-permissions' />;
-        }
         if (!permissionChecker.isAuthenticated) {
           return (
             <Redirect
@@ -38,7 +35,12 @@ function PrivateRoute({
             />
           );
         }
-
+        if (permissionChecker.isEmptyPermissions) {
+          return <Redirect to='/auth/empty-permissions' />;
+        }
+        if (!permissionChecker.match(permissionRequired)) {
+          return <Redirect to='/403' />;
+        }
         return (
           <div style={{ minHeight: "100%" }}>
             <Layout {...props}>
