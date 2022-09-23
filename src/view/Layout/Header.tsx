@@ -27,6 +27,7 @@ import menus from "../menus";
 import authSelectors from "src/modules/auth/authSelectors";
 import authActions from "src/modules/auth/authActions";
 import { useSelector, useDispatch } from "react-redux";
+import I18nSelect from "./I18nSelect";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -44,6 +45,38 @@ function Header(props) {
     return res;
   };
 
+  const userMenu = (
+    <ul className='header__dropdown'>
+      <Link to='/publication/new'>
+        <li>
+          <img src={pen} alt='pen' />
+          Suggérer des données
+        </li>
+      </Link>
+      <Link to='/profile'>
+        <li>
+          <img src={profile} alt='profile' className='lazyload' />
+          Profil
+        </li>
+      </Link>
+      <Link to='/appui/new'>
+        <li>
+          <img src={question} alt='question' className='lazyload' />
+          Demander d’appui
+        </li>
+      </Link>
+      <Link to='/favoris'>
+        <li>
+          <img src={question} alt='question' className='lazyload' />
+          Favoris
+        </li>
+      </Link>
+      <li onClick={doSignout}>
+        <img src={logout} alt='logout' className='lazyload' />
+        Déconnexion
+      </li>
+    </ul>
+  );
   return (
     <React.Fragment>
       <div className='header__nav'>
@@ -82,44 +115,7 @@ function Header(props) {
                     alt='Arrow Down Icon'
                     id='down'
                   />
-                  <ul className='header__dropdown'>
-                    <Link to='/profile/suggest'>
-                      <li>
-                        <img src={pen} alt='pen' />
-                        Suggérer des données
-                      </li>
-                    </Link>
-                    <Link to='/profile'>
-                      <li>
-                        <img src={profile} alt='profile' className='lazyload' />
-                        Profil
-                      </li>
-                    </Link>
-                    <Link to='/appui'>
-                      <li>
-                        <img
-                          src={question}
-                          alt='question'
-                          className='lazyload'
-                        />
-                        Demander d’appui
-                      </li>
-                    </Link>
-                    <Link to='/favoris'>
-                      <li>
-                        <img
-                          src={question}
-                          alt='question'
-                          className='lazyload'
-                        />
-                        Favoris
-                      </li>
-                    </Link>
-                    <li onClick={doSignout}>
-                      <img src={logout} alt='logout' className='lazyload' />
-                      Déconnexion
-                    </li>
-                  </ul>
+                  {userMenu}
                 </div>
               </>
             )}
@@ -131,14 +127,7 @@ function Header(props) {
                 </div>
               </Link>
             )}
-            <div className='button__language'>
-              <p>Français</p>
-              <img
-                className='lazyload'
-                src={arrow__down}
-                alt='Arrow Down Icon'
-              />
-            </div>
+            <I18nSelect />
           </div>
         </div>
         <div className='header__links'>

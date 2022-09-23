@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AuthWrapper from "../Profile/styles/AuthWrapper";
+import AuthWrapper from "./styles/AuthWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import actions from "src/modules/auth/authActions";
@@ -8,35 +8,51 @@ import ButtonIcon from "../shared/ButtonIcon";
 import InputFormItem from "../shared/form/items/InputFormItem";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { i18n } from "src/i18n";
 
 import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 import SelectFormItem from "../shared/form/items/SelectFormItem";
 import userEnumerators from "../user/userEnumerators";
 const schema = yup.object().shape({
-  firstName: yupFormSchemas.string("Prènom", {
+  firstName: yupFormSchemas.string(i18n("user.fields.firstName"), {
     max: 80,
     required: true,
   }),
-  lastName: yupFormSchemas.string("Nom", {
+  lastName: yupFormSchemas.string(i18n("user.fields.lastName"), {
     max: 175,
     required: true,
   }),
-  email: yupFormSchemas.string("Email", {
+  email: yupFormSchemas.string(i18n("user.fields.email"), {
     required: true,
   }),
-  password: yupFormSchemas.string("Mot de passe", {
+  password: yupFormSchemas.string(i18n("user.fields.password"), {
     required: true,
   }),
+  newPasswordConfirmation: yupFormSchemas
+    .string(i18n("user.fields.newPasswordConfirmation"), {
+      required: true,
+    })
+    .oneOf([yup.ref("password"), null], i18n("auth.passwordChange.mustMatch")),
   avatars: yupFormSchemas.images("user.fields.avatars", {
     max: 1,
   }),
-  newPasswordConfirmation: yupFormSchemas
-    .string("Confirmation du nouveau mot de passe", {
-      required: true,
-    })
-    .oneOf([yup.ref("password"), null], "auth.passwordChange.mustMatch"),
+  pays: yupFormSchemas.string(i18n("user.fields.pays"), {
+    max: 175,
+    required: true,
+  }),
+  occupation: yupFormSchemas.string(i18n("user.fields.occupation"), {
+    max: 175,
+    required: true,
+  }),
+  regionTunisie: yupFormSchemas.string(i18n("user.fields.region"), {
+    max: 175,
+  }),
+  region: yupFormSchemas.string(i18n("user.fields.region"), {
+    max: 175,
+  }),
 });
+
 function SignupPage() {
   const dispatch = useDispatch();
   const loading = useSelector(selectors.selectLoading);
@@ -94,26 +110,17 @@ function SignupPage() {
             <FormProvider {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <div className='container__form'>
-                  <div className='form__avatar'>
-                    {/* <div className='avatar'>
-                      <label htmlFor='Avatar'>Avatar</label>
-                      <div className='avatar__photo'>
-                        <img src={user} alt='avatar ' className='lazyload' />
-                      </div>
-                    </div>
-                    <div className='button__avatar'>Modifier</div> */}
-                  </div>
+                  <div className='form__avatar'></div>
                   <div className='group__input'>
                     <InputFormItem
                       name='firstName'
-                      label='Nom'
-                      placeholder='Nom'
+                      label={i18n("user.fields.firstName")}
                       autoComplete='Nom'
                       autoFocus
                     />
                     <InputFormItem
                       name='lastName'
-                      label='Prenom'
+                      label={i18n("user.fields.lastName")}
                       placeholder='prenom'
                       autoComplete='prenom'
                       autoFocus
@@ -144,47 +151,47 @@ function SignupPage() {
 
                   <SelectFormItem
                     name={"pays"}
-                    label={"pays"}
+                    label={i18n("user.fields.pays")}
                     options={userEnumerators.pays.map((value) => ({
                       value,
-                      label: value,
+                      label: i18n(`user.enumerators.pays.${value}`),
                     }))}
                   />
 
                   {form.watch().pays && form.watch().pays === "Tunisia" && (
                     <SelectFormItem
-                      name={"regionTunisie"}
-                      label={"Région"}
+                      name={"region"}
+                      label={i18n("user.fields.region")}
                       options={userEnumerators.regionTunisie.map((value) => ({
                         value,
-                        label: value,
+                        label: i18n(`user.enumerators.region.${value}`),
                       }))}
                     />
                   )}
                   <SelectFormItem
                     name={"occupation"}
-                    label={"Occupation"}
+                    label={i18n("user.fields.occupation")}
                     options={userEnumerators.occupation.map((value) => ({
                       value,
-                      label: value,
+                      label: i18n(`user.enumerators.occupation.${value}`),
                     }))}
                   />
                   <InputFormItem
                     name='phoneNumber'
-                    label='Phone Number'
+                    label={i18n("user.fields.phoneNumber")}
                     autoComplete='phoneNumber'
                     autoFocus
                   />
                   <button className='form__button' disabled={loading}>
                     <ButtonIcon loading={loading} />
-                    Créer un compte
+                    {i18n("auth.signup")}
                   </button>
 
                   <div className='form__link'>
                     <div className='link__account'>Déjà inscrit?</div>
                     <div className='__create'>
                       <Link to='/auth/signin' className='link__create'>
-                        Connectez-vous
+                        {i18n("auth.alreadyHaveAnAccount")}
                       </Link>
                     </div>
                   </div>
