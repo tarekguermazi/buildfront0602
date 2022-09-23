@@ -133,7 +133,7 @@ function Header(props) {
         <div className='header__links'>
           <div className='links'>
             <ul>
-              <li className={selectedKeys() === "/" ? "li__active" : ""}>
+              <li className='li__active'>
                 <img
                   className='lazyload'
                   src={Menue}
