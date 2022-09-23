@@ -14,17 +14,17 @@ const languages: {
     dictionary: any;
   };
 } = {
-  en: {
-    id: "en",
-    label: "English",
-    flag: "/images/flags/United-States.png",
-    antd: null,
-    dictionary: null,
-  },
   fr: {
     id: "fr",
     label: "Français",
     flag: "/images/flags/France.png",
+    antd: null,
+    dictionary: null,
+  },
+  en: {
+    id: "en",
+    label: "English",
+    flag: "/images/flags/United-States.png",
     antd: null,
     dictionary: null,
   },
@@ -62,7 +62,7 @@ async function initAr() {
 
   language.dictionary = (await import("src/i18n/ar")).default;
 
-  moment.locale("ar", momentLocale);
+  moment.updateLocale("ar", momentLocale);
 
   if (language.dictionary.validation) {
     setYupLocale(language.dictionary.validation);
@@ -79,7 +79,7 @@ async function initFr() {
 
   language.dictionary = (await import("src/i18n/fr")).default;
 
-  moment.locale("fr", momentLocale);
+  moment.updateLocale("fr", momentLocale);
 
   if (language.dictionary.validation) {
     setYupLocale(language.dictionary.validation);

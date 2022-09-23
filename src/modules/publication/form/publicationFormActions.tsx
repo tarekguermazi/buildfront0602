@@ -1,10 +1,10 @@
-import PublicationService from 'src/modules/publication/publicationService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import PublicationService from "src/modules/publication/publicationService";
+import Errors from "src/modules/shared/error/errors";
+import Message from "src/view/shared/message";
+import { getHistory } from "src/modules/store";
+import { i18n } from "src/i18n";
 
-const prefix = 'PUBLICATION_FORM';
+const prefix = "PUBLICATION_FORM";
 
 const publicationFormActions = {
   INIT_STARTED: `${prefix}_INIT_STARTED`,
@@ -44,7 +44,7 @@ const publicationFormActions = {
         type: publicationFormActions.INIT_ERROR,
       });
 
-      getHistory().push('/publication');
+      getHistory().push("/publication");
     }
   },
 
@@ -60,11 +60,9 @@ const publicationFormActions = {
         type: publicationFormActions.CREATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.publication.create.success'),
-      );
+      Message.success(i18n("entities.publication.create.success"));
 
-      getHistory().push('/publication');
+      getHistory().push("/profile");
     } catch (error) {
       Errors.handle(error);
 
@@ -86,11 +84,9 @@ const publicationFormActions = {
         type: publicationFormActions.UPDATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.publication.update.success'),
-      );
+      Message.success(i18n("entities.publication.update.success"));
 
-      getHistory().push('/publication');
+      getHistory().push("/profile");
     } catch (error) {
       Errors.handle(error);
 

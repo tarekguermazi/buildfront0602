@@ -10,7 +10,7 @@ const navigateRoutes = [
   { path: "/A_propos", loader: () => import("src/view/Propos_nous/Propos") },
   {
     path: "/Publications",
-    loader: () => import("src/view/Profile/Publications/Publications"),
+    loader: () => import("src/view/Publications/Publications"),
   },
   { path: "/Archives", loader: () => import("src/view/Archive/Archives") },
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
@@ -27,36 +27,45 @@ const navigateRoutes = [
 const privateRoutes = [
   {
     path: "/profile",
-    loader: () => import("src/view/Profile/Profile"),
-    permissionRequired: null,
-    exact: true,
-  },
-  {
-    path: "/profile/contenu",
-    loader: () => import("src/view/contenu/Contenu"),
-    permissionRequired: null,
-    exact: true,
-  },
-  {
-    path: "/profile/appui",
-    loader: () => import("src/view/Profile/Appui/Appui"),
-    permissionRequired: null,
-    exact: true,
-  },
-  {
-    path: "/profile/appui/:id/edit",
-    loader: () => import("src/view/Profile/Appui/Appui"),
-    permissionRequired: permissions.demandeAppuiEdit,
+    loader: () => import("src/view/auth/Profile"),
+    permissionRequired: permissions.userRead,
     exact: true,
   },
   {
     path: "/profile/update",
-    loader: () => import("src/view/Profile/ProfileForm"),
+    loader: () => import("src/view/auth/ProfileForm"),
+    permissionRequired: permissions.userEdit,
+    exact: true,
   },
   {
-    path: "/profile/suggest",
-    loader: () => import("src/view/Profile/Suggestions/Suggest"),
+    path: "/password-change",
+    loader: () => import("src/view/auth/PasswordChangeFormPage"),
     permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/appui/new",
+    loader: () => import("src/view/Appui/form/AppuiFormPage"),
+    permissionRequired: permissions.demandeAppuiCreate,
+    exact: true,
+  },
+  {
+    path: "/appui/:id/edit",
+    loader: () => import("src/view/Appui/form/AppuiFormPage"),
+    permissionRequired: permissions.demandeAppuiEdit,
+    exact: true,
+  },
+
+  {
+    path: "/publication/new",
+    loader: () => import("src/view/Publications/form/PublicationFormPage"),
+    permissionRequired: permissions.publicationCreate,
+    exact: true,
+  },
+  {
+    path: "/publication/:id/edit",
+    loader: () => import("src/view/Publications/form/PublicationFormPage"),
+    permissionRequired: permissions.publicationEdit,
     exact: true,
   },
   {
@@ -76,6 +85,7 @@ const emptyPermissionsRoutes = [
     loader: () => import("src/view/auth/EmptyPermissionsPage"),
   },
 ].filter(Boolean);
+
 const simpleRoutes = [
   {
     path: "/auth/forgot-password",
