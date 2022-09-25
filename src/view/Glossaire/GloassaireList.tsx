@@ -12,7 +12,7 @@ var groupArray = require('group-array');
 
 export default function GloassaireList({ data, criteria }) {
     // HELPER FUNCTION(S)
-    const initial = text => { return _.capitalize(text.charAt(0)); }
+    const initial = text => { return _.capitalize(text?.substring(0, 1)); }
 
     // ### LETTER TAB LOGIC ###
     let arrayOfData: any[] = [];
