@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const BreadcrumbNav = styled.div`
-  margin-top: 10px;
+  margin: 28px 0 10px 0;
   .breadcrumb {
     width: 100%;
     margin: 0;
@@ -30,6 +30,14 @@ const BreadcrumbNav = styled.div`
 
   .breadcrumb-item:not(.active) a {
     color: rgba(0, 0, 0, 0.45);
+  }
+
+  h2 {
+    font-family: "Bebas Neue Pro";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 47px;
+    line-height: 39px;
   }
 `;
 

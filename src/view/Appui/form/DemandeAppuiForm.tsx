@@ -3,13 +3,13 @@ import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, FormProvider } from "react-hook-form";
-import demandeAppuiEnumerators from "../../../modules/demandeAppui/demandeAppuiEnumerators";
+import demandeAppuiEnumerators from "src/modules/demandeAppui/demandeAppuiEnumerators";
 import { i18n } from "../../../i18n";
 import TextAreaFormItem from "../../shared/form/items/TextAreaFormItem";
 import ButtonIcon from "../../shared/ButtonIcon";
-import FilesFormItem from "../../shared/form/items/FilesFormItem";
-import Storage from "../../../security/storage";
-import InputFormItem from "../../shared/form/items/InputFormItem";
+import FilesFormItem from "src/view/shared/form/items/FilesFormItem";
+import Storage from "src/security/storage";
+import InputFormItem from "src/view/shared/form/items/InputFormItem";
 
 const schema = yup.object().shape({
   gouvernorat: yupFormSchemas.enumerator(

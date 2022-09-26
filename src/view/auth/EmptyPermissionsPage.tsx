@@ -1,8 +1,6 @@
 import { i18n } from "src/i18n";
 import actions from "src/modules/auth/authActions";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import selectors from "src/modules/auth/authSelectors";
+import { useDispatch } from "react-redux";
 
 function EmptyPermissionsPage() {
   const dispatch = useDispatch();
