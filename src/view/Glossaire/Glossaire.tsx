@@ -7,6 +7,7 @@ import Filter from "./Filter";
 import GloassaireList from "./GloassaireList";
 import LoadingData from './shared/LoadingData';
 import NoDataFound from './shared/NoDataFound';
+import Footer from "../Layout/Footer";
 
 // Packages
 var groupArray = require('group-array');
@@ -34,37 +35,40 @@ function Glossaire() {
 
 
   return (
-    <div className='app__contenu'>
-      <section className='contenu'>
-        <Header />
-        <Filter setGroupByCategory={setGroupByCategory} />
-        {
-          isLoading
-            ?
-            <LoadingData />
-            :
-            <section>
-              {
-                !glossaireList.length
-                  ?
-                  <NoDataFound />
-                  :
-                  <>
-                    {
-                      groupByCategory
-                        ?
-                        <GloassaireList
-                          data={groupArray(glossaireList, 'categorie.titleFR')}
-                          criteria='category' />
-                        :
-                        <GloassaireList data={glossaireList} criteria='letter' />
-                    }
-                  </>
-              }
-            </section>
-        }
-      </section>
-    </div>
+    <>
+      <div className='app__contenu'>
+        <section className='contenu'>
+          <Header />
+          <Filter setGroupByCategory={setGroupByCategory} />
+          {
+            isLoading
+              ?
+              <LoadingData />
+              :
+              <section>
+                {
+                  !glossaireList.length
+                    ?
+                    <NoDataFound />
+                    :
+                    <>
+                      {
+                        groupByCategory
+                          ?
+                          <GloassaireList
+                            data={groupArray(glossaireList, 'categorie.titleFR')}
+                            criteria='category' />
+                          :
+                          <GloassaireList data={glossaireList} criteria='letter' />
+                      }
+                    </>
+                }
+              </section>
+          }
+        </section>
+      </div>
+      <Footer />
+    </>
   );
 }
 
