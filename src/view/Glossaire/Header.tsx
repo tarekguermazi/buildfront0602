@@ -1,5 +1,5 @@
 import React from 'react'
-import BreadCrumbs from './BreadCrumbs'
+import BreadCrumbs from '../shared/BreadCrumbs'
 import styled from 'styled-components'
 
 export default function Header() {
