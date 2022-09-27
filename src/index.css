@@ -112,6 +112,6 @@ html,
 body {
   font-family: "Proxima Nova Pro";
   font-weight: 400;
-  display: grid;
-  grid-template-rows: 1fr auto;
+
+  height: 100vh;
 }
