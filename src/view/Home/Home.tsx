@@ -1100,6 +1100,7 @@ function Home() {
         </div>
       </div>
       {/* stying the Footer */}
+
       <div className='app__footer'>
         <div className='footer'>
           <div className='footer__logo'>
@@ -1178,20 +1179,6 @@ function Home() {
               2eme étage 1001 Tunis <br />
               Tél. : 71 257 664 <br />
               Email : contact@ftdes.net
-            </div>
-          </div>
-        </div>
-        <div className='footer__copywrite'>
-          <div className='copywrite'>
-            <div className='copywrite__left'>
-              © 2022 FTDES - All rights reserved.
-            </div>
-            <div className='copywrite__right'>
-              <ul>
-                <li>Mentions légales</li>
-                <li>Conditions d’utilisation</li>
-                <li>Contact</li>
-              </ul>
             </div>
           </div>
         </div>
