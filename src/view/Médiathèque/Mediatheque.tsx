@@ -9,18 +9,9 @@ import Gallery from "../shared/Gallery";
 function Mediatheque() {
   return (
     <section>
-
-      <div className='app__contenu'>
-        <section className='wideContent'>
-          <Header />
-        </section>
-      </div>
+      <Header />
       <HeroSection />
-      {/* MAIN GRID... */}
-
-      {/* GALLERY */}
       <Gallery />
-      {/* FOOTERS */}
       <MegaFooter />
       <Footer />
     </section>
