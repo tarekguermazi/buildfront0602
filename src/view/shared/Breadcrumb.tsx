@@ -42,6 +42,9 @@ const BreadcrumbNav = styled.div`
 `;
 
 function Breadcrumb(props) {
+  console.log("====================================");
+  console.log(props.items[0]);
+  console.log("====================================");
   const isLink = (item) => {
     return item.length > 1;
   };
@@ -59,7 +62,14 @@ function Breadcrumb(props) {
                 className={`breadcrumb-item ${
                   props.items.length - 1 === index ? "active" : ""
                 }`}>
-                {isLink(item) ? <Link to={item[1]}> {item[0]} </Link> : item[0]}
+                {isLink(item) ? (
+                  <Link to={item[1]}>
+                    {" "}
+                    {item[0]} {item[1]}
+                  </Link>
+                ) : (
+                  item[0]
+                )}
               </li>
             ))}
           </ol>
