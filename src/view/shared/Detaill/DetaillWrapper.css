@@ -1,0 +1,43 @@
+.app__detaill {
+}
+.detaill {
+  margin-top: 16px;
+  max-width: 1170px;
+  margin: auto;
+}
+.list__detaills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.list__detaills > div {
+  max-width: 370px;
+  height: 415px;
+  display: flex;
+  flex-direction: column;
+}
+.list__detaill {
+  padding-top: 19px !important;
+}
+.detaill .detaill__content {
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 24px;
+  color: var(--violet);
+}
+.header__left .header__left {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+.header__right {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+}
