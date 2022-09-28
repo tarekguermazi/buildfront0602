@@ -42,9 +42,6 @@ const BreadcrumbNav = styled.div`
 `;
 
 function Breadcrumb(props) {
-  console.log("====================================");
-  console.log(props.items[0]);
-  console.log("====================================");
   const isLink = (item) => {
     return item.length > 1;
   };

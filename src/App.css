@@ -427,7 +427,7 @@
   animation: fade-on-drop 0.3s ease-out forwards;
   border: 1px solid #f1f1f1;
   box-shadow: 0px 14px 14px rgba(0, 0, 0, 0.25);
-  top: 43px;
+  top: 48px;
   column-gap: 116px;
   width: max-content;
   align-items: baseline;
@@ -1420,7 +1420,11 @@ Styling the archeive verison Mobile  */
   line-height: 24px;
   color: var(--violet);
 }
-
+.text__wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .header__right {
   font-size: 12px;
   line-height: 12px;
@@ -3554,4 +3558,81 @@ button.splide__arrow--prev {
   align-items: flex-start;
   column-gap: 22px;
   row-gap: 22px;
+}
+
+/*        styling the articles + manifestation + évènement +Rapports      */
+
+.app__articles {
+  max-width: 1170px;
+  margin: auto;
+  display: flex;
+  padding-top: 59px;
+  column-gap: 31px;
+}
+.app__articles > div {
+  width: 100%;
+}
+.articles__top {
+}
+.manification__images {
+  display: flex;
+  flex-direction: column;
+  row-gap: 37px;
+  padding-top: 36px;
+}
+.manification__images > div {
+  display: flex;
+  column-gap: 17px;
+}
+.images__evenement {
+  padding-top: 36px;
+}
+.__top {
+  display: flex;
+  column-gap: 36px;
+}
+.app__rapports {
+  padding-top: 48px;
+}
+.rapport__detaill {
+  padding: 43px 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.app__category {
+  max-width: 1170px;
+  margin: auto;
+  padding-top: 86px;
+}
+
+.category__title {
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 39px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.category__list {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 56px;
+}
+.category__list > div {
+  background-color: var(--gray6);
+  padding: 10px 15px;
+  display: grid;
+  place-items: center;
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 23px;
+  line-height: 39px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
 }

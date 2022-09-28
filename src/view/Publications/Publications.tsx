@@ -281,6 +281,237 @@ function Publications() {
         </div>
         {/* 
         styling the articles + manifestation + évènement +Rapports */}
+
+        <div className='app__articles'>
+          <div className='articles__top'>
+            <div className='__top'>
+              <div>
+                <div className='archieve__header'>
+                  <h2>Articles</h2>
+                  <div className='satestique__bar'></div>
+                </div>
+                <div className='manification__images'>
+                  <div>
+                    <img
+                      src='https://placehold.jp/120x78.png'
+                      width={120}
+                      height={78}
+                      alt=''
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>Migration </p>
+                        </div>
+                        <div className='header__right'>10h32</div>
+                      </div>
+                      <div
+                        className='detaill__content text__wrap'
+                        style={{ width: 233 }}>
+                        Karbaï: Les conditions de vie des migrants à Lampedusa
+                        inhumaines inhumaines inhumaines
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <img
+                      src='https://placehold.jp/120x78.png'
+                      width={120}
+                      height={78}
+                      alt=''
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>Migration </p>
+                        </div>
+                        <div className='header__right'>10h32</div>
+                      </div>
+                      <div
+                        className='detaill__content text__wrap'
+                        style={{ width: 233 }}>
+                        Karbaï: Les conditions de vie des migrants à Lampedusa
+                        inhumaines inhumaines inhumaines
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <img
+                      src='https://placehold.jp/120x78.png'
+                      width={120}
+                      height={78}
+                      alt=''
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>Migration </p>
+                        </div>
+                        <div className='header__right'>10h32</div>
+                      </div>
+                      <div
+                        className='detaill__content text__wrap'
+                        style={{ width: 233 }}>
+                        Karbaï: Les conditions de vie des migrants à Lampedusa
+                        inhumaines inhumaines inhumaines
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='plus__button'>Voir plus</div>
+              </div>
+              <div>
+                <div className='archieve__header'>
+                  <h2>Manifestation</h2>
+                  <div className='satestique__bar'></div>
+                </div>
+                <div className='manification__images'>
+                  <div>
+                    <img
+                      src='https://placehold.jp/120x78.png'
+                      width={120}
+                      height={78}
+                      alt=''
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>Migration </p>
+                        </div>
+                        <div className='header__right'>10h32</div>
+                      </div>
+                      <div
+                        className='detaill__content text__wrap'
+                        style={{ width: 233 }}>
+                        Karbaï: Les conditions de vie des migrants à Lampedusa
+                        inhumaines inhumaines inhumaines
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <img
+                      src='https://placehold.jp/120x78.png'
+                      width={120}
+                      height={78}
+                      alt=''
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>Migration </p>
+                        </div>
+                        <div className='header__right'>10h32</div>
+                      </div>
+                      <div
+                        className='detaill__content text__wrap'
+                        style={{ width: 233 }}>
+                        Karbaï: Les conditions de vie des migrants à Lampedusa
+                        inhumaines inhumaines inhumaines
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <img
+                      src='https://placehold.jp/120x78.png'
+                      width={120}
+                      height={78}
+                      alt=''
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>Migration </p>
+                        </div>
+                        <div className='header__right'>10h32</div>
+                      </div>
+                      <div
+                        className='detaill__content text__wrap'
+                        style={{ width: 233 }}>
+                        Karbaï: Les conditions de vie des migrants à Lampedusa
+                        inhumaines inhumaines inhumaines
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='plus__button'>Voir plus</div>
+              </div>
+            </div>
+            <div className='app__rapports'>
+              <div className='archieve__header'>
+                <h2>Rapport</h2>
+                <div className='satestique__bar'></div>
+              </div>
+              <div className='rapport__detaill'>
+                <div className='list__detaill'>
+                  <div className='detaill__header'>
+                    <div className='header__left'>
+                      <p>Rapport </p>
+                    </div>
+                    <div className='header__right'>10h32</div>
+                  </div>
+                  <div className='detaill__content ' style={{ width: 233 }}>
+                    Végétation dans le mont Bargou : Ressources naturelles et
+                    pilier...
+                  </div>
+                </div>
+                <div className='list__detaill'>
+                  <div className='detaill__header'>
+                    <div className='header__left'>
+                      <p>Rapport </p>
+                    </div>
+                    <div className='header__right'>10h32</div>
+                  </div>
+                  <div className='detaill__content ' style={{ width: 233 }}>
+                    Végétation dans le mont Bargou : Ressources naturelles et
+                    pilier...
+                  </div>
+                </div>
+                <div className='list__detaill'>
+                  <div className='detaill__header'>
+                    <div className='header__left'>
+                      <p>Rapport </p>
+                    </div>
+                    <div className='header__right'>10h32</div>
+                  </div>
+                  <div className='detaill__content ' style={{ width: 233 }}>
+                    Végétation dans le mont Bargou : Ressources naturelles et
+                    pilier...
+                  </div>
+                </div>
+              </div>
+              <div className='plus__button'>Voir plus</div>
+            </div>
+          </div>
+
+          <div>
+            <div className='archieve__header'>
+              <h2>évènement</h2>
+              <div className='satestique__bar'></div>
+            </div>
+            <div className='images__evenement'>
+              <img
+                src='https://placehold.jp/369x650.png'
+                width={369}
+                height={650}
+                alt=''
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* styling the category */}
+        <div className='app__category'>
+          <div className='category__title'>Catégorie</div>
+
+          <div className='category__list'>
+            <div>évènement</div>
+            <div>Manifestation</div>
+            <div>Article scientifique</div>
+            <div>Article journalistique</div>
+            <div>Rapport</div>
+            <div>Entretien</div>
+          </div>
+        </div>
       </div>
     </div>
   );
