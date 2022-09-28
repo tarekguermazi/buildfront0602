@@ -1474,7 +1474,9 @@ Styling the archeive verison Mobile  */
   margin-top: 10px;
   cursor: pointer;
   color: var(--red);
-  font-weight: 700;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 39px;
   text-decoration: underline;
@@ -3518,4 +3520,38 @@ button.splide__arrow--prev {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.pub__migration {
+  max-width: 1170px;
+  margin: auto;
+  padding-top: 64px;
+}
+.pub__pollution {
+  max-width: 1170px;
+  margin: auto;
+  padding-top: 40px;
+}
+.pub__migration > div:nth-child(2) {
+  padding: 34px 0 0 0;
+}
+.pub__pollution > div:nth-child(2) {
+  padding: 34px 0 0 0;
+}
+.migration__images {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  column-gap: 39px;
+}
+.migration__images > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  row-gap: 22px;
+}
+.migration__images > div:nth-child(2) > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 22px;
+  row-gap: 22px;
 }
