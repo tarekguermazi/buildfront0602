@@ -12,10 +12,10 @@ function Mediatheque() {
       <div className='app__contenu'>
         <section className='wideContent'>
           <Header />
-          <HeroSection />
-          {/* MAIN GRID... */}
         </section>
       </div>
+      <HeroSection />
+      {/* MAIN GRID... */}
       <MegaFooter />
       <Footer />
     </section>
