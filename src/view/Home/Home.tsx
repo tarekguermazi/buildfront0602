@@ -47,6 +47,7 @@ import {
 } from "src/assets/images";
 import Footer from "../Layout/Footer";
 import MegaFooter from "../Layout/MegaFooter";
+import Gallery from "../shared/Gallery";
 
 function Home() {
   return (
@@ -896,130 +897,7 @@ function Home() {
         </div>
       </div>
       {/* styling the gallery */}
-      <div className='app__galery'>
-        {/* <div className='gallery'>
-          <div className='navig'>
-            <div className='global__navigations'>
-              <div className='arrow__left'>
-                <img className='lazyload' src={arrow__right} alt='' />
-              </div>
-              <div className='arrow__right'>
-                <img className='lazyload' src={arrow__left} alt='' />
-              </div>
-            </div>
-          </div>
-          <div className='archieve__header'>
-            <h2>Galerie</h2>
-            <div className='satestique__bar' />
-          </div>
-          <div className='gallery__images'>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery1} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Le champ pétrolier de Nawara ou l’entêtement vers les énergies
-                fossiles
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery2} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={camera} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Refoulement de migrants subsahariens vers la frontière libyenne
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery3} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Faj Rouissat : Une lutte continue pour la justice
-                environnementale et sociale
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery4} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                La lutte continue pour le droit à l’eau potable à Redeyef
-              </div>
-            </div>
-          </div>
-        </div> */}
-        <div className='art__images'>
-          <div>Galerie&nbsp;D'art</div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art1} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art3} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art2} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art3} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art4} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-        </div>
-        <div className='naviation__art'>
-          <div className='graph__navigate'>
-            <div className='navigate__left'>
-              <i className='fa-solid fa-chevron-left' />
-            </div>
-            <div className='navigate__right'>
-              <i className='fa-solid fa-chevron-right' />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Gallery />
       {/* styling the newsLettre */}
       <div className='app__newsLettre'>
         <div className='newsLettre'>
