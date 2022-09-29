@@ -10,14 +10,15 @@ const GlossaireSection = styled.section`
       font-size: 2rem;
       font-weight: 700;
 
-      &:after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: red;
-        margin: 1rem 0;
-      }
+            &:after{
+                content: '';
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: red;
+                margin: 1rem 0;
+            }
+        }
     }
   }
 
