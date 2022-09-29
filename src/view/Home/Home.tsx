@@ -1100,23 +1100,21 @@ function Home() {
         </div>
       </div>
       {/* stying the Footer */}
+
       <div className='app__footer'>
         <div className='footer'>
           <div className='footer__logo'>
-            <img className='lazyload' src={logo__footer} alt='' />
-            <div className='logo__detaills'>
+            <img src={logo__footer} alt='' />
+            <div className='footer__content detaill__footer'>
               Le Forum Tunsien pour les Droits Economiques et Sociaux est une
               organisation non gouvernementale, neutre, indépendante de tout
               parti politique et de toute institution religieuse.
             </div>
           </div>
-          <div className='footer__menu'>
-            <div>
-              <label> Menu </label>
-              <img className='lazyload' src={down__footer} id='arrow_down' />
-            </div>
-            <div className='menu__footer'>
-              <div className='left'>
+          <div className='footer__menu '>
+            <div className='label__footer'>Menu</div>
+            <div className='footer__content content__menu'>
+              <div>
                 <ul>
                   <li>A propos</li>
                   <li>Archive</li>
@@ -1124,7 +1122,7 @@ function Home() {
                   <li>Publications</li>
                 </ul>
               </div>
-              <div className='right'>
+              <div>
                 <ul>
                   <li>Galerie</li>
                   <li>Entretiens</li>
@@ -1134,65 +1132,29 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className='footer__bar' />
           <div className='footer__socialmedia'>
-            <div>
-              <label> Suivez-nous </label>
-              <img
-                className='lazyload'
-                src={down__footer}
-                id='arrow_down'
-                alt=''
-              />
-            </div>
-            <div className='socialmedia__facebook'>
-              <img className='lazyload' src={facebook} alt='' />
-              Facebook
-            </div>
-            <div className='socialmedia__Twitter'>
-              <img className='lazyload' src={twitter} alt='' />
-              Twitter
-            </div>
-            <div className='socialmedia__Youtube'>
-              <img className='lazyload' src={youtube} alt='' />
-              Youtube
-            </div>
-            <div className='socialmedia__Instagram'>
-              <img className='lazyload' src={instagram} alt='' />
-              Instagram
+            <div className='label__footer'> Social media</div>
+            <div className='footer__content content__socialmedia'>
+              <div className='socialmedia__facebook'>
+                <img className='lazyload' src={facebook} alt='' />
+                Facebook
+              </div>
+              <div className='socialmedia__Twitter'>
+                <img className='lazyload' src={twitter} alt='' />
+                Twitter
+              </div>
+              <div className='socialmedia__Youtube'>
+                <img className='lazyload' src={youtube} alt='' />
+                Youtube
+              </div>
+              <div className='socialmedia__Instagram'>
+                <img className='lazyload' src={instagram} alt='' />
+                Instagram
+              </div>
             </div>
           </div>
-          <div className='footer__bar' />
           <div className='footer__contact'>
-            <div>
-              <label> Contact </label>
-              <img
-                className='lazyload'
-                src={down__footer}
-                id='arrow_down'
-                alt=''
-              />
-            </div>
-            <div className='contact__address'>
-              Adresse : 47, Avenue Farhat Hached <br />
-              2eme étage 1001 Tunis <br />
-              Tél. : 71 257 664 <br />
-              Email : contact@ftdes.net
-            </div>
-          </div>
-        </div>
-        <div className='footer__copywrite'>
-          <div className='copywrite'>
-            <div className='copywrite__left'>
-              © 2022 FTDES - All rights reserved.
-            </div>
-            <div className='copywrite__right'>
-              <ul>
-                <li>Mentions légales</li>
-                <li>Conditions d’utilisation</li>
-                <li>Contact</li>
-              </ul>
-            </div>
+            <div className='label__footer'> Contact</div>
           </div>
         </div>
       </div>

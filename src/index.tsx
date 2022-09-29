@@ -8,3 +8,5 @@ import { i18n, init as i18nInit } from "src/i18n";
 
   ReactDOM.render(<App />, document.getElementById("root"));
 })();
+// document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
+//Or you can do it where ever you want, base on user selected language, or something else

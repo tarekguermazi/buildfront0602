@@ -29,6 +29,7 @@
   --gray3: #828282;
   --gray4: #f1f1f1;
   --gray4: #a3a3a9;
+  --gray6: #f4f4f4;
   --navigate__left: #bfbfc6;
   --dark--red: #c40720;
   --green: #14b685;
@@ -112,6 +113,6 @@ html,
 body {
   font-family: "Proxima Nova Pro";
   font-weight: 400;
-  display: grid;
-  grid-template-rows: 1fr auto;
+
+  height: 100vh;
 }

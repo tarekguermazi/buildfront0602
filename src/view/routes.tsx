@@ -74,6 +74,12 @@ const privateRoutes = [
     permissionRequired: null,
     exact: true,
   },
+  {
+    path: "/detaill",
+    loader: () => import("src/view/shared/Detaill/Detaill"),
+    permissionRequired: null,
+    exact: true,
+  },
 ].filter(Boolean);
 const publicRoutes = [
   { path: "/auth/signin", loader: () => import("src/view/auth/SigninPage") },
