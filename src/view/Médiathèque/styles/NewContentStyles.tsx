@@ -58,12 +58,14 @@ const NewContentStyles = styled.section`
             flex-direction: column;
             justify-content: space-between;
 
-            .dardThumbnail{
+            .cardThumbnail{
                 width: 100%;
                 height: 200px;
-                background-image: url('https://imgur.com/N1ZiTM4.jpeg');
                 background-size: cover;
                 background-position: center;
+            }
+            .hasNoThumbnail{
+                background-image: url('https://imgur.com/N1ZiTM4.jpeg');
             }
 
             .dateAndType{

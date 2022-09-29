@@ -43,7 +43,15 @@ export default function NewContent({ data }) {
                             data.rows?.map(post => {
                                 return (
                                     <SplideSlide key={post._id} className="VerticlPlayer">
-                                        <div className="dardThumbnail"></div>
+                                        {
+                                            post.photos.length
+                                                ?
+                                                <div className="cardThumbnail" style={{ backgroundImage: "url(" + post.photos[0].downloadUrl + ")" }} >
+                                                    {/* <img src={} alt="thumbnail" /> */}
+                                                </div>
+                                                :
+                                                <div className="cardThumbnail hasNoThumbnail"></div>
+                                        }
                                         <div className="dateAndType">
                                             <div className="contentType">
                                                 {
