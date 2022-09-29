@@ -11,6 +11,7 @@ function Mediatheque() {
     <section>
       <Header />
       <HeroSection />
+      {/* MAIN GRID GOES HERE */}
       <Gallery />
       <MegaFooter />
       <Footer />
