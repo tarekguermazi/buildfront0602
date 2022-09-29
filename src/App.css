@@ -2513,6 +2513,7 @@ button {
 .member__header {
   color: var(--red);
   font-family: "Bebas Neue Pro";
+
   font-style: normal;
   font-weight: 700;
   font-size: 40px;

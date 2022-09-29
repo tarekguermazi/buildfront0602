@@ -11,10 +11,14 @@
 @font-face {
   font-family: "Proxima Nova";
   src: url(/public/fonts/Proxima\ Nova\ Font.otf);
+  font-style: normal;
+  font-display: fallback;
 }
 @font-face {
   font-family: "Bebas Neue Pro";
   src: url(/public/fonts/BebasNeue\ Bold.ttf);
+  font-style: normal;
+  font-display: fallback;
 }
 
 :root {
@@ -113,6 +117,4 @@ html,
 body {
   font-family: "Proxima Nova Pro";
   font-weight: 400;
-
-  height: 100vh;
 }
