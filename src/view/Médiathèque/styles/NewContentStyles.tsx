@@ -28,8 +28,8 @@ const NewContentStyles = styled.section`
 
         /* STYLING THE SPLIDE ARROWS ! */
         .splide__arrow{
-            height: 30px;
-            width: 30px;
+            height: 35px;
+            width: 35px;
             position: absolute;
             top: -80px;
 
@@ -42,9 +42,10 @@ const NewContentStyles = styled.section`
             }
         }
         button{
-            background-color: red;
-            .splide__arrow--prev{
-                bottom: 0;
+            &:nth-child(1){
+                position: relative;
+                float: right;
+                margin-right: 1rem;
             }
         }
         
