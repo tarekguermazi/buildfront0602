@@ -556,7 +556,9 @@ const en = {
     signin: "Sign in",
     signup: "Sign up",
     signout: "Sign out",
-    alreadyHaveAnAccount: "Already have an account? Sign in.",
+    alreadyHaveAnAccount: "Login.",
+    already: "Already registered?",
+    HaveAnAccount: "Not a member yet?",
     social: {
       errors: {
         "auth-invalid-provider":

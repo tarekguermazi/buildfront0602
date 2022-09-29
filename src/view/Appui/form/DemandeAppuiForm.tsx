@@ -18,9 +18,16 @@ const schema = yup.object().shape({
       options: demandeAppuiEnumerators.gouvernorat,
     }
   ),
+  phoneNumber: yupFormSchemas.string(i18n("user.fields.phoneNumber"), {
+    matches: /^[0-9]/,
+    max: 8,
+    required: true,
+  }),
   descriptionFR: yupFormSchemas.string(
     i18n("entities.demandeAppui.fields.description"),
-    {}
+    {
+      required: true,
+    }
   ),
   supports: yupFormSchemas.files(
     i18n("entities.demandeAppui.fields.supports"),

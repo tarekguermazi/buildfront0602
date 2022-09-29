@@ -1,11 +1,14 @@
 import React from "react";
 import Breadcrumb from "src/view/shared/Breadcrumb";
-import { check, envelope, member } from "../../assets/images";
+import { calendar__bttom, check, envelope, member } from "../../assets/images";
 import { i18n } from "../../i18n";
 
 function Publications() {
   return (
     <div className='publication__page'>
+      <div className='app__calendar'>
+        <img src={calendar__bttom} alt='' />
+      </div>
       <Breadcrumb
         title={i18n("entities.publication.label")}
         items={[

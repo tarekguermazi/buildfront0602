@@ -25,7 +25,7 @@ const schema = yup.object().shape({
   }),
   phoneNumber: yupFormSchemas.string(i18n("user.fields.phoneNumber"), {
     matches: /^[0-9]/,
-    max: 24,
+    max: 8,
   }),
   pays: yupFormSchemas.string(i18n("user.fields.pays"), {
     max: 175,
@@ -115,9 +115,7 @@ function ProfileForm() {
                       label={i18n("user.fields.lastName")}
                       placeholder='Prénom'
                       autoComplete='Prénom'
-                      autoFocus
                     />
-
                     <SelectFormItem
                       name={"pays"}
                       label={i18n("user.fields.pays")}
@@ -149,14 +147,12 @@ function ProfileForm() {
                       name='phoneNumber'
                       label={i18n("user.fields.phoneNumber")}
                       autoComplete='phoneNumber'
-                      autoFocus
                     />
                     <div className='form__group'>
                       <div className={"input-group"}>
                         <label htmlFor='email'>
                           {i18n("user.fields.email")}
                         </label>
-
                         <input
                           type='text'
                           className='form-control'
@@ -167,7 +163,6 @@ function ProfileForm() {
                         />
                       </div>
                     </div>
-
                     <div className='form__oublier'>
                       <div className='oublier'>
                         <Link to='/password-change' className='reset'>

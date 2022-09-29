@@ -10,6 +10,7 @@ function Layout(props) {
   //   document.documentElement.dir = dir;
   // }
   // setPageDirection();
+
   return (
     <div style={{ minHeight: `calc(100vh - 52px)` }}>
       <Header url={match.url} />
