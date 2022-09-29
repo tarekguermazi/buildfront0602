@@ -51,6 +51,10 @@ const schema = yup.object().shape({
   region: yupFormSchemas.string(i18n("user.fields.region"), {
     max: 175,
   }),
+  phoneNumber: yupFormSchemas.string(i18n("user.fields.phoneNumber"), {
+    matches: /^[0-9]/,
+    max: 8,
+  }),
 });
 
 function SignupPage() {
@@ -123,7 +127,6 @@ function SignupPage() {
                       label={i18n("user.fields.lastName")}
                       placeholder='prenom'
                       autoComplete='prenom'
-                      autoFocus
                     />
                   </div>
                   <InputFormItem
@@ -131,7 +134,6 @@ function SignupPage() {
                     label='Email'
                     placeholder='email'
                     autoComplete='email'
-                    autoFocus
                     externalErrorMessage={externalErrorMessage}
                   />
                   <InputFormItem
@@ -139,14 +141,14 @@ function SignupPage() {
                     label='Password'
                     placeholder='password'
                     autoComplete='email'
-                    autoFocus
+                    type='password'
                   />
                   <InputFormItem
                     name='newPasswordConfirmation'
                     label='Confirm password'
                     placeholder='password'
                     autoComplete='email'
-                    autoFocus
+                    type='password'
                   />
 
                   <SelectFormItem
@@ -188,7 +190,7 @@ function SignupPage() {
                   </button>
 
                   <div className='form__link'>
-                    <div className='link__account'>Déjà inscrit?</div>
+                    <div className='link__account'>{i18n("auth.already")}</div>
                     <div className='__create'>
                       <Link to='/auth/signin' className='link__create'>
                         {i18n("auth.alreadyHaveAnAccount")}

@@ -44,6 +44,17 @@ function Header(props) {
       res = token.join("/");
     return res;
   };
+  const selectClass = (item) => {
+    let className = "";
+    if (item.path === selectedKeys()) {
+      return (className = "dropdown li__active");
+    } else if (item.path !== selectedKeys() && item.class) {
+      className = "dropdown";
+    } else {
+      className = "";
+    }
+    return className;
+  };
 
   const userMenu = (
     <ul className='header__dropdown'>
@@ -132,19 +143,10 @@ function Header(props) {
         </div>
         <div className='header__links'>
           <div className='links'>
-            <ul>
-              <li className={selectedKeys() === "/" ? "li__active" : ""}>
-                <img
-                  className='lazyload'
-                  src={Menue}
-                  alt='Menue Icon'
-                  id='humberger'
-                />
-                Menu
-              </li>
+            <ul className='ul__links'>
               {menus.map((item, index) => (
                 <Link to={item.path} key={index}>
-                  <li className={item.class ? "dropdown" : ""}>
+                  <li style={{ padding: 8 }} className={selectClass(item)}>
                     {item.label}
                     {item.icon && (
                       <i
@@ -152,7 +154,7 @@ function Header(props) {
                         style={{ color: "red", paddingLeft: 10 }}
                       />
                     )}
-                    {item.icon && (
+                    {item.class && (
                       <ul className='links__sub'>
                         <div>
                           <li>

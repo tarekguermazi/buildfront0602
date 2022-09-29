@@ -1,6 +1,8 @@
 import PermissionChecker from "src/modules/auth/permissionChecker";
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import Layout from "../../Layout/Layout";
+import Footer from "../../Layout/Footer";
 
 function EmptyPermissionsRoute({
   component: Component,
@@ -31,7 +33,14 @@ function EmptyPermissionsRoute({
           return <Redirect to='/' />;
         }
 
-        return <Component {...props} />;
+        return (
+          <div style={{ minHeight: "100%", overflow: "hidden" }}>
+            <Layout>
+              <Component {...props} />
+            </Layout>
+            <Footer />
+          </div>
+        );
       }}
     />
   );
