@@ -540,9 +540,14 @@
 }
 
 .content__sliderTop > h3 {
-  width: 800px;
+  width: 729px;
   color: var(--white);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 47px;
+  line-height: 40px;
 }
 
 /* styling the sliderBottom */
@@ -893,9 +898,11 @@ Styling the archeive verison Mobile  */
 
 .glossaire__detaill {
   padding-top: 5px;
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 22px;
   color: var(--violet);
   text-align: center;
   max-width: 700px;
@@ -909,8 +916,8 @@ Styling the archeive verison Mobile  */
   background-position: right 300px bottom -230px;
   background-repeat: no-repeat;
   width: 1170px;
-  height: 517px;
-  padding: 47px 35px 40px;
+  height: 443px;
+  padding: 44px 35px 32px;
   display: flex;
   gap: 37px;
 }
@@ -921,11 +928,12 @@ Styling the archeive verison Mobile  */
 }
 
 .global__header {
-  font-family: "Proxima Nova";
+  font-family: "Bebas Neue";
   font-style: normal;
-  font-weight: 800;
-  font-size: 23px;
+  font-weight: 400;
+  font-size: 39px;
   line-height: 32px;
+  text-transform: uppercase;
   color: var(--white);
   padding-top: 30px;
   padding-bottom: 60px;
@@ -944,6 +952,7 @@ Styling the archeive verison Mobile  */
 }
 
 .global__content {
+  font-family: "Proxima Nova";
   margin-top: 25px;
   font-style: normal;
   font-size: 16px;
@@ -960,14 +969,12 @@ Styling the archeive verison Mobile  */
 }
 
 .global__right > div {
-  align-items: baseline;
-  height: 200px;
+  height: 170px;
   display: flex;
   flex-direction: column;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(14px);
-  padding: 39px 0;
+  justify-content: space-around;
+  color: var(--violet);
+  background-color: var(--white);
   align-items: center;
 }
 
@@ -986,9 +993,15 @@ Styling the archeive verison Mobile  */
 }
 
 .global__number {
-  font-weight: 700;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
   font-size: 40px;
   line-height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 214.81px;
 }
 
 .small__bar {
@@ -1000,9 +1013,11 @@ Styling the archeive verison Mobile  */
 }
 
 .detaill__number {
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 29px;
+  font-size: 21px;
+  line-height: 24px;
   padding: 0 19px;
   text-align: center;
 }
@@ -1102,10 +1117,11 @@ Styling the archeive verison Mobile  */
 }
 
 .title {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 23px;
   line-height: 33px;
   color: var(--violet);
+  font-family: "Bebas Neue";
 }
 
 .graph__navigate {
@@ -1171,14 +1187,19 @@ Styling the archeive verison Mobile  */
 
 .description__number {
   justify-self: center;
-  font-family: "Proxima Nova";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 40px;
   line-height: 39px;
   color: var(--violet);
 }
-
+.description__text {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
 @media screen and (max-width: 1171px) {
   .statestique__graph {
     display: flex;
@@ -1270,6 +1291,7 @@ Styling the archeive verison Mobile  */
   line-height: 25px;
   padding: 15px 0;
   color: var(--gray2);
+  font-family: "Proxima Nova";
 }
 
 @media screen and (max-width: 1171px) {
@@ -1689,17 +1711,21 @@ Styling the archeive verison Mobile  */
 }
 
 .date {
-  font-weight: 700;
-  font-size: 35px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 55px;
   line-height: 39px;
   color: var(--white);
 }
 
 .month {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
   font-size: 25px;
   line-height: 39px;
   color: var(--white);
-  font-weight: 700;
 }
 
 .evenement__description {
@@ -1713,6 +1739,7 @@ Styling the archeive verison Mobile  */
   column-gap: 22px;
   padding: 13px 15px;
   background-color: var(--white);
+  width: 673px;
 }
 
 .evenement__right {
@@ -1733,6 +1760,7 @@ Styling the archeive verison Mobile  */
 .right__date > div {
   font-size: 12px;
   line-height: 15px;
+  font-family: "Proxima Nova";
   color: var(--gray2);
   display: flex;
   align-items: center;
@@ -1741,14 +1769,18 @@ Styling the archeive verison Mobile  */
 }
 
 .righ__desctiption {
-  padding: 16px 0 6px;
-  font-weight: 700;
-  font-size: 17px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
   line-height: 24px;
+  padding: 16px 0 6px;
   max-width: 418px;
 }
 
 .right__footer {
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
@@ -1761,6 +1793,7 @@ Styling the archeive verison Mobile  */
   background-color: var(--white);
   margin-left: 28px;
   padding: 24px 16px;
+  width: 369px;
 }
 
 .calendar {
@@ -1793,10 +1826,19 @@ Styling the archeive verison Mobile  */
 
 .calendar__detaill {
   color: var(--white);
-  font-weight: 700;
-  font-size: 18px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
   line-height: 21px;
-  margin: 0 0 14px 16px;
+  margin: 0 0 35px 16px;
+}
+
+.calendar__month .date {
+  color: var(--violet) !important;
+}
+.calendar__month .month {
+  color: var(--violet) !important;
 }
 
 @media screen and (max-width: 1171px) {
@@ -1996,13 +2038,16 @@ Styling the archeive verison Mobile  */
 
 .art__images > div:nth-child(1) {
   position: relative;
-  font-weight: 800;
-  font-size: 35px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
   line-height: 39px;
   color: #2b2840;
   opacity: 0.2;
   transform: rotate(-90deg);
   margin-left: 18px;
+  text-transform: uppercase;
 }
 
 .art__photo {
@@ -2050,6 +2095,8 @@ Styling the archeive verison Mobile  */
 
 .art__detaill {
   text-align: start;
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -2059,7 +2106,9 @@ Styling the archeive verison Mobile  */
 
 .art__author {
   text-align: start;
-  font-weight: 700;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   color: var(--violet);
@@ -2513,6 +2562,7 @@ button {
 .member__header {
   color: var(--red);
   font-family: "Bebas Neue Pro";
+
   font-style: normal;
   font-weight: 700;
   font-size: 40px;

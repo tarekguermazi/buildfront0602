@@ -44,6 +44,10 @@ import {
   member,
   down__footer,
   instagram,
+  users,
+  sheep,
+  clandestins,
+  car,
 } from "src/assets/images";
 function Home() {
   return (
@@ -54,7 +58,7 @@ function Home() {
         <img src={calendar__bttom} alt='' />
       </div>
       <div className='app__header'>
-        <div className='header__content'>
+        <div className='header__content' style={{ height: 549 }}>
           <div className='content'>
             <div className='content__imagePrincipale'>
               <img
@@ -150,17 +154,25 @@ function Home() {
               <div className='graph__description'>
                 <div className='descripition__left'>
                   <div>
-                    <div className='description__number'>236</div>
+                    <div className='description__number'>
+                      <h2>236</h2>
+                    </div>
                     <div className='description__text'>
                       Tentatives échouées de départ clandestins
                     </div>
                   </div>
                   <div>
-                    <div className='description__number'>34</div>
+                    <div className='description__number'>
+                      {" "}
+                      <h2> 34</h2>
+                    </div>
                     Tentatives échouées de départ clandestins
                   </div>
                   <div>
-                    <div className='description__number'>67</div>
+                    <div className='description__number'>
+                      {" "}
+                      <h2> 67</h2>
+                    </div>
                     Tentatives échouées de départ clandestins
                   </div>
                 </div>
@@ -214,46 +226,37 @@ function Home() {
                 pays où les droits humains sont respectés...
               </div>
               <div className='global__button'>Plus de détails</div>
-              <div className='global__navigations'>
-                <div className='arrow__left'>
-                  <img
-                    className='lazyload'
-                    src={arrow__right}
-                    alt='arrow__right Icon'
-                  />
-                </div>
-                <div className='arrow__right'>
-                  <img
-                    className='lazyload'
-                    src={arrow__left}
-                    alt='arrow__left Icon'
-                  />
-                </div>
-              </div>
             </div>
             <div className='global__right'>
               <div>
-                <div className='global__number'>236</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  236
+                  <img src={users} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Tentatives échouées de départ clandestins
                 </div>
               </div>
               <div>
-                <div className='global__number'>1564</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  1564
+                  <img src={sheep} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Clandestins arrivés en Italie
                 </div>
               </div>
               <div>
-                <div className='global__number'>85</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  85
+                  <img src={clandestins} alt='' />
+                </div>
                 <div className='detaill__number'>Clandestins expulsés</div>
               </div>
               <div>
-                <div className='global__number'>7</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  7<img src={car} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Tentatives échouées de départ clandestins
                 </div>
@@ -681,7 +684,7 @@ function Home() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             cursus et augue id consequat. Suspendisse sodales est lectus...
           </div>
-          <div className='global__button'>Plus de détails</div>
+          <div className='global__button'>Découvrir</div>
         </div>
         {/* <div className='vue'>
           <div className='vue__header'>Les plus lus cette semaine</div>
