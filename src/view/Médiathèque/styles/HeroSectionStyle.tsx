@@ -32,9 +32,7 @@ const HeroSectionStyle = styled.section`
         width: var(--cerntered-content);
         height: 507px;
         margin: auto;
-        padding: 2rem 1rem;
         background-color: transparent;
-        border: 5px solid red;
         position: relative;
         z-index: 4;
     }

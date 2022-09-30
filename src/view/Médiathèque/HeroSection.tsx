@@ -6,11 +6,11 @@ import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 // COMPONENTS
 import HeroSectionStyle from './styles/HeroSectionStyle';
 import NewContent from './NewContent';
+import MainSplide from './MainSplide';
 
 // PACKAGES
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 
 export default function HeroSection() {
@@ -19,6 +19,7 @@ export default function HeroSection() {
 
     // STATES
     const [posts, setPosts] = useState([]);
+    const [hotPosts, setHotPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
 
@@ -27,6 +28,11 @@ export default function HeroSection() {
         MediathequeService.getLatestMediatheques()
             .then((value) => {
                 setPosts(value);
+                // getting hot 3 posts (latest)
+                value.rows?.map((entry, index) => {
+                    if (index < 3)
+                        setHotPosts(hotPosts => hotPosts.concat(entry));
+                })
                 setLoading(false);
             });
     };
@@ -35,11 +41,17 @@ export default function HeroSection() {
         getLatestContent();
     }, []);
 
-
     return (
         <HeroSectionStyle>
             {/* SLIDER */}
             <section className='splideContent'>
+                {
+                    loading
+                        ?
+                        <Skeleton height={507} />
+                        :
+                        <MainSplide data={hotPosts} />
+                }
             </section>
             {/* GRID RIGHT UNDER THE SLIDER */}
             <section className='bottomGrid'>

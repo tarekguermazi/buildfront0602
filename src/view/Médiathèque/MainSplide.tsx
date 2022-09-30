@@ -1,6 +1,5 @@
 import React from 'react'
-import NewContentStyles from './styles/NewContentStyles';
-
+import MainSplideStyles from './styles/MainSplideStyles';
 // PACKAGES
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
@@ -16,8 +15,7 @@ import { VscGraphScatter } from "react-icons/vsc";
 import moment from 'moment';
 
 
-
-export default function NewContent({ data }) {
+export default function MainSplide({ data }) {
 
     // HELPER FUNCTIONS
     const pipeDate = date => {
@@ -25,32 +23,28 @@ export default function NewContent({ data }) {
         return moment(d).format('LL');
     };
 
+
     return (
-        <NewContentStyles>
-            <section className='wideContent'>
-                <header>
-                    <h1>A LA UNE</h1>
-                </header>
-                <main>
-                    <Splide options={{
-                        gap: '.5rem',
-                        perPage: 3,
-                        pagination: false,
-                        wheel: true
-                    }}>
-                        {
-                            data.rows?.map(post => {
-                                return (
-                                    <SplideSlide key={post._id} className="VerticlPlayer">
-                                        {
-                                            post.photos?.length
-                                                ?
-                                                <div className="cardThumbnail" style={{ backgroundImage: "url(" + post.photos[0].downloadUrl + ")" }} >
-                                                    {/* <img src={} alt="thumbnail" /> */}
-                                                </div>
-                                                :
-                                                <div className="cardThumbnail hasNoThumbnail"></div>
-                                        }
+        <MainSplideStyles>
+            <Splide options={{
+                perPage: 1,
+                pagination: true,
+                wheel: false
+            }}>
+
+                {
+                    data?.map(post => {
+                        return (
+                            <SplideSlide key={post._id} className="horizontalPlayer">
+                                <section>
+                                    {
+                                        post.photos?.length
+                                            ?
+                                            <div className="cardThumbnail" style={{ backgroundImage: "url(" + post.photos[0].downloadUrl + ")" }} ></div>
+                                            :
+                                            <div className="cardThumbnail hasNoThumbnail"></div>
+                                    }
+                                    <div>
                                         <div className="dateAndType">
                                             <div className="contentType">
                                                 {
@@ -82,17 +76,22 @@ export default function NewContent({ data }) {
                                                 {pipeDate(post.updatedAt)}
                                             </span>
                                         </div>
-                                        <div className="verticalPlayerTitle">
-                                            {post.titleFR}
+                                        <div className="textContent">
+                                            <div className="horizontalPlayerTitle">
+                                                {post.titleFR}
+                                            </div>
+                                            <div className="horizontalPlayerDescription">
+                                                {post.descriptionFR}
+                                            </div>
                                         </div>
-                                    </SplideSlide>
-                                )
-                            })
-                        }
-                        {/* end of cards */}
-                    </Splide>
-                </main>
-            </section>
-        </NewContentStyles>
+                                    </div>
+                                </section>
+                            </SplideSlide>
+                        )
+                    })
+                }
+
+            </Splide>
+        </MainSplideStyles>
     )
 }
