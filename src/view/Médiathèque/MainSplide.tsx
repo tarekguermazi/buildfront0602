@@ -35,7 +35,11 @@ export default function MainSplide({ data }) {
                 {
                     data?.map(post => {
                         return (
-                            <SplideSlide key={post._id} className="horizontalPlayer">
+                            <SplideSlide
+                                key={post._id}
+                                className="horizontalPlayer"
+                                style={{ background: "linear-gradient(115.19deg, #2B2840 28.27%, rgba(43, 40, 64, 0) 68.81%), linear-gradient(0deg, rgba(43, 40, 64, 0.7), rgba(43, 40, 64, 0.7)), url(" + post.photos[0]?.downloadUrl + ")" }}
+                            >
                                 <section>
                                     {
                                         post.photos?.length
