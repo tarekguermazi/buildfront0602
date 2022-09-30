@@ -964,7 +964,7 @@ function Home() {
             </div>
           </div>
           {/* newsletter widget */}
-          <NewsLetterWidget envelope={envelope} />
+          <NewsLetterWidget envelope={envelope} layout='' />
         </div>
       </div>
       {/* stying the Footer */}
