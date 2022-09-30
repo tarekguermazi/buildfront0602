@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const MainSplideStyles = styled.section`
-    color: #fff;
+    /* color: #fff; */
     width: var(--cerntered-content);
     height: 507px;
     background-color: #000;

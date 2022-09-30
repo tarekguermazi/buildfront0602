@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const HeroSectionStyle = styled.section`
     color: #fff;
+    height: auto;
 
     .bottomGrid{
         height: 704px;
