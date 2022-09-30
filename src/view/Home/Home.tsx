@@ -48,6 +48,7 @@ import {
 import Footer from "../Layout/Footer";
 import MegaFooter from "../Layout/MegaFooter";
 import Gallery from "../shared/Gallery";
+import NewsLetterWidget from "../shared/NewsLetterWidget";
 
 function Home() {
   return (
@@ -962,22 +963,8 @@ function Home() {
               <div className='global__button'>Se connecter</div>
             </div>
           </div>
-          <div className='newsLettre__right'>
-            <div className='archieve__header'>
-              <h2>Newsletter</h2>
-              <div className='satestique__bar' />
-            </div>
-            <div className='newsLettre__title'>LET’S KEEP IN TOUCH</div>
-            <div className='newsLettere__detaill'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              cursus et augue id consequat. Suspendisse sodales est lectus.
-            </div>
-            <div className='newsLettre__formulaire'>
-              <img className='lazyload' src={envelope} alt='Envolope Image' />
-              <input type='text' placeholder=' Votre adresse email' />
-              <div className='button__newLettre'>Envoyer</div>
-            </div>
-          </div>
+          {/* newsletter widget */}
+          <NewsLetterWidget envelope={envelope} />
         </div>
       </div>
       {/* stying the Footer */}
