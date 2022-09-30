@@ -1,5 +1,6 @@
 import React from 'react'
 import MainSplideStyles from './styles/MainSplideStyles';
+import EntityPlayerButton from './styles/EntityPlayerButton';
 // PACKAGES
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
@@ -47,9 +48,9 @@ export default function MainSplide({ data }) {
                                     {
                                         post.photos?.length
                                             ?
-                                            <div className="cardThumbnail" style={{ backgroundImage: "url(" + post.photos[0].downloadUrl + ")" }} ></div>
+                                            <div className="cardThumbnail" style={{ backgroundImage: "url(" + post.photos[0].downloadUrl + ")" }} ><EntityPlayerButton data={post} entity='main' /></div>
                                             :
-                                            <div className="cardThumbnail hasNoThumbnail"></div>
+                                            <div className="cardThumbnail hasNoThumbnail"><EntityPlayerButton data={post} entity='main' /></div>
                                     }
                                     <div>
                                         <div className="dateAndType">
