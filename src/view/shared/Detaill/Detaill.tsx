@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { calendar__bttom } from "../../../assets/images";
 import { i18n } from "../../../i18n";
 import Breadcrumb from "../Breadcrumb";
+import Image from "../Image";
 import "./DetaillWrapper.css";
 function Detaill() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className='app__detaill'>
       <Breadcrumb
@@ -17,10 +22,12 @@ function Detaill() {
       <div className='detaill'>
         <div className='list__detaills'>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -36,10 +43,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -55,10 +64,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -73,10 +84,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -91,10 +104,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -109,10 +124,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -127,10 +144,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -145,10 +164,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -163,10 +184,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -182,10 +205,12 @@ function Detaill() {
           </div>
 
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -200,10 +225,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
@@ -218,10 +245,12 @@ function Detaill() {
             </div>
           </div>
           <div>
-            <img
-              className=' ls-is-cached lazyloaded'
-              src='https://placehold.jp/370x300.png'
+            <Image
+              src={"https://placehold.jp/370x300.png"}
               alt='publication2 Icon'
+              id='image__desktop'
+              width='370'
+              height='300'
             />
             <div className='list__detaill'>
               <div className='detaill__header'>
