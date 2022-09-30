@@ -26,11 +26,14 @@ export default function MainSplide({ data }) {
 
     return (
         <MainSplideStyles>
-            <Splide options={{
-                perPage: 1,
-                pagination: true,
-                wheel: false
-            }}>
+            <Splide
+                options={{
+                    perPage: 1,
+                    pagination: true,
+                    wheel: false
+                }}
+                className='splide'
+            >
 
                 {
                     data?.map(post => {
