@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// COMPONENTS
+import NewsLetterWidget from 'src/view/shared/NewsLetterWidget';
+
+// ICONS/Assets
+import { envelope } from "src/assets/images";
+
 export default function MainGridLayout() {
     return (
         <MainContentLayout>
@@ -11,7 +17,8 @@ export default function MainGridLayout() {
             {/* LEFT SECTION */}
             <section className='mainContentLeftSection'>
                 <h2>Documentaires</h2>
-                <h2>NewsLetter</h2>
+                {/* NEWS LETTER COMPONENT */}
+                <NewsLetterWidget envelope={envelope} layout='minimal' />
                 <h2>Podcasts</h2>
             </section>
         </MainContentLayout>
