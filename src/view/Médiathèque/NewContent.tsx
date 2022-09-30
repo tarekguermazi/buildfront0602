@@ -1,5 +1,6 @@
 import React from 'react'
 import NewContentStyles from './styles/NewContentStyles';
+import EntotyPlayerButton from './styles/EntotyPlayerButton';
 
 // PACKAGES
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -46,10 +47,10 @@ export default function NewContent({ data }) {
                                             post.photos?.length
                                                 ?
                                                 <div className="cardThumbnail" style={{ backgroundImage: "url(" + post.photos[0].downloadUrl + ")" }} >
-                                                    {/* <img src={} alt="thumbnail" /> */}
+                                                    <EntotyPlayerButton data={post} />
                                                 </div>
                                                 :
-                                                <div className="cardThumbnail hasNoThumbnail"></div>
+                                                <div className="cardThumbnail hasNoThumbnail"><EntotyPlayerButton data={post} /></div>
                                         }
                                         <div className="dateAndType">
                                             <div className="contentType">
