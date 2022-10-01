@@ -9,34 +9,49 @@ export default function EntityPlayerButton({ data, entity }) {
     return (
         <div>
             {
-                entity === 'main'
-                    ?
-                    <DetailsButtonMainSPlide >
+                entity === 'main' &&
+                <DetailsButtonMainSPlide >
+                    {
                         {
-                            {
-                                videos: (
-                                    <BsFillPlayFill />
-                                ),
-                                autres: (
-                                    <AiOutlineEye />
-                                ),
-                            }[data.type]
-                        }
-                    </DetailsButtonMainSPlide>
-                    :
-
-                    <DetailsButton >
+                            videos: (
+                                <BsFillPlayFill />
+                            ),
+                            autres: (
+                                <AiOutlineEye />
+                            ),
+                        }[data.type]
+                    }
+                </DetailsButtonMainSPlide>
+            }
+            {
+                entity === '' &&
+                <DetailsButton >
+                    {
                         {
-                            {
-                                videos: (
-                                    <BsFillPlayFill />
-                                ),
-                                autres: (
-                                    <AiOutlineEye />
-                                ),
-                            }[data.type]
-                        }
-                    </DetailsButton>
+                            videos: (
+                                <BsFillPlayFill />
+                            ),
+                            autres: (
+                                <AiOutlineEye />
+                            ),
+                        }[data.type]
+                    }
+                </DetailsButton>
+            }
+            {
+                entity === 'mainGridPlayer' &&
+                <DetailsButtonMainGridPlayer >
+                    {
+                        {
+                            videos: (
+                                <BsFillPlayFill />
+                            ),
+                            autres: (
+                                <AiOutlineEye />
+                            ),
+                        }[data.type]
+                    }
+                </DetailsButtonMainGridPlayer>
             }
         </div>
     )
@@ -73,5 +88,21 @@ const DetailsButtonMainSPlide = styled.div`
 
     position: absolute;
     top: 290px;
+    left: 10px;
+`;
+const DetailsButtonMainGridPlayer = styled.div`
+    height: 50px;
+    width: 50px;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    color: red;
+    background-color: #fff;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 195px;
     left: 10px;
 `;
