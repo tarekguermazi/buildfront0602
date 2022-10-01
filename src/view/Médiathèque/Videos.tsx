@@ -2,7 +2,6 @@ import React from 'react'
 import GridContentLayout from './styles/GridContentLayout'
 import SectionHeader from './shared/SectionHeader'
 import VerticalPlayer from './shared/VerticalPlayer'
-import Skeleton from 'react-loading-skeleton'
 
 export default function Videos({ videosList }) {
 
