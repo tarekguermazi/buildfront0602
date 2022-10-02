@@ -103,6 +103,6 @@ const DetailsButtonMainGridPlayer = styled.div`
     justify-content: center;
 
     position: absolute;
-    top: 195px;
+    top: 140px;
     left: 10px;
 `;

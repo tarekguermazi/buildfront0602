@@ -17,7 +17,7 @@ export default function VerticalPlayer({ dataSource }) {
     return (
         <VerticalPlayerCard key={dataSource._id} className="videoCardVertical">
             {
-                dataSource.photos?.length
+                (dataSource.photos?.length > 0)
                     ?
                     <div className="cardThumbnail" style={{ backgroundImage: "url(" + dataSource.photos[0].downloadUrl + ")" }} >
                         <EntityPlayerButton data={dataSource} entity='mainGridPlayer' />
@@ -42,6 +42,7 @@ export default function VerticalPlayer({ dataSource }) {
 }
 
 const VerticalPlayerCard = styled.div`
+    position: relative;
     height: 330px !important;
     overflow: hidden;
 
@@ -54,6 +55,7 @@ const VerticalPlayerCard = styled.div`
         height: 200px;
         background-size: cover;
         background-position: center;
+        position: relative;
     }
     .hasNoThumbnail{
         background-image: url('https://imgur.com/N1ZiTM4.jpeg');
