@@ -5,6 +5,7 @@ import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 // COMPONENTS
 import NewsLetterWidget from 'src/view/shared/NewsLetterWidget';
 import Videos from '../Videos';
+import Photos from '../Photos';
 
 // ICONS/Assets
 import { envelope } from "src/assets/images";
@@ -22,6 +23,10 @@ export default function MainGridLayout() {
     const [videos, setVideos] = useState([]);
     const [videoIsLoading, setVideoIsLoading] = useState(true);
 
+    // photos
+    const [photos, setPhotos] = useState([]);
+    const [photoIsLoading, setPhotoIsLoading] = useState(true);
+
     const getLatestContent = () => {
         MediathequeService.getLatestMediatheques()
             .then((value) => {
@@ -31,8 +36,12 @@ export default function MainGridLayout() {
                 value.rows?.map((entry, index) => {
                     if (entry.type === 'videos')
                         setVideos(videos => videos.concat(entry));
+
+                    if (entry.type === 'autres')
+                        setPhotos(photos => photos.concat(entry));
                 })
                 setVideoIsLoading(false);
+                setPhotoIsLoading(false);
 
 
 
@@ -54,7 +63,11 @@ export default function MainGridLayout() {
                         ? <Skeleton height={300} />
                         : <Videos videosList={videos} />
                 }
-                <h2>photos</h2>
+                {
+                    photoIsLoading
+                        ? <Skeleton height={300} />
+                        : <Photos photosList={photos} />
+                }
             </section>
             {/* LEFT SECTION */}
             <section className='mainContentRightSection'>
