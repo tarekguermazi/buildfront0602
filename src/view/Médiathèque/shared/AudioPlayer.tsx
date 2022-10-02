@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import EntityPlayerButton from '../styles/EntityPlayerButton';
 import moment from 'moment';
 
 // ICONS
