@@ -6,6 +6,7 @@ import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 import NewsLetterWidget from 'src/view/shared/NewsLetterWidget';
 import Videos from '../Videos';
 import Photos from '../Photos';
+import Podcasts from '../Podcasts';
 
 // ICONS/Assets
 import { envelope } from "src/assets/images";
@@ -27,6 +28,10 @@ export default function MainGridLayout() {
     const [photos, setPhotos] = useState([]);
     const [photoIsLoading, setPhotoIsLoading] = useState(true);
 
+    // podcast
+    const [podcast, setPodcats] = useState([]);
+    const [podcastIsLoading, setPodcastIsLoading] = useState(true);
+
     const getLatestContent = () => {
         MediathequeService.getLatestMediatheques()
             .then((value) => {
@@ -39,9 +44,13 @@ export default function MainGridLayout() {
 
                     if (entry.type === 'autres')
                         setPhotos(photos => photos.concat(entry));
+
+                    if (entry.type === 'podcast')
+                        setPodcats(podcast => podcast.concat(entry));
                 })
                 setVideoIsLoading(false);
                 setPhotoIsLoading(false);
+                setPodcastIsLoading(false);
 
 
 
@@ -74,7 +83,11 @@ export default function MainGridLayout() {
                 <h2>Documentaires</h2>
                 {/* NEWS LETTER COMPONENT */}
                 <NewsLetterWidget envelope={envelope} layout='minimal' />
-                <h2>Podcasts</h2>
+                {
+                    podcastIsLoading
+                        ? <Skeleton height={300} />
+                        : <Podcasts podcastList={podcast} />
+                }
             </section>
         </MainContentLayout>
     )
