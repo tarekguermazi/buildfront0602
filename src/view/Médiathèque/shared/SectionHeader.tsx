@@ -20,16 +20,18 @@ const HeaderLayout = styled.div`
             font-size: 2.5rem;
             text-transform: uppercase;
             font-family: 'Bebas Neue Pro';
+            line-height: .5;
+            padding: 0;
 
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
 
             &:after{
                 content: '';
                 display: inline-block;
-                height: 3px;
+                height: 1px;
                 width: 89%;
                 background-color: red;
             }

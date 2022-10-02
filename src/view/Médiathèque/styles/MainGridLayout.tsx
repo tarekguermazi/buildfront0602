@@ -107,7 +107,7 @@ export default function MainGridLayout() {
 }
 
 const MainContentLayout = styled.section`
-    margin: auto;
+    margin: 1rem auto;
     width: var(--cerntered-content);
     min-height: 200px;
     position: relative;
