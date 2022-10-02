@@ -7,6 +7,7 @@ import NewsLetterWidget from 'src/view/shared/NewsLetterWidget';
 import Videos from '../Videos';
 import Photos from '../Photos';
 import Podcasts from '../Podcasts';
+import Docs from '../Docs';
 
 // ICONS/Assets
 import { envelope } from "src/assets/images";
@@ -32,6 +33,10 @@ export default function MainGridLayout() {
     const [podcast, setPodcats] = useState([]);
     const [podcastIsLoading, setPodcastIsLoading] = useState(true);
 
+    // documentaire
+    const [docs, setDocs] = useState([]);
+    const [docIsLoading, setDocIsLoading] = useState(true);
+
     const getLatestContent = () => {
         MediathequeService.getLatestMediatheques()
             .then((value) => {
@@ -47,10 +52,14 @@ export default function MainGridLayout() {
 
                     if (entry.type === 'podcast')
                         setPodcats(podcast => podcast.concat(entry));
+
+                    if (entry.type === 'documentaire')
+                        setDocs(docs => docs.concat(entry));
                 })
                 setVideoIsLoading(false);
                 setPhotoIsLoading(false);
                 setPodcastIsLoading(false);
+                setDocIsLoading(false);
 
 
 
@@ -80,7 +89,11 @@ export default function MainGridLayout() {
             </section>
             {/* LEFT SECTION */}
             <section className='mainContentRightSection'>
-                <h2>Documentaires</h2>
+                {
+                    docIsLoading
+                        ? <Skeleton height={300} />
+                        : <Docs docstList={docs} />
+                }
                 {/* NEWS LETTER COMPONENT */}
                 <NewsLetterWidget envelope={envelope} layout='minimal' />
                 {
