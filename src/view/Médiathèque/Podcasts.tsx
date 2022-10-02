@@ -1,7 +1,7 @@
 import React from 'react'
 import GridContentLayout from './styles/GridContentLayout'
 import SectionHeader from './shared/SectionHeader'
-import VerticalPlayer from './shared/VerticalPlayer'
+import AudioPlayer from './shared/AudioPlayer'
 
 export default function Podcasts({ podcastList }) {
     return (
@@ -11,7 +11,7 @@ export default function Podcasts({ podcastList }) {
                 {
                     podcastList?.map(pod => {
                         return (
-                            <VerticalPlayer dataSource={pod} key={pod._id} />
+                            <AudioPlayer dataSource={pod} key={pod._id} />
                             // END OF MAP RETURN
                         )
                     })
