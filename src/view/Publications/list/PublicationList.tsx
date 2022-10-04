@@ -143,7 +143,7 @@ function PublicationList(props) {
                   <td> {row.date}</td>
                   <td style={actionButtons}>
                     <Link to={`/publication/${row.id}/edit`}>
-                      <BsPencil className='icon' />
+                      <BsPencil className='icon' color='#a3a3a9' />
                     </Link>
                   </td>
                 </tr>

@@ -49,6 +49,7 @@ import {
   clandestins,
   car,
 } from "src/assets/images";
+import Image from "src/view/shared/Image";
 function Home() {
   return (
     <div className='app'>
@@ -61,12 +62,14 @@ function Home() {
         <div className='header__content' style={{ height: 549 }}>
           <div className='content'>
             <div className='content__imagePrincipale'>
-              <img
-                className='lazyload'
+              <Image
                 src={image__header}
+                alt='Header '
                 id='image__desktop'
-                alt=' Header'
+                width='1170'
+                height='549'
               />
+
               <img
                 className='lazyload'
                 src={header__image__mobile}

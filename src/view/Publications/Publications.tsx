@@ -2,7 +2,8 @@ import React from "react";
 import Breadcrumb from "src/view/shared/Breadcrumb";
 import { calendar__bttom, check, envelope, member } from "../../assets/images";
 import { i18n } from "../../i18n";
-
+import Image from "src/view/shared/Image";
+import { Link } from "react-router-dom";
 function Publications() {
   return (
     <div className='publication__page'>
@@ -20,7 +21,12 @@ function Publications() {
         <div className='publication__header'>
           <div className='image__pub'>
             <div className='pub__relative'>
-              <img src='https://placehold.jp/570x390.png' alt='Image' />
+              <Image
+                src='https://placehold.jp/570x390.png'
+                width='570'
+                height='390'
+                alt='Image'
+              />
               <div className='__detaills'>
                 <div className='list__detaill'>
                   <div className='detaill__header'>
@@ -42,7 +48,12 @@ function Publications() {
               </div>
             </div>
             <div className='pub__relative'>
-              <img src='https://placehold.jp/269x390.png' alt='' />
+              <Image
+                src='https://placehold.jp/269x390.png'
+                width='269'
+                height='390'
+                alt='Image'
+              />
               <div className='__detaills'>
                 <div className='list__detaill'>
                   <div className='detaill__header'>
@@ -60,7 +71,12 @@ function Publications() {
             </div>
             <div className='last__pub'>
               <div className='pub__relative'>
-                <img src='https://placehold.jp/272x182.png' alt='' />
+                <Image
+                  src='https://placehold.jp/570x390.png'
+                  width='272'
+                  height='182'
+                  alt='Image'
+                />
                 <div className='__detaills'>
                   <div className='list__detaill'>
                     <div className='detaill__header'>
@@ -77,7 +93,12 @@ function Publications() {
                 </div>
               </div>
               <div className='pub__relative'>
-                <img src='https://placehold.jp/272x182.png' alt='' />
+                <Image
+                  src='https://placehold.jp/570x390.png'
+                  width='272'
+                  height='182'
+                  alt='Image'
+                />
                 <div className='__detaills'>
                   <div className='list__detaill'>
                     <div className='detaill__header'>
@@ -104,13 +125,13 @@ function Publications() {
           </div>
           <div className='migration__images'>
             <div>
-              <img
-                className=' ls-is-cached lazyloaded'
-                src='https://placehold.jp/570x300.png'
-                alt='publication2 Icon'
-                width={570}
-                height={300}
+              <Image
+                src='https://placehold.jp/570x390.png'
+                width='570'
+                height='300'
+                alt='Image'
               />
+
               <div className='list__detaill'>
                 <div className='detaill__header'>
                   <div className='header__left'>
@@ -126,11 +147,11 @@ function Publications() {
             </div>
             <div>
               <div>
-                <img
+                <Image
                   src='https://placehold.jp/169x113.png'
-                  width={169}
-                  height={113}
-                  alt=''
+                  width='169'
+                  height='113'
+                  alt='Image'
                 />
                 <div className='list__detaill'>
                   <div className='detaill__header'>
@@ -146,11 +167,11 @@ function Publications() {
                 </div>
               </div>
               <div>
-                <img
+                <Image
                   src='https://placehold.jp/169x113.png'
-                  width={169}
-                  height={113}
-                  alt=''
+                  width='169'
+                  height='113'
+                  alt='Image'
                 />
                 <div className='list__detaill'>
                   <div className='detaill__header'>
@@ -187,7 +208,10 @@ function Publications() {
               </div>
             </div>
           </div>
-          <div className='plus__button'>Voir plus</div>
+
+          <Link to='/detaill'>
+            <div className='plus__button'>Voir plus</div>
+          </Link>
         </div>
 
         {/* stlyling the pollution */}
@@ -198,12 +222,11 @@ function Publications() {
           </div>
           <div className='migration__images'>
             <div>
-              <img
-                className=' ls-is-cached lazyloaded'
+              <Image
                 src='https://placehold.jp/570x300.png'
-                alt='publication2 Icon'
                 width={570}
                 height={300}
+                alt='Image'
               />
               <div className='list__detaill'>
                 <div className='detaill__header'>
@@ -220,11 +243,11 @@ function Publications() {
             </div>
             <div>
               <div>
-                <img
+                <Image
                   src='https://placehold.jp/169x113.png'
                   width={169}
                   height={113}
-                  alt=''
+                  alt='Image'
                 />
                 <div className='list__detaill'>
                   <div className='detaill__header'>
@@ -240,11 +263,11 @@ function Publications() {
                 </div>
               </div>
               <div>
-                <img
+                <Image
                   src='https://placehold.jp/169x113.png'
                   width={169}
                   height={113}
-                  alt=''
+                  alt='Image'
                 />
                 <div className='list__detaill'>
                   <div className='detaill__header'>
@@ -260,11 +283,11 @@ function Publications() {
                 </div>
               </div>
               <div>
-                <img
+                <Image
                   src='https://placehold.jp/169x113.png'
                   width={169}
                   height={113}
-                  alt=''
+                  alt='Image'
                 />
                 <div className='list__detaill'>
                   <div className='detaill__header'>
@@ -279,7 +302,9 @@ function Publications() {
                   </div>
                 </div>
               </div>
-              <div className='plus__button'>Voir plus</div>
+              <Link to='/detaill'>
+                <div className='plus__button'>Voir plus</div>
+              </Link>
             </div>
           </div>
         </div>
@@ -296,11 +321,11 @@ function Publications() {
                 </div>
                 <div className='manification__images'>
                   <div>
-                    <img
+                    <Image
                       src='https://placehold.jp/120x78.png'
                       width={120}
                       height={78}
-                      alt=''
+                      alt='Image'
                     />
                     <div className='list__detaill'>
                       <div className='detaill__header'>
@@ -318,11 +343,11 @@ function Publications() {
                     </div>
                   </div>
                   <div>
-                    <img
+                    <Image
                       src='https://placehold.jp/120x78.png'
                       width={120}
                       height={78}
-                      alt=''
+                      alt='Image'
                     />
                     <div className='list__detaill'>
                       <div className='detaill__header'>
@@ -340,11 +365,11 @@ function Publications() {
                     </div>
                   </div>
                   <div>
-                    <img
+                    <Image
                       src='https://placehold.jp/120x78.png'
                       width={120}
                       height={78}
-                      alt=''
+                      alt='Image'
                     />
                     <div className='list__detaill'>
                       <div className='detaill__header'>
@@ -362,7 +387,9 @@ function Publications() {
                     </div>
                   </div>
                 </div>
-                <div className='plus__button'>Voir plus</div>
+                <Link to='/detaill'>
+                  <div className='plus__button'>Voir plus</div>
+                </Link>
               </div>
               <div>
                 <div className='archieve__header'>
@@ -371,11 +398,11 @@ function Publications() {
                 </div>
                 <div className='manification__images'>
                   <div>
-                    <img
+                    <Image
                       src='https://placehold.jp/120x78.png'
                       width={120}
                       height={78}
-                      alt=''
+                      alt='Image'
                     />
                     <div className='list__detaill'>
                       <div className='detaill__header'>
@@ -393,11 +420,11 @@ function Publications() {
                     </div>
                   </div>
                   <div>
-                    <img
+                    <Image
                       src='https://placehold.jp/120x78.png'
                       width={120}
                       height={78}
-                      alt=''
+                      alt='Image'
                     />
                     <div className='list__detaill'>
                       <div className='detaill__header'>
@@ -415,11 +442,11 @@ function Publications() {
                     </div>
                   </div>
                   <div>
-                    <img
+                    <Image
                       src='https://placehold.jp/120x78.png'
                       width={120}
                       height={78}
-                      alt=''
+                      alt='Image'
                     />
                     <div className='list__detaill'>
                       <div className='detaill__header'>
@@ -437,7 +464,9 @@ function Publications() {
                     </div>
                   </div>
                 </div>
-                <div className='plus__button'>Voir plus</div>
+                <Link to='/detaill'>
+                  <div className='plus__button'>Voir plus</div>
+                </Link>
               </div>
             </div>
             <div className='app__rapports'>
@@ -483,7 +512,9 @@ function Publications() {
                   </div>
                 </div>
               </div>
-              <div className='plus__button'>Voir plus</div>
+              <Link to='/detaill'>
+                <div className='plus__button'>Voir plus</div>
+              </Link>
             </div>
           </div>
 
@@ -493,11 +524,11 @@ function Publications() {
               <div className='satestique__bar'></div>
             </div>
             <div className='images__evenement'>
-              <img
+              <Image
                 src='https://placehold.jp/369x650.png'
                 width={369}
                 height={650}
-                alt=''
+                alt='Image'
               />
             </div>
           </div>
@@ -527,8 +558,7 @@ function Publications() {
               <div className='news'>
                 <div className='left__image'>
                   <div className='background__red' />
-                  <img
-                    className='lazyload'
+                  <Image
                     src={member}
                     width={170}
                     height={221}

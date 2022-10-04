@@ -2514,13 +2514,6 @@ styling the newsLettre */
   place-items: center;
 }
 
-button {
-  color: var(--dark--red);
-  border: 0;
-  padding: 0.8rem 1.2rem;
-  cursor: pointer;
-}
-
 /*      Stlying the portfolio  */
 
 .app__profile {
