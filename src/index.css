@@ -118,3 +118,7 @@ body {
   font-family: "Proxima Nova Pro";
   font-weight: 400;
 }
+button {
+  border: 0;
+  cursor: pointer;
+}
