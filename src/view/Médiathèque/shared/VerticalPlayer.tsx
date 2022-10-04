@@ -35,7 +35,7 @@ export default function VerticalPlayer({ dataSource }) {
                 </span>
             </div>
             <div className="verticalPlayerTitle">
-                <span style={{ textTransform: "lowercase" }}>{dataSource.titleFR}</span>
+                <span>{dataSource.titleFR}</span>
             </div>
         </VerticalPlayerCard>
     )

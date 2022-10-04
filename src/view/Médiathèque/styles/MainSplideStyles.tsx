@@ -7,7 +7,9 @@ const MainSplideStyles = styled.section`
     background-color: #000;
     
     .splide{
-        position: relative;
+        /* position: relative; */
+        /* background-color: yellow; */
+
         .splide__pagination__page{
             height: 7px;
             width: 7px;
@@ -18,26 +20,26 @@ const MainSplideStyles = styled.section`
             height: 35px;
             width: 35px;
             position: absolute;
+            bottom: 0;
 
-            background-color: rgba(255, 255, 255, .3);
+            /* background-color: rgba(255, 255, 255, .3); */
             border: 1px solid var(--gray3);
             border-radius: .2rem;
+            background-color: red;
 
             svg{
                 fill: #fff;
             }
 
             &:nth-child(1){
-                /* position: absolute; */
-                /* right: 0; */
-                /* float: right;
+                /* position: absolute;
+                right: 0;
+                float: right;
                 margin-top: 30rem;
                 margin-right: 3rem; */
             }
 
             &:nth-child(2){
-                /* margin-top: 14.1rem; */
-                /* margin-right: 2rem; */
             }
         }
     }

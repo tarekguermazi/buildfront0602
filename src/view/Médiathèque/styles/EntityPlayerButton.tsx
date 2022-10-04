@@ -19,6 +19,15 @@ export default function EntityPlayerButton({ data, entity }) {
                             autres: (
                                 <AiOutlineEye />
                             ),
+                            documentaire: (
+                                <AiOutlineEye />
+                            ),
+                            photos: (
+                                <AiOutlineEye />
+                            ),
+                            podcast: (
+                                <AiOutlineEye />
+                            )
                         }[data.type]
                     }
                 </DetailsButtonMainSPlide>
@@ -34,6 +43,15 @@ export default function EntityPlayerButton({ data, entity }) {
                             autres: (
                                 <AiOutlineEye />
                             ),
+                            documentaire: (
+                                <AiOutlineEye />
+                            ),
+                            photos: (
+                                <AiOutlineEye />
+                            ),
+                            podcast: (
+                                <AiOutlineEye />
+                            )
                         }[data.type]
                     }
                 </DetailsButton>
@@ -49,6 +67,15 @@ export default function EntityPlayerButton({ data, entity }) {
                             autres: (
                                 <AiOutlineEye />
                             ),
+                            documentaire: (
+                                <AiOutlineEye />
+                            ),
+                            photos: (
+                                <AiOutlineEye />
+                            ),
+                            podcast: (
+                                <AiOutlineEye />
+                            )
                         }[data.type]
                     }
                 </DetailsButtonMainGridPlayer>

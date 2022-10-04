@@ -82,6 +82,7 @@ const AudioPlayerLayout = styled.div`
     }
 
     .verticalPlayerTitle{
+        margin-top: 1rem;
         height: 70px;
 
         span{

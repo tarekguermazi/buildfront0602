@@ -50,7 +50,7 @@ const NewContentStyles = styled.section`
         }
         
         .VerticlPlayer{
-            width: 350px !important;
+            width: 270px !important;
             height: 330px !important;
             overflow: hidden;
 
@@ -110,13 +110,22 @@ const NewContentStyles = styled.section`
             }
 
             .verticalPlayerTitle{
-                height: 70px;
-                color: #fff;
-                font-family: 'Bebas Neue Pro';
-                font-weight: 400;
-                font-size: 1.5rem;
-                text-decoration: none;
-                text-transform: lowercase !important;
+                /* height: 70px; */
+
+                span{
+                    width: 100%;
+                    font-family: 'Proxima Nova';
+                    text-transform: capitalize !important;
+                    line-height: 1.5;
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                    color: #fff !important;
+
+                    overflow:hidden;
+                    display:inline-block;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
             }
         }
     }

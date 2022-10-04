@@ -1,6 +1,7 @@
 import React from 'react'
 import NewContentStyles from './styles/NewContentStyles';
 import EntityPlayerButton from './styles/EntityPlayerButton';
+import VerticalPlayer from './shared/VerticalPlayer';
 
 // PACKAGES
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -35,7 +36,7 @@ export default function NewContent({ data }) {
                 <main>
                     <Splide options={{
                         gap: '.5rem',
-                        perPage: 3,
+                        perPage: 4,
                         pagination: false,
                         wheel: true
                     }}>
@@ -56,37 +57,35 @@ export default function NewContent({ data }) {
                                             <div className="contentType">
                                                 {
                                                     {
-                                                        Texte: (
+                                                        documentaire: (
                                                             <GrTextAlignFull className='icon' />
                                                         ),
-                                                        audio: (
+                                                        podcast: (
                                                             <BiMicrophone className='icon' />
                                                         ),
                                                         videos: (
                                                             <IoVideocamOutline className='icon' />
                                                         ),
-                                                        "lien web": <CgLink className='icon' />,
-                                                        photo: <BsCamera className='icon' />,
-                                                        infographie: (
-                                                            <VscGraphScatter className='icon' />
-                                                        ),
-                                                        statistiques: (
-                                                            <BiStats className='icon' />
-                                                        ),
                                                         autres: (
-                                                            <AiOutlineQuestion className='icon' />
+                                                            <BsCamera className='icon' />
                                                         ),
                                                     }[post.type]
-                                                }{post.type}
+                                                }
+                                                {
+                                                    post.type === 'autres'
+                                                        ? 'photos'
+                                                        : post.type
+                                                }
                                             </div>
                                             <span className='contentDate'>
                                                 {pipeDate(post.updatedAt)}
                                             </span>
                                         </div>
                                         <div className="verticalPlayerTitle">
-                                            {post.titleFR}
+                                            <span>{post.titleFR}</span>
                                         </div>
                                     </SplideSlide>
+                                    // <VerticalPlayer dataSource={post} key={post._id} />
                                 )
                             })
                         }
