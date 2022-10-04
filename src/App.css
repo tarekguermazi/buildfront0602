@@ -203,6 +203,7 @@
   width: max-content;
   background-color: var(--white);
 }
+
 .button__language:hover .dropdown__translate {
   display: block;
   position: absolute;
@@ -230,6 +231,7 @@
   color: var(--red);
   text-decoration: underline;
 }
+
 .dropdown__translate li:hover {
   color: var(--red);
   text-decoration: underline;
@@ -369,20 +371,14 @@
 .dropdown:hover i {
   animation: fade-out-arrow 0.2s ease-out forwards;
 }
+
 .button__language:hover img {
   animation: fade-out-arrow 0.2s ease-out forwards;
 }
+
 .links__sub {
   display: none;
 }
-
-/* .links > ul > li {
-  background: var(--red);
-  padding: 8px;
-  color: var(--white);
-  display: flex;
-  align-items: center;
-} */
 
 .links__sub::before {
   content: "";
@@ -468,8 +464,8 @@
   }
 }
 
-.links > ul >,
-.li__active li {
+.links > ul > li {
+  padding: 8px;
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -2956,6 +2952,7 @@ td {
   line-height: 22px;
   padding: 0 25px;
 }
+
 /*styling the color of status  */
 
 .valide,
@@ -2964,6 +2961,7 @@ td {
 .rejete {
   padding: 4px 20px;
 }
+
 .valide {
   color: var(--green);
   background: #eaf9f6;
@@ -2975,8 +2973,10 @@ td {
   background-color: #d9edf7;
   border: 1px solid #4aace0;
 }
+
 .archive {
 }
+
 .rejete {
   color: #bc5351;
   background-color: #f2dede;
@@ -3296,6 +3296,7 @@ span {
 .mainContent input[type="radio"]:checked + .TypeCard {
   border: 2px solid var(--violet);
 }
+
 .mainContent input[type="radio"] + .TypeCard .icon {
   font-size: 24px;
 }
@@ -3398,6 +3399,7 @@ span {
 ul.splide__list {
   column-gap: 15px;
 }
+
 ul.splide__list > li {
   width: 85px !important;
   padding: 0 !important;
@@ -3425,6 +3427,7 @@ button.splide__arrow--prev {
 #react-select3-option:hover .css-9gakcf-option {
   background-color: var(--red);
 }
+
 .css-9gakcf-option,
 .css-1n7v3ny-option {
   background-color: var(--white) !important;
@@ -3433,6 +3436,7 @@ button.splide__arrow--prev {
   font-weight: 700;
   line-height: 21px;
 }
+
 .css-9gakcf-option:hover {
   background-color: var(--hover__select) !important;
 }
@@ -3614,4 +3618,10 @@ button.splide__arrow--prev {
   text-transform: uppercase;
   color: #000;
   cursor: pointer;
+}
+
+/* MEDIATHEQUES */
+.wideContent {
+  max-width: 1170px;
+  margin: auto;
 }

@@ -8,12 +8,14 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 @font-face {
   font-family: "Proxima Nova";
   src: url(/public/fonts/Proxima\ Nova\ Font.otf);
   font-style: normal;
   font-display: fallback;
 }
+
 @font-face {
   font-family: "Bebas Neue Pro";
   src: url(/public/fonts/BebasNeue\ Bold.ttf);
@@ -26,6 +28,7 @@
   --red: #e1011a;
   --white: #ffffff;
   --violet: #2b2840;
+  --violet-dark: #201e31;
   /* Secodary Color */
   --background: #f1f1f1;
   --gray1: #e5e5e5;
@@ -40,6 +43,9 @@
   --border__green: #8bdfc7;
   --background__green: #eaf9f6;
   --hover__select: rgb(222, 235, 255);
+
+  /* SIZES */
+  --cerntered-content: 1170px;
 }
 
 h1 {
@@ -98,6 +104,7 @@ p {
   font-size: 18px;
   line-height: 22px;
 }
+
 a {
   text-decoration: none;
 }
@@ -107,12 +114,15 @@ input {
   border: 0;
   background-color: transparent;
 }
+
 input:focus {
   outline: 0;
 }
+
 select:focus {
   outline: 0;
 }
+
 html,
 body {
   font-family: "Proxima Nova Pro";
