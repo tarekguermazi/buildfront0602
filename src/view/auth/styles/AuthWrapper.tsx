@@ -9,6 +9,13 @@ const AuthWrapper = styled.div`
   .app__login {
     width: 501px;
   }
+  button {
+    color: var(--dark--red);
+    border: 0;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+  }
+
   .container__form {
     display: grid;
     row-gap: 25px;
@@ -100,7 +107,7 @@ const AuthWrapper = styled.div`
     column-gap: 12px;
   }
   .link__account {
-    font-family: 'Bebas Neue Pro';
+    font-family: "Bebas Neue Pro";
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

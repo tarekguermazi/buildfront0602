@@ -179,7 +179,7 @@ const PaginationWrapper = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    color: var(--vieolet);
+    color: var(--violet);
   }
   .rc-pagination-next a:after {
     content: " Suivant ›";
@@ -190,7 +190,8 @@ const PaginationWrapper = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    color: var(--vieolet);
+    color: var(--violet);
+    padding: 140px;
   }
   .rc-pagination-prev,
   .rc-pagination-next {
