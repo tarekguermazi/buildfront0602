@@ -8,19 +8,13 @@ import Videos from '../Videos';
 import Photos from '../Photos';
 import Podcasts from '../Podcasts';
 import Docs from '../Docs';
+import VoirPlusButton from '../shared/VoirPlusButton';
 
 // ICONS/Assets
 import { envelope } from "src/assets/images";
 import Skeleton from 'react-loading-skeleton';
 
 export default function MainGridLayout() {
-
-    // fetch data and group into different types
-    // then pass each group to its component
-    // STATES
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-
     // vids
     const [videos, setVideos] = useState([]);
     const [videoIsLoading, setVideoIsLoading] = useState(true);
@@ -40,8 +34,6 @@ export default function MainGridLayout() {
     const getLatestContent = () => {
         MediathequeService.getLatestMediatheques()
             .then((value) => {
-                setPosts(value);
-
                 // getting videos only
                 value.rows?.map((entry, index) => {
                     if (entry.type === 'videos')
@@ -60,10 +52,6 @@ export default function MainGridLayout() {
                 setPhotoIsLoading(false);
                 setPodcastIsLoading(false);
                 setDocIsLoading(false);
-
-
-
-                setLoading(false);
             });
     };
 
@@ -79,12 +67,20 @@ export default function MainGridLayout() {
                 {
                     videoIsLoading
                         ? <Skeleton height={300} />
-                        : <Videos videosList={videos} />
+                        :
+                        <section>
+                            <Videos videosList={videos} />
+                            <VoirPlusButton contentType='Videos' />
+                        </section>
                 }
                 {
                     photoIsLoading
                         ? <Skeleton height={300} />
-                        : <Photos photosList={photos} />
+                        :
+                        <section>
+                            <Photos photosList={photos} />
+                            <VoirPlusButton contentType='Photos' />
+                        </section>
                 }
             </section>
             {/* LEFT SECTION */}
@@ -92,14 +88,22 @@ export default function MainGridLayout() {
                 {
                     docIsLoading
                         ? <Skeleton height={300} />
-                        : <Docs docstList={docs} />
+                        :
+                        <section>
+                            <Docs docstList={docs} />
+                            <VoirPlusButton contentType='documentaires' />
+                        </section>
                 }
                 {/* NEWS LETTER COMPONENT */}
                 <NewsLetterWidget envelope={envelope} layout='minimal' />
                 {
                     podcastIsLoading
                         ? <Skeleton height={300} />
-                        : <Podcasts podcastList={podcast} />
+                        :
+                        <section>
+                            <Podcasts podcastList={podcast} />
+                            <VoirPlusButton contentType='Podcasts' />
+                        </section>
                 }
             </section>
         </MainContentLayout>
