@@ -22,6 +22,10 @@ const navigateRoutes = [
     path: "/Mediatheque",
     loader: () => import("src/view/Médiathèque/Mediatheque"),
   },
+  {
+    path: "/Mediatheque/type/:entity_type",
+    loader: () => import("src/view/Médiathèque/shared/SpecificEntityList"),
+  },
   { path: "/contact", loader: () => import("src/view/Contact/Contact") },
 ];
 const privateRoutes = [

@@ -70,7 +70,7 @@ export default function MainGridLayout() {
                         :
                         <section>
                             <Videos videosList={videos} />
-                            <VoirPlusButton contentType='Videos' />
+                            <VoirPlusButton contentType='videos' />
                         </section>
                 }
                 {
@@ -79,7 +79,7 @@ export default function MainGridLayout() {
                         :
                         <section>
                             <Photos photosList={photos} />
-                            <VoirPlusButton contentType='Photos' />
+                            <VoirPlusButton contentType='photos' />
                         </section>
                 }
             </section>
@@ -102,7 +102,7 @@ export default function MainGridLayout() {
                         :
                         <section>
                             <Podcasts podcastList={podcast} />
-                            <VoirPlusButton contentType='Podcasts' />
+                            <VoirPlusButton contentType='podcasts' />
                         </section>
                 }
             </section>

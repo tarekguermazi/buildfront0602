@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function VoirPlusButton({ contentType }) {
     return (
         <LinkLayout>
-            <Link to={'/Mediatheque/' + contentType}>
+            <Link to={'/Mediatheque/type/' + contentType}>
                 <span>voir plus de {contentType}</span>
             </Link>
         </LinkLayout>
