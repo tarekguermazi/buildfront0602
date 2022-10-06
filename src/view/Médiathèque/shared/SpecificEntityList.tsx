@@ -1,16 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import "react-loading-skeleton/dist/skeleton.css";
+import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 
 
 // COMPONENTS
 import BreadCrumbs from 'src/view/shared/BreadCrumbs';
 import Skeleton from 'react-loading-skeleton';
+import VerticalPlayer from './VerticalPlayer';
 
 export default function SpecificEntityList() {
     const params = useParams();
     const param = params.entity_type;
+
+    const routeExtension = `?filter[type]=${param}`;
+
+    const [entities, setEntities] = useState([]);
+    const [entityIsLoading, setEntityIsLoading] = useState(true);
+
+    const fetchTypeEntities = routeExtension => {
+        MediathequeService.getMediathequesBasedOnType(routeExtension)
+            .then((value) => {
+                value.rows?.map(entry => {
+                    setEntities(entities => entities.concat(entry));
+                });
+                setEntityIsLoading(false);
+            });
+    }
+
+    useEffect(() => { fetchTypeEntities(routeExtension) }, []);
 
     return (
         <section>
@@ -18,17 +37,27 @@ export default function SpecificEntityList() {
                 <section className='wideContent'>
                     <h1>{param}</h1>
                     <BreadCrumbs view={"Médiathèques / " + param} />
-
-                    <MainLoadingLayout>
-                        <Skeleton height={300} width={270} />
-                        <Skeleton height={300} width={270} />
-                        <Skeleton height={300} width={270} />
-                        <Skeleton height={300} width={270} />
-                    </MainLoadingLayout>
-
-                    <MainLayout>
-
-                    </MainLayout>
+                    {
+                        entityIsLoading
+                            ?
+                            <MainLoadingLayout>
+                                <Skeleton height={300} width={270} />
+                                <Skeleton height={300} width={270} />
+                                <Skeleton height={300} width={270} />
+                                <Skeleton height={300} width={270} />
+                            </MainLoadingLayout>
+                            :
+                            <MainLayout>
+                                {
+                                    entities?.map((ent, index) => {
+                                        return (
+                                            <VerticalPlayer dataSource={ent} key={index} />
+                                            // END OF MAP RETURN
+                                        )
+                                    })
+                                }
+                            </MainLayout>
+                    }
                 </section>
             </div>
         </section>
@@ -54,4 +83,8 @@ const MainLoadingLayout = styled.section`
 const MainLayout = styled.section`
     width: 100%;
     margin: 2rem 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 1rem;
 `;
