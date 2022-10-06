@@ -4,10 +4,10 @@ import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 
 // COMPONENTS
 import NewsLetterWidget from 'src/view/shared/NewsLetterWidget';
-import Videos from '../Videos';
-import Photos from '../Photos';
-import Podcasts from '../Podcasts';
-import Docs from '../Docs';
+import Videos from '../sub-sections/Videos';
+import Photos from '../sub-sections/Photos';
+import Podcasts from '../sub-sections/Podcasts';
+import Docs from '../sub-sections/Docs';
 import VoirPlusButton from '../shared/VoirPlusButton';
 
 // ICONS/Assets

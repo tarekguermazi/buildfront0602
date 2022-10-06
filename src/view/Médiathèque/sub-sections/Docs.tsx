@@ -1,7 +1,7 @@
 import React from 'react'
-import GridContentLayout from './styles/GridContentLayout'
-import SectionHeader from './shared/SectionHeader'
-import DocsCard from './shared/DocsCard'
+import GridContentLayout from '../styles/GridContentLayout'
+import SectionHeader from '../shared/SectionHeader'
+import DocsCard from '../shared/DocsCard'
 
 export default function Docs({ docstList }) {
     return (

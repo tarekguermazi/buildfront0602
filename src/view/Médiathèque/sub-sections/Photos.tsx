@@ -1,7 +1,7 @@
 import React from 'react'
-import GridContentLayout from './styles/GridContentLayout'
-import SectionHeader from './shared/SectionHeader'
-import VerticalPlayer from './shared/VerticalPlayer'
+import GridContentLayout from '../styles/GridContentLayout'
+import SectionHeader from '../shared/SectionHeader'
+import VerticalPlayer from '../shared/VerticalPlayer'
 
 export default function Photos({ photosList }) {
     return (
