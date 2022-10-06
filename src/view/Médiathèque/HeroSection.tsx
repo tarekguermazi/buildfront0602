@@ -53,7 +53,15 @@ export default function HeroSection() {
                         ?
                         <Skeleton height={507} />
                         :
-                        <MainSplide data={hotPosts} />
+                        <section>
+                            {
+                                (hotPosts.length > 0)
+                                    ?
+                                    <MainSplide data={hotPosts} />
+                                    :
+                                    <h2>No data</h2>
+                            }
+                        </section>
                 }
             </section>
             {/* GRID RIGHT UNDER THE SLIDER */}
@@ -67,7 +75,15 @@ export default function HeroSection() {
                             <Skeleton height={350} className='customLoader' />
                         </div>
                         :
-                        <NewContent data={posts} />
+                        <section>
+                            {
+                                (hotPosts.length > 0)
+                                    ?
+                                    <NewContent data={posts} />
+                                    :
+                                    <h2 style={{ textAlign: 'center', color: '#fff' }}>No data</h2>
+                            }
+                        </section>
                 }
             </section>
         </HeroSectionStyle>
