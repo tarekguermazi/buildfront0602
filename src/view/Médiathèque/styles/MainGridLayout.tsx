@@ -32,21 +32,41 @@ export default function MainGridLayout() {
     const [docIsLoading, setDocIsLoading] = useState(true);
 
     const getLatestContent = () => {
+        let videosCOunt = 0;
+        let audioCOunt = 0;
+        let photosCOunt = 0;
+        let docsCOunt = 0;
         MediathequeService.getLatestMediatheques()
             .then((value) => {
                 // getting videos only
                 value.rows?.map((entry, index) => {
-                    if (entry.type === 'videos')
-                        setVideos(videos => videos.concat(entry));
+                    if (entry.type === 'videos') {
+                        if (videosCOunt < 8) {
+                            setVideos(videos => videos.concat(entry));
+                            videosCOunt += 1;
+                        }
+                    }
 
-                    if (entry.type === 'autres')
-                        setPhotos(photos => photos.concat(entry));
+                    if (entry.type === 'autres') {
+                        if (photosCOunt < 8) {
+                            setPhotos(photos => photos.concat(entry));
+                            photosCOunt += 1;
+                        }
+                    }
 
-                    if (entry.type === 'podcast')
-                        setPodcats(podcast => podcast.concat(entry));
+                    if (entry.type === 'podcast') {
+                        if (audioCOunt < 2) {
+                            setPodcats(podcast => podcast.concat(entry));
+                            audioCOunt += 1;
+                        }
+                    }
 
-                    if (entry.type === 'documentaire')
-                        setDocs(docs => docs.concat(entry));
+                    if (entry.type === 'documentaire') {
+                        if (docsCOunt < 2) {
+                            setDocs(docs => docs.concat(entry));
+                            docsCOunt += 1;
+                        }
+                    }
                 })
                 setVideoIsLoading(false);
                 setPhotoIsLoading(false);
