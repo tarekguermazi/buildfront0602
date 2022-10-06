@@ -12,8 +12,22 @@ import VerticalPlayer from './VerticalPlayer';
 
 export default function SpecificEntityList() {
     const params = useParams();
-    const param = params.entity_type;
+    let param = params.entity_type;
 
+    switch (param) {
+        case 'photos':
+            param = 'autres'
+            break;
+        case 'documentaires':
+            param = 'documentaire'
+            break;
+        case 'podcasts':
+            param = 'podcast'
+            break;
+
+        default:
+            break;
+    }
     const routeExtension = `?filter[type]=${param}`;
 
     const [entities, setEntities] = useState([]);
