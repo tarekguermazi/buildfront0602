@@ -89,8 +89,16 @@ export default function MainGridLayout() {
                         ? <Skeleton height={300} />
                         :
                         <section>
-                            <Videos videosList={videos} />
-                            <VoirPlusButton contentType='videos' />
+                            {
+                                (videos.length > 0)
+                                    ?
+                                    <section>
+                                        <Videos videosList={videos} />
+                                        <VoirPlusButton contentType='videos' />
+                                    </section>
+                                    :
+                                    <h2>No videos were found</h2>
+                            }
                         </section>
                 }
                 {
@@ -98,8 +106,16 @@ export default function MainGridLayout() {
                         ? <Skeleton height={300} />
                         :
                         <section>
-                            <Photos photosList={photos} />
-                            <VoirPlusButton contentType='photos' />
+                            {
+                                (photos.length > 0)
+                                    ?
+                                    <section>
+                                        <Photos photosList={photos} />
+                                        <VoirPlusButton contentType='photos' />
+                                    </section>
+                                    :
+                                    <h2>No photos were found</h2>
+                            }
                         </section>
                 }
             </section>
@@ -110,8 +126,16 @@ export default function MainGridLayout() {
                         ? <Skeleton height={300} />
                         :
                         <section>
-                            <Docs docstList={docs} />
-                            <VoirPlusButton contentType='documentaires' />
+                            {
+                                (docs.length > 0)
+                                    ?
+                                    <section>
+                                        <Docs docstList={docs} />
+                                        <VoirPlusButton contentType='documentaires' />
+                                    </section>
+                                    :
+                                    <h2>No Docs were found</h2>
+                            }
                         </section>
                 }
                 {/* NEWS LETTER COMPONENT */}
@@ -121,8 +145,16 @@ export default function MainGridLayout() {
                         ? <Skeleton height={300} />
                         :
                         <section>
-                            <Podcasts podcastList={podcast} />
-                            <VoirPlusButton contentType='podcasts' />
+                            {
+                                (podcast.length > 0)
+                                    ?
+                                    <section>
+                                        <Podcasts podcastList={podcast} />
+                                        <VoirPlusButton contentType='podcasts' />
+                                    </section>
+                                    :
+                                    <h2>No podcasts were found</h2>
+                            }
                         </section>
                 }
             </section>
