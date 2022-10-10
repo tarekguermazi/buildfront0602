@@ -985,7 +985,8 @@ function Home() {
               parti politique et de toute institution religieuse.
             </div>
           </div>
-          <div className='footer__menu '>
+          <div className='bar'></div>
+          <div className='footer__menu'>
             <div className='label__footer'>Menu</div>
             <div className='footer__content content__menu'>
               <div>
@@ -1006,6 +1007,7 @@ function Home() {
               </div>
             </div>
           </div>
+          <div className='bar'></div>
           <div className='footer__socialmedia'>
             <div className='label__footer'> Social media</div>
             <div className='footer__content content__socialmedia'>
@@ -1027,8 +1029,13 @@ function Home() {
               </div>
             </div>
           </div>
+          <div className='bar'></div>
           <div className='footer__contact'>
             <div className='label__footer'> Contact</div>
+            <div className='footer__content contact__desctioption'>
+              Adresse : 47, Avenue Farhat Hached 2eme étage 1001 Tunis Tél. : 71
+              257 664 Email : contact@ftdes.net
+            </div>
           </div>
         </div>
       </div>

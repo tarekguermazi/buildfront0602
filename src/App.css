@@ -2344,7 +2344,6 @@ styling the newsLettre */
   color: var(--white);
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
 }
 .label__footer {
   font-family: "Bebas Neue";
@@ -2371,7 +2370,7 @@ styling the newsLettre */
 }
 .content__menu {
   display: flex;
-  justify-content: space-between;
+  column-gap: 31px;
   width: 311px;
 }
 .content__socialmedia {
@@ -2392,7 +2391,7 @@ styling the newsLettre */
   display: flex;
   flex-direction: column;
   height: 168px;
-  justify-content: space-between;
+  width: 133px;
 }
 .content__menu > div > ul > li {
   font-family: "Proxima Nova";
@@ -2402,6 +2401,30 @@ styling the newsLettre */
   line-height: 40px;
   color: var(--white);
   padding: 0 !important;
+}
+.footer__contact {
+  max-width: 229px;
+  height: 152px;
+}
+.contact__desctioption {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--white);
+}
+
+.bar {
+  margin: 83px 19px 83px 19px !important;
+  width: 0;
+  height: 152px;
+  border: 1px solid rgb(255, 255, 255, 0.4);
+}
+.footer__menu,
+.footer__socialmedia,
+.footer__contact {
+  padding-top: 36px;
 }
 /* styling the copywrite  */
 

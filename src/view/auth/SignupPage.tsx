@@ -182,7 +182,6 @@ function SignupPage() {
                     name='phoneNumber'
                     label={i18n("user.fields.phoneNumber")}
                     autoComplete='phoneNumber'
-                    autoFocus
                   />
                   <button className='form__button' disabled={loading}>
                     <ButtonIcon loading={loading} />

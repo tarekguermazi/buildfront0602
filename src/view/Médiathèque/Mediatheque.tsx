@@ -14,8 +14,8 @@ function Mediatheque() {
       <HeroSection />
       <MainGridLayout />
       <Gallery />
-      <MegaFooter />
-      <Footer />
+      {/* <MegaFooter />
+      <Footer /> */}
     </section>
   );
 }
