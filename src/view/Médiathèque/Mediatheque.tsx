@@ -5,7 +5,6 @@ import HeroSection from "./HeroSection";
 import MainGridLayout from "./styles/MainGridLayout";
 import MegaFooter from "../Layout/MegaFooter";
 import Footer from "../Layout/Footer";
-import Gallery from "../shared/Gallery";
 
 function Mediatheque() {
   return (
@@ -13,7 +12,6 @@ function Mediatheque() {
       <Header />
       <HeroSection />
       <MainGridLayout />
-      <Gallery />
       <MegaFooter />
       <Footer />
     </section>

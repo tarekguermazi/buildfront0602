@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 
 // COMPONENTS
-import NewsLetterWidget from 'src/view/shared/NewsLetterWidget';
 import Videos from '../sub-sections/Videos';
 import Photos from '../sub-sections/Photos';
 import Podcasts from '../sub-sections/Podcasts';
@@ -138,8 +137,6 @@ export default function MainGridLayout() {
                             }
                         </section>
                 }
-                {/* NEWS LETTER COMPONENT */}
-                <NewsLetterWidget envelope={envelope} layout='minimal' />
                 {
                     podcastIsLoading
                         ? <Skeleton height={300} />
