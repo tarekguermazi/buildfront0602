@@ -3072,6 +3072,11 @@ td {
   padding: 67px 0 63px 0;
 }
 
+.contentContainer {
+  width: 100%;
+  margin-top: 1.7rem;
+}
+
 .contenu {
   max-width: 600px;
   margin-inline: auto;
@@ -3465,4 +3470,12 @@ button.splide__arrow--prev {
 .wideContent {
   max-width: 1170px;
   margin: auto;
+}
+
+.wideContent h1 {
+  font-family: "Bebas Neue Pro";
+  font-size: 47px;
+  line-height: 39px;
+  color: #2b2840;
+  letter-spacing: normal;
 }
