@@ -10,7 +10,6 @@ import Docs from '../sub-sections/Docs';
 import VoirPlusButton from '../shared/VoirPlusButton';
 
 // ICONS/Assets
-import { envelope } from "src/assets/images";
 import Skeleton from 'react-loading-skeleton';
 
 export default function MainGridLayout() {
