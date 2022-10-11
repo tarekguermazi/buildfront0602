@@ -2,6 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService'
+import ReactPlayer from 'react-player/lazy'
+import ImageGallery from 'react-image-gallery';
+
+// IMAGE GALLERY
+import LightGallery from 'lightgallery/react';
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom';
+
+
+
 
 // COMPONENTS
 import Footer from 'src/view/Layout/Footer'
@@ -40,6 +53,21 @@ export default function ShowPublication() {
         return (d?.split('T')[1]);
     }
 
+    const images = [
+        {
+            original: 'https://picsum.photos/id/1018/1000/600/',
+            thumbnail: 'https://picsum.photos/id/1018/250/150/',
+        },
+        {
+            original: 'https://picsum.photos/id/1015/1000/600/',
+            thumbnail: 'https://picsum.photos/id/1015/250/150/',
+        },
+        {
+            original: 'https://picsum.photos/id/1019/1000/600/',
+            thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        },
+    ];
+
 
     return (
         <section>
@@ -68,6 +96,50 @@ export default function ShowPublication() {
 
                         <main>
                             <p>{entity['descriptionFR']}</p>
+                            {
+                                (entity['videos']?.length > 0)
+                                    ?
+                                    <VideoPlayersLayout>
+                                        {
+                                            entity['videos'].map(vid => {
+                                                return (
+                                                    <ReactPlayer
+                                                        key={vid._id}
+                                                        url={vid['downloadUrl']}
+                                                        loop={true}
+                                                        controls={true}
+                                                    />
+                                                )
+                                            })
+                                        }
+                                    </VideoPlayersLayout>
+                                    :
+                                    <VideoPlayersLayout>
+                                        <img src="https://strengthtostrength.org/wp-content/uploads/2020/12/no-video-available-placeholder.jpg" alt="noVideoPlaceholder" width='100%' />
+                                    </VideoPlayersLayout>
+                            }
+                            {/* RENDERING IMAGES (if there are any) */}
+                            {
+                                (entity['photos']?.length > 0)
+                                    ?
+                                    <PhotoPlayersLayout>
+                                        {
+                                            entity['photos'].map(photo => {
+                                                return (
+                                                    <LightGallery speed={500} plugins={[lgThumbnail, lgZoom]} key={photo._id}>
+                                                        <a href={photo.downloadUrl}>
+                                                            <img alt={photo._id} src={photo.downloadUrl} />
+                                                        </a>
+                                                    </LightGallery>
+                                                )
+                                            })
+                                        }
+                                    </PhotoPlayersLayout>
+                                    :
+                                    <VideoPlayersLayout>
+                                        <img src="https://imgur.com/N1ZiTM4.jpeg" alt="nophotosPlaceholder" width='100%' />
+                                    </VideoPlayersLayout>
+                            }
                         </main>
 
                         <footer>
@@ -226,5 +298,34 @@ const MainLayout = styled.section`
     .leftSection{
         width: 400px;
         background-color: pink;
+    }
+`;
+
+const VideoPlayersLayout = styled.section`
+    margin-top: 1rem;
+    &:before{
+        content: 'Video(s)';
+        display: block;
+        margin: 1rem 0;
+        font-size: 2rem;
+        font-family: 'Bebas Neue Pro';
+        font-style: normal;
+        font-weight: 700;
+    }
+`;
+const PhotoPlayersLayout = styled.section`
+    margin-top: 1rem;
+    img{
+        width: 100%;
+    }
+
+    &:before{
+        content: 'Photo(s)';
+        display: block;
+        margin: 1rem 0;
+        font-size: 2rem;
+        font-family: 'Bebas Neue Pro';
+        font-style: normal;
+        font-weight: 700;
     }
 `;
