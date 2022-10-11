@@ -20,10 +20,11 @@ const LinkLayout = styled.div`
     width: 100%;
     text-align: center;
     span{
-        font-family: 'Bebas Neue';
+        font-family: 'Proxima Nova';
         font-size: 1rem;
-        font-weight: 100;
+        font-weight: thin;
         text-decoration-line: underline;
+        text-transform: uppercase;
         color: #E1011A !important;
     }
 `;
