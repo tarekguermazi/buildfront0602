@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService'
 import ReactPlayer from 'react-player/lazy'
-import ImageGallery from 'react-image-gallery';
 
 // IMAGE GALLERY
 import LightGallery from 'lightgallery/react';
