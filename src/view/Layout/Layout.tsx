@@ -12,7 +12,7 @@ function Layout(props) {
   // setPageDirection();
 
   return (
-    <div style={{ minHeight: `calc(100vh - 52px)` }}>
+    <div style={{ minHeight: `calc(100vh - 394px)` }}>
       <Header url={match.url} />
       <div>{props.children}</div>
     </div>

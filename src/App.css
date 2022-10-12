@@ -2340,7 +2340,7 @@ styling the newsLettre */
 .footer {
   max-width: 1170px;
   margin-inline: auto;
-  padding: 34px 0 71px 0;
+  padding: 34px 0 0px 0;
   color: var(--white);
   display: flex;
   justify-content: space-between;
@@ -2556,11 +2556,12 @@ styling the newsLettre */
 /* styling the singup Page */
 .app__signup {
   width: 100%;
-  max-width: 501px;
+  max-width: calc(100% - 20%);
   margin: auto;
   display: grid;
   padding-top: 36px;
   padding-bottom: 39px;
+  place-content: center;
 }
 
 .app__member {
@@ -3653,11 +3654,17 @@ button.splide__arrow--prev {
   max-width: 1170px;
   margin: auto;
 }
-
 .wideContent h1 {
   font-family: "Bebas Neue Pro";
   font-size: 47px;
   line-height: 39px;
   color: #2b2840;
   letter-spacing: normal;
+}
+
+@media (max-width: 1172px) {
+  .modifyprofile {
+    width: calc(100vw - 20%);
+    max-width: calc(100vw - 20%);
+  }
 }

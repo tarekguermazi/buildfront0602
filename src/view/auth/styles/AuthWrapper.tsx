@@ -5,9 +5,15 @@ const AuthWrapper = styled.div`
     padding-top: 140px;
     display: grid;
     place-items: center;
+    place-content: center;
   }
   .app__login {
     width: 501px;
+  }
+  @media (max-width: 550px) {
+    .app__login {
+      width: calc(100vw - 20%);
+    }
   }
   button {
     color: var(--dark--red);

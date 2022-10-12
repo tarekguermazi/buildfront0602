@@ -3,8 +3,6 @@ import React from "react";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
 import MainGridLayout from "./styles/MainGridLayout";
-import MegaFooter from "../Layout/MegaFooter";
-import Footer from "../Layout/Footer";
 
 function Mediatheque() {
   return (
@@ -12,8 +10,6 @@ function Mediatheque() {
       <Header />
       <HeroSection />
       <MainGridLayout />
-      <MegaFooter />
-      <Footer />
     </section>
   );
 }
