@@ -13,6 +13,7 @@ import MegaFooter from 'src/view/Layout/MegaFooter'
 import BreadCrumbs from 'src/view/shared/BreadCrumbs'
 import { envelope } from "src/assets/images";
 import NewsLetterWidget from 'src/view/shared/NewsLetterWidget'
+import RelatedContent from './RelatedContent'
 // ICONS
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from 'react-icons/bs'
 
@@ -27,7 +28,6 @@ export default function ShowPublication() {
 
     // FETCH DETAILS OF THAT ONE ENETITY
     const [entity, setEntity] = useState({});
-    const [entityIsLoading, setEntityIsLoading] = useState(true);
     const [data, setData] = useState([]);
     const [user, setUser] = useState({});
     const [userIsLoading, setUserIsLoading] = useState(true);
@@ -36,7 +36,6 @@ export default function ShowPublication() {
         MediathequeService.getOneMediatheque(entityID)
             .then((value) => {
                 setEntity(entity => ({ ...entity, ...value }));
-                setEntityIsLoading(false);
                 value.photos?.map(p => {
                     setData(data => data.concat(p.downloadUrl));
                     console.log("just appended :: ", p.downloadUrl);
@@ -97,7 +96,6 @@ export default function ShowPublication() {
                         </header>
 
                         <main>
-                            <p>{entity['descriptionFR']}</p>
                             {
                                 (entity['videos']?.length > 0) &&
                                 <VideoPlayersLayout>
@@ -115,6 +113,7 @@ export default function ShowPublication() {
                                     }
                                 </VideoPlayersLayout>
                             }
+                            <p>{entity['descriptionFR']}</p>
                             {/* RENDERING IMAGES (if there are any) */}
                             {
                                 (entity['photos']?.length > 0) &&
@@ -163,6 +162,7 @@ export default function ShowPublication() {
                         <NewsLetterWidget envelope={envelope} layout='' />
                     </section>
                 </MainLayout>
+                <RelatedContent />
             </section>
             <MegaFooter />
             <Footer />
@@ -296,7 +296,7 @@ const MainLayout = styled.section`
     }
 `;
 const VideoPlayersLayout = styled.section`
-    margin-top: 1rem;
+    margin: 2rem 0;
     &:before{
         content: 'Video(s)';
         display: block;
