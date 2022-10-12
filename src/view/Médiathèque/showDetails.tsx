@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService'
+import TenantService from 'src/modules/Tenant/TenantService'
 import ReactPlayer from 'react-player/lazy'
 // IMAGE GALLERY
 import LightGallery from 'lightgallery/react';
@@ -29,12 +30,19 @@ export default function ShowPublication() {
     // FETCH DETAILS OF THAT ONE ENETITY
     const [entity, setEntity] = useState({});
     const [entityIsLoading, setEntityIsLoading] = useState(true);
+    const [user, setUser] = useState({});
+    const [userIsLoading, setUserIsLoading] = useState(true);
 
     const fetchTypeEntitYDetails = entityID => {
         MediathequeService.getOneMediatheque(entityID)
             .then((value) => {
                 setEntity(entity => ({ ...entity, ...value }));
                 setEntityIsLoading(false);
+                TenantService.getTenant(value.tenant)
+                    .then(userDetails => {
+                        setUser(user => ({ ...user, ...userDetails }));
+                        setUserIsLoading(false);
+                    })
             });
     }
 
@@ -61,7 +69,16 @@ export default function ShowPublication() {
                             <div className="data">
                                 <div className="dateAndOwner">
                                     <span>Publié le {getDate(entity['createdAt'])} à {getTime(entity['createdAt'])}</span>
-                                    <span>Par <strong>John Doe</strong></span>
+                                    <span>
+                                        Par&nbsp;
+                                        {
+                                            userIsLoading
+                                                ?
+                                                <span>loading...</span>
+                                                :
+                                                <strong>{user['name']}</strong>
+                                        }
+                                    </span>
                                 </div>
                                 <div className="socials">
                                     <span>Partager :</span>
@@ -135,10 +152,16 @@ export default function ShowPublication() {
                             </div>
                             <div className="owner">
                                 <img src="https://c4.wallpaperflare.com/wallpaper/303/418/410/women-redhead-freckles-face-wallpaper-preview.jpg" alt="profilePicture" />
-                                <div className="info">
-                                    <strong>Jhon Doe</strong>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse et est consectetur provident, veniam pariatur optio ducimus omnis non libero!</p>
-                                </div>
+                                {
+                                    userIsLoading
+                                        ?
+                                        <span>loading...</span>
+                                        :
+                                        <div className="info">
+                                            <strong>{user['name']} ({user['planStatus']})</strong>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse et est consectetur provident, veniam pariatur optio ducimus omnis non libero!</p>
+                                        </div>
+                                }
                             </div>
                         </footer>
 
