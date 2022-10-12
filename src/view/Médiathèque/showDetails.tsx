@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+// SERVICES
 import MediathequeService from 'src/modules/mediatheque/MediathequeService'
 import TenantService from 'src/modules/Tenant/TenantService'
+// HELPER PACKAGES
 import ReactPlayer from 'react-player/lazy'
-// IMAGE GALLERY
-import LightGallery from 'lightgallery/react';
-import 'lightgallery/css/lightgallery.css';
-import 'lightgallery/css/lg-zoom.css';
-import 'lightgallery/css/lg-thumbnail.css';
-import lgThumbnail from 'lightgallery/plugins/thumbnail';
-import lgZoom from 'lightgallery/plugins/zoom';
+import Photogrid from "react-facebook-photo-grid";
 // COMPONENTS
 import Footer from 'src/view/Layout/Footer'
 import MegaFooter from 'src/view/Layout/MegaFooter'
 import BreadCrumbs from 'src/view/shared/BreadCrumbs'
 import { envelope } from "src/assets/images";
 import NewsLetterWidget from 'src/view/shared/NewsLetterWidget'
-
 // ICONS
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from 'react-icons/bs'
 
-export default function ShowPublication() {
 
+
+
+
+export default function ShowPublication() {
     // GET entity id
     const params = useParams();
     let entityID = params.entity_id;
@@ -30,6 +28,7 @@ export default function ShowPublication() {
     // FETCH DETAILS OF THAT ONE ENETITY
     const [entity, setEntity] = useState({});
     const [entityIsLoading, setEntityIsLoading] = useState(true);
+    const [data, setData] = useState([]);
     const [user, setUser] = useState({});
     const [userIsLoading, setUserIsLoading] = useState(true);
 
@@ -38,6 +37,13 @@ export default function ShowPublication() {
             .then((value) => {
                 setEntity(entity => ({ ...entity, ...value }));
                 setEntityIsLoading(false);
+                value.photos?.map(p => {
+                    setData(data => data.concat(p.downloadUrl));
+                    console.log("just appended :: ", p.downloadUrl);
+
+                })
+
+                // fetching user's data once entity is loaded
                 TenantService.getTenant(value.tenant)
                     .then(userDetails => {
                         setUser(user => ({ ...user, ...userDetails }));
@@ -121,15 +127,10 @@ export default function ShowPublication() {
                                     <PhotoPlayersLayout>
                                         <section className="gridSection">
                                             {
-                                                entity['photos'].map(photo => {
-                                                    return (
-                                                        <LightGallery speed={500} plugins={[lgThumbnail, lgZoom]} key={photo._id}>
-                                                            <a href={photo.downloadUrl}>
-                                                                <img alt={photo._id} src={photo.downloadUrl} />
-                                                            </a>
-                                                        </LightGallery>
-                                                    )
-                                                })
+                                                <Photogrid
+                                                    images={data}
+                                                    maxWidth='100%'
+                                                ></Photogrid>
                                             }
                                         </section>
                                     </PhotoPlayersLayout>
@@ -179,7 +180,7 @@ export default function ShowPublication() {
     )
 }
 
-
+// =========== STYLES ===========
 const MainLayout = styled.section`
     width: var(--cerntered-content);
     height: auto;
@@ -304,7 +305,6 @@ const MainLayout = styled.section`
         background-color: pink;
     }
 `;
-
 const VideoPlayersLayout = styled.section`
     margin-top: 1rem;
     &:before{
@@ -321,9 +321,16 @@ const PhotoPlayersLayout = styled.section`
     margin-top: 1rem;
 
     .gridSection{
-        display: grid;
-        grid-gap: .5rem;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        width: 100%;
+        display: block;
+        &:before{
+            content: '( Double click to open a photo )';
+            display: block;
+            font-family: 'Proxima Nova';
+            font-style: normal;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
     }
 
     img{
