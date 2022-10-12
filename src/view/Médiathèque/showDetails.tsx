@@ -38,8 +38,6 @@ export default function ShowPublication() {
                 setEntity(entity => ({ ...entity, ...value }));
                 value.photos?.map(p => {
                     setData(data => data.concat(p.downloadUrl));
-                    console.log("just appended :: ", p.downloadUrl);
-
                 })
 
                 // fetching user's data once entity is loaded
