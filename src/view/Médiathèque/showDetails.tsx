@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService'
 import ReactPlayer from 'react-player/lazy'
-
 // IMAGE GALLERY
 import LightGallery from 'lightgallery/react';
 import 'lightgallery/css/lightgallery.css';
@@ -11,10 +10,6 @@ import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
-
-
-
-
 // COMPONENTS
 import Footer from 'src/view/Layout/Footer'
 import MegaFooter from 'src/view/Layout/MegaFooter'
@@ -107,17 +102,19 @@ export default function ShowPublication() {
                                 (entity['photos']?.length > 0)
                                     ?
                                     <PhotoPlayersLayout>
-                                        {
-                                            entity['photos'].map(photo => {
-                                                return (
-                                                    <LightGallery speed={500} plugins={[lgThumbnail, lgZoom]} key={photo._id}>
-                                                        <a href={photo.downloadUrl}>
-                                                            <img alt={photo._id} src={photo.downloadUrl} />
-                                                        </a>
-                                                    </LightGallery>
-                                                )
-                                            })
-                                        }
+                                        <section className="gridSection">
+                                            {
+                                                entity['photos'].map(photo => {
+                                                    return (
+                                                        <LightGallery speed={500} plugins={[lgThumbnail, lgZoom]} key={photo._id}>
+                                                            <a href={photo.downloadUrl}>
+                                                                <img alt={photo._id} src={photo.downloadUrl} />
+                                                            </a>
+                                                        </LightGallery>
+                                                    )
+                                                })
+                                            }
+                                        </section>
                                     </PhotoPlayersLayout>
                                     :
                                     <VideoPlayersLayout>
@@ -299,6 +296,13 @@ const VideoPlayersLayout = styled.section`
 `;
 const PhotoPlayersLayout = styled.section`
     margin-top: 1rem;
+
+    .gridSection{
+        display: grid;
+        grid-gap: .5rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
     img{
         width: 100%;
     }
