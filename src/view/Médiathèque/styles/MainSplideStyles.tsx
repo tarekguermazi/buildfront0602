@@ -22,24 +22,12 @@ const MainSplideStyles = styled.section`
             position: absolute;
             bottom: 0;
 
-            /* background-color: rgba(255, 255, 255, .3); */
+            background-color: rgba(255, 255, 255, .3);
             border: 1px solid var(--gray3);
             border-radius: .2rem;
-            background-color: red;
 
             svg{
                 fill: #fff;
-            }
-
-            &:nth-child(1){
-                /* position: absolute;
-                right: 0;
-                float: right;
-                margin-top: 30rem;
-                margin-right: 3rem; */
-            }
-
-            &:nth-child(2){
             }
         }
     }

@@ -14,13 +14,20 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 
 export default function HeroSection() {
-
-    const loaders = ["a", "a", "a"];
-
     // STATES
     const [posts, setPosts] = useState([]);
     const [hotPosts, setHotPosts] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    // ===== HELPER FUNCTIONS =====
+    const limitEntriesTo = (value, number, entity) => {
+        value.rows?.map((entry, index) => {
+            if (index < number) {
+                if (entity === 'hot')
+                    setHotPosts(hotPosts => hotPosts.concat(entry));
+            }
+        });
+    }
 
 
     // FETCHING LATEST POSTS (ALL TYPES)
@@ -28,11 +35,7 @@ export default function HeroSection() {
         MediathequeService.getLatestMediatheques()
             .then((value) => {
                 setPosts(value);
-                // getting hot 3 posts (latest)
-                value.rows?.map((entry, index) => {
-                    if (index < 3)
-                        setHotPosts(hotPosts => hotPosts.concat(entry));
-                })
+                limitEntriesTo(value, 3, "hot");
                 setLoading(false);
             });
     };
@@ -50,7 +53,15 @@ export default function HeroSection() {
                         ?
                         <Skeleton height={507} />
                         :
-                        <MainSplide data={hotPosts} />
+                        <section>
+                            {
+                                (hotPosts.length > 0)
+                                    ?
+                                    <MainSplide data={hotPosts} />
+                                    :
+                                    <h2>No data</h2>
+                            }
+                        </section>
                 }
             </section>
             {/* GRID RIGHT UNDER THE SLIDER */}
@@ -59,18 +70,20 @@ export default function HeroSection() {
                     loading
                         ?
                         <div className="loaderPlaceholder">
-                            {
-                                loaders.map((loader, index) => {
-                                    return (
-                                        <div key={index}>
-                                            <Skeleton height={350} className='customLoader' />
-                                        </div>
-                                    )
-                                })
-                            }
+                            <Skeleton height={350} className='customLoader' />
+                            <Skeleton height={350} className='customLoader' />
+                            <Skeleton height={350} className='customLoader' />
                         </div>
                         :
-                        <NewContent data={posts} />
+                        <section>
+                            {
+                                (hotPosts.length > 0)
+                                    ?
+                                    <NewContent data={posts} />
+                                    :
+                                    <h2 style={{ textAlign: 'center', color: '#fff' }}>No data</h2>
+                            }
+                        </section>
                 }
             </section>
         </HeroSectionStyle>

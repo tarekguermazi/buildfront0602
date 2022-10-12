@@ -19,8 +19,9 @@ export default function BreadCrumbs({ view }) {
 }
 
 const BreadCrumbsHeader = styled.div`
-    margin: 1rem 0;
+    margin: .7rem 0;
     font-size: '1rem';
+    font-family: "Proxima Nova";
 
     .currentView{
         color: var(--gray3);

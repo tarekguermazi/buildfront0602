@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 // ICONS
 import { BsFillPlayFill } from "react-icons/bs";
@@ -10,75 +11,81 @@ export default function EntityPlayerButton({ data, entity }) {
         <div>
             {
                 entity === 'main' &&
-                <DetailsButtonMainSPlide >
-                    {
+                <Link to={'/Mediatheque/entity/' + data._id}>
+                    <DetailsButtonMainSPlide >
                         {
-                            videos: (
-                                <BsFillPlayFill />
-                            ),
-                            autres: (
-                                <AiOutlineEye />
-                            ),
-                            documentaire: (
-                                <AiOutlineEye />
-                            ),
-                            photos: (
-                                <AiOutlineEye />
-                            ),
-                            podcast: (
-                                <AiOutlineEye />
-                            )
-                        }[data.type]
-                    }
-                </DetailsButtonMainSPlide>
+                            {
+                                videos: (
+                                    <BsFillPlayFill />
+                                ),
+                                autres: (
+                                    <AiOutlineEye />
+                                ),
+                                documentaire: (
+                                    <AiOutlineEye />
+                                ),
+                                photos: (
+                                    <AiOutlineEye />
+                                ),
+                                podcast: (
+                                    <AiOutlineEye />
+                                )
+                            }[data.type]
+                        }
+                    </DetailsButtonMainSPlide>
+                </Link>
             }
             {
                 entity === '' &&
-                <DetailsButton >
-                    {
+                <Link to={'/Mediatheque/entity/' + data._id}>
+                    <DetailsButton >
                         {
-                            videos: (
-                                <BsFillPlayFill />
-                            ),
-                            autres: (
-                                <AiOutlineEye />
-                            ),
-                            documentaire: (
-                                <AiOutlineEye />
-                            ),
-                            photos: (
-                                <AiOutlineEye />
-                            ),
-                            podcast: (
-                                <AiOutlineEye />
-                            )
-                        }[data.type]
-                    }
-                </DetailsButton>
+                            {
+                                videos: (
+                                    <BsFillPlayFill />
+                                ),
+                                autres: (
+                                    <AiOutlineEye />
+                                ),
+                                documentaire: (
+                                    <AiOutlineEye />
+                                ),
+                                photos: (
+                                    <AiOutlineEye />
+                                ),
+                                podcast: (
+                                    <AiOutlineEye />
+                                )
+                            }[data.type]
+                        }
+                    </DetailsButton>
+                </Link>
             }
             {
                 entity === 'mainGridPlayer' &&
-                <DetailsButtonMainGridPlayer >
-                    {
+                <Link to={'/Mediatheque/entity/' + data._id}>
+                    <DetailsButtonMainGridPlayer >
                         {
-                            videos: (
-                                <BsFillPlayFill />
-                            ),
-                            autres: (
-                                <AiOutlineEye />
-                            ),
-                            documentaire: (
-                                <AiOutlineEye />
-                            ),
-                            photos: (
-                                <AiOutlineEye />
-                            ),
-                            podcast: (
-                                <AiOutlineEye />
-                            )
-                        }[data.type]
-                    }
-                </DetailsButtonMainGridPlayer>
+                            {
+                                videos: (
+                                    <BsFillPlayFill />
+                                ),
+                                autres: (
+                                    <AiOutlineEye />
+                                ),
+                                documentaire: (
+                                    <AiOutlineEye />
+                                ),
+                                photos: (
+                                    <AiOutlineEye />
+                                ),
+                                podcast: (
+                                    <AiOutlineEye />
+                                )
+                            }[data.type]
+                        }
+                    </DetailsButtonMainGridPlayer>
+                </Link>
             }
         </div>
     )

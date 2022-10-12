@@ -3,24 +3,16 @@ import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 
 // COMPONENTS
-import NewsLetterWidget from 'src/view/shared/NewsLetterWidget';
-import Videos from '../Videos';
-import Photos from '../Photos';
-import Podcasts from '../Podcasts';
-import Docs from '../Docs';
+import Videos from '../sub-sections/Videos';
+import Photos from '../sub-sections/Photos';
+import Podcasts from '../sub-sections/Podcasts';
+import Docs from '../sub-sections/Docs';
+import VoirPlusButton from '../shared/VoirPlusButton';
 
 // ICONS/Assets
-import { envelope } from "src/assets/images";
 import Skeleton from 'react-loading-skeleton';
 
 export default function MainGridLayout() {
-
-    // fetch data and group into different types
-    // then pass each group to its component
-    // STATES
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-
     // vids
     const [videos, setVideos] = useState([]);
     const [videoIsLoading, setVideoIsLoading] = useState(true);
@@ -38,32 +30,46 @@ export default function MainGridLayout() {
     const [docIsLoading, setDocIsLoading] = useState(true);
 
     const getLatestContent = () => {
+        let videosCOunt = 0;
+        let audioCOunt = 0;
+        let photosCOunt = 0;
+        let docsCOunt = 0;
         MediathequeService.getLatestMediatheques()
             .then((value) => {
-                setPosts(value);
-
                 // getting videos only
                 value.rows?.map((entry, index) => {
-                    if (entry.type === 'videos')
-                        setVideos(videos => videos.concat(entry));
+                    if (entry.type === 'videos') {
+                        if (videosCOunt < 8) {
+                            setVideos(videos => videos.concat(entry));
+                            videosCOunt += 1;
+                        }
+                    }
 
-                    if (entry.type === 'autres')
-                        setPhotos(photos => photos.concat(entry));
+                    if (entry.type === 'autres') {
+                        if (photosCOunt < 8) {
+                            setPhotos(photos => photos.concat(entry));
+                            photosCOunt += 1;
+                        }
+                    }
 
-                    if (entry.type === 'podcast')
-                        setPodcats(podcast => podcast.concat(entry));
+                    if (entry.type === 'podcast') {
+                        if (audioCOunt < 2) {
+                            setPodcats(podcast => podcast.concat(entry));
+                            audioCOunt += 1;
+                        }
+                    }
 
-                    if (entry.type === 'documentaire')
-                        setDocs(docs => docs.concat(entry));
+                    if (entry.type === 'documentaire') {
+                        if (docsCOunt < 2) {
+                            setDocs(docs => docs.concat(entry));
+                            docsCOunt += 1;
+                        }
+                    }
                 })
                 setVideoIsLoading(false);
                 setPhotoIsLoading(false);
                 setPodcastIsLoading(false);
                 setDocIsLoading(false);
-
-
-
-                setLoading(false);
             });
     };
 
@@ -79,12 +85,36 @@ export default function MainGridLayout() {
                 {
                     videoIsLoading
                         ? <Skeleton height={300} />
-                        : <Videos videosList={videos} />
+                        :
+                        <section>
+                            {
+                                (videos.length > 0)
+                                    ?
+                                    <section>
+                                        <Videos videosList={videos} />
+                                        <VoirPlusButton contentType='videos' />
+                                    </section>
+                                    :
+                                    <h2>No videos were found</h2>
+                            }
+                        </section>
                 }
                 {
                     photoIsLoading
                         ? <Skeleton height={300} />
-                        : <Photos photosList={photos} />
+                        :
+                        <section>
+                            {
+                                (photos.length > 0)
+                                    ?
+                                    <section>
+                                        <Photos photosList={photos} />
+                                        <VoirPlusButton contentType='photos' />
+                                    </section>
+                                    :
+                                    <h2>No photos were found</h2>
+                            }
+                        </section>
                 }
             </section>
             {/* LEFT SECTION */}
@@ -92,14 +122,36 @@ export default function MainGridLayout() {
                 {
                     docIsLoading
                         ? <Skeleton height={300} />
-                        : <Docs docstList={docs} />
+                        :
+                        <section>
+                            {
+                                (docs.length > 0)
+                                    ?
+                                    <section>
+                                        <Docs docstList={docs} />
+                                        <VoirPlusButton contentType='documentaires' />
+                                    </section>
+                                    :
+                                    <h2>No Docs were found</h2>
+                            }
+                        </section>
                 }
-                {/* NEWS LETTER COMPONENT */}
-                <NewsLetterWidget envelope={envelope} layout='minimal' />
                 {
                     podcastIsLoading
                         ? <Skeleton height={300} />
-                        : <Podcasts podcastList={podcast} />
+                        :
+                        <section>
+                            {
+                                (podcast.length > 0)
+                                    ?
+                                    <section>
+                                        <Podcasts podcastList={podcast} />
+                                        <VoirPlusButton contentType='podcasts' />
+                                    </section>
+                                    :
+                                    <h2>No podcasts were found</h2>
+                            }
+                        </section>
                 }
             </section>
         </MainContentLayout>

@@ -23,7 +23,9 @@ export default function VerticalPlayer({ dataSource }) {
                         <EntityPlayerButton data={dataSource} entity='mainGridPlayer' />
                     </div>
                     :
-                    <div className="cardThumbnail hasNoThumbnail"><EntityPlayerButton data={dataSource} entity='mainGridPlayer' /></div>
+                    <div className="cardThumbnail hasNoThumbnail">
+                        <EntityPlayerButton data={dataSource} entity='mainGridPlayer' />
+                    </div>
             }
             <div className="dateAndType">
                 <div className="contentType">
@@ -111,14 +113,9 @@ const VerticalPlayerCard = styled.div`
             font-family: 'Proxima Nova';
             text-transform: capitalize !important;
             line-height: 1.5;
-            font-weight: 400;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 1rem;
             color: var(--violet);
-
-            overflow:hidden;
-            display:inline-block;
-            text-overflow: ellipsis;
-            white-space: nowrap;
         }
     }
 `;
