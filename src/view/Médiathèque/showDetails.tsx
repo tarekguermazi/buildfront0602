@@ -118,10 +118,11 @@ export default function ShowPublication() {
                                 <PhotoPlayersLayout>
                                     <section className="gridSection">
                                         {
-                                            <Photogrid
-                                                images={data}
-                                                maxWidth='100%'
-                                            ></Photogrid>
+                                            // <Photogrid
+                                            //     images={data}
+                                            //     maxWidth='100%'
+                                            //     key={0}
+                                            // ></Photogrid>
                                         }
                                     </section>
                                 </PhotoPlayersLayout>
@@ -160,7 +161,7 @@ export default function ShowPublication() {
                         <NewsLetterWidget envelope={envelope} layout='' />
                     </section>
                 </MainLayout>
-                <RelatedContent />
+                <RelatedContent type={entity['type']} />
             </section>
             <MegaFooter />
             <Footer />
