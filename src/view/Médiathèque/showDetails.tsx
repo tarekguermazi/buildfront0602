@@ -99,45 +99,35 @@ export default function ShowPublication() {
                         <main>
                             <p>{entity['descriptionFR']}</p>
                             {
-                                (entity['videos']?.length > 0)
-                                    ?
-                                    <VideoPlayersLayout>
-                                        {
-                                            entity['videos'].map(vid => {
-                                                return (
-                                                    <ReactPlayer
-                                                        key={vid._id}
-                                                        url={vid['downloadUrl']}
-                                                        loop={true}
-                                                        controls={true}
-                                                    />
-                                                )
-                                            })
-                                        }
-                                    </VideoPlayersLayout>
-                                    :
-                                    <VideoPlayersLayout>
-                                        <img src="https://strengthtostrength.org/wp-content/uploads/2020/12/no-video-available-placeholder.jpg" alt="noVideoPlaceholder" width='100%' />
-                                    </VideoPlayersLayout>
+                                (entity['videos']?.length > 0) &&
+                                <VideoPlayersLayout>
+                                    {
+                                        entity['videos'].map(vid => {
+                                            return (
+                                                <ReactPlayer
+                                                    key={vid._id}
+                                                    url={vid['downloadUrl']}
+                                                    loop={true}
+                                                    controls={true}
+                                                />
+                                            )
+                                        })
+                                    }
+                                </VideoPlayersLayout>
                             }
                             {/* RENDERING IMAGES (if there are any) */}
                             {
-                                (entity['photos']?.length > 0)
-                                    ?
-                                    <PhotoPlayersLayout>
-                                        <section className="gridSection">
-                                            {
-                                                <Photogrid
-                                                    images={data}
-                                                    maxWidth='100%'
-                                                ></Photogrid>
-                                            }
-                                        </section>
-                                    </PhotoPlayersLayout>
-                                    :
-                                    <VideoPlayersLayout>
-                                        <img src="https://imgur.com/N1ZiTM4.jpeg" alt="nophotosPlaceholder" width='100%' />
-                                    </VideoPlayersLayout>
+                                (entity['photos']?.length > 0) &&
+                                <PhotoPlayersLayout>
+                                    <section className="gridSection">
+                                        {
+                                            <Photogrid
+                                                images={data}
+                                                maxWidth='100%'
+                                            ></Photogrid>
+                                        }
+                                    </section>
+                                </PhotoPlayersLayout>
                             }
                         </main>
 
