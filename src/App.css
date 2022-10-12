@@ -2556,11 +2556,12 @@ styling the newsLettre */
 /* styling the singup Page */
 .app__signup {
   width: 100%;
-  max-width: 501px;
+  max-width: calc(100% - 20%);
   margin: auto;
   display: grid;
   padding-top: 36px;
   padding-bottom: 39px;
+  place-content: center;
 }
 
 .app__member {
@@ -3647,4 +3648,10 @@ button.splide__arrow--prev {
 .wideContent {
   max-width: 1170px;
   margin: auto;
+}
+@media (max-width: 1172px) {
+  .modifyprofile {
+    width: calc(100vw - 20%);
+    max-width: calc(100vw - 20%);
+  }
 }
