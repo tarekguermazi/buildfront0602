@@ -74,7 +74,7 @@ export default function RelatedContent({ type }) {
 
 // S T Y L E S
 const RelatedCOntentLayout = styled.section`
-    margin: 3rem 0;
+    margin: 5rem 0;
     width: 100%;
 
     .gridLayout{

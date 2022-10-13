@@ -201,28 +201,6 @@ const MainLayout = styled.section`
                 color: var(--violet);
                 margin: 1rem 0;
             }
-
-            .data{
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin: 1rem 0;
-
-
-                font-family: 'Proxima Nova';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 25px;
-                color: var(--gray2);
-
-                .dateAndOwner{
-                    span{
-                        display: block;
-                    }
-                }
-            }
         }
 
         .socials{
@@ -237,10 +215,32 @@ const MainLayout = styled.section`
                         color: var(--violet);
                         font-size: 1.8rem;
                     }
+        }
+
+        .data{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1rem 0;
+
+
+            font-family: 'Proxima Nova';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 25px;
+            color: var(--gray2);
+
+            .dateAndOwner{
+                span{
+                    display: block;
                 }
+            }
+        }
 
         main{
-            margin-top: 2rem;
+            margin: 2rem 0;
             p{
                 text-align: justify;
                 color: var(--gray2);
@@ -253,6 +253,7 @@ const MainLayout = styled.section`
         }
 
         footer{
+            margin-top: 5rem;
             .owner{
                 background-color: #F1F1F1;
                 padding: 1rem;
