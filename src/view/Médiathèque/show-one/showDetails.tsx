@@ -10,8 +10,6 @@ import TenantService from 'src/modules/Tenant/TenantService'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import BreadCrumbs from 'src/view/shared/BreadCrumbs'
-import { envelope } from "src/assets/images";
-import NewsLetterWidget from 'src/view/shared/NewsLetterWidget'
 
 import Header from './Header'
 import Main from './Main'

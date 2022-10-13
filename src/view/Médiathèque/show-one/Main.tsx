@@ -58,16 +58,7 @@ const MainLayout = styled.section`
     }
 `;
 const VideoPlayersLayout = styled.section`
-    margin: 2rem 0;
-    &:before{
-        content: 'Video(s) / Audio(s)';
-        display: block;
-        margin: 1rem 0;
-        font-size: 2rem;
-        font-family: 'Bebas Neue Pro';
-        font-style: normal;
-        font-weight: 700;
-    }
+    margin: 3rem 0;
 `;
 const PhotoPlayersLayout = styled.section`
     margin-top: 1rem;
@@ -87,15 +78,5 @@ const PhotoPlayersLayout = styled.section`
 
     img{
         width: 100%;
-    }
-
-    &:before{
-        content: 'Photo(s)';
-        display: block;
-        margin: 1rem 0;
-        font-size: 2rem;
-        font-family: 'Bebas Neue Pro';
-        font-style: normal;
-        font-weight: 700;
     }
 `;
