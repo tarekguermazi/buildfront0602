@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 import { Link } from 'react-router-dom';
 // COMPONENTSS
-import SectionHeader from './shared/SectionHeader';
+import SectionHeader from '../shared/SectionHeader';
 
 
 export default function RelatedContent({ type }) {
