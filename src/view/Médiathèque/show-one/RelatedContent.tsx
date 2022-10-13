@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 // COMPONENTSS
 import SectionHeader from '../shared/SectionHeader';
@@ -28,6 +29,10 @@ export default function RelatedContent({ type }) {
     // HELPER FUNCTION
     const getDate = d => {
         return (d?.split('T')[0]);
+    }
+    const pipeDate = date => {
+        let d = date.split('T')[0];
+        return moment(d).format('LL');
     }
 
 
@@ -59,7 +64,7 @@ export default function RelatedContent({ type }) {
                                         <div className="cardContent">
                                             <div className="cardHeader">
                                                 <span className="categoryBadge">{entity['type']}</span>
-                                                <span>{getDate(entity['createdAt'])}</span>
+                                                <span>{pipeDate(entity['createdAt'])}</span>
                                             </div>
                                             <Link to={'/Mediatheque/entity/' + entity['_id']} className="title">
                                                 <span>{entity['titleFR']}</span>
@@ -128,6 +133,8 @@ const HorizontalCard = styled.div`
             width: 100%;
             display: flex;
             justify-content: space-between;
+            font-size: 12px;
+            font-family: 'Proxima Nova';
 
             .categoryBadge{
                 background: #f8d7da;
