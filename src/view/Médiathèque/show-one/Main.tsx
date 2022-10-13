@@ -60,7 +60,7 @@ const MainLayout = styled.section`
 const VideoPlayersLayout = styled.section`
     margin: 2rem 0;
     &:before{
-        content: 'Video(s)';
+        content: 'Video(s) / Audio(s)';
         display: block;
         margin: 1rem 0;
         font-size: 2rem;
