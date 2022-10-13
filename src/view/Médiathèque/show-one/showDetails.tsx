@@ -70,7 +70,7 @@ export default function ShowPublication() {
     return (
         <section>
             <section className='wideContent'>
-                <BreadCrumbs view="publication" />
+                <BreadCrumbs view="Médiathéque" />
                 <MainLayout>
 
                     <section className='rightSection'>
