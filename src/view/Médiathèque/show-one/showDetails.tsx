@@ -84,11 +84,6 @@ export default function ShowPublication() {
                         }
                         <FooterSection userIsLoading={userIsLoading} user={user} />
                     </section>
-
-                    <section className='leftSection'>
-                        <NewsLetterWidget envelope={envelope} layout='' />
-                    </section>
-
                 </MainLayout>
                 <RelatedContent type={entity['type']} />
             </section>
@@ -146,10 +141,5 @@ const MainLayout = styled.section`
                 }
             }
         }
-    }
-
-    .leftSection{
-        width: 400px;
-        background-color: pink;
     }
 `;
