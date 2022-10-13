@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import MediathequeService from 'src/modules/mediatheque/MediathequeService';
+import { Link } from 'react-router-dom';
 // COMPONENTSS
 import SectionHeader from './shared/SectionHeader';
 
@@ -60,7 +61,9 @@ export default function RelatedContent({ type }) {
                                                 <span className="categoryBadge">{entity['type']}</span>
                                                 <span>{getDate(entity['createdAt'])}</span>
                                             </div>
-                                            <span className="title">{entity['titleFR']}</span>
+                                            <Link to={'/Mediatheque/entity/' + entity['_id']} className="title">
+                                                <span>{entity['titleFR']}</span>
+                                            </Link>
                                         </div>
                                     </HorizontalCard>
                                 )
@@ -139,11 +142,14 @@ const HorizontalCard = styled.div`
         .title{
             margin-top: 1.5rem;
             color: var(--violet);
-            font-family: 'Bebas Neue Pro';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 23px;
-            line-height: 24px;
+
+            span{
+                font-family: 'Bebas Neue Pro';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 23px;
+                line-height: 24px;
+            }
         }
     }
 `;
