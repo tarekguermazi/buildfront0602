@@ -118,11 +118,11 @@ export default function ShowPublication() {
                                 <PhotoPlayersLayout>
                                     <section className="gridSection">
                                         {
-                                            // <Photogrid
-                                            //     images={data}
-                                            //     maxWidth='100%'
-                                            //     key={0}
-                                            // ></Photogrid>
+                                            <Photogrid
+                                                images={data}
+                                                maxWidth='100%'
+                                                key={0}
+                                            ></Photogrid>
                                         }
                                     </section>
                                 </PhotoPlayersLayout>
