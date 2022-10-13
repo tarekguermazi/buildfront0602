@@ -7,6 +7,8 @@ import MediathequeService from 'src/modules/mediatheque/MediathequeService'
 import TenantService from 'src/modules/Tenant/TenantService'
 
 // COMPONENTS
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import BreadCrumbs from 'src/view/shared/BreadCrumbs'
 import { envelope } from "src/assets/images";
 import NewsLetterWidget from 'src/view/shared/NewsLetterWidget'
@@ -30,6 +32,7 @@ export default function ShowPublication() {
 
     // FETCH DETAILS OF THAT ONE ENETITY
     const [entity, setEntity] = useState({});
+    const [entityIsLoading, setEntityIsLoading] = useState(true);
     const [data, setData] = useState([]);
     const [user, setUser] = useState({});
     const [userIsLoading, setUserIsLoading] = useState(true);
@@ -38,6 +41,9 @@ export default function ShowPublication() {
         MediathequeService.getOneMediatheque(entityID)
             .then((value) => {
                 setEntity(entity => ({ ...entity, ...value }));
+                setEntityIsLoading(false);
+
+                // loadig photos to be used in the grid
                 value.photos?.map(p => {
                     setData(data => data.concat(p.downloadUrl));
                 })
@@ -69,7 +75,13 @@ export default function ShowPublication() {
 
                     <section className='rightSection'>
                         <Header entity={entity} getDate={getDate} getTime={getTime} user={user} userIsLoading={userIsLoading} />
-                        <Main entity={entity} data={data} />
+                        {
+                            entityIsLoading
+                                ?
+                                <Skeleton height={500} />
+                                :
+                                <Main entity={entity} data={data} />
+                        }
                         <FooterSection userIsLoading={userIsLoading} user={user} />
                     </section>
 
