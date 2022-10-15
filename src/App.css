@@ -2417,7 +2417,7 @@ styling the newsLettre */
   color: var(--white);
 }
 
-.bar {
+.hr__bar {
   margin: 83px 19px 83px 19px !important;
   width: 0;
   height: 152px;

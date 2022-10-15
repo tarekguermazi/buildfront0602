@@ -19,7 +19,7 @@ export default function MegaFooter() {
             politique et de toute institution religieuse.
           </div>
         </div>
-        <div className='bar'></div>
+        <div className='hr__bar'></div>
         <div className='footer__menu'>
           <div className='label__footer'>Menu</div>
           <div className='footer__content content__menu'>
@@ -41,7 +41,7 @@ export default function MegaFooter() {
             </div>
           </div>
         </div>
-        <div className='bar'></div>
+        <div className='hr__bar'></div>
         <div className='footer__socialmedia'>
           <div className='label__footer'> Social media</div>
           <div className='footer__content content__socialmedia'>
@@ -63,7 +63,7 @@ export default function MegaFooter() {
             </div>
           </div>
         </div>
-        <div className='bar'></div>
+        <div className='hr__bar'></div>
         <div className='footer__contact'>
           <div className='label__footer'> Contact</div>
           <div className='footer__content contact__desctioption'>
