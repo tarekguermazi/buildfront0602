@@ -156,67 +156,18 @@ function Header(props) {
                     )}
                     {item.class && (
                       <ul className='links__sub'>
-                        <div>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={Etudes}
-                              alt='Etudes Icon'
-                            />
-                            études
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={Communique}
-                              alt='Communique Png'
-                            />
-                            Communiqués
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={petition}
-                              alt='Petition Icon'
-                            />
-                            Pétitions
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={petition}
-                              alt='Petition Icon'
-                            />
-                            Médiatheques
-                          </li>
-                        </div>
-
-                        <div>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={rapport}
-                              alt='Rapport ICon'
-                            />
-                            Rapports
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={Poster}
-                              alt='Poster Icon'
-                            />
-                            Posters
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={invitation}
-                              alt='invitation ICon'
-                            />
-                            Invitations
-                          </li>
-                        </div>
+                        {item.subMenue?.map((item) => (
+                          <div>
+                            <li>
+                              <img
+                                className='lazyload'
+                                src={Etudes}
+                                alt='Etudes Icon'
+                              />
+                              {item.label}
+                            </li>
+                          </div>
+                        ))}
                       </ul>
                     )}
                   </li>

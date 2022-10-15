@@ -7,6 +7,15 @@ export default [
     label: "Publications",
     icon: "fa-solid fa-chevron-down",
     class: "dropdown",
+    subMenue: [
+      {
+        label: "Communiqués",
+      },
+      { label: "Articles" },
+      { label: "Etudes" },
+      { label: "Cahiers" },
+      { label: "Appels" },
+    ],
   },
   { path: "/Archives", label: "Archives" },
   { path: "/Glossaire", label: "Glossaire" },
@@ -14,14 +23,21 @@ export default [
   {
     path: "/",
     label: "Tableau de bord",
-    icon: "fa-solid fa-chevron-down",
-    class: "dropdown",
   },
   {
     path: "/Mediatheque",
     label: "Médiathèque",
     icon: "fa-solid fa-chevron-down",
     class: "dropdown",
+    subMenue: [
+      {
+        label: "Vidéos",
+      },
+      { label: "Podcast" },
+      { label: "Photos" },
+      { label: "Documentaires" },
+      { label: "Autres" },
+    ],
   },
   { path: "/Contact", label: "Contact" },
 ];

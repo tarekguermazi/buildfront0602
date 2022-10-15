@@ -415,7 +415,9 @@
   color: var(--white) !important;
 }
 .dropdown:hover .links__sub {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 40px;
   padding: 53px 34px;
   position: absolute;
   background-color: var(--white);
