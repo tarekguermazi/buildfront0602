@@ -61,6 +61,7 @@ const AudioPlayerLayout = styled.div`
             font-style: normal;
             font-weight: 400;
             font-size: 1rem;
+            text-transform: capitalize;
             line-height: 15px;
             color: red;
             padding: .3rem .5rem;
@@ -90,8 +91,8 @@ const AudioPlayerLayout = styled.div`
             font-family: 'Proxima Nova';
             text-transform: capitalize !important;
             line-height: 1.5;
-            font-weight: 400;
-            font-size: 1.2rem;
+            font-weight: bold;
+            font-size: 16px;
             color: var(--violet);
 
             overflow:hidden;

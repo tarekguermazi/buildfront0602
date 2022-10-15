@@ -106,7 +106,7 @@ const VerticalPlayerCard = styled.div`
     }
 
     .verticalPlayerTitle{
-        height: 70px;
+        height: 50px;
 
         span{
             width: 100%;

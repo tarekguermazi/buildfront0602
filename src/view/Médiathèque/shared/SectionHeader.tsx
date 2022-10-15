@@ -32,7 +32,7 @@ const HeaderLayout = styled.div`
                 content: '';
                 display: inline-block;
                 height: 1px;
-                width: 89%;
+                flex-grow: 1;
                 background-color: red;
             }
         }

@@ -28,7 +28,7 @@ const navigateRoutes = [
   },
   {
     path: "/Mediatheque/entity/:entity_id",
-    loader: () => import("src/view/Médiathèque/showDetails"),
+    loader: () => import("src/view/Médiathèque/show-one/showDetails"),
   },
   { path: "/contact", loader: () => import("src/view/Contact/Contact") },
 ];
