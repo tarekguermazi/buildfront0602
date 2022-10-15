@@ -52,23 +52,22 @@ function Appui(props) {
           pharetra lacus. Class aptent taciti sociosqu ad litora torquent per
           conubia nostra
         </div>
-        <div className='contenue__formulaire'>
-          <FormWrapper>
-            <div className='Login__container'>
-              {initLoading && <Spinner />}
-              {dispatched && !initLoading && (
-                <DemandeAppuiForm
-                  title={title}
-                  saveLoading={saveLoading}
-                  record={record}
-                  isEditing={isEditing}
-                  onSubmit={doSubmit}
-                  onCancel={() => getHistory().push("/demande-appui")}
-                />
-              )}
-            </div>
-          </FormWrapper>
-        </div>
+
+        <FormWrapper>
+          <div className='Login__container'>
+            {initLoading && <Spinner />}
+            {dispatched && !initLoading && (
+              <DemandeAppuiForm
+                title={title}
+                saveLoading={saveLoading}
+                record={record}
+                isEditing={isEditing}
+                onSubmit={doSubmit}
+                onCancel={() => getHistory().push("/demande-appui")}
+              />
+            )}
+          </div>
+        </FormWrapper>
       </div>
     </div>
   );

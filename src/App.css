@@ -2556,7 +2556,7 @@ styling the newsLettre */
 /* styling the singup Page */
 .app__signup {
   width: 100%;
-  max-width: calc(100% - 20%);
+  max-width: calc(100vw - 20%);
   margin: auto;
   display: grid;
   padding-top: 36px;
@@ -3089,6 +3089,12 @@ td {
 .contenu {
   max-width: 501px;
   margin-inline: auto;
+}
+@media (max-width: 500px) {
+  .contenu {
+    max-width: calc(100vw - 20%);
+    margin-inline: auto;
+  }
 }
 
 .contenu__description {

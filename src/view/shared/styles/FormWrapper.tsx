@@ -110,9 +110,10 @@ const FormWrapper = styled.div`
   .invalid-feedback {
     color: var(--red);
   }
-  .form__group {
-    width: 501px;
+
+  @media (max-wdith: 800px) {
   }
+
   .cancel__button {
     padding: 0;
     background-color: transparent;
