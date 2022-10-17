@@ -19,6 +19,7 @@ export default function Main({ entity, data }) {
                                     url={vid['downloadUrl']}
                                     loop={true}
                                     controls={true}
+                                    className='hiThereMotherFucker'
                                 />
                             )
                         })
@@ -59,6 +60,9 @@ const MainLayout = styled.section`
 `;
 const VideoPlayersLayout = styled.section`
     margin: 3rem 0;
+    audio{
+        height: 70px !important;
+    }
 `;
 const PhotoPlayersLayout = styled.section`
     margin-top: 1rem;
