@@ -44,7 +44,17 @@ import {
   member,
   down__footer,
   instagram,
+  users,
+  sheep,
+  clandestins,
+  car,
 } from "src/assets/images";
+import Image from "src/view/shared/Image";
+import Footer from "../Layout/Footer";
+import MegaFooter from "../Layout/MegaFooter";
+import Gallery from "../shared/Gallery";
+import NewsLetterWidget from "../shared/NewsLetterWidget";
+
 function Home() {
   return (
     <div className='app'>
@@ -54,15 +64,17 @@ function Home() {
         <img src={calendar__bttom} alt='' />
       </div>
       <div className='app__header'>
-        <div className='header__content'>
+        <div className='header__content' style={{ height: 549 }}>
           <div className='content'>
             <div className='content__imagePrincipale'>
-              <img
-                className='lazyload'
+              <Image
                 src={image__header}
+                alt='Header '
                 id='image__desktop'
-                alt=' Header'
+                width='1170'
+                height='549'
               />
+
               <img
                 className='lazyload'
                 src={header__image__mobile}
@@ -150,17 +162,25 @@ function Home() {
               <div className='graph__description'>
                 <div className='descripition__left'>
                   <div>
-                    <div className='description__number'>236</div>
+                    <div className='description__number'>
+                      <h2>236</h2>
+                    </div>
                     <div className='description__text'>
                       Tentatives échouées de départ clandestins
                     </div>
                   </div>
                   <div>
-                    <div className='description__number'>34</div>
+                    <div className='description__number'>
+                      {" "}
+                      <h2> 34</h2>
+                    </div>
                     Tentatives échouées de départ clandestins
                   </div>
                   <div>
-                    <div className='description__number'>67</div>
+                    <div className='description__number'>
+                      {" "}
+                      <h2> 67</h2>
+                    </div>
                     Tentatives échouées de départ clandestins
                   </div>
                 </div>
@@ -214,46 +234,37 @@ function Home() {
                 pays où les droits humains sont respectés...
               </div>
               <div className='global__button'>Plus de détails</div>
-              <div className='global__navigations'>
-                <div className='arrow__left'>
-                  <img
-                    className='lazyload'
-                    src={arrow__right}
-                    alt='arrow__right Icon'
-                  />
-                </div>
-                <div className='arrow__right'>
-                  <img
-                    className='lazyload'
-                    src={arrow__left}
-                    alt='arrow__left Icon'
-                  />
-                </div>
-              </div>
             </div>
             <div className='global__right'>
               <div>
-                <div className='global__number'>236</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  236
+                  <img src={users} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Tentatives échouées de départ clandestins
                 </div>
               </div>
               <div>
-                <div className='global__number'>1564</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  1564
+                  <img src={sheep} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Clandestins arrivés en Italie
                 </div>
               </div>
               <div>
-                <div className='global__number'>85</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  85
+                  <img src={clandestins} alt='' />
+                </div>
                 <div className='detaill__number'>Clandestins expulsés</div>
               </div>
               <div>
-                <div className='global__number'>7</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  7<img src={car} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Tentatives échouées de départ clandestins
                 </div>
@@ -681,7 +692,7 @@ function Home() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             cursus et augue id consequat. Suspendisse sodales est lectus...
           </div>
-          <div className='global__button'>Plus de détails</div>
+          <div className='global__button'>Découvrir</div>
         </div>
         {/* <div className='vue'>
           <div className='vue__header'>Les plus lus cette semaine</div>
@@ -893,130 +904,7 @@ function Home() {
         </div>
       </div>
       {/* styling the gallery */}
-      <div className='app__galery'>
-        {/* <div className='gallery'>
-          <div className='navig'>
-            <div className='global__navigations'>
-              <div className='arrow__left'>
-                <img className='lazyload' src={arrow__right} alt='' />
-              </div>
-              <div className='arrow__right'>
-                <img className='lazyload' src={arrow__left} alt='' />
-              </div>
-            </div>
-          </div>
-          <div className='archieve__header'>
-            <h2>Galerie</h2>
-            <div className='satestique__bar' />
-          </div>
-          <div className='gallery__images'>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery1} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Le champ pétrolier de Nawara ou l’entêtement vers les énergies
-                fossiles
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery2} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={camera} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Refoulement de migrants subsahariens vers la frontière libyenne
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery3} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Faj Rouissat : Une lutte continue pour la justice
-                environnementale et sociale
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery4} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                La lutte continue pour le droit à l’eau potable à Redeyef
-              </div>
-            </div>
-          </div>
-        </div> */}
-        <div className='art__images'>
-          <div>Galerie&nbsp;D'art</div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art1} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art3} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art2} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art3} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art4} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-        </div>
-        <div className='naviation__art'>
-          <div className='graph__navigate'>
-            <div className='navigate__left'>
-              <i className='fa-solid fa-chevron-left' />
-            </div>
-            <div className='navigate__right'>
-              <i className='fa-solid fa-chevron-right' />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Gallery />
       {/* styling the newsLettre */}
       <div className='app__newsLettre'>
         <div className='newsLettre'>
@@ -1081,121 +969,11 @@ function Home() {
               <div className='global__button'>Se connecter</div>
             </div>
           </div>
-          <div className='newsLettre__right'>
-            <div className='archieve__header'>
-              <h2>Newsletter</h2>
-              <div className='satestique__bar' />
-            </div>
-            <div className='newsLettre__title'>LET’S KEEP IN TOUCH</div>
-            <div className='newsLettere__detaill'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              cursus et augue id consequat. Suspendisse sodales est lectus.
-            </div>
-            <div className='newsLettre__formulaire'>
-              <img className='lazyload' src={envelope} alt='Envolope Image' />
-              <input type='text' placeholder=' Votre adresse email' />
-              <div className='button__newLettre'>Envoyer</div>
-            </div>
-          </div>
+          {/* newsletter widget */}
+          <NewsLetterWidget envelope={envelope} layout='' />
         </div>
       </div>
       {/* stying the Footer */}
-      <div className='app__footer'>
-        <div className='footer'>
-          <div className='footer__logo'>
-            <img className='lazyload' src={logo__footer} alt='' />
-            <div className='logo__detaills'>
-              Le Forum Tunsien pour les Droits Economiques et Sociaux est une
-              organisation non gouvernementale, neutre, indépendante de tout
-              parti politique et de toute institution religieuse.
-            </div>
-          </div>
-          <div className='footer__menu'>
-            <div>
-              <label> Menu </label>
-              <img className='lazyload' src={down__footer} id='arrow_down' />
-            </div>
-            <div className='menu__footer'>
-              <div className='left'>
-                <ul>
-                  <li>A propos</li>
-                  <li>Archive</li>
-                  <li>Glossaire</li>
-                  <li>Publications</li>
-                </ul>
-              </div>
-              <div className='right'>
-                <ul>
-                  <li>Galerie</li>
-                  <li>Entretiens</li>
-                  <li>Evenements</li>
-                  <li>Contact</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className='footer__bar' />
-          <div className='footer__socialmedia'>
-            <div>
-              <label> Suivez-nous </label>
-              <img
-                className='lazyload'
-                src={down__footer}
-                id='arrow_down'
-                alt=''
-              />
-            </div>
-            <div className='socialmedia__facebook'>
-              <img className='lazyload' src={facebook} alt='' />
-              Facebook
-            </div>
-            <div className='socialmedia__Twitter'>
-              <img className='lazyload' src={twitter} alt='' />
-              Twitter
-            </div>
-            <div className='socialmedia__Youtube'>
-              <img className='lazyload' src={youtube} alt='' />
-              Youtube
-            </div>
-            <div className='socialmedia__Instagram'>
-              <img className='lazyload' src={instagram} alt='' />
-              Instagram
-            </div>
-          </div>
-          <div className='footer__bar' />
-          <div className='footer__contact'>
-            <div>
-              <label> Contact </label>
-              <img
-                className='lazyload'
-                src={down__footer}
-                id='arrow_down'
-                alt=''
-              />
-            </div>
-            <div className='contact__address'>
-              Adresse : 47, Avenue Farhat Hached <br />
-              2eme étage 1001 Tunis <br />
-              Tél. : 71 257 664 <br />
-              Email : contact@ftdes.net
-            </div>
-          </div>
-        </div>
-        <div className='footer__copywrite'>
-          <div className='copywrite'>
-            <div className='copywrite__left'>
-              © 2022 FTDES - All rights reserved.
-            </div>
-            <div className='copywrite__right'>
-              <ul>
-                <li>Mentions légales</li>
-                <li>Conditions d’utilisation</li>
-                <li>Contact</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

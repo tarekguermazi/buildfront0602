@@ -8,13 +8,19 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 @font-face {
   font-family: "Proxima Nova";
   src: url(/public/fonts/Proxima\ Nova\ Font.otf);
+  font-style: normal;
+  font-display: fallback;
 }
+
 @font-face {
   font-family: "Bebas Neue Pro";
   src: url(/public/fonts/BebasNeue\ Bold.ttf);
+  font-style: normal;
+  font-display: fallback;
 }
 
 :root {
@@ -22,6 +28,7 @@
   --red: #e1011a;
   --white: #ffffff;
   --violet: #2b2840;
+  --violet-dark: #201e31;
   /* Secodary Color */
   --background: #f1f1f1;
   --gray1: #e5e5e5;
@@ -29,12 +36,16 @@
   --gray3: #828282;
   --gray4: #f1f1f1;
   --gray4: #a3a3a9;
+  --gray6: #f4f4f4;
   --navigate__left: #bfbfc6;
   --dark--red: #c40720;
   --green: #14b685;
   --border__green: #8bdfc7;
   --background__green: #eaf9f6;
   --hover__select: rgb(222, 235, 255);
+
+  /* SIZES */
+  --cerntered-content: 1170px;
 }
 
 h1 {
@@ -46,12 +57,12 @@ h1 {
 }
 
 h2 {
-  font-family: "Bebas Neue Pro";
-  font-size: 35px;
+  font-family: "Bebas Neue";
+  font-size: 40px;
   line-height: 39px;
-  font-weight: 800;
   color: var(--violet);
   text-transform: uppercase;
+  font-weight: 400;
 }
 
 h3 {
@@ -93,6 +104,7 @@ p {
   font-size: 18px;
   line-height: 22px;
 }
+
 a {
   text-decoration: none;
 }
@@ -102,16 +114,21 @@ input {
   border: 0;
   background-color: transparent;
 }
+
 input:focus {
   outline: 0;
 }
+
 select:focus {
   outline: 0;
 }
+
 html,
 body {
   font-family: "Proxima Nova Pro";
   font-weight: 400;
-  display: grid;
-  grid-template-rows: 1fr auto;
+}
+button {
+  border: 0;
+  cursor: pointer;
 }

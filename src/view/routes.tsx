@@ -22,6 +22,14 @@ const navigateRoutes = [
     path: "/Mediatheque",
     loader: () => import("src/view/Médiathèque/Mediatheque"),
   },
+  {
+    path: "/Mediatheque/type/:entity_type",
+    loader: () => import("src/view/Médiathèque/shared/SpecificEntityList"),
+  },
+  {
+    path: "/Mediatheque/entity/:entity_id",
+    loader: () => import("src/view/Médiathèque/show-one/showDetails"),
+  },
   { path: "/contact", loader: () => import("src/view/Contact/Contact") },
 ];
 const privateRoutes = [
@@ -71,6 +79,12 @@ const privateRoutes = [
   {
     path: "/favoris",
     loader: () => import("src/view/Favoris/Favoris"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/detaill",
+    loader: () => import("src/view/shared/Detaill/Detaill"),
     permissionRequired: null,
     exact: true,
   },

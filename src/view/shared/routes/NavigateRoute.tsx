@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import PermissionChecker from "../../../modules/auth/permissionChecker";
 import Layout from "src/view/Layout/Layout";
+import Footer from "../../Layout/Footer";
 function NavigateRoute({
   component: Component,
   currentUser,
@@ -24,9 +25,12 @@ function NavigateRoute({
           return <Redirect to='/auth/empty-permissions' />;
         }
         return (
-          <Layout>
-            <Component {...props} />
-          </Layout>
+          <div style={{ minHeight: "100%" }}>
+            <Layout>
+              <Component {...props} />
+            </Layout>
+            <Footer />
+          </div>
         );
       }}
     />

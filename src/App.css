@@ -203,6 +203,7 @@
   width: max-content;
   background-color: var(--white);
 }
+
 .button__language:hover .dropdown__translate {
   display: block;
   position: absolute;
@@ -230,6 +231,7 @@
   color: var(--red);
   text-decoration: underline;
 }
+
 .dropdown__translate li:hover {
   color: var(--red);
   text-decoration: underline;
@@ -369,19 +371,13 @@
 .dropdown:hover i {
   animation: fade-out-arrow 0.2s ease-out forwards;
 }
+
 .button__language:hover img {
   animation: fade-out-arrow 0.2s ease-out forwards;
 }
+
 .links__sub {
   display: none;
-}
-
-.links > ul > li:target {
-  background: var(--red);
-  padding: 8px;
-  color: var(--white);
-  display: flex;
-  align-items: center;
 }
 
 .links__sub::before {
@@ -415,9 +411,13 @@
   font-size: 18px;
   line-height: 21px;
 }
-
+:is(.li__active) i {
+  color: var(--white) !important;
+}
 .dropdown:hover .links__sub {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 40px;
   padding: 53px 34px;
   position: absolute;
   background-color: var(--white);
@@ -425,7 +425,7 @@
   animation: fade-on-drop 0.3s ease-out forwards;
   border: 1px solid #f1f1f1;
   box-shadow: 0px 14px 14px rgba(0, 0, 0, 0.25);
-  top: 40px;
+  top: 48px;
   column-gap: 116px;
   width: max-content;
   align-items: baseline;
@@ -470,16 +470,12 @@
   padding: 8px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
 }
 
 .li__active {
   background: var(--red);
   color: var(--white);
-}
-
-#humberger {
-  padding-right: 10px;
 }
 
 .button__language > img {
@@ -542,9 +538,14 @@
 }
 
 .content__sliderTop > h3 {
-  width: 800px;
+  width: 729px;
   color: var(--white);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 47px;
+  line-height: 40px;
 }
 
 /* styling the sliderBottom */
@@ -712,35 +713,35 @@
   font-size: 15px;
   line-height: 39px;
 }
-
+.button__search,
+.search__advanced {
+  font-family: "Bebas Neue";
+  color: var(--white);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  font-style: normal;
+}
 .button__search {
   cursor: pointer;
   padding: 0.9375rem 1.9375rem;
   background-color: var(--red);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 21px;
+
   margin-right: 22px;
   margin-left: 9px;
   display: flex;
 }
-
-.fa-magnifying-glass {
-  color: var(--white);
-  padding-right: 0.936875rem;
-}
-
 .search__advanced {
   cursor: pointer;
   color: var(--violet);
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: 700;
   width: 260px;
   text-align: center;
   padding: 0.9375rem 0.5rem;
   border-bottom: 2px solid var(--violet);
+}
+.fa-magnifying-glass {
+  color: var(--white);
+  padding-right: 0.936875rem;
 }
 
 .left__content {
@@ -895,9 +896,11 @@ Styling the archeive verison Mobile  */
 
 .glossaire__detaill {
   padding-top: 5px;
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 22px;
   color: var(--violet);
   text-align: center;
   max-width: 700px;
@@ -911,8 +914,8 @@ Styling the archeive verison Mobile  */
   background-position: right 300px bottom -230px;
   background-repeat: no-repeat;
   width: 1170px;
-  height: 517px;
-  padding: 47px 35px 40px;
+  height: 443px;
+  padding: 44px 35px 32px;
   display: flex;
   gap: 37px;
 }
@@ -923,11 +926,12 @@ Styling the archeive verison Mobile  */
 }
 
 .global__header {
-  font-family: "Proxima Nova";
+  font-family: "Bebas Neue";
   font-style: normal;
-  font-weight: 800;
-  font-size: 23px;
+  font-weight: 400;
+  font-size: 39px;
   line-height: 32px;
+  text-transform: uppercase;
   color: var(--white);
   padding-top: 30px;
   padding-bottom: 60px;
@@ -946,6 +950,7 @@ Styling the archeive verison Mobile  */
 }
 
 .global__content {
+  font-family: "Proxima Nova";
   margin-top: 25px;
   font-style: normal;
   font-size: 16px;
@@ -962,33 +967,39 @@ Styling the archeive verison Mobile  */
 }
 
 .global__right > div {
-  align-items: baseline;
-  height: 200px;
+  height: 170px;
   display: flex;
   flex-direction: column;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(14px);
-  padding: 39px 0;
+  justify-content: space-around;
+  color: var(--violet);
+  background-color: var(--white);
   align-items: center;
 }
 
 .global__button {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 25px;
   cursor: pointer;
   margin: 25px 0 39px 0;
   color: var(--red);
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 25px;
   padding: 0 6px;
   border-bottom: 3px solid var(--red);
   width: max-content;
 }
 
 .global__number {
-  font-weight: 700;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
   font-size: 40px;
   line-height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 214.81px;
 }
 
 .small__bar {
@@ -1000,9 +1011,11 @@ Styling the archeive verison Mobile  */
 }
 
 .detaill__number {
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 29px;
+  font-size: 21px;
+  line-height: 24px;
   padding: 0 19px;
   text-align: center;
 }
@@ -1102,10 +1115,11 @@ Styling the archeive verison Mobile  */
 }
 
 .title {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 23px;
   line-height: 33px;
   color: var(--violet);
+  font-family: "Bebas Neue";
 }
 
 .graph__navigate {
@@ -1171,14 +1185,19 @@ Styling the archeive verison Mobile  */
 
 .description__number {
   justify-self: center;
-  font-family: "Proxima Nova";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 40px;
   line-height: 39px;
   color: var(--violet);
 }
-
+.description__text {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
 @media screen and (max-width: 1171px) {
   .statestique__graph {
     display: flex;
@@ -1270,6 +1289,7 @@ Styling the archeive verison Mobile  */
   line-height: 25px;
   padding: 15px 0;
   color: var(--gray2);
+  font-family: "Proxima Nova";
 }
 
 @media screen and (max-width: 1171px) {
@@ -1341,7 +1361,7 @@ Styling the archeive verison Mobile  */
 .__detaills {
   position: absolute;
   bottom: 0;
-  padding: 2.0625rem;
+  padding: 17px;
   width: 100%;
 }
 
@@ -1353,6 +1373,7 @@ Styling the archeive verison Mobile  */
 }
 
 .__left > p {
+  font-family: "Proxima Nova";
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
@@ -1363,13 +1384,15 @@ Styling the archeive verison Mobile  */
   font-size: 14px;
   line-height: 14px;
   color: var(--white);
+  font-family: "Proxima Nova";
 }
 
 .__content {
   font-weight: 700;
   font-size: 23px;
-  line-height: 30px;
+  line-height: 24px;
   color: var(--white);
+  font-family: "Bebas Neue Pro";
 }
 
 .publication__list {
@@ -1408,19 +1431,27 @@ Styling the archeive verison Mobile  */
   line-height: 15px;
   color: var(--red);
   font-weight: 400;
+  font-family: "Proxima Nova" !important;
 }
 
 .detaill__content {
-  font-weight: 700;
-  font-size: 16px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
   line-height: 24px;
   color: var(--violet);
 }
-
+.text__wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .header__right {
   font-size: 12px;
   line-height: 12px;
   color: var(--gray2);
+  font-family: "Proxima Nova" !important;
 }
 
 .publication__bar {
@@ -1433,6 +1464,7 @@ Styling the archeive verison Mobile  */
   width: 100%;
   display: flex;
   flex-direction: column;
+  font-family: "Proxima Nova" !important;
 }
 
 .communique {
@@ -1468,7 +1500,9 @@ Styling the archeive verison Mobile  */
   margin-top: 10px;
   cursor: pointer;
   color: var(--red);
-  font-weight: 700;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 39px;
   text-decoration: underline;
@@ -1675,17 +1709,21 @@ Styling the archeive verison Mobile  */
 }
 
 .date {
-  font-weight: 700;
-  font-size: 35px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 55px;
   line-height: 39px;
   color: var(--white);
 }
 
 .month {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
   font-size: 25px;
   line-height: 39px;
   color: var(--white);
-  font-weight: 700;
 }
 
 .evenement__description {
@@ -1699,6 +1737,7 @@ Styling the archeive verison Mobile  */
   column-gap: 22px;
   padding: 13px 15px;
   background-color: var(--white);
+  width: 673px;
 }
 
 .evenement__right {
@@ -1719,6 +1758,7 @@ Styling the archeive verison Mobile  */
 .right__date > div {
   font-size: 12px;
   line-height: 15px;
+  font-family: "Proxima Nova";
   color: var(--gray2);
   display: flex;
   align-items: center;
@@ -1727,14 +1767,18 @@ Styling the archeive verison Mobile  */
 }
 
 .righ__desctiption {
-  padding: 16px 0 6px;
-  font-weight: 700;
-  font-size: 17px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
   line-height: 24px;
+  padding: 16px 0 6px;
   max-width: 418px;
 }
 
 .right__footer {
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
@@ -1747,6 +1791,7 @@ Styling the archeive verison Mobile  */
   background-color: var(--white);
   margin-left: 28px;
   padding: 24px 16px;
+  width: 369px;
 }
 
 .calendar {
@@ -1779,10 +1824,19 @@ Styling the archeive verison Mobile  */
 
 .calendar__detaill {
   color: var(--white);
-  font-weight: 700;
-  font-size: 18px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
   line-height: 21px;
-  margin: 0 0 14px 16px;
+  margin: 0 0 35px 16px;
+}
+
+.calendar__month .date {
+  color: var(--violet) !important;
+}
+.calendar__month .month {
+  color: var(--violet) !important;
 }
 
 @media screen and (max-width: 1171px) {
@@ -1982,13 +2036,16 @@ Styling the archeive verison Mobile  */
 
 .art__images > div:nth-child(1) {
   position: relative;
-  font-weight: 800;
-  font-size: 35px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
   line-height: 39px;
   color: #2b2840;
   opacity: 0.2;
   transform: rotate(-90deg);
   margin-left: 18px;
+  text-transform: uppercase;
 }
 
 .art__photo {
@@ -2036,6 +2093,8 @@ Styling the archeive verison Mobile  */
 
 .art__detaill {
   text-align: start;
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -2045,7 +2104,9 @@ Styling the archeive verison Mobile  */
 
 .art__author {
   text-align: start;
-  font-weight: 700;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   color: var(--violet);
@@ -2103,21 +2164,21 @@ styling the newsLettre */
   left: 5px;
   top: -7px;
 }
-
-.text__header {
-  font-weight: 400;
+.text__header,
+.text__content {
+  font-family: "Proxima Nova";
   font-size: 16px;
   line-height: 25px;
   color: var(--gray2);
+}
+.text__header {
+  font-weight: 400;
   max-width: 450px;
 }
 
 .text__content {
   padding: 27px 0 20px;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 35px;
-  color: var(--gray2);
 }
 
 .right__text {
@@ -2152,19 +2213,24 @@ styling the newsLettre */
 
 .newsLettre__title {
   color: var(--white);
-  font-weight: 700;
-  font-size: 19px;
-  line-height: 25px;
+
   padding: 49px 0 16px;
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 25px;
 }
 
 .newsLettere__detaill {
+  font-family: "Proxima Nova";
   color: var(--white);
   font-size: 16px;
   line-height: 25px;
   padding-bottom: 30px;
 }
-
+.button__newLettre {
+}
 .lazyload {
   opacity: 0;
 }
@@ -2204,12 +2270,15 @@ styling the newsLettre */
 }
 
 .button__newLettre {
+  font-family: "Bebas Neue";
   background-color: var(--red);
   padding: 10px 18px;
   cursor: pointer;
   color: var(--white);
   width: max-content;
   height: calc(100% - 6px);
+  font-size: 21px;
+  line-height: 25px;
 }
 
 .newsLettre__left > .text__content {
@@ -2258,160 +2327,107 @@ styling the newsLettre */
   }
 }
 
-/* Styling the footer seciton  */
 .bottom {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
+/* Styling the footer seciton  */
 
 .app__footer {
   width: 100%;
   background-color: var(--red);
-  bottom: 0;
+  height: 21.375rem;
 }
-
 .footer {
   max-width: 1170px;
-  margin: auto;
-  padding-top: 34px;
-  padding-bottom: 54.4px;
+  margin-inline: auto;
+  padding: 34px 0 0px 0;
+  color: var(--white);
   display: flex;
   justify-content: space-between;
 }
-
-.footer__bar {
-  display: none;
-  border: 1px solid #ffffff;
-  transform: rotate(90deg);
-  width: 152px;
-  height: 0px;
-  opacity: 0.4;
+.label__footer {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 25px;
+  color: var(--white);
+}
+.detaill__footer {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+}
+.l__h40 {
+  line-height: 40px !important;
 }
 
-#arrow_down {
-  display: none;
+.footer__content {
+  padding-top: 24px;
+  max-width: 313px;
 }
-
-.footer__menu,
-.footer__socialmedia,
-.footer__contact {
-  padding-top: 36px;
+.content__menu {
+  display: flex;
+  column-gap: 31px;
+  width: 311px;
+}
+.content__socialmedia {
   display: flex;
   flex-direction: column;
-  color: var(--white);
-  align-items: flex-start;
+  height: 168px;
+  justify-content: space-between;
+  width: 226px;
 }
-
-.footer__socialmedia > div {
-  font-size: 14px;
-  line-height: 40px;
+.content__socialmedia > div {
   display: flex;
-  column-gap: 21px;
+  justify-content: space-between;
+  max-width: 100px;
   align-items: center;
-  text-align: start;
 }
 
-.menu__footer {
+.content__menu > div > ul {
   display: flex;
+  flex-direction: column;
+  height: 168px;
+  width: 133px;
 }
-
-.menu__footer li {
+.content__menu > div > ul > li {
+  font-family: "Proxima Nova";
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 40px;
   color: var(--white);
+  padding: 0 !important;
 }
-
-.left,
-.right {
-  width: 133px;
-  height: 177px;
-  padding: 0px 25px 0px 0;
+.footer__contact {
+  max-width: 229px;
+  height: 152px;
 }
-
-.menu__footer ul {
-  height: 168px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-label {
+.contact__desctioption {
   font-family: "Proxima Nova";
-
-  color: var(--white);
-  font-weight: 700;
-  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 25px;
-  padding-bottom: 24px;
-}
-
-.menu__footer {
   color: var(--white);
-  display: flex;
 }
 
-@media screen and (max-width: 1171px) {
-  .footer {
-    flex-direction: column;
-    margin: 0 18px;
-  }
-
-  .footer__menu > div:nth-child(1) {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    height: 25px;
-  }
-
-  .menu__footer,
-  .contact__address {
-    padding-top: 0;
-    display: none;
-  }
-
-  .footer__socialmedia {
-    padding-top: 0;
-  }
-
-  .footer__socialmedia > div {
-    display: none;
-  }
-
-  .arrow_down {
-    display: block;
-  }
-
-  .footer__bar {
-    display: block;
-    margin: 20px 0;
-    width: 100%;
-    transform: rotate(900deg);
-  }
-
-  .footer__contact {
-    padding-top: 0;
-  }
-
-  .footer__socialmedia > div:nth-child(1) {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    height: 25px;
-  }
-
-  .footer__contact > div:nth-child(1) {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    height: 25px;
-  }
+.hr__bar {
+  margin: 83px 19px 83px 19px !important;
+  width: 0;
+  height: 152px;
+  border: 1px solid rgb(255, 255, 255, 0.4);
 }
-
+.footer__menu,
+.footer__socialmedia,
+.footer__contact {
+  padding-top: 36px;
+}
 /* styling the copywrite  */
 
 .footer__copywrite {
@@ -2480,6 +2496,7 @@ label {
   padding-top: 20px;
   width: 313px;
   max-width: 313px;
+  font-family: "Proxima Nova";
 }
 
 .footer__logo > img {
@@ -2518,13 +2535,6 @@ label {
   place-items: center;
 }
 
-button {
-  color: var(--dark--red);
-  border: 0;
-  padding: 0.8rem 1.2rem;
-  cursor: pointer;
-}
-
 /*      Stlying the portfolio  */
 
 .app__profile {
@@ -2548,11 +2558,12 @@ button {
 /* styling the singup Page */
 .app__signup {
   width: 100%;
-  max-width: 501px;
+  max-width: calc(100vw - 20%);
   margin: auto;
   display: grid;
   padding-top: 36px;
   padding-bottom: 39px;
+  place-content: center;
 }
 
 .app__member {
@@ -2566,6 +2577,7 @@ button {
 .member__header {
   color: var(--red);
   font-family: "Bebas Neue Pro";
+
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -2966,6 +2978,7 @@ td {
   line-height: 22px;
   padding: 0 25px;
 }
+
 /*styling the color of status  */
 
 .valide,
@@ -2974,6 +2987,7 @@ td {
 .rejete {
   padding: 4px 20px;
 }
+
 .valide {
   color: var(--green);
   background: #eaf9f6;
@@ -2985,8 +2999,10 @@ td {
   background-color: #d9edf7;
   border: 1px solid #4aace0;
 }
+
 .archive {
 }
+
 .rejete {
   color: #bc5351;
   background-color: #f2dede;
@@ -3067,9 +3083,20 @@ td {
   padding: 67px 0 63px 0;
 }
 
+.contentContainer {
+  width: 100%;
+  margin-top: 1.7rem;
+}
+
 .contenu {
-  max-width: 600px;
+  max-width: 501px;
   margin-inline: auto;
+}
+@media (max-width: 500px) {
+  .contenu {
+    max-width: calc(100vw - 20%);
+    margin-inline: auto;
+  }
 }
 
 .contenu__description {
@@ -3306,6 +3333,7 @@ span {
 .mainContent input[type="radio"]:checked + .TypeCard {
   border: 2px solid var(--violet);
 }
+
 .mainContent input[type="radio"] + .TypeCard .icon {
   font-size: 24px;
 }
@@ -3408,6 +3436,7 @@ span {
 ul.splide__list {
   column-gap: 15px;
 }
+
 ul.splide__list > li {
   width: 85px !important;
   padding: 0 !important;
@@ -3435,6 +3464,7 @@ button.splide__arrow--prev {
 #react-select3-option:hover .css-9gakcf-option {
   background-color: var(--red);
 }
+
 .css-9gakcf-option,
 .css-1n7v3ny-option {
   background-color: var(--white) !important;
@@ -3443,6 +3473,7 @@ button.splide__arrow--prev {
   font-weight: 700;
   line-height: 21px;
 }
+
 .css-9gakcf-option:hover {
   background-color: var(--hover__select) !important;
 }
@@ -3450,4 +3481,198 @@ button.splide__arrow--prev {
 /* styling the normal select  */
 .css-1n7v3ny-option:hover {
   background-color: var(--hover__select) !important;
+}
+
+/* Styling the archieve__page */
+
+.app__archieve__page {
+  background-image: url(/public/images/acheive.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-color: var(--background);
+  padding-top: 0;
+  min-height: 100vh;
+}
+
+.app__archieve__page .archeive {
+  padding-top: 19px;
+  max-width: 1170px;
+  position: relative;
+  height: 100%;
+}
+
+/* styling the publication Version Desktop */
+.publication__page {
+  width: 100%;
+}
+.app__pub {
+  width: 100%;
+}
+.publication__header {
+  background-color: var(--gray6);
+  width: 100%;
+  height: 485px;
+  display: grid;
+  place-items: center;
+}
+.image__pub {
+  max-width: 1170px;
+  margin: auto;
+  display: flex;
+  column-gap: 30px;
+}
+.pub__relative {
+  position: relative;
+}
+.__left {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+}
+.sub__content {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  opacity: 0.6;
+  color: var(--white);
+}
+
+.last__pub {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pub__migration {
+  max-width: 1170px;
+  margin: auto;
+  padding-top: 64px;
+}
+.pub__pollution {
+  max-width: 1170px;
+  margin: auto;
+  padding-top: 40px;
+}
+.pub__migration > div:nth-child(2) {
+  padding: 34px 0 0 0;
+}
+.pub__pollution > div:nth-child(2) {
+  padding: 34px 0 0 0;
+}
+.migration__images {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  column-gap: 39px;
+}
+.migration__images > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  row-gap: 22px;
+}
+.migration__images > div:nth-child(2) > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 22px;
+  row-gap: 22px;
+}
+
+/*        styling the articles + manifestation + évènement +Rapports      */
+
+.app__articles {
+  max-width: 1170px;
+  margin: auto;
+  display: flex;
+  padding-top: 59px;
+  column-gap: 31px;
+}
+.app__articles > div {
+  width: 100%;
+}
+.articles__top {
+}
+.manification__images {
+  display: flex;
+  flex-direction: column;
+  row-gap: 37px;
+  padding-top: 36px;
+}
+.manification__images > div {
+  display: flex;
+  column-gap: 17px;
+}
+.images__evenement {
+  padding-top: 36px;
+}
+.__top {
+  display: flex;
+  column-gap: 36px;
+}
+.app__rapports {
+  padding-top: 48px;
+}
+.rapport__detaill {
+  padding: 43px 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.app__category {
+  max-width: 1170px;
+  margin: auto;
+  padding-top: 86px;
+  padding-bottom: 45px;
+}
+
+.category__title {
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 39px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.category__list {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 56px;
+}
+.category__list > div {
+  background-color: var(--gray6);
+  padding: 10px 15px;
+  display: grid;
+  place-items: center;
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 23px;
+  line-height: 39px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+}
+
+/* MEDIATHEQUES */
+.wideContent {
+  max-width: 1170px;
+  margin: auto;
+}
+.wideContent h1 {
+  font-family: "Bebas Neue Pro";
+  font-size: 47px;
+  line-height: 39px;
+  color: #2b2840;
+  letter-spacing: normal;
+}
+
+@media (max-width: 1172px) {
+  .modifyprofile {
+    width: calc(100vw - 20%);
+    max-width: calc(100vw - 20%);
+  }
 }

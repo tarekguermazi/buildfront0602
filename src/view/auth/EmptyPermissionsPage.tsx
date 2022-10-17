@@ -1,20 +1,37 @@
 import { i18n } from "src/i18n";
 import actions from "src/modules/auth/authActions";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import selectors from "src/modules/auth/authSelectors";
-
+import { useDispatch } from "react-redux";
+import "./styles/EmptyPermissionWrapper.css";
+import { useEffect } from "react";
 function EmptyPermissionsPage() {
   const dispatch = useDispatch();
 
   const doSignout = () => {
     dispatch(actions.doSignout());
   };
+
+  useEffect(() => {
+    const nav = document.querySelector(".header__nav");
+    nav?.classList.add("abosulte");
+  });
   return (
-    <>
-      <h3>{i18n("auth.emptyPermissions.message")}</h3>
-      <button onClick={doSignout}>{i18n("auth.signout")}</button>
-    </>
+    <div className='emptypermission'>
+      <div>
+        <div>
+          <i
+            className='fa-solid fa-xmark'
+            style={{ fontSize: 50, color: "#2B2840", float: "right" }}
+            onClick={doSignout}
+          />
+        </div>
+        <div className='content__message'>
+          <div className='title__message'>Hi ! Mootassam</div>
+          <div className='detaill__message'>
+            {i18n("auth.emptyPermissions.message")}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

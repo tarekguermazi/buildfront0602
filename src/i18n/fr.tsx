@@ -2003,7 +2003,9 @@ const fr = {
     signin: `Se connecter`,
     signup: `S'inscrire`,
     signout: "Déconnecter",
-    alreadyHaveAnAccount: `Avez-vous déjà un compte? Se connecter.`,
+    alreadyHaveAnAccount: `Connectez-vous.`,
+    already: "Déjà inscrit?",
+    HaveAnAccount: "Pas encore membre?",
     social: {
       errors: {
         "auth-invalid-provider":

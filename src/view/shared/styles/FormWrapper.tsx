@@ -4,6 +4,12 @@ const FormWrapper = styled.div`
     padding-top: 44px;
     position: relative;
   }
+  button {
+    color: var(--dark--red);
+    border: 0;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+  }
   .container__form {
     display: grid;
     row-gap: 25px;
@@ -104,9 +110,10 @@ const FormWrapper = styled.div`
   .invalid-feedback {
     color: var(--red);
   }
-  .form__group {
-    width: 501px;
+
+  @media (max-wdith: 800px) {
   }
+
   .cancel__button {
     padding: 0;
     background-color: transparent;

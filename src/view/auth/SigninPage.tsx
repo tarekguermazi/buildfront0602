@@ -95,7 +95,9 @@ function SigninPage() {
                   </button>
 
                   <div className='form__link'>
-                    <div className='link__account'>Pas encore membre?</div>
+                    <div className='link__account'>
+                      {i18n("auth.HaveAnAccount")}
+                    </div>
                     <div className='__create'>
                       <Link to='/auth/signup' className='link__create'>
                         {i18n("auth.createAnAccount")}

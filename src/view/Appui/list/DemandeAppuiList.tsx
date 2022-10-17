@@ -6,6 +6,7 @@ import Spinner from "../../shared/Spinner";
 import Pagination from "src/view/shared/table/Pagination";
 import { Link } from "react-router-dom";
 import { i18n } from "src/i18n";
+import { BsPencil } from "react-icons/bs";
 
 function ListAppui(props) {
   const dispatch = useDispatch();
@@ -21,6 +22,11 @@ function ListAppui(props) {
   const count = useSelector(selectors.selectCount);
   const doChangePagination = (pagination) => {
     dispatch(actions.doChangePaginationAndSort(pagination, {}));
+  };
+
+  const actionButtons = {
+    fontSize: "1.2rem",
+    color: "#ffff",
   };
   return (
     <>
@@ -79,10 +85,9 @@ function ListAppui(props) {
                   <td>{row.email}</td>
                   <td>{row.phoneNumber}</td>
                   <td>{row.descriptionFR}</td>
-
-                  <td className='actions'>
+                  <td style={actionButtons}>
                     <Link to={`/appui/${row.id}/edit`}>
-                      <i className='fa-solid fa-pen'></i>
+                      <BsPencil className='icon' color='#a3a3a9' />
                     </Link>
                   </td>
                 </tr>
