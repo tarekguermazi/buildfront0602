@@ -2123,23 +2123,26 @@ styling the newsLettre */
 
 .app__newsLettre {
   width: 100%;
+  background-color: var(--violet);
 }
 
 .newsLettre {
   max-width: 1170px;
   margin: auto;
-  display: flex;
-  /* grid-template-columns: 701px 442px; */
-  column-gap: 27px;
-  padding: 89px 0 75px 0;
-
+  display: grid;
+  place-items: center;
   align-items: baseline;
+  column-gap: 27px;
+  padding: 40px 0 62px;
 }
-
-.newsLettre__left {
-  width: 701px;
+.newsLettre__content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 470px 450px;
+  place-items: center;
+  padding-top: 36px;
+  column-gap: 48px;
 }
-
 .news {
   display: flex;
   padding-top: 46px;
@@ -2206,9 +2209,7 @@ styling the newsLettre */
 }
 
 .newsLettre__right {
-  width: 442px;
   background-color: var(--violet);
-  padding: 21px 18px 71px 40px;
 }
 
 .newsLettre__title {
@@ -2227,7 +2228,6 @@ styling the newsLettre */
   color: var(--white);
   font-size: 16px;
   line-height: 25px;
-  padding-bottom: 30px;
 }
 .button__newLettre {
 }
@@ -2243,8 +2243,10 @@ styling the newsLettre */
 
 .newsLettre__right h2 {
   color: var(--white);
-  font-weight: 800;
-  font-size: 30px;
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
   line-height: 39px;
 }
 
@@ -2255,6 +2257,7 @@ styling the newsLettre */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-height: 50px;
 }
 
 .newsLettre__formulaire > div {
@@ -2272,13 +2275,17 @@ styling the newsLettre */
 .button__newLettre {
   font-family: "Bebas Neue";
   background-color: var(--red);
-  padding: 10px 18px;
+  padding: 7px 27px;
   cursor: pointer;
   color: var(--white);
+  width: -webkit-max-content;
   width: max-content;
   height: calc(100% - 6px);
   font-size: 21px;
   line-height: 25px;
+  max-height: 38px;
+  display: grid;
+  place-items: center;
 }
 
 .newsLettre__left > .text__content {
@@ -2977,6 +2984,7 @@ td {
   font-size: 14px;
   line-height: 22px;
   padding: 0 25px;
+  white-space: pre;
 }
 
 /*styling the color of status  */
@@ -3674,5 +3682,37 @@ button.splide__arrow--prev {
   .modifyprofile {
     width: calc(100vw - 20%);
     max-width: calc(100vw - 20%);
+  }
+}
+
+@media (max-width: 590px) {
+  .profile__header {
+    display: flex;
+    padding-left: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .profile__description {
+    width: calc(100vw - 20%);
+    padding-top: 25px;
+  }
+  .list__button {
+    padding: 39px 0 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .button__contenue {
+    width: 150px;
+  }
+  .list__items {
+    padding: 15px 35px 0;
+    overflow: scroll;
   }
 }
