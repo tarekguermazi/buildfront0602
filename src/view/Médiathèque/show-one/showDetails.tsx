@@ -85,8 +85,6 @@ export default function ShowPublication() {
                 </MainLayout>
                 <RelatedContent type={entity['type']} />
             </section>
-            <MegaFooter />
-            <Footer />
         </section>
     )
 }
