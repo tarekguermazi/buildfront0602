@@ -14,8 +14,8 @@ function Archives() {
   return (
     <>
       <Breadcrumb
-        title={i18n("common.archive")}
-        items={[[i18n("dashboard.menu"), "/"], [i18n("common.archive")]]}
+        title={i18n("common.Archives")}
+        items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
       />
       <div className='app__archieve__page'>
         <div className='archeive'>

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default [
   { path: "/", label: "Menue", icon: "fa-sharp fa-solid fa-bars" },
-  { path: "/A_propos", label: "A propos" },
+  { path: "/A_propos", label: "propos" },
   {
     path: "/Publications",
     label: "Publications",
@@ -22,7 +22,7 @@ export default [
   { path: "/Evenements", label: "Evènements" },
   {
     path: "/",
-    label: "Tableau de bord",
+    label: "Tableau",
   },
   {
     path: "/Mediatheque",

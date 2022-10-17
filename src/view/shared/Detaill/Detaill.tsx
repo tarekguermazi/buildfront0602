@@ -13,7 +13,7 @@ function Detaill() {
     <div className='app__detaill'>
       <Breadcrumb
         title='Migration'
-        items={[[i18n("dashboard.menu"), "/"], [i18n("common.archive")]]}
+        items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
       />
 
       <div className='app__calendar'>

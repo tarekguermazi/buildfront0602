@@ -20,6 +20,15 @@ const en = {
     destroy: "Delete",
     mustSelectARow: "Must select a row",
     filters: "Filters",
+    Menue: "menu",
+    propos: "About",
+    Publications: "Publications",
+    Archives: "Archives",
+    Glossaire: "Glossary",
+    Evènements: "Events",
+    Tableau: "Dashboard",
+    Médiathèque: "Media library",
+    Contact: "Contact",
   },
 
   app: {

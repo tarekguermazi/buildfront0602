@@ -12,11 +12,6 @@ import {
   twitter,
   youtube,
   Etudes,
-  Communique,
-  petition,
-  rapport,
-  Poster,
-  invitation,
   question,
   pen,
   logout,
@@ -28,6 +23,7 @@ import authSelectors from "src/modules/auth/authSelectors";
 import authActions from "src/modules/auth/authActions";
 import { useSelector, useDispatch } from "react-redux";
 import I18nSelect from "./I18nSelect";
+import { i18n } from "../../i18n";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -61,30 +57,32 @@ function Header(props) {
       <Link to='/publication/new'>
         <li>
           <img src={pen} alt='pen' />
-          Suggérer des données
+          {i18n("common.suggerer_des_donnees")}
         </li>
       </Link>
       <Link to='/profile'>
         <li>
           <img src={profile} alt='profile' className='lazyload' />
-          Profil
+          {i18n("common.profile")}
         </li>
       </Link>
       <Link to='/appui/new'>
         <li>
           <img src={question} alt='question' className='lazyload' />
-          Demander d’appui
+          {i18n("common.demander_d_appui")}
         </li>
       </Link>
       <Link to='/favoris'>
         <li>
           <img src={question} alt='question' className='lazyload' />
-          Favoris
+          {i18n("common.favoris")}
         </li>
       </Link>
       <li onClick={doSignout}>
         <img src={logout} alt='logout' className='lazyload' />
-        Déconnexion
+      
+        {i18n("common.deconnexion")}
+
       </li>
     </ul>
   );
@@ -146,13 +144,17 @@ function Header(props) {
             <ul className='ul__links'>
               {menus.map((item, index) => (
                 <Link to={item.path} key={index}>
-                  <li style={{ padding: 8 }} className={selectClass(item)}>
-                    {item.label}
+                  <li
+                    style={{
+                      padding: 8,
+                      display: "flex",
+                      alignItems: "baseline",
+                      columnGap: 10,
+                    }}
+                    className={selectClass(item)}>
+                    {i18n(`common.${item.label}`)}
                     {item.icon && (
-                      <i
-                        className={item.icon}
-                        style={{ color: "red", paddingLeft: 10 }}
-                      />
+                      <i className={item.icon} style={{ color: "red" }} />
                     )}
                     {item.class && (
                       <ul className='links__sub'>
