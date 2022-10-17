@@ -1,27 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-
 // SERVICES
 import MediathequeService from 'src/modules/mediatheque/MediathequeService'
 import TenantService from 'src/modules/Tenant/TenantService'
-
 // COMPONENTS
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import BreadCrumbs from 'src/view/shared/BreadCrumbs'
-
 import Header from './Header'
 import Main from './Main'
 import FooterSection from './Footer'
-
 import RelatedContent from './RelatedContent'
-import Footer from 'src/view/Layout/Footer'
-import MegaFooter from 'src/view/Layout/MegaFooter'
-
-
-
-
 
 export default function ShowPublication() {
     // GET entity id
@@ -103,9 +93,9 @@ const MainLayout = styled.section`
         margin-right: 2.5rem;
 
         .socials{
-            width: fit-content;
+            width: 250px;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: center;
 
             button{
