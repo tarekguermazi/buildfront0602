@@ -2,7 +2,7 @@ import PermissionChecker from "src/modules/auth/permissionChecker";
 import React from "react";
 import { Redirect, Route, useLocation } from "react-router-dom";
 import Layout from "src/view/Layout/Layout";
-import Footer from "../../Layout/Footer";
+import Footer from "../../Layout/CopyWrite";
 
 // import config from "src/config";
 // import { tenantSubdomain } from "src/modules/tenant/tenantSubdomain";

@@ -7,7 +7,7 @@ import Filter from "./Filter";
 import GloassaireList from "./GloassaireList";
 import LoadingData from "./shared/LoadingData";
 import NoDataFound from "./shared/NoDataFound";
-import Footer from "../Layout/Footer";
+import Footer from "../Layout/CopyWrite";
 
 // Packages
 var groupArray = require("group-array");

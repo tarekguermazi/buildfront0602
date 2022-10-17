@@ -4,7 +4,6 @@ import { calendar__bttom, check, envelope, member } from "../../assets/images";
 import { i18n } from "../../i18n";
 import Image from "src/view/shared/Image";
 import { Link } from "react-router-dom";
-import MegaFooter from "../Layout/MegaFooter";
 function Publications() {
   return (
     <>
@@ -547,97 +546,6 @@ function Publications() {
               <div>Article journalistique</div>
               <div>Rapport</div>
               <div>Entretien</div>
-            </div>
-          </div>
-          {/* Styling the news Lettre */}
-          <div className='app__newsLettre'>
-            <div className='newsLettre'>
-              <div className='newsLettre__left'>
-                <div className='archieve__header'>
-                  <h2>Espace&nbsp;membre</h2>
-                  <div className='satestique__bar' />
-                </div>
-                <div className='news'>
-                  <div className='left__image'>
-                    <div className='background__red' />
-                    <Image
-                      src={member}
-                      width={170}
-                      height={221}
-                      alt='Espace Memeber'
-                    />
-                  </div>
-                  <div className='right__text'>
-                    <div className='text__header'>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nulla cursus et augue id consequat. Suspendisse sodales
-                      est lectus. Phasellus dapibus nisl ut nisl accumsan,
-                    </div>
-                    <div className='text__content'>
-                      <div>
-                        <div className='check'>
-                          <img className='lazyload' src={check} alt='' />
-                        </div>
-                        Nullam dolor diam,efficitur et pellentesque eget
-                      </div>
-                      <div>
-                        <div className='check'>
-                          <img className='lazyload' src={check} alt='' />
-                        </div>
-                        vestibulum a dui. Nullam sit amet cursus libero
-                      </div>
-                      <div>
-                        <div className='check'>
-                          <img className='lazyload' src={check} alt='' />
-                        </div>
-                        Donec dolor est, accumsan ac venenatis vitae
-                      </div>
-                    </div>
-                    <div className='global__button'>Se connecter</div>
-                  </div>
-                </div>
-                <div className='text__content'>
-                  <div>
-                    <div className='check'>
-                      <img className='lazyload' src={check} alt='' />
-                    </div>
-                    Nullam dolor diam,efficitur et pellentesque eget
-                  </div>
-                  <div>
-                    <div className='check'>
-                      <img className='lazyload' src={check} alt='' />
-                    </div>
-                    vestibulum a dui. Nullam sit amet cursus libero
-                  </div>
-                  <div>
-                    <div className='check'>
-                      <img className='lazyload' src={check} alt='' />
-                    </div>
-                    Donec dolor est, accumsan ac venenatis vitae
-                  </div>
-                  <div className='global__button'>Se connecter</div>
-                </div>
-              </div>
-              <div className='newsLettre__right'>
-                <div className='archieve__header'>
-                  <h2>Newsletter</h2>
-                  <div className='satestique__bar' />
-                </div>
-                <div className='newsLettre__title'>LET’S KEEP IN TOUCH</div>
-                <div className='newsLettere__detaill'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  cursus et augue id consequat. Suspendisse sodales est lectus.
-                </div>
-                <div className='newsLettre__formulaire'>
-                  <img
-                    className='lazyload'
-                    src={envelope}
-                    alt='Envolope Image'
-                  />
-                  <input type='text' placeholder=' Votre adresse email' />
-                  <div className='button__newLettre'>Envoyer</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
