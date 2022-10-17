@@ -47,14 +47,6 @@ export default function ShowPublication() {
 
     useEffect(() => { fetchTypeEntitYDetails(entityID) }, []);
 
-    const getDate = d => {
-        return (d?.split('T')[0]);
-    }
-    const getTime = d => {
-        return (d?.split('T')[1]);
-    }
-
-
     return (
         <section>
             <section className='wideContent'>
@@ -62,7 +54,7 @@ export default function ShowPublication() {
                 <MainLayout>
 
                     <section className='rightSection'>
-                        <Header entity={entity} getDate={getDate} getTime={getTime} user={user} userIsLoading={userIsLoading} />
+                        <Header entity={entity} user={user} userIsLoading={userIsLoading} />
                         {
                             entityIsLoading
                                 ?

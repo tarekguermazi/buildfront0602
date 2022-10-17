@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import MediathequeService from 'src/modules/mediatheque/MediathequeService'
 // ICONS
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from 'react-icons/bs'
 
-export default function Header({ entity, getTime, getDate, user, userIsLoading }) {
+export default function Header({ entity, user, userIsLoading }) {
     return (
         <HeaderLayout>
             <span className="categoryBadge">{entity['type']}</span>
             <h1>{entity['titleFR']}</h1>
             <div className="data">
                 <div className="dateAndOwner">
-                    <span>Publié le {getDate(entity['createdAt'])} à {getTime(entity['createdAt'])}</span>
+                    <span>Publié le {MediathequeService.getDate(entity['createdAt'])} à {MediathequeService.getTime(entity['createdAt'])}</span>
                     <span>
                         Par&nbsp;
                         {

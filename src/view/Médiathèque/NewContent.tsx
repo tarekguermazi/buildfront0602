@@ -1,28 +1,19 @@
 import React from 'react'
 import NewContentStyles from './styles/NewContentStyles';
 import EntityPlayerButton from './styles/EntityPlayerButton';
-import VerticalPlayer from './shared/VerticalPlayer';
-
+// SERVICES
+import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 // PACKAGES
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-
 // ICONS
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoVideocamOutline } from "react-icons/io5";
 import { BsCamera } from "react-icons/bs";
 import { BiMicrophone } from "react-icons/bi";
-import moment from 'moment';
-
 
 
 export default function NewContent({ data }) {
-
-    // HELPER FUNCTIONS
-    const pipeDate = date => {
-        let d = date.split('T')[0];
-        return moment(d).format('LL');
-    };
 
     return (
         <NewContentStyles>
@@ -75,7 +66,7 @@ export default function NewContent({ data }) {
                                                 }
                                             </div>
                                             <span className='contentDate'>
-                                                {pipeDate(post.updatedAt)}
+                                                {MediathequeService.pipeDate(post.updatedAt)}
                                             </span>
                                         </div>
                                         <div className="verticalPlayerTitle">

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-
 // SERVICE
 import MediathequeService from "src/modules/mediatheque/MediathequeService";
-
 // COMPONENTS
 import HeroSectionStyle from "./styles/HeroSectionStyle";
 import NewContent from "./NewContent";
 import MainSplide from "./MainSplide";
-
 // PACKAGES
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+
 
 export default function HeroSection() {
   // STATES
