@@ -58,7 +58,45 @@ const fr = {
   api: {
     menu: "API",
   },
-
+  menu: {
+    Menue: "Menue",
+    propos: "A propos",
+    Publications: "Publications",
+    Archives: "Archives",
+    Glossaire: "Glossaire",
+    Evènements: "Evènements",
+    Tableau: "Tableau de bord",
+    Médiathèque: "Médiathèque",
+    Contact: "Contact",
+    suggerer_des_donnees: "Suggérer de contenu",
+    profile: "Profile",
+    demander_d_appui: "Demande d’appui",
+    favoris: "Favoris",
+    deconnexion: "Déconnexion",
+    espace_membre: "espace membre",
+    contenu: "contenu",
+    demande_appui: "Demande d’appui",
+    contenu_recent: "CONTENU RÉCENT",
+    contenus: "contenus",
+    suggerer_de_contenu: "Suggérer de contenu",
+    recherche: "recherche",
+    submenu: {
+      Communiqués: "Communiqués",
+      Articles: "Articles",
+      Etudes: "Etudes",
+      Cahiers: "Cahiers",
+      Appels: "Appels",
+      Vidéos: "Vidéos",
+      Podcast: "Podcast",
+      Photos: "Photos",
+      Documentaires: "Documentaires",
+      Autres: "Autres",
+    },
+  },
+  buttons: {
+    chercher: "chercher",
+    filtrer: "filtrer",
+  },
   entities: {
     mouvement: {
       name: "mouvement",
@@ -2788,6 +2826,7 @@ const fr = {
     hour12AMLabel: "AM",
     hour12PMLabel: "PM",
   },
+
   table: {
     noData: "Aucune donnée",
     loading: "Chargement...",

@@ -3171,6 +3171,12 @@ td {
 .profile__detaill {
   text-align: center;
 }
+.profile__user > form {
+  display: flex;
+  width: calc(100vw - 20%);
+  align-items: center;
+  justify-content: center;
+}
 
 .fa-arrow-left {
   color: var(--violet);
@@ -3679,7 +3685,6 @@ button.splide__arrow--prev {
 @media (max-width: 1172px) {
   .modifyprofile {
     width: calc(100vw - 20%);
-    max-width: calc(100vw - 20%);
   }
 }
 

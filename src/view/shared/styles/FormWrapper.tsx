@@ -3,7 +3,9 @@ const FormWrapper = styled.div`
   .Login__container {
     padding-top: 44px;
     position: relative;
+    width: 501px;
   }
+
   button {
     color: var(--dark--red);
     border: 0;
