@@ -56,4 +56,9 @@ const HeaderLayout = styled.section`
         color: var(--violet);
         margin: 1rem 0;
     }
+
+    @media (max-width: 767px){
+        width: 100%;
+        padding: 0 .5rem;
+    }
 `;

@@ -83,6 +83,12 @@ const RelatedCOntentLayout = styled.section`
         grid-gap: 1rem;
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     }
+
+
+    @media (max-width: 767px){
+        width: 100%;
+        padding: 0 .5rem;
+    }
 `;
 
 const HorizontalCard = styled.div`

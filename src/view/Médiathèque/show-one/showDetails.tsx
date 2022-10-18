@@ -82,7 +82,7 @@ const MainLayout = styled.section`
 
     .rightSection{
         width: 100%;
-        margin-right: 2.5rem;
+        /* margin-right: 2.5rem; */
 
         .socials{
             width: 250px;
@@ -119,5 +119,9 @@ const MainLayout = styled.section`
                 }
             }
         }
+    }
+
+    @media (max-width: 767px){
+        width: 100%; 
     }
 `;

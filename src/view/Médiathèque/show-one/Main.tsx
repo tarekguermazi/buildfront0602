@@ -57,11 +57,22 @@ const MainLayout = styled.section`
         font-size: 16px;
         line-height: 25px;
     }
+
+    @media (max-width: 767px){
+        width: 100%;
+        padding: 0 .5rem;
+    }
 `;
 const VideoPlayersLayout = styled.section`
     margin: 3rem 0;
     audio{
         height: 70px !important;
+    }
+
+    @media (max-width: 767px){
+        video{
+            width: 90% !important;
+        }
     }
 `;
 const PhotoPlayersLayout = styled.section`

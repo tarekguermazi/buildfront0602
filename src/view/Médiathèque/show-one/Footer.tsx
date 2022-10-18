@@ -22,4 +22,9 @@ export default function FooterSection({ userIsLoading, user }) {
 
 const FooterLayout = styled.section`
     margin-top: 5rem;
+
+    @media (max-width: 767px){
+        width: 100%;
+        padding: 0 .5rem;
+    }
 `;
