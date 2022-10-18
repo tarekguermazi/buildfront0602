@@ -101,4 +101,8 @@ const MainLayout = styled.section`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     grid-gap: 1rem;
+
+    @media (max-width: 767px){
+        padding: 0 .5rem;
+    }
 `;
