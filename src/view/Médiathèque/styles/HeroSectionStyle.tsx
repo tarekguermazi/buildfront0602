@@ -37,6 +37,20 @@ const HeroSectionStyle = styled.section`
     position: relative;
     z-index: 4;
   }
+
+  @media (max-width: 767px){
+    height: auto;
+    .bottomGrid{
+      padding-top: 1rem;
+      height: auto;
+    }
+
+    .splideContent{
+      width: 100%;
+      height: 210px;
+      /* overflow: hidden; */
+    }
+  }
 `;
 
 export default HeroSectionStyle;

@@ -24,7 +24,7 @@ export default function NewContent({ data }) {
                 <main>
                     <Splide options={{
                         gap: '.5rem',
-                        perPage: 4,
+                        perPage: 1,
                         pagination: false,
                         wheel: true
                     }}>

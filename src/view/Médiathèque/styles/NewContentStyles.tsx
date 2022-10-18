@@ -12,12 +12,13 @@ const NewContentStyles = styled.section`
             justify-content: space-between;
             align-items: flex-end;
             color: #fff;
+            line-height: .7;
 
             &:after{
                 content: '';
                 display: inline-block;
-                width: 90%;
-                height: 3px;
+                flex-grow: 1;
+                height: 1px;
                 background-color: red;
             }
         }
@@ -123,6 +124,22 @@ const NewContentStyles = styled.section`
                     font-size: 1rem;
                     color: #fff !important;
                 }
+            }
+        }
+    }
+
+
+    @media (max-width: 767px){
+        padding: 1rem .5rem;
+        header{
+            h1{
+                font-size: 1.6rem;
+            }
+        }
+        main{
+            padding: 0;
+            .splide__arrow{
+                display: none;
             }
         }
     }

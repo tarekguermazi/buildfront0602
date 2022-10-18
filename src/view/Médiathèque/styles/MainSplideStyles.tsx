@@ -110,6 +110,11 @@ const MainSplideStyles = styled.section`
             }
         }
     }
+
+
+    @media (max-width: 767px){
+        display: none;
+    }
 `;
 
 export default MainSplideStyles;
