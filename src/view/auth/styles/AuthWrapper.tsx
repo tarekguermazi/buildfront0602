@@ -12,7 +12,7 @@ const AuthWrapper = styled.div`
   }
   @media (max-width: 550px) {
     .app__login {
-      width: calc(100vw - 20%);
+      width: calc(100vw - 10%);
     }
   }
   button {

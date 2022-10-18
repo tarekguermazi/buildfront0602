@@ -2562,7 +2562,7 @@ styling the newsLettre */
 /* styling the singup Page */
 .app__signup {
   width: 100%;
-  max-width: calc(100vw - 20%);
+  max-width: calc(100vw - 10%);
   margin: auto;
   display: grid;
   padding-top: 36px;
@@ -3100,7 +3100,7 @@ td {
 }
 @media (max-width: 500px) {
   .contenu {
-    max-width: calc(100vw - 20%);
+    max-width: calc(100vw - 10%);
     margin-inline: auto;
   }
 }
@@ -3173,7 +3173,7 @@ td {
 }
 .profile__user > form {
   display: flex;
-  width: calc(100vw - 20%);
+  width: calc(100vw - 10%);
   align-items: center;
   justify-content: center;
 }
@@ -3684,7 +3684,7 @@ button.splide__arrow--prev {
 
 @media (max-width: 1172px) {
   .modifyprofile {
-    width: calc(100vw - 20%);
+    width: calc(100vw - 10%);
   }
 }
 
@@ -3698,7 +3698,7 @@ button.splide__arrow--prev {
   }
 
   .profile__description {
-    width: calc(100vw - 20%);
+    width: calc(100vw - 10%);
     padding-top: 25px;
   }
   .list__button {
