@@ -20,7 +20,7 @@ const ar = {
     destroy: "حذف",
     mustSelectARow: "يجب تحديد صف",
     filters: "بحث متقدم",
-
+    Archives: "أرشيف",
     recherche: "بحث",
   },
 
@@ -588,7 +588,8 @@ const ar = {
     signin: "تسجيل الدخول",
     signup: "انشئ حساب",
     signout: "خروج",
-    alreadyHaveAnAccount: "هل لديك حساب؟ انشئ حساب",
+    alreadyHaveAnAccount: "هل لديك حساب؟",
+    already: "مسجل سابقا؟",
     social: {
       errors: {
         "auth-invalid-provider": "هذا البريد الإلكتروني مسجل بالفعل لمزود آخر.",
@@ -714,6 +715,9 @@ const ar = {
       oldPassword: "كلمة المرور القديمة",
       newPassword: "كلمة السر الجديدة",
       newPasswordConfirmation: "تأكيد كلمة السر الجديدة",
+      pays: "دولة",
+      region: "منطقة",
+      occupation: "إشغال",
     },
     enumerators: {
       pays: {

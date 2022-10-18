@@ -58,7 +58,7 @@ function SigninPage() {
         <div className='app__login'>
           <div className='login__header'>
             <div className='communiquer__bar'></div>
-            <h2>Se&nbsp;Connecter</h2>
+            <h2>{i18n("auth.signin")}</h2>
             <div className='communiquer__bar'></div>
           </div>
           <FormProvider {...form}>
@@ -74,9 +74,8 @@ function SigninPage() {
                     onChange={handleChange}
                     externalErrorMessage={externalErrorMessage}
                   />
-
                   <InputFormItem
-                    label='Password'
+                    label={i18n("user.fields.password")}
                     name='password'
                     placeholder={i18n("user.fields.password")}
                     autoComplete='password'
@@ -93,10 +92,9 @@ function SigninPage() {
                     <ButtonIcon loading={loading} />
                     {i18n("auth.signin")}
                   </button>
-
                   <div className='form__link'>
                     <div className='link__account'>
-                      {i18n("auth.HaveAnAccount")}
+                      {i18n("auth.alreadyHaveAnAccount")}
                     </div>
                     <div className='__create'>
                       <Link to='/auth/signup' className='link__create'>

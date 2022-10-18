@@ -108,7 +108,7 @@ function SignupPage() {
           <div className='Login__container' style={{ paddingTop: 0 }}>
             <div className='login__header'>
               <div className='communiquer__bar'></div>
-              <h2>Inscription</h2>
+              <h2>{i18n("auth.signup")}</h2>
               <div className='communiquer__bar'></div>
             </div>
             <FormProvider {...form}>
@@ -131,21 +131,21 @@ function SignupPage() {
                   </div>
                   <InputFormItem
                     name='email'
-                    label='Email'
+                    label={i18n("user.fields.email")}
                     placeholder='email'
                     autoComplete='email'
                     externalErrorMessage={externalErrorMessage}
                   />
                   <InputFormItem
                     name='password'
-                    label='Password'
+                    label={i18n("user.fields.password")}
                     placeholder='password'
                     autoComplete='email'
                     type='password'
                   />
                   <InputFormItem
                     name='newPasswordConfirmation'
-                    label='Confirm password'
+                    label={i18n("user.fields.newPasswordConfirmation")}
                     placeholder='password'
                     autoComplete='email'
                     type='password'
@@ -192,7 +192,7 @@ function SignupPage() {
                     <div className='link__account'>{i18n("auth.already")}</div>
                     <div className='__create'>
                       <Link to='/auth/signin' className='link__create'>
-                        {i18n("auth.alreadyHaveAnAccount")}
+                        {i18n("auth.signin")}
                       </Link>
                     </div>
                   </div>
