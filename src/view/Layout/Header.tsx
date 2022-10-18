@@ -57,32 +57,31 @@ function Header(props) {
       <Link to='/publication/new'>
         <li>
           <img src={pen} alt='pen' />
-          {i18n("common.suggerer_des_donnees")}
+          {i18n("menu.suggerer_des_donnees")}
         </li>
       </Link>
       <Link to='/profile'>
         <li>
           <img src={profile} alt='profile' className='lazyload' />
-          {i18n("common.profile")}
+          {i18n("menu.profile")}
         </li>
       </Link>
       <Link to='/appui/new'>
         <li>
           <img src={question} alt='question' className='lazyload' />
-          {i18n("common.demander_d_appui")}
+          {i18n("menu.demander_d_appui")}
         </li>
       </Link>
       <Link to='/favoris'>
         <li>
           <img src={question} alt='question' className='lazyload' />
-          {i18n("common.favoris")}
+          {i18n("menu.favoris")}
         </li>
       </Link>
       <li onClick={doSignout}>
         <img src={logout} alt='logout' className='lazyload' />
-      
-        {i18n("common.deconnexion")}
 
+        {i18n("menu.deconnexion")}
       </li>
     </ul>
   );
@@ -94,7 +93,7 @@ function Header(props) {
             <img className='lazyload' src={logos} alt='' />
           </div>
           <div className='nav__search'>
-            <input type='text' placeholder='Recherche' />
+            <input type='text' placeholder={i18n("menu.recherche")} />
             <i className='fa-solid fa-magnifying-glass' />
           </div>
           <div className='nav__socialmedia'>
@@ -132,7 +131,7 @@ function Header(props) {
               <Link to='/auth/signin'>
                 <div className='button__connexion'>
                   <i className='fa-solid fa-user' />
-                  <p>Espace&nbsp;membres</p>
+                  <p>{i18n("menu.espace_membre")}</p>
                 </div>
               </Link>
             )}
@@ -152,7 +151,7 @@ function Header(props) {
                       columnGap: 10,
                     }}
                     className={selectClass(item)}>
-                    {i18n(`common.${item.label}`)}
+                    {i18n(`menu.${item.label}`)}
                     {item.icon && (
                       <i className={item.icon} style={{ color: "red" }} />
                     )}
@@ -166,7 +165,7 @@ function Header(props) {
                                 src={Etudes}
                                 alt='Etudes Icon'
                               />
-                              {item.label}
+                              {i18n(`menu.submenu.${item.label}`)}
                             </li>
                           </div>
                         ))}

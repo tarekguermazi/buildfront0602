@@ -151,6 +151,7 @@
   font-weight: bold;
   padding: 0 12.5px 9px 12.5px;
   max-width: max-content;
+  column-gap: 10px;
 }
 
 .button__profile {
@@ -260,7 +261,6 @@
 }
 
 .fa-user {
-  padding-right: 1.078125rem;
   color: var(--red);
   font-size: 20px;
 }

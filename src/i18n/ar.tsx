@@ -20,6 +20,18 @@ const ar = {
     destroy: "حذف",
     mustSelectARow: "يجب تحديد صف",
     filters: "بحث متقدم",
+
+    recherche: "بحث",
+  },
+
+  app: {
+    title: "المنتدى التونسي للحقوق الاقتصادية والاجتماعية",
+  },
+
+  api: {
+    menu: "API",
+  },
+  menu: {
     Menue: "القائمة",
     propos: "حول",
     Publications: "المنشورات",
@@ -34,14 +46,20 @@ const ar = {
     demander_d_appui: "طلب دعم",
     favoris: "المفضلة",
     deconnexion: "تسجيل خروج",
-  },
+    espace_membre: "مساحة  الأعضاء",
 
-  app: {
-    title: "المنتدى التونسي للحقوق الاقتصادية والاجتماعية",
-  },
-
-  api: {
-    menu: "API",
+    submenu: {
+      Communiqués: "إطلاق",
+      Articles: "العناصر",
+      Etudes: "دراسات",
+      Cahiers: "دفاتر الملاحظات",
+      Appels: "المكالمات",
+      Vidéos: "أشرطة فيديو",
+      Podcast: "تدوين صوتي",
+      Photos: "الصور",
+      Documentaires: "الافلام الوثائقية:",
+      Autres: "آحرون",
+    },
   },
 
   entities: {
