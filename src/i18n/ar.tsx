@@ -47,7 +47,11 @@ const ar = {
     favoris: "المفضلة",
     deconnexion: "تسجيل خروج",
     espace_membre: "مساحة  الأعضاء",
-
+    contenu: "محتويات",
+    demande_appui: "طلب الدعم",
+    contenu_recent: "محتوى حديث",
+    contenus: "محتويات",
+    suggerer_de_contenu: "اقترح المحتوى",
     submenu: {
       Communiqués: "إطلاق",
       Articles: "العناصر",
@@ -60,6 +64,10 @@ const ar = {
       Documentaires: "الافلام الوثائقية:",
       Autres: "آحرون",
     },
+  },
+  buttons: {
+    chercher: "يبحث عن",
+    filtrer: "تصفية",
   },
 
   entities: {
@@ -1215,7 +1223,12 @@ const ar = {
       importHashExistent: "تم بالفعل استيراد البيانات",
     },
   },
-
+  table: {
+    noData: "لايوجد بيانات",
+    loading: "جار التحميل...",
+    suivant: "التالي",
+    precedent: "السابق",
+  },
   autocomplete: {
     loading: "جار التحميل...",
   },

@@ -98,13 +98,11 @@ function DemandeAppuiForm(props) {
             name='email'
             label={i18n("user.fields.email")}
             autoComplete='email'
-            autoFocus
           />
           <InputFormItem
             name='phoneNumber'
             label={i18n("user.fields.phoneNumber")}
             autoComplete='phoneNumber'
-            autoFocus
           />
           <FilesFormItem
             name='supports'

@@ -2791,6 +2791,8 @@ const fr = {
   table: {
     noData: "Aucune donnée",
     loading: "Chargement...",
+    suivant: "Suivant",
+    precedent: "Precedent",
   },
   autocomplete: {
     loading: "Chargement...",

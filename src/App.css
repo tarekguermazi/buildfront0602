@@ -718,14 +718,14 @@
   font-size: 20px;
   line-height: 24px;
   font-style: normal;
-  column-gap: 15px;
+  column-gap: 28px;
 }
 .button__search {
   cursor: pointer;
   padding: 0.9375rem 1.9375rem;
   background-color: var(--red);
   margin-right: 22px;
-  margin-left: 9px;
+  margin-left: 22px;
   display: flex;
 }
 .search__advanced {

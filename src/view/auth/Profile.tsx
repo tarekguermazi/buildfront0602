@@ -9,6 +9,7 @@ import actionsAppui from "src/modules/demandeAppui/list/demandeAppuiListActions"
 import ProfileHeader from "./ProfileHeader";
 import Spinner from "../shared/Spinner";
 import PublicationList from "src/view/Publications/list/PublicationList";
+import { i18n } from "../../i18n";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -64,12 +65,12 @@ function Profile() {
               <li
                 className={activeTab === "tab1" ? "active__li__tabs" : ""}
                 onClick={handleTab1}>
-                Contenu
+                {i18n("menu.contenu")}
               </li>
               <li
                 className={activeTab === "tab2" ? "active__li__tabs" : ""}
                 onClick={handleTab2}>
-                Demande d’appui
+                {i18n("menu.demande_appui")}
               </li>
             </ul>
           </div>

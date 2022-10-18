@@ -32,21 +32,25 @@ function ListAppui(props) {
     <>
       <div className='list__button'>
         <div className='list__title'>
-          <h2>contenu récent </h2>
+          <h2>{i18n("menu.contenu_recent")}</h2>
         </div>
         <Link to='/appui/new'>
-          <div className='button__contenue'>Demande d’appui</div>
+          <div className='button__contenue'>{i18n("menu.demande_appui")}</div>
         </Link>
       </div>
       <div className='list__search'>
-        <div className='search__left'>{count} contenus </div>
+        <div className='search__left'>
+          {count} {i18n("menu.contenus")}
+        </div>
 
         <div className='search__right'>
           <div className='search__result'>
-            <i className='fas fa-search'></i>Chercher
+            <i className='fas fa-search'></i>
+            {i18n("buttons.chercher")}
           </div>
           <div className='filter'>
-            <i className='fas fa-sliders-h'></i>Filtrer
+            <i className='fas fa-sliders-h'></i>
+            {i18n("buttons.filtrer")}
           </div>
         </div>
       </div>

@@ -1293,7 +1293,12 @@ const en = {
       importHashExistent: "Data has already been imported",
     },
   },
-
+  table: {
+    noData: "Aucune donnée",
+    loading: "Chargement...",
+    suivant: "Next",
+    precedent: "previous",
+  },
   autocomplete: {
     loading: "Loading...",
   },
