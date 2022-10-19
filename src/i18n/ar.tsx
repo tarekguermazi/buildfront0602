@@ -65,7 +65,7 @@ const ar = {
       Autres: "آحرون",
     },
   },
-  
+
   buttons: {
     chercher: "يبحث عن",
     filtrer: "تصفية",
@@ -1224,7 +1224,7 @@ const ar = {
       importHashExistent: "تم بالفعل استيراد البيانات",
     },
   },
- 
+
   table: {
     noData: "لايوجد بيانات",
     loading: "جار التحميل...",

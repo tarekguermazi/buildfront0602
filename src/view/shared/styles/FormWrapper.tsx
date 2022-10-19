@@ -3,7 +3,6 @@ const FormWrapper = styled.div`
   .Login__container {
     padding-top: 44px;
     position: relative;
-    width: 501px;
   }
 
   button {
@@ -13,8 +12,13 @@ const FormWrapper = styled.div`
     cursor: pointer;
   }
   .container__form {
-    display: grid;
+    display: flex;
     row-gap: 25px;
+    justify-content: center;
+    align-items: flex-start;
+    width: calc(100vw - 10%);
+    max-width: 501px;
+    flex-direction: column;
   }
   input[type="text"],
   input[type="password"] {
@@ -55,6 +59,7 @@ const FormWrapper = styled.div`
   }
   .form-group {
     text-align: start;
+    width: 100% !important;
   }
   .form__button:hover {
     color: #fff;
@@ -88,6 +93,7 @@ const FormWrapper = styled.div`
   .Login__container {
     padding-top: 32px;
     position: relative;
+    width: 100% !important;
   }
   .form__link {
     display: flex;
@@ -217,6 +223,9 @@ const FormWrapper = styled.div`
 
   input[type="radio"]:checked {
     background-color: #93e026;
+  }
+  .form_textarea {
+    width: 100%;
   }
 `;
 export default FormWrapper;

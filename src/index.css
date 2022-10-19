@@ -54,6 +54,7 @@ h1 {
   font-weight: 400;
   font-size: 54px;
   line-height: 32px;
+  white-space: nowrap;
 }
 
 h2 {
@@ -63,12 +64,14 @@ h2 {
   color: var(--violet);
   text-transform: uppercase;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 h3 {
   font-size: 38px;
   line-height: 42px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 h4 {
@@ -78,6 +81,7 @@ h4 {
   color: var(--violet);
   text-transform: uppercase;
   font-family: "Bebas Neue Pro";
+  white-space: nowrap;
 }
 
 h5 {
@@ -87,11 +91,12 @@ h5 {
   font-size: 40px;
   line-height: 39px;
   font-family: "Bebas Neue Pro";
+  white-space: nowrap;
 }
 
 li {
   font-family: "Bebas Neue", cursive;
-
+  white-space: nowrap;
   color: var(--violet);
   list-style: none;
   font-size: 19px;
@@ -107,6 +112,7 @@ p {
 
 a {
   text-decoration: none;
+  white-space: nowrap;
 }
 
 input {

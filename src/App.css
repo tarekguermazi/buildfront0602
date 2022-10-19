@@ -684,6 +684,7 @@
 
 .login__header > h2 {
   margin: 0 13px;
+  white-space: nowrap;
 }
 
 .header__bar {
@@ -2826,6 +2827,7 @@ styling the newsLettre */
   line-height: 22px;
   display: flex;
   column-gap: 7px;
+  white-space: nowrap;
 }
 
 .description__number {
@@ -3172,10 +3174,11 @@ td {
   text-align: center;
 }
 .profile__user > form {
-  display: flex;
+  display: grid;
   width: calc(100vw - 10%);
-  align-items: center;
-  justify-content: center;
+
+  max-width: 501px;
+  place-items: center;
 }
 
 .fa-arrow-left {
@@ -3193,6 +3196,7 @@ td {
 
 .form-group {
   text-align: center;
+  width: 100% !important;
 }
 
 /* styling the upload file  */
@@ -3289,10 +3293,14 @@ span {
   color: var(--violet);
 }
 
-.mainContent .contentCategory,
 .contentTypes {
   /* CATEGORIES */
-  width: 501px;
+  width: 500px;
+}
+.form__importance,
+.form__group,
+.form-select {
+  width: 100%;
 }
 
 .mainContent .contentCategory span,

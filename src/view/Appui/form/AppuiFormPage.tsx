@@ -8,6 +8,7 @@ import selectors from "src/modules/demandeAppui/form/demandeAppuiFormSelectors";
 import { getHistory } from "src/modules/store";
 import { useRouteMatch } from "react-router-dom";
 import Spinner from "../../shared/Spinner";
+import { i18n } from "../../../i18n";
 function Appui(props) {
   const [dispatched, setDispatched] = useState(false);
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ function Appui(props) {
       </Link>
       <div className='contenu'>
         <div className='archieve__header'>
-          <h2>Demande&nbsp;d’Appui&nbsp;</h2>
+          <h2>{i18n("menu.demande_appui")}</h2>
           <div className='communiquer__bar'></div>
         </div>
         <div className='contenu__description'>

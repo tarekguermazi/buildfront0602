@@ -93,7 +93,7 @@ function Header(props) {
             <img className='lazyload' src={logos} alt='' />
           </div>
           <div className='nav__search'>
-            <input type='text' placeholder={i18n("menu.recherche")} />
+            <input type='text' placeholder={i18n("common.recherche")} />
             <i className='fa-solid fa-magnifying-glass' />
           </div>
           <div className='nav__socialmedia'>
