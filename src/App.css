@@ -684,6 +684,7 @@
 
 .login__header > h2 {
   margin: 0 13px;
+  white-space: nowrap;
 }
 
 .header__bar {
@@ -2826,6 +2827,7 @@ styling the newsLettre */
   line-height: 22px;
   display: flex;
   column-gap: 7px;
+  white-space: nowrap;
 }
 
 .description__number {
