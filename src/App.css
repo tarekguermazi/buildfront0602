@@ -674,7 +674,9 @@
   align-content: flex-end;
   justify-content: space-between;
 }
-
+.archieve__header > h2 {
+  white-space: nowrap;
+}
 .login__header {
   display: flex;
   align-items: baseline;

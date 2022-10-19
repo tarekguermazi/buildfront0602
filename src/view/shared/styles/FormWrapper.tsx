@@ -15,7 +15,7 @@ const FormWrapper = styled.div`
     display: flex;
     row-gap: 25px;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     width: calc(100vw - 10%);
     max-width: 501px;
     flex-direction: column;
@@ -83,7 +83,7 @@ const FormWrapper = styled.div`
   .oublier {
     cursor: pointer;
     position: absolute;
-    left: 0;
+    right: 0;
     font-family: "Proxima Nova";
     font-style: normal;
     font-weight: 400;

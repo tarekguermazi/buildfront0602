@@ -29,6 +29,7 @@ const en = {
     Tableau: "Dashboard",
     Médiathèque: "Media library",
     Contact: "Contact",
+    recherche: "Search",
   },
 
   app: {

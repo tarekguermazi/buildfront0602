@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AuthWrapper from "./styles/AuthWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 import SelectFormItem from "../shared/form/items/SelectFormItem";
 import userEnumerators from "../user/userEnumerators";
+
 const schema = yup.object().shape({
   firstName: yupFormSchemas.string(i18n("user.fields.firstName"), {
     max: 80,
@@ -101,6 +102,18 @@ function SignupPage() {
       )
     );
   };
+  const clearErrorMessage = () => {
+    dispatch(actions.doClearErrorMessage());
+  };
+  useEffect(() => {
+    clearErrorMessage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const handleChange = () => {
+    if (externalErrorMessage) {
+      clearErrorMessage();
+    }
+  };
   return (
     <div className='app__signup'>
       <AuthWrapper>
@@ -134,6 +147,7 @@ function SignupPage() {
                     label={i18n("user.fields.email")}
                     placeholder='email'
                     autoComplete='email'
+                    onChange={handleChange}
                     externalErrorMessage={externalErrorMessage}
                   />
                   <InputFormItem

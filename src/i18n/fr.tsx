@@ -50,6 +50,7 @@ const fr = {
     Tableau: "Tableau de bord",
     Médiathèque: "Médiathèque",
     Contact: "Contact",
+    recherche: "Chercher",
   },
   app: {
     title: "Al-Forum",

@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 export const SpinnerWrapper = styled.div`
+  margin: 0 12px;
   .lds-ring {
     display: inline-block;
     position: relative;
     width: 15px;
     height: 15px;
-    margin-right: 10px;
   }
   .lds-ring div {
     box-sizing: border-box;
@@ -15,10 +15,10 @@ export const SpinnerWrapper = styled.div`
     position: absolute;
     width: 20px;
     height: 20px;
-    border: 2px solid #000;
+    border: 2px solid #fff;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #000 transparent transparent transparent;
+    border-color: var(--violet) transparent transparent transparent;
   }
   .lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
@@ -37,7 +37,6 @@ export const SpinnerWrapper = styled.div`
       transform: rotate(360deg);
     }
   }
-  // 134.545
 `;
 
 function Spinner(props) {
