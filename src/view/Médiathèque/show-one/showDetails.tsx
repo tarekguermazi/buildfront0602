@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-
 // SERVICES
 import MediathequeService from "src/modules/mediatheque/MediathequeService";
 import TenantService from "src/modules/Tenant/TenantService";
-
 // COMPONENTS
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import BreadCrumbs from "src/view/shared/BreadCrumbs";
-
 import Header from "./Header";
 import Main from "./Main";
 import FooterSection from "./Footer";
-
 import RelatedContent from "./RelatedContent";
-import Footer from "src/view/Layout/Footer";
 
 export default function ShowPublication() {
   // GET entity id
@@ -52,26 +47,13 @@ export default function ShowPublication() {
     fetchTypeEntitYDetails(entityID);
   }, []);
 
-  const getDate = (d) => {
-    return d?.split("T")[0];
-  };
-  const getTime = (d) => {
-    return d?.split("T")[1];
-  };
-
   return (
     <section>
       <section className='wideContent'>
         <BreadCrumbs view='Médiathéque' />
         <MainLayout>
           <section className='rightSection'>
-            <Header
-              entity={entity}
-              getDate={getDate}
-              getTime={getTime}
-              user={user}
-              userIsLoading={userIsLoading}
-            />
+            <Header entity={entity} user={user} userIsLoading={userIsLoading} />
             {entityIsLoading ? (
               <Skeleton height={500} />
             ) : (
@@ -82,8 +64,6 @@ export default function ShowPublication() {
         </MainLayout>
         <RelatedContent type={entity["type"]} />
       </section>
-      <Footer />
-      <Footer />
     </section>
   );
 }
@@ -97,15 +77,15 @@ const MainLayout = styled.section`
   justify-content: space-between;
   margin: 1rem auto;
 
-  .rightSection {
-    width: 100%;
-    margin-right: 2.5rem;
+    .rightSection{
+        width: 100%;
+        /* margin-right: 2.5rem; */
 
-    .socials {
-      width: fit-content;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+        .socials{
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
       button {
         background-color: transparent;
@@ -115,25 +95,7 @@ const MainLayout = styled.section`
       }
     }
 
-    .data {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 1rem 0;
-
-      font-family: "Proxima Nova";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 25px;
-      color: var(--gray2);
-
-      .dateAndOwner {
-        span {
-          display: block;
-        }
-      }
+    @media (max-width: 767px){
+        width: 100%; 
     }
-  }
 `;

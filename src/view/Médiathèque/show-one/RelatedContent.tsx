@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import MediathequeService from 'src/modules/mediatheque/MediathequeService';
-import moment from 'moment';
 import { Link } from 'react-router-dom';
+// SERVICES
+import MediathequeService from 'src/modules/mediatheque/MediathequeService';
 // COMPONENTSS
 import SectionHeader from '../shared/SectionHeader';
 
@@ -25,15 +25,6 @@ export default function RelatedContent({ type }) {
             });
     }
     useEffect(() => { fetchRelatedContent(type) }, [type]);
-
-    // HELPER FUNCTION
-    const getDate = d => {
-        return (d?.split('T')[0]);
-    }
-    const pipeDate = date => {
-        let d = date.split('T')[0];
-        return moment(d).format('LL');
-    }
 
 
     return (
@@ -64,7 +55,7 @@ export default function RelatedContent({ type }) {
                                         <div className="cardContent">
                                             <div className="cardHeader">
                                                 <span className="categoryBadge">{entity['type']}</span>
-                                                <span>{pipeDate(entity['createdAt'])}</span>
+                                                <span>{MediathequeService.pipeDate(entity['createdAt'])}</span>
                                             </div>
                                             <Link to={'/Mediatheque/entity/' + entity['_id']} className="title">
                                                 <span>{entity['titleFR']}</span>
@@ -91,6 +82,12 @@ const RelatedCOntentLayout = styled.section`
         display: grid;
         grid-gap: 1rem;
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    }
+
+
+    @media (max-width: 767px){
+        width: 100%;
+        padding: 0 .5rem;
     }
 `;
 

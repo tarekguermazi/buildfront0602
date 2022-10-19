@@ -178,4 +178,21 @@ const MainContentLayout = styled.section`
     .mainContentLeftSection{
         width: 100%;
     }
+
+    @media (max-width: 767px){
+        display: block;
+        width: 100%;
+        padding: 0 .5rem;
+
+        .mainContentRightSection{
+            width: 100% !important;
+            padding: 0;
+            margin: 0;
+        }
+        .mainContentLeftSection{
+            width: 100%;
+            display: grid;
+            grid-gap: 1rem;
+        }
+    }
 `;
