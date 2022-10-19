@@ -106,6 +106,7 @@ const AuthWrapper = styled.div`
   .Login__container {
     padding-top: 44px;
     position: relative;
+    
   }
   .form__link {
     display: flex;

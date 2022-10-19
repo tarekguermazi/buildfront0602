@@ -3172,10 +3172,11 @@ td {
   text-align: center;
 }
 .profile__user > form {
-  display: flex;
+  display: grid;
   width: calc(100vw - 10%);
-  align-items: center;
-  justify-content: center;
+
+  max-width: 501px;
+  place-items: center;
 }
 
 .fa-arrow-left {
@@ -3193,6 +3194,7 @@ td {
 
 .form-group {
   text-align: center;
+  width: 100% !important;
 }
 
 /* styling the upload file  */
@@ -3289,10 +3291,14 @@ span {
   color: var(--violet);
 }
 
-.mainContent .contentCategory,
 .contentTypes {
   /* CATEGORIES */
-  width: 501px;
+  width: 500px;
+}
+.form__importance,
+.form__group,
+.form-select {
+  width: 100%;
 }
 
 .mainContent .contentCategory span,
