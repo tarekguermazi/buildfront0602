@@ -157,8 +157,8 @@ function Header(props) {
                     )}
                     {item.class && (
                       <ul className='links__sub'>
-                        {item.subMenue?.map((item) => (
-                          <div>
+                        {item.subMenue?.map((item, index) => (
+                          <div key={index}>
                             <li>
                               <img
                                 className='lazyload'

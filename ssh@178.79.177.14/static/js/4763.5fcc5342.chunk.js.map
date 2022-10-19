@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/4763.5fcc5342.chunk.js","mappings":"kJAMA,UAJA,WACE,OAAO,kCACR,C","sources":["view/Propos_nous/Propos.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Propos() {\n  return <h1>Propos</h1>;\n}\n\nexport default Propos;\n"],"names":[],"sourceRoot":""}

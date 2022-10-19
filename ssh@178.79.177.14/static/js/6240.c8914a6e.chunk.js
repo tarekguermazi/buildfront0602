@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkapp_frontend=self.webpackChunkapp_frontend||[]).push([[6240],{46240:function(e,r,n){n.r(r);n(72791);var s=n(91523),u=n(80184);r.default=function(){return(0,u.jsxs)("div",{children:[(0,u.jsx)("h2",{children:" 500 D\xe9sol\xe9, le serveur signale une erreur "}),(0,u.jsx)("div",{children:(0,u.jsx)(s.rU,{to:"/",children:(0,u.jsx)("h3",{children:" Retour "})})})]})}}}]);
+//# sourceMappingURL=6240.c8914a6e.chunk.js.map

@@ -1915,6 +1915,44 @@ Styling the archeive verison Mobile  */
   }
 }
 
+/* styling the page evenement */
+
+.page__evenement {
+  display: flex;
+  flex-direction: column;
+}
+.evenment__header {
+  max-width: 1170px;
+  margin: auto;
+}
+.evenment__venir {
+  background-color: var(--background);
+  padding: 47px 0 23px;
+  margin: 70px 0;
+}
+.venir,
+.passe {
+  max-width: 1170px;
+  margin: auto;
+}
+.venir__content {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 42px;
+  padding: 42px 0 32px;
+}
+.venir__content > div {
+  width: 370px;
+  height: 404px;
+  background-color: var(--gray3);
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+.evenment__passe {
+  margin-bottom: 52px;
+}
+
 /* Styling the .gallery */
 
 .app__galery {

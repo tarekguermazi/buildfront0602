@@ -9,7 +9,6 @@ import MainSplide from "./MainSplide";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-
 export default function HeroSection() {
   // STATES
   const [posts, setPosts] = useState([]);
