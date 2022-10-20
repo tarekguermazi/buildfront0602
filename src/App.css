@@ -2000,7 +2000,7 @@ Styling the archeive verison Mobile  */
 .evenment__venir {
   background-color: var(--background);
   padding: 47px 0 23px;
-  margin: 70px 0;
+  margin: 70px 0 0;
 }
 .venir,
 .passe {
@@ -2031,6 +2031,7 @@ Styling the archeive verison Mobile  */
 }
 .evenment__passe {
   margin-bottom: 52px;
+  margin-top: 70px;
 }
 .contentVenir__top {
   position: relative;
