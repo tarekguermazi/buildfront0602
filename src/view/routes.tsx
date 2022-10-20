@@ -19,6 +19,10 @@ const navigateRoutes = [
     loader: () => import("src/view/Evenements/Evenements"),
   },
   {
+    path: "/Evenements/:id",
+    loader: () => import("src/view/Evenements/EvenementDetaill"),
+  },
+  {
     path: "/Mediatheque",
     loader: () => import("src/view/Médiathèque/Mediatheque"),
   },

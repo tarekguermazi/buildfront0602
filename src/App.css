@@ -1970,6 +1970,7 @@ Styling the archeive verison Mobile  */
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
+  row-gap: 21px;
 }
 .messageEvenement__title {
   font-family: "Bebas Neue";
@@ -2086,6 +2087,38 @@ Styling the archeive verison Mobile  */
   color: var(--violet);
 }
 
+/* stlying the detaill Evenement */
+
+.detaill__evenement {
+  display: grid;
+  grid-template-columns: 717px 398px;
+  column-gap: 53px;
+  max-width: 1170px;
+  margin: auto;
+  padding: 56px 0 49px;
+}
+
+.detaillEvenement__left {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+.title__detaillEvenemet {
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 43px;
+}
+.description__detaillEvenement {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--gray2);
+  text-align: justify;
+}
 /* Styling the .gallery */
 
 .app__galery {
