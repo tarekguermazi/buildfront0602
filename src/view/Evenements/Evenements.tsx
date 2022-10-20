@@ -3,6 +3,8 @@ import Breadcrumb from "../shared/Breadcrumb";
 import { i18n } from "../../i18n";
 import Skeletons from "../shared/Skeletons";
 import Image from "../shared/Image";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { MdLocationOn } from "react-icons/md";
 
 function Evenements() {
   return (
@@ -17,8 +19,30 @@ function Evenements() {
             width={1170}
             height={404}
             src='https://placehold.jp/1170x404.png'
-            alt=''
+            alt='Placeholder'
           />
+
+          <div className='evenement__message'>
+            <div className='messageEvenement__left'>
+              <div className='left__number'>15</div>
+              <div className='left__months'>Avril</div>
+            </div>
+            <div className='messageEvenement__right'>
+              <div className='messageEvenement__title'>
+                Atelier de restitution de l’événement Echange des Jeunes du
+                projet Justice Environnementale
+              </div>
+              <div className='messageEvenement__description'>
+                <div>par FTDES</div>
+                <div>
+                  <AiOutlineCalendar /> 14 octobre 2022
+                </div>
+                <div>
+                  <MdLocationOn /> Tunis
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className='evenment__venir'>
           <div className='venir'>
@@ -41,7 +65,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
@@ -62,7 +88,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
@@ -83,7 +111,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
@@ -104,7 +134,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
@@ -125,7 +157,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
@@ -146,7 +180,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
@@ -178,7 +214,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
@@ -199,7 +237,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
@@ -220,7 +260,9 @@ function Evenements() {
                   </div>
                 </div>
                 <div className='contentVenir__bottom'>
-                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__localistaion'>
+                    <MdLocationOn /> Tunis
+                  </div>
                   <div className='venir__description'>
                     Atelier de restitution de l’événement Echange des Jeunes du
                     projet Justice Environnementale
