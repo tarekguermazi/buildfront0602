@@ -35,14 +35,124 @@ function Evenements() {
                     src='https://placehold.jp/370x220.png'
                     alt=''
                   />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
                 </div>
-                <div></div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
               </div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+              <div>
+                <div className='contentVenir__top'>
+                  <Image
+                    width={370}
+                    height={220}
+                    src='https://placehold.jp/370x220.png'
+                    alt=''
+                  />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
+                </div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className='contentVenir__top'>
+                  <Image
+                    width={370}
+                    height={220}
+                    src='https://placehold.jp/370x220.png'
+                    alt=''
+                  />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
+                </div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className='contentVenir__top'>
+                  <Image
+                    width={370}
+                    height={220}
+                    src='https://placehold.jp/370x220.png'
+                    alt=''
+                  />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
+                </div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className='contentVenir__top'>
+                  <Image
+                    width={370}
+                    height={220}
+                    src='https://placehold.jp/370x220.png'
+                    alt=''
+                  />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
+                </div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className='contentVenir__top'>
+                  <Image
+                    width={370}
+                    height={220}
+                    src='https://placehold.jp/370x220.png'
+                    alt=''
+                  />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
+                </div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
+              </div>
             </div>
             <div className='plus__button'>Voir plus</div>
           </div>
@@ -53,10 +163,70 @@ function Evenements() {
               <h2>événements passé</h2>
               <div className='satestique__bar'></div>
             </div>
-            <div className='venir__content'>
-              <div></div>
-              <div></div>
-              <div></div>
+            <div className='passe__content'>
+              <div>
+                <div className='contentVenir__top'>
+                  <Image
+                    width={370}
+                    height={220}
+                    src='https://placehold.jp/370x220.png'
+                    alt=''
+                  />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
+                </div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className='contentVenir__top'>
+                  <Image
+                    width={370}
+                    height={220}
+                    src='https://placehold.jp/370x220.png'
+                    alt=''
+                  />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
+                </div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className='contentVenir__top'>
+                  <Image
+                    width={370}
+                    height={220}
+                    src='https://placehold.jp/370x220.png'
+                    alt=''
+                  />
+                  <div className='venir__clendar'>
+                    <div className='calendar__number'>15</div>
+                    <div className='calendar__months'>Avril</div>
+                  </div>
+                </div>
+                <div className='contentVenir__bottom'>
+                  <div className='venir__localistaion'>Tunis</div>
+                  <div className='venir__description'>
+                    Atelier de restitution de l’événement Echange des Jeunes du
+                    projet Justice Environnementale
+                  </div>
+                </div>
+              </div>
             </div>
             <div className='plus__button'>Voir plus</div>
           </div>

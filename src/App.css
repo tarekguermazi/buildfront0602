@@ -1935,7 +1935,8 @@ Styling the archeive verison Mobile  */
   max-width: 1170px;
   margin: auto;
 }
-.venir__content {
+.venir__content,
+.passe__content {
   display: flex;
   flex-wrap: wrap;
   column-gap: 30px;
@@ -1945,12 +1946,73 @@ Styling the archeive verison Mobile  */
 .venir__content > div {
   width: 370px;
   height: 404px;
-  background-color: var(--gray3);
+  background-color: var(--white);
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+.passe__content > div {
+  width: 370px;
+  height: 404px;
+  background-color: var(--gray4);
   display: grid;
   grid-template-rows: repeat(2, 1fr);
 }
 .evenment__passe {
   margin-bottom: 52px;
+}
+.contentVenir__top {
+  position: relative;
+}
+.venir__clendar {
+  background-color: var(--white);
+  max-width: 73px;
+  max-height: 91px;
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  padding: 11px 20px;
+}
+.calendar__number,
+.calendar__months {
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  line-height: 39px;
+}
+.calendar__number {
+  font-size: 45px;
+  color: var(--violet);
+  font-weight: 700;
+}
+.calendar__months {
+  font-size: 25px;
+  color: var(--red);
+  font-weight: 400;
+}
+.contentVenir__bottom {
+  display: grid;
+  place-content: center;
+  padding: 17px 20px;
+  row-gap: 7px;
+}
+.venir__localistaion {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--gray5);
+}
+
+.venir__description {
+  font-family: "Bebas Neue Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 29px;
+  color: var(--violet);
 }
 
 /* Styling the .gallery */
