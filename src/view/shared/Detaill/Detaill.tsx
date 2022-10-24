@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { calendar__bttom } from "../../../assets/images";
 import { i18n } from "../../../i18n";
 import Breadcrumb from "../Breadcrumb";
 import Image from "../Image";
 import "./DetaillWrapper.css";
 function Detaill() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className='app__detaill'>
       <Breadcrumb

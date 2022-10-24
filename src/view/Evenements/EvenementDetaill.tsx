@@ -4,6 +4,7 @@ import { i18n } from "../../i18n";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import Image from "../shared/Image";
+import { BsPlayFill } from "react-icons/bs";
 
 function EvenementDetaill() {
   return (
@@ -71,6 +72,42 @@ function EvenementDetaill() {
                 <b> 08:00 - 18:00</b>
               </div>
             </div>
+
+            <div className='left__photos'>
+              <div className='title__detaillEvenemet'>Photos</div>
+              <div className='photos__gallery'>
+                {Array.from({ length: 8 }).map((item) => (
+                  <Image
+                    width={165}
+                    height={159}
+                    src='https://placehold.jp/165x159.png'
+                    alt='Placeholder'
+                  />
+                ))}
+              </div>
+              <div className='plus__button'>Voir toutes les photos</div>
+            </div>
+
+            <div className='left__videos'>
+              <div className='title__detaillEvenemet'>Videos</div>
+              <div className='photos__gallery'>
+                {Array.from({ length: 2 }).map((item) => (
+                  <div className='videos__list'>
+                    <Image
+                      width={349}
+                      height={240}
+                      src='https://placehold.jp/349x240.png'
+                      alt='Placeholder'
+                    />
+                    <div className='videos__button'>
+                      <BsPlayFill color='red' fontSize={40} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className='plus__button'>Voir toutes les photos</div>
+            </div>
+
             <div className='left__contact'>
               <div className='title__detaillEvenemet'>Contact</div>
               <div className='description__detaillEvenement'>

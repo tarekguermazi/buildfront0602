@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/5737.06329b04.chunk.js","mappings":"kJAMA,UAJA,WACE,OAAO,sCACR,C","sources":["view/Evenements/Evenements.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Evenements() {\n  return <h1>Evenements</h1>;\n}\n\nexport default Evenements;\n"],"names":[],"sourceRoot":""}
