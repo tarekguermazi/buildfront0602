@@ -2145,6 +2145,7 @@ Styling the archeive verison Mobile  */
 .detaillEvenement__socialMedia {
   display: flex;
   padding-top: 52px;
+  padding-bottom: 30px;
   align-items: center;
   column-gap: 24px;
 }
