@@ -6,6 +6,7 @@ import Image from "../shared/Image";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Slider from "../shared/Slider/Slider";
 function Evenements() {
   return (
     <>
@@ -15,13 +16,7 @@ function Evenements() {
       />
       <div className='page__evenement'>
         <div className='evenment__header'>
-          <Image
-            width={1170}
-            height={404}
-            src='https://placehold.jp/1170x404.png'
-            alt='Placeholder'
-          />
-
+          <Slider height={404} width={1170} label='slider' />
           <div className='evenement__message'>
             <div className='messageEvenement__left'>
               <div className='left__number'>15</div>
