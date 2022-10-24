@@ -46,7 +46,7 @@ function Evenements() {
               <div className='satestique__bar'></div>
             </div>
             <div className='venir__content'>
-              {Array.from({ length: 6 }).map((item, index) => (
+              {Array.from({ length: 3 }).map((item, index) => (
                 <div>
                   <Link to='/Evenements/12'>
                     <div className='contentVenir__top'>
