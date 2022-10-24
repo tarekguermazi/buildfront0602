@@ -131,11 +131,19 @@ function EvenementDetaill() {
             </div>
             <div className='detaillEvenement__socialMedia'>
               <div className='socialMedia__title'>Partager :</div>
-
               <Image src={Facebook} />
               <Image src={Twitter} />
               <Image src={Instagramm} />
               <Image src={Linkedin} />
+            </div>
+            <div className='left__contact'>
+              <div className='title__detaillEvenemet'>Contact</div>
+              <div className='description__detaillEvenement'>
+                <b> John Doe </b> <br /> Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit: <br /> <b> 70 123 675 </b>
+                <br /> <b>55 236 456</b> <br />
+                consectetur adipiscing elit : www.ftdes.com/contact
+              </div>
             </div>
           </div>
         </div>
