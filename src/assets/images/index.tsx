@@ -81,7 +81,10 @@ import profile from "./profile.svg";
 import question from "./question.svg";
 import emptyImage from "./emptyImage.png";
 import logos from "./logos.png";
-
+import Linkedin from "./linkedin.svg";
+import Facebook from "./facebook.svg";
+import Instagramm from "./instagram.svg";
+import Twitter from "./twitter.svg";
 export {
   emptyImage,
   logos,
@@ -164,4 +167,8 @@ export {
   users,
   youtube,
   profileAvatar,
+  Linkedin,
+  Facebook,
+  Instagramm,
+  Twitter,
 };
