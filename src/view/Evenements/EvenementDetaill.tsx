@@ -5,6 +5,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import Image from "../shared/Image";
 import { BsPlayFill } from "react-icons/bs";
+import { Facebook, Instagramm, Linkedin, Twitter } from "../../assets/images";
 
 function EvenementDetaill() {
   return (
@@ -127,6 +128,14 @@ function EvenementDetaill() {
                 src='https://placehold.jp/398x386.png'
                 alt='Placeholder'
               />
+            </div>
+            <div className='detaillEvenement__socialMedia'>
+              <div className='socialMedia__title'>Partager :</div>
+
+              <Image src={Facebook} />
+              <Image src={Twitter} />
+              <Image src={Instagramm} />
+              <Image src={Linkedin} />
             </div>
           </div>
         </div>

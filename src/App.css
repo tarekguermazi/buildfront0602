@@ -2141,6 +2141,21 @@ Styling the archeive verison Mobile  */
   bottom: 27px;
   cursor: pointer;
 }
+
+.detaillEvenement__socialMedia {
+  display: flex;
+  padding-top: 52px;
+  align-items: center;
+  column-gap: 24px;
+}
+.socialMedia__title {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--gray2);
+}
 /* Styling the .gallery */
 
 .app__galery {
