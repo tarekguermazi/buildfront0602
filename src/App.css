@@ -2120,6 +2120,27 @@ Styling the archeive verison Mobile  */
   color: var(--gray2);
   text-align: justify;
 }
+
+.photos__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 19px;
+}
+.videos__list {
+  position: relative;
+}
+.videos__button {
+  width: 53px;
+  height: 53px;
+  background-color: var(--white);
+  display: grid;
+  place-items: center;
+  position: absolute;
+  border-radius: 50%;
+  left: 20px;
+  bottom: 27px;
+  cursor: pointer;
+}
 /* Styling the .gallery */
 
 .app__galery {

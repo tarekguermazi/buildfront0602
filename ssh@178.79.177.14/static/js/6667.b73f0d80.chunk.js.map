@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/6667.b73f0d80.chunk.js","mappings":"kJAMA,UAJA,WACE,OAAO,mCACR,C","sources":["view/Contact/Contact.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Contact() {\n  return <h1>Contact</h1>;\n}\n\nexport default Contact;\n"],"names":[],"sourceRoot":""}

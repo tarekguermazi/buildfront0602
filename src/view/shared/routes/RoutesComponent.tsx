@@ -9,6 +9,7 @@ import authSelectors from "src/modules/auth/authSelectors";
 import ProgressBar from "src/view/shared/ProgressBar";
 import NavigateRoute from "./NavigateRoute";
 import EmptyPermissionsRoute from "./EmptyPermissionsRoute";
+
 function RoutesComponent(props) {
   const isInitialMount = useRef(true);
   const currentUser = useSelector(authSelectors.selectCurrentUser);
@@ -19,6 +20,7 @@ function RoutesComponent(props) {
     if (isInitialMount.current) {
       isInitialMount.current = false;
       ProgressBar.start();
+
       return;
     }
     if (!loading) {
