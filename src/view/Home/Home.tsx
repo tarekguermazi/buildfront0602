@@ -49,7 +49,7 @@ import {
   clandestins,
   car,
 } from "src/assets/images";
-import Image from "src/view/shared/Image";
+
 import Gallery from "../shared/Gallery";
 import Slider from "../shared/Slider/Slider";
 import { bottomSLider } from "../shared/Slider/dataSlider";
