@@ -49,10 +49,32 @@ import {
   clandestins,
   car,
 } from "src/assets/images";
-import Image from "src/view/shared/Image";
-import Gallery from "../shared/Gallery";
 
+import Gallery from "../shared/Gallery";
+import Slider from "../shared/Slider/Slider";
+import { bottomSLider } from "../shared/Slider/dataSlider";
 function Home() {
+  const sliderTop = (obj) => {
+    return (
+      <div className='content__sliderTop'>
+        <h3>{obj?.title}</h3>
+      </div>
+    );
+  };
+
+  const sliderBottom = (obj, index, slideIndex) => {
+    return (
+      <div className={slideIndex === index + 1 ? "active__slideBottom" : ""}>
+        <img className='lazyload' src={slider1} alt=' Slider Icon' />
+        <p
+          className={
+            slideIndex === index + 1 ? "text__p text__gras" : "text__p"
+          }>
+          {obj?.title}
+        </p>
+      </div>
+    );
+  };
   return (
     <div className='app'>
       {/* Styling the Header */}
@@ -64,12 +86,14 @@ function Home() {
         <div className='header__content' style={{ height: 549 }}>
           <div className='content'>
             <div className='content__imagePrincipale'>
-              <Image
-                src={image__header}
-                alt='Header '
-                id='image__desktop'
-                width='1170'
-                height='549'
+              <Slider
+                rows={bottomSLider}
+                height={549}
+                width={1170}
+                label='slider'
+                render={sliderTop}
+                showDots={false}
+                bottomrender={sliderBottom}
               />
 
               <img
@@ -80,56 +104,8 @@ function Home() {
               />
             </div>
             {/* Slider Top */}
-            <div className='content__sliderTop'>
-              <div className='arrow__left'>
-                <img
-                  className='lazyload'
-                  src={arrow__right}
-                  alt='Arrow Right '
-                />
-              </div>
-              <h3>
-                En Tunisie, réfugié.e.s et demandeur.se.s d’asile abandonnés
-                dans une situation humanitaire critique
-              </h3>
-              <div className='arrow__right'>
-                <img
-                  className='lazyload'
-                  src={arrow__left}
-                  alt='Arrow Left Icon'
-                />
-              </div>
-            </div>
+
             {/* Slider Bottom  */}
-            <div className='content__sliderBottom'>
-              <div>
-                <img className='lazyload' src={slider1} alt=' Slider Icon' />
-                <p>
-                  Criminalization of refugees: the dark side of EU and UNHCR
-                  policies...
-                </p>
-              </div>
-              <div>
-                <img className='lazyload' src={slider2} alt='Slider 2 Icon' />
-                <p>
-                  En Tunisie, réfugié.e.s et demandeur.se.s d’asile abandonnés
-                  dans une situation humanitaire critique
-                </p>
-              </div>
-              <div>
-                <img className='lazyload' src={slider2} alt='' />
-                <p>
-                  Enjeux de gouvernance des forêts urbaines. Cas du parc urbain
-                  Farhat Hached à Radès
-                </p>
-              </div>
-              <div>
-                <img className='lazyload' src={slider4} alt='Slider 4 Icon' />
-                <p>
-                  Zones urbaines et forestières semi-urbaines. Quelle relation ?
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
