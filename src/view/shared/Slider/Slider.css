@@ -59,6 +59,14 @@
   transform: translateX(-50%);
   display: flex;
 }
+.bottom-dots {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  width: 100%;
+  z-index: 3;
+  bottom: 0;
+}
 .dot {
   width: 20px;
   height: 20px;

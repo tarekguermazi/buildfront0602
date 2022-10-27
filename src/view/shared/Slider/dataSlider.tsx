@@ -28,5 +28,22 @@ const dataSlider = [
     subTitle: "Lorem",
   },
 ];
+const bottomSLider = [
+  {
+    title:
+      "Criminalization of refugees: the dark side of EU and UNHCR policies...",
+  },
+  {
+    title:
+      "En Tunisie, réfugié.e.s et demandeur.se.s d’asile abandonnés dans une situation humanitaire critique",
+  },
+  {
+    title:
+      "Enjeux de gouvernance des forêts urbaines. Cas du parc urbain Farhat Hached à Radès",
+  },
+  {
+    title: "Zones urbaines et forestières semi-urbaines. Quelle relation ?",
+  },
+];
 
-export default dataSlider;
+export { dataSlider, bottomSLider };

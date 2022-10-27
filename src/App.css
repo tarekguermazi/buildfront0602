@@ -503,14 +503,17 @@
 
 .content__sliderTop {
   position: absolute;
-  display: flex;
-  width: 1170px;
-  justify-content: space-between;
+
+  display: grid;
+  place-items: center;
+  place-content: center;
   align-items: center;
-  padding: 0.625rem;
-  top: 297px;
+
+  top: 50%;
+  bottom: 50%;
+  left: 0;
+  right: 0;
   text-align: center;
-  z-index: 2;
 }
 
 .arrow__left,
@@ -551,12 +554,11 @@
 
 /* styling the sliderBottom */
 .content__sliderBottom {
+  display: grid;
   position: absolute;
-  display: flex;
-  justify-content: space-between;
-  top: 610px;
+  grid-template-columns: repeat(4, 1fr);
+  bottom: 33px;
   z-index: 3;
-  max-width: 1170px;
   column-gap: 30px;
   padding: 0 10px;
 }
@@ -566,23 +568,29 @@
   display: flex;
   column-gap: 11px;
   justify-content: center;
-  align-items: center;
-  opacity: 0.4;
+  align-items: flex-start;
+  opacity: 0.5;
+  padding-top: 23px;
 }
 
-.content__sliderBottom > div:nth-child(2) {
+.active__slideBottom {
   position: relative;
   top: -10px;
-  opacity: 100;
+  opacity: 1 !important;
+  transition: opacity ease-in-out 0.4s;
+}
+.text__gras {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 600;
+  color: var(--white) !important;
+  font-size: 17px;
+  line-height: 20px;
+  opacity: 1 !important;
+  transition: opacity ease-in-out 0.4s;
 }
 
-.content__sliderBottom > div:nth-child(2) > p {
-  color: var(--white);
-  font-weight: 800;
-  opacity: 100;
-}
-
-.content__sliderBottom > div > p {
+.text__p {
   color: var(--white);
   font-family: "Bebas Neue", cursive;
   font-style: normal;

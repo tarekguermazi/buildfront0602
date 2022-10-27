@@ -7,6 +7,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Slider from "../shared/Slider/Slider";
+import { dataSlider } from "../shared/Slider/dataSlider";
 function Evenements() {
   const RenderItem = (obj) => {
     return (
@@ -39,10 +40,12 @@ function Evenements() {
       <div className='page__evenement'>
         <div className='evenment__header'>
           <Slider
+            rows={dataSlider}
             height={404}
             width={1170}
             label='slider'
             render={RenderItem}
+            showDots={true}
           />
         </div>
         <div className='evenment__venir'>
