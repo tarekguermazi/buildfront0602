@@ -8,6 +8,28 @@ import { MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Slider from "../shared/Slider/Slider";
 function Evenements() {
+  const RenderItem = (obj) => {
+    return (
+      <div className='evenement__message'>
+        <div className='messageEvenement__left'>
+          <div className='left__number'>15</div>
+          <div className='left__months'>Avril</div>
+        </div>
+        <div className='messageEvenement__right'>
+          <div className='messageEvenement__title'>{obj?.title}</div>
+          <div className='messageEvenement__description'>
+            <div>par FTDES</div>
+            <div>
+              <AiOutlineCalendar /> 14 octobre 2022
+            </div>
+            <div>
+              <MdLocationOn /> Tunis
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
     <>
       <Breadcrumb
@@ -16,28 +38,12 @@ function Evenements() {
       />
       <div className='page__evenement'>
         <div className='evenment__header'>
-          <Slider height={404} width={1170} label='slider' />
-          <div className='evenement__message'>
-            <div className='messageEvenement__left'>
-              <div className='left__number'>15</div>
-              <div className='left__months'>Avril</div>
-            </div>
-            <div className='messageEvenement__right'>
-              <div className='messageEvenement__title'>
-                Atelier de restitution de l’événement Echange des Jeunes du
-                projet Justice Environnementale
-              </div>
-              <div className='messageEvenement__description'>
-                <div>par FTDES</div>
-                <div>
-                  <AiOutlineCalendar /> 14 octobre 2022
-                </div>
-                <div>
-                  <MdLocationOn /> Tunis
-                </div>
-              </div>
-            </div>
-          </div>
+          <Slider
+            height={404}
+            width={1170}
+            label='slider'
+            render={RenderItem}
+          />
         </div>
         <div className='evenment__venir'>
           <div className='venir'>

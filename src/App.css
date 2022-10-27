@@ -1929,13 +1929,12 @@ Styling the archeive verison Mobile  */
 
 .evenement__message {
   display: grid;
-  place-content: center;
+  place-content: baseline;
   place-items: center;
   position: absolute;
-  top: 50%;
-  bottom: 50%;
-  left: 0;
-  right: 0;
+  top: 119px;
+  left: 108px;
+  right: 108px;
   grid-template-columns: 101px auto;
   column-gap: 43px;
   max-height: 165px;

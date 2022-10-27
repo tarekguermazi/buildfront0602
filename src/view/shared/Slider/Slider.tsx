@@ -45,6 +45,7 @@ function Slider(props) {
               src='https://placehold.jp/1170x404.png'
               alt={alt}
             />
+            {props.render(obj)}
           </div>
         );
       })}
@@ -65,5 +66,6 @@ Slider.propTypes = {
   label: PropTypes.string,
   height: PropTypes.number,
   width: PropTypes.number,
+  render: PropTypes.func,
 };
 export default Slider;
