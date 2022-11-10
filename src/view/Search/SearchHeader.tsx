@@ -41,6 +41,7 @@ const SearchBox = styled.div`
     input{
         background-color: #F1F1F1;
         font-size: 1rem;
+        font-weight: bold;
         height: 50px;
         width: 100%;
         margin-right: .5rem;

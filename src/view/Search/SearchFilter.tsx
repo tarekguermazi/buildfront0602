@@ -42,9 +42,10 @@ const FilterLayout = styled.div`
     #filterCategories{
         width: 100%;
         height: 60px;
+        padding: 0 4rem;
         display: flex;
         align-items:center;
-        justify-content: center;
+        justify-content: space-around;
 
         input{
             display: none;
@@ -67,8 +68,10 @@ const FilterLayout = styled.div`
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                height: 40px;
-                padding: 0 .5rem;
+                justify-content: center;
+                min-width: 100px;
+                height: 48px;
+                padding: 0 1rem;
                 border: 2px solid #F1F1F1;
                 
                 &:hover{
