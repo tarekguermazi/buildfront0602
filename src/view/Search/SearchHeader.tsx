@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { IoSearchOutline } from 'react-icons/io5'
+import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5'
 
 export default function SearchHeader() {
     return (
@@ -8,7 +8,10 @@ export default function SearchHeader() {
             <form>
                 <SearchBox>
                     <input type="text" />
-                    <button type="submit">
+                    <button type='reset' id='resetButton'>
+                        <IoCloseOutline />
+                    </button>
+                    <button type="submit" id='searchButton'>
                         <IoSearchOutline />
                         <span>Chercher</span>
                     </button>
@@ -18,29 +21,34 @@ export default function SearchHeader() {
     )
 }
 
-const HeaderLayout = styled.div``;
+const HeaderLayout = styled.div`
+    margin-top: 1rem;
+`;
+
 const SearchBox = styled.div`
     width: 100%;
     height: 60px;
     padding: 0 .3rem;
-    background-color: yellow;
+    background-color: #F1F1F1;
     /* background-color: #F1F1F1; */
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
+    position: relative;
+    
     input{
-        background-color: green;
+        background-color: #F1F1F1;
         font-size: 1rem;
         height: 50px;
         width: 100%;
-        margin-right: 1rem;
+        margin-right: .5rem;
         color: #000;
+        padding-left: 1rem;
     }
 
-    button{
+    #searchButton{
         height: 50px;
         padding: 0 1rem;
         color: #fff;
@@ -56,5 +64,17 @@ const SearchBox = styled.div`
             color: #fff;
             margin-left: .5rem;
         }
+    }
+
+    #resetButton{
+        position: absolute;
+        right: 11rem;
+        font-size: 1.3rem;
+        background-color: #E0E0E0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
     }
 `;
