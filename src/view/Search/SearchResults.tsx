@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 // COMPONENTS
 import SRPCard from './SRPCard';
+// ICONS
+import { GrPrevious, GrNext } from 'react-icons/gr'
 
 export default function SearchResults() {
     return (
@@ -29,6 +31,22 @@ export default function SearchResults() {
                 <SRPCard />
                 <SRPCard />
             </SRPData>
+
+            <SRPFooter>
+                <button className='pageSkipper'>
+                    <GrPrevious className='icon prev' />
+                    Précédent
+                </button>
+                <div id="pagination">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                </div>
+                <button className='pageSkipper'>
+                    Suivant
+                    <GrNext className='icon next' />
+                </button>
+            </SRPFooter>
         </SRPLayout>
     )
 }
@@ -86,4 +104,59 @@ const SRPHeader = styled.div`
 const SRPData = styled.div`
     width: 100%;
     margin: 1rem 0;
+`;
+
+const SRPFooter = styled.div`
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button{
+        height: 35px;
+        width: 100px;
+        font-family: 'Proxima Nova';
+        font-size: 12px;
+        color: var(--violet);
+        border: 1px solid #A3A3A9;
+        background-color: transparent;
+
+        &:hover{
+            background-color: var(--violet);
+            border: 1px solid var(--violet);
+            color: #fff;
+        }
+        &:hover .icon{
+            background-color: transparent;
+        }
+    }
+
+    .pageSkipper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .prev{
+            margin-right: .5rem;
+        }
+        .next{
+            margin-left: .5rem;
+        }
+    }
+
+    #pagination{
+        margin: 0 .5rem;
+        width: 150px;
+        display: flex;
+        justify-content: space-evenly;
+
+        button{
+            display: inline-block;
+            height: 35px;
+            min-width: fit-content;
+            width: 40px;
+        }
+    }
 `;
