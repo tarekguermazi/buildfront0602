@@ -49,6 +49,12 @@ const FilterLayout = styled.div`
 
         input{
             display: none;
+            &:checked+span {
+                opacity: 1;
+                background-color: var(--violet);
+                color: #fff;
+                border-color: var(--violet);
+            }
         }
 
         label{

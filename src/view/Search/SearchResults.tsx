@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // COMPONENTS
 import SRPCard from './SRPCard';
 // ICONS
-import { GrPrevious, GrNext } from 'react-icons/gr'
+import { MdNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md'
 
 export default function SearchResults() {
     return (
@@ -33,8 +33,8 @@ export default function SearchResults() {
             </SRPData>
 
             <SRPFooter>
-                <button className='pageSkipper'>
-                    <GrPrevious className='icon prev' />
+                <button className='pageSkipper prevSkipper'>
+                    <MdNavigateBefore className='icon prev' />
                     Précédent
                 </button>
                 <div id="pagination">
@@ -42,9 +42,9 @@ export default function SearchResults() {
                     <button>2</button>
                     <button>3</button>
                 </div>
-                <button className='pageSkipper'>
+                <button className='pageSkipper nextSkipper'>
                     Suivant
-                    <GrNext className='icon next' />
+                    <MdOutlineNavigateNext className='icon next' />
                 </button>
             </SRPFooter>
         </SRPLayout>
@@ -136,13 +136,21 @@ const SRPFooter = styled.div`
     .pageSkipper{
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
+
+        .next{
+            /* margin-left: .2rem; */
+            font-size: 1.3rem;
+        }
+    }
+
+    .prevSkipper{
+        color: #A3A3A9;
 
         .prev{
-            margin-right: .5rem;
-        }
-        .next{
-            margin-left: .5rem;
+            /* margin-right: .2rem; */
+            font-size: 1.3rem;
+            color: #A3A3A9;
         }
     }
 

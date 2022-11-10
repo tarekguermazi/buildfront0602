@@ -37,6 +37,9 @@ const CardLayout = styled.div`
 
         strong{
             color: #2B2840;
+            font-family: 'Bebas Neue Pro';
+            font-style: normal;
+            font-size: 20px;
         }
 
         p{
