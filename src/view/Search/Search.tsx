@@ -3,6 +3,7 @@ import React from 'react'
 import SearchLayout from './styles/SearchLayout'
 // COMPONENTS
 import SearchHeader from './SearchHeader'
+import SearchFilter from './SearchFilter'
 // OTHER
 
 export default function Search() {
@@ -10,6 +11,7 @@ export default function Search() {
         <SearchLayout>
             <section className='wideContent'>
                 <SearchHeader />
+                <SearchFilter />
             </section>
         </SearchLayout>
     )
