@@ -2,14 +2,14 @@ import React from 'react'
 // STYLES
 import SearchLayout from './styles/SearchLayout'
 // COMPONENTS
-
+import SearchHeader from './SearchHeader'
 // OTHER
 
 export default function Search() {
     return (
         <SearchLayout>
             <section className='wideContent'>
-                <h1>SEARCH</h1>
+                <SearchHeader />
             </section>
         </SearchLayout>
     )
