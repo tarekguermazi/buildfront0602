@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+// COMPONENTS
+import SRPCard from './SRPCard';
 
 export default function SearchResults() {
     return (
@@ -18,6 +20,15 @@ export default function SearchResults() {
                     </select>
                 </div>
             </SRPHeader>
+
+            <SRPData>
+                <SRPCard />
+                <SRPCard />
+                <SRPCard />
+                <SRPCard />
+                <SRPCard />
+                <SRPCard />
+            </SRPData>
         </SRPLayout>
     )
 }
@@ -32,12 +43,12 @@ const SRPHeader = styled.div`
     padding: 1rem 0;
     font-size: 14px;
     border-bottom: 1px solid #E0E0E0;
-
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
+    
     div{
         strong{
             margin-right: .4rem;
@@ -70,4 +81,9 @@ const SRPHeader = styled.div`
             color: #2B2840;
         }
     }
+`;
+
+const SRPData = styled.div`
+    width: 100%;
+    margin: 1rem 0;
 `;
