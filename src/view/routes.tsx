@@ -35,6 +35,7 @@ const navigateRoutes = [
     loader: () => import("src/view/Médiathèque/show-one/showDetails"),
   },
   { path: "/contact", loader: () => import("src/view/Contact/Contact") },
+  { path: "/search", loader: () => import("src/view/Search/Search") },
 ];
 const privateRoutes = [
   {
