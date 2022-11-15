@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Breadcrumb from "src/view/shared/Breadcrumb";
-import { calendar__bttom, check, envelope, member } from "../../assets/images";
+import { calendar__bttom } from "../../assets/images";
 import { i18n } from "../../i18n";
 import Image from "src/view/shared/Image";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "src/modules/categoryPublication/list/categoryPublicationListActions";
+import selectors from "src/modules/categoryPublication/list/categoryPublicationListSelectors";
+import actionsPublication from "src/modules/publication/list/publicationListActions";
+import selectorsPublication from "src/modules/publication/list/publicationListSelectors";
+import PublicationCategory from "./list/PublicationCategory";
+import PublicationDetaill from "./list/PublicationDetaill";
 function Publications() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actions.doFetch());
+    dispatch(actionsPublication.doFetch());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const ObjectImage = [
+    { width: 570, height: 390 },
+    { width: 269, height: 390 },
+    { width: 272, height: 182 },
+    { width: 272, height: 182 },
+  ];
+
+  const rows = useSelector(selectors.selectRows);
+  const rowsPublication = useSelector(selectorsPublication.selectRows);
+  const contactObject = [{ ...rowsPublication, ObjectImage }];
+
   return (
     <>
       <div className='publication__page'>
@@ -18,104 +42,18 @@ function Publications() {
             [i18n("entities.publication.label")],
           ]}
         />
+
+        <PublicationCategory rows={rows} />
+
         <div className='app__pub'>
           <div className='publication__header'>
             <div className='image__pub'>
-              <div className='pub__relative'>
-                <Image
-                  src='https://placehold.jp/570x390.png'
-                  width='570'
-                  height='390'
-                  alt='Image'
-                />
-                <div className='__detaills'>
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='__left'>
-                        <p>Migration</p>
-                      </div>
-                      <div className='__right'>10h32</div>
-                    </div>
-                    <div className='__content'>
-                      Plus de 13500 migrants clandestins tunisiens sont arrivés
-                      en Italie
-                    </div>
-                    <div className='sub__content'>
-                      Cras eleifend mattis lectus, sit amet commodo justo
-                      sagittis id. Maecenas non fringilla ipsum. Nunc varius
-                      vitae sem nec finibus. Duis mattis nulla dui...
-                    </div>
-                  </div>
+              {rowsPublication.map((item, index) => (
+                <div className='pub__relative' key={index}>
+                  <img src={item.supports[0].downloadUrl} alt='header' />
+                  <PublicationDetaill data={item} />
                 </div>
-              </div>
-              <div className='pub__relative'>
-                <Image
-                  src='https://placehold.jp/269x390.png'
-                  width='269'
-                  height='390'
-                  alt='Image'
-                />
-                <div className='__detaills'>
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='__left'>
-                        <p>Migration</p>
-                      </div>
-                      <div className='__right'>10h32</div>
-                    </div>
-                    <div className='__content'>
-                      Plus de 13500 migrants clandestins tunisiens sont arrivés
-                      en Italie
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='last__pub'>
-                <div className='pub__relative'>
-                  <Image
-                    src='https://placehold.jp/570x390.png'
-                    width='272'
-                    height='182'
-                    alt='Image'
-                  />
-                  <div className='__detaills'>
-                    <div className='list__detaill'>
-                      <div className='detaill__header'>
-                        <div className='__left'>
-                          <p>Migration</p>
-                        </div>
-                        <div className='__right'>10h32</div>
-                      </div>
-                      <div className='__content'>
-                        Plus de 13500 migrants clandestins tunisiens sont
-                        arrivés en Italie
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className='pub__relative'>
-                  <Image
-                    src='https://placehold.jp/570x390.png'
-                    width='272'
-                    height='182'
-                    alt='Image'
-                  />
-                  <div className='__detaills'>
-                    <div className='list__detaill'>
-                      <div className='detaill__header'>
-                        <div className='__left'>
-                          <p>Migration</p>
-                        </div>
-                        <div className='__right'>10h32</div>
-                      </div>
-                      <div className='__content'>
-                        Plus de 13500 migrants clandestins tunisiens sont
-                        arrivés en Italie
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           {/* styling the migration section */}
@@ -125,33 +63,12 @@ function Publications() {
               <div className='satestique__bar'></div>
             </div>
             <div className='migration__images'>
-              <div>
-                <Image
-                  src='https://placehold.jp/570x390.png'
-                  width='570'
-                  height='300'
-                  alt='Image'
-                />
-
-                <div className='list__detaill'>
-                  <div className='detaill__header'>
-                    <div className='header__left'>
-                      <p>Migration </p>
-                    </div>
-                    <div className='header__right'>10h32</div>
-                  </div>{" "}
-                  <div className='detaill__content'>
-                    Naufrage d’une embarcation à Chebba : 6 autres cadavres
-                    repêchés
-                  </div>
-                </div>
-              </div>
-              <div>
+              {Array.from({ length: 3 }).map((item) => (
                 <div>
                   <Image
-                    src='https://placehold.jp/169x113.png'
-                    width='169'
-                    height='113'
+                    src='https://placehold.jp/570x390.png'
+                    width='370'
+                    height='300'
                     alt='Image'
                   />
                   <div className='list__detaill'>
@@ -160,54 +77,14 @@ function Publications() {
                         <p>Migration </p>
                       </div>
                       <div className='header__right'>10h32</div>
-                    </div>{" "}
+                    </div>
                     <div className='detaill__content'>
                       Immigration clandestine : Le FTDS critique l'approche de
                       l'Etat
                     </div>
                   </div>
                 </div>
-                <div>
-                  <Image
-                    src='https://placehold.jp/169x113.png'
-                    width='169'
-                    height='113'
-                    alt='Image'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>{" "}
-                    <div className='detaill__content'>
-                      3730 tunisiens arrivés illicitement en Italie en moins
-                      d'un mois
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <img
-                    src='https://placehold.jp/169x113.png'
-                    width={169}
-                    height={113}
-                    alt=''
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>{" "}
-                    <div className='detaill__content'>
-                      Karbaï: Les conditions de vie des migrants à Lampedusa ...
-                      inhumaines
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
             <Link to='/detaill'>
@@ -216,38 +93,18 @@ function Publications() {
           </div>
 
           {/* stlyling the pollution */}
-          <div className='pub__pollution'>
+          <div className='pub__migration'>
             <div className='archieve__header'>
-              <h2>Pollution</h2>
+              <h2>Migration</h2>
               <div className='satestique__bar'></div>
             </div>
             <div className='migration__images'>
-              <div>
-                <Image
-                  src='https://placehold.jp/570x300.png'
-                  width={570}
-                  height={300}
-                  alt='Image'
-                />
-                <div className='list__detaill'>
-                  <div className='detaill__header'>
-                    <div className='header__left'>
-                      <p>Migration </p>
-                    </div>
-                    <div className='header__right'>10h32</div>
-                  </div>{" "}
-                  <div className='detaill__content'>
-                    Naufrage d’une embarcation à Chebba : 6 autres cadavres
-                    repêchés
-                  </div>
-                </div>
-              </div>
-              <div>
+              {Array.from({ length: 3 }).map((item) => (
                 <div>
                   <Image
-                    src='https://placehold.jp/169x113.png'
-                    width={169}
-                    height={113}
+                    src='https://placehold.jp/570x390.png'
+                    width='370'
+                    height='300'
                     alt='Image'
                   />
                   <div className='list__detaill'>
@@ -256,58 +113,19 @@ function Publications() {
                         <p>Migration </p>
                       </div>
                       <div className='header__right'>10h32</div>
-                    </div>{" "}
+                    </div>
                     <div className='detaill__content'>
                       Immigration clandestine : Le FTDS critique l'approche de
                       l'Etat
                     </div>
                   </div>
                 </div>
-                <div>
-                  <Image
-                    src='https://placehold.jp/169x113.png'
-                    width={169}
-                    height={113}
-                    alt='Image'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>{" "}
-                    <div className='detaill__content'>
-                      3730 tunisiens arrivés illicitement en Italie en moins
-                      d'un mois
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <Image
-                    src='https://placehold.jp/169x113.png'
-                    width={169}
-                    height={113}
-                    alt='Image'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>{" "}
-                    <div className='detaill__content'>
-                      Karbaï: Les conditions de vie des migrants à Lampedusa ...
-                      inhumaines
-                    </div>
-                  </div>
-                </div>
-                <Link to='/detaill'>
-                  <div className='plus__button'>Voir plus</div>
-                </Link>
-              </div>
+              ))}
             </div>
+
+            <Link to='/detaill'>
+              <div className='plus__button'>Voir plus</div>
+            </Link>
           </div>
           {/* 
         styling the articles + manifestation + évènement +Rapports */}
@@ -521,33 +339,84 @@ function Publications() {
 
             <div>
               <div className='archieve__header'>
-                <h2>évènement</h2>
+                <h2>Articles</h2>
                 <div className='satestique__bar'></div>
               </div>
-              <div className='images__evenement'>
-                <Image
-                  src='https://placehold.jp/369x650.png'
-                  width={369}
-                  height={650}
-                  alt='Image'
-                />
+              <div className='manification__images'>
+                <div>
+                  <Image
+                    src='https://placehold.jp/120x78.png'
+                    width={120}
+                    height={78}
+                    alt='Image'
+                  />
+                  <div className='list__detaill'>
+                    <div className='detaill__header'>
+                      <div className='header__left'>
+                        <p>Migration </p>
+                      </div>
+                      <div className='header__right'>10h32</div>
+                    </div>
+                    <div
+                      className='detaill__content text__wrap'
+                      style={{ width: 233 }}>
+                      Karbaï: Les conditions de vie des migrants à Lampedusa
+                      inhumaines inhumaines inhumaines
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <Image
+                    src='https://placehold.jp/120x78.png'
+                    width={120}
+                    height={78}
+                    alt='Image'
+                  />
+                  <div className='list__detaill'>
+                    <div className='detaill__header'>
+                      <div className='header__left'>
+                        <p>Migration </p>
+                      </div>
+                      <div className='header__right'>10h32</div>
+                    </div>
+                    <div
+                      className='detaill__content text__wrap'
+                      style={{ width: 233 }}>
+                      Karbaï: Les conditions de vie des migrants à Lampedusa
+                      inhumaines inhumaines inhumaines
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <Image
+                    src='https://placehold.jp/120x78.png'
+                    width={120}
+                    height={78}
+                    alt='Image'
+                  />
+                  <div className='list__detaill'>
+                    <div className='detaill__header'>
+                      <div className='header__left'>
+                        <p>Migration </p>
+                      </div>
+                      <div className='header__right'>10h32</div>
+                    </div>
+                    <div
+                      className='detaill__content text__wrap'
+                      style={{ width: 233 }}>
+                      Karbaï: Les conditions de vie des migrants à Lampedusa
+                      inhumaines inhumaines inhumaines
+                    </div>
+                  </div>
+                </div>
               </div>
+              <Link to='/detaill'>
+                <div className='plus__button'>Voir plus</div>
+              </Link>
             </div>
           </div>
 
           {/* styling the category */}
-          <div className='app__category'>
-            <div className='category__title'>Catégorie</div>
-
-            <div className='category__list'>
-              <div>évènement</div>
-              <div>Manifestation</div>
-              <div>Article scientifique</div>
-              <div>Article journalistique</div>
-              <div>Rapport</div>
-              <div>Entretien</div>
-            </div>
-          </div>
         </div>
       </div>
     </>

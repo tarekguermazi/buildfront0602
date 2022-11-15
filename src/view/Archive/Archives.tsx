@@ -4,7 +4,6 @@ import {
   Etudes,
   rapport,
   search__archeive,
-  invitation,
   petition,
   Poster,
 } from "src/assets/images";
@@ -67,18 +66,7 @@ function Archives() {
                     <h4>Rapports</h4>
                   </div>
                 </div>
-                <div>
-                  <div>
-                    <img
-                      className='lazyload'
-                      src={invitation}
-                      alt='invitation ICon'
-                    />
-                  </div>
-                  <div>
-                    <h4>Invitations</h4>
-                  </div>
-                </div>
+
                 <div>
                   <div>
                     <img
@@ -100,7 +88,7 @@ function Archives() {
                     />
                   </div>
                   <div>
-                    <h4>Pétitions</h4>
+                    <h4>Cahiers</h4>
                   </div>
                 </div>
                 <div>
@@ -108,7 +96,7 @@ function Archives() {
                     <img className='lazyload' src={Poster} alt='Poster Icon' />
                   </div>
                   <div>
-                    <h4>Posters</h4>
+                    <h4>Appels</h4>
                   </div>
                 </div>
               </div>
