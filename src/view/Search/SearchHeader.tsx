@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import SearchService from 'src/modules/Search/SearchService';
+// ICONS
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5'
 
-export default function SearchHeader() {
+export default function SearchHeader({ setIsLoading, setSRP }) {
 
     // SEARCH_STRING HANDLER
     const [searchString, setSearchString] = useState('');
@@ -15,6 +17,17 @@ export default function SearchHeader() {
         event.preventDefault();
         // DO SOMETHING WITH searchString
         setSearchString('');
+        searchPublications(searchString);
+    }
+
+    // FETCH DATA
+    const searchPublications = SEARCH_STRING => {
+        setIsLoading(true);
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING)
+            .then(res => {
+                setSRP(res);
+                setIsLoading(false);
+            })
     }
 
 

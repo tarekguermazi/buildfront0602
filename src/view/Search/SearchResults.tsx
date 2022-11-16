@@ -2,10 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 // COMPONENTS
 import SRPCard from './SRPCard';
+import Skeleton from 'react-loading-skeleton';
+import "react-loading-skeleton/dist/skeleton.css";
+
 // ICONS
 import { MdNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md'
 
-export default function SearchResults() {
+export default function SearchResults({ isLoading, SRP }) {
     return (
         <SRPLayout>
             <SRPHeader>
@@ -24,7 +27,25 @@ export default function SearchResults() {
             </SRPHeader>
 
             <SRPData>
-                <SRPCard />
+                {
+                    isLoading
+                        ?
+                        <section>
+                            <Skeleton height={170} />
+                        </section>
+                        :
+                        <section>
+                            {
+                                (SRP.length >= 1)
+                                    ?
+                                    <section>
+                                        <SRPCard />
+                                    </section>
+                                    :
+                                    <h3>No data found !</h3>
+                            }
+                        </section>
+                }
             </SRPData>
 
             <SRPFooter>

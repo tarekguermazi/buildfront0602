@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // STYLES
 import SearchLayout from './styles/SearchLayout'
 // COMPONENTS
@@ -8,12 +8,18 @@ import SearchResults from './SearchResults'
 // OTHER
 
 export default function Search() {
+
+    // GLOBAL STATE
+    const [isLoading, setIsLoading] = useState(true);
+    const [SRP, setSRP] = useState(null);
+
+
     return (
         <SearchLayout>
             <section className='wideContent'>
-                <SearchHeader />
+                <SearchHeader setIsLoading={setIsLoading} setSRP={setSRP} />
                 <SearchFilter />
-                <SearchResults />
+                <SearchResults isLoading={isLoading} SRP={SRP} />
             </section>
         </SearchLayout>
     )
