@@ -3,11 +3,26 @@ import styled from 'styled-components'
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5'
 
 export default function SearchHeader() {
+
+    // SEARCH_STRING HANDLER
+    const [searchString, setSearchString] = useState('');
+    const handleChange = event => {
+        setSearchString(event.target.value);
+    }
+
+    // HANDLING FORM SUBMIT
+    const handleSubmit = event => {
+        event.preventDefault();
+        // DO SOMETHING WITH searchString
+        setSearchString('');
+    }
+
+
     return (
         <HeaderLayout>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <SearchBox>
-                    <input type="text" />
+                    <input type="text" value={searchString} onChange={handleChange} />
                     <button type='reset' id='resetButton'>
                         <IoCloseOutline />
                     </button>
