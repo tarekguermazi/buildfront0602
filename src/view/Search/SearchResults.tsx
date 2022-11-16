@@ -25,11 +25,6 @@ export default function SearchResults() {
 
             <SRPData>
                 <SRPCard />
-                <SRPCard />
-                <SRPCard />
-                <SRPCard />
-                <SRPCard />
-                <SRPCard />
             </SRPData>
 
             <SRPFooter>

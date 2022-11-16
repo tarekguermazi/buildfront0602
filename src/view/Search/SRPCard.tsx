@@ -57,7 +57,7 @@ const CardLayout = styled.div`
     .cardImage{
         width: 270px;
         height: 175px;
-        background-color: #FFFF1F;
+        background-color: #878787;
         background-image: url(https://via.placeholder.com/270x175);
         background-size: cover;
         background-position: center;
