@@ -11,7 +11,7 @@ export default function Search() {
 
     // GLOBAL STATE
     const [isLoading, setIsLoading] = useState(true);
-    const [SRP, setSRP] = useState(null);
+    const [SRP, setSRP] = useState([]);
 
 
     return (

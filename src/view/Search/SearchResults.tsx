@@ -28,7 +28,8 @@ export default function SearchResults({ isLoading, SRP }) {
 
             <SRPData>
                 {
-                    isLoading
+                    // ONCE LOADING IS DONE
+                    (isLoading === true)
                         ?
                         <section>
                             <Skeleton height={170} />
@@ -36,10 +37,15 @@ export default function SearchResults({ isLoading, SRP }) {
                         :
                         <section>
                             {
+                                // MAKE SURE THERE ARE DATA RETURNED
                                 (SRP.length >= 1)
                                     ?
                                     <section>
-                                        <SRPCard />
+                                        {
+                                            SRP.map((searchResult, index) => {
+                                                return <SRPCard key={index} />
+                                            })
+                                        }
                                     </section>
                                     :
                                     <h3>No data found !</h3>

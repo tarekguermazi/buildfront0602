@@ -21,11 +21,11 @@ export default function SearchHeader({ setIsLoading, setSRP }) {
     }
 
     // FETCH DATA
-    const searchPublications = SEARCH_STRING => {
+    const searchPublications = (SEARCH_STRING: string) => {
         setIsLoading(true);
         SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING)
             .then(res => {
-                setSRP(res);
+                setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
             })
     }
