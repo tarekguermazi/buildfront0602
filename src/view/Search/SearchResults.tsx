@@ -42,8 +42,14 @@ export default function SearchResults({ isLoading, SRP }) {
                                     ?
                                     <section>
                                         {
-                                            SRP.map((searchResult, index) => {
-                                                return <SRPCard key={index} />
+                                            SRP[0].rows.map((searchResult, index) => {
+                                                let hasThumbnail = false;
+                                                let thumbnail = "";
+                                                if (searchResult.supports.length >= 1) {
+                                                    hasThumbnail = true;
+                                                    thumbnail = searchResult.supports[0].downloadUrl
+                                                }
+                                                return <SRPCard key={index} date={searchResult.createdAt} content={searchResult.descriptionFR} hasThumbnail={hasThumbnail} thumbnail={thumbnail} />
                                             })
                                         }
                                     </section>

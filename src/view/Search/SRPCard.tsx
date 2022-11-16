@@ -1,15 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
+import parse from 'html-react-parser';
+import moment from 'moment';
 
-export default function SRPCard() {
+export default function SRPCard({ date, content, hasThumbnail, thumbnail }) {
+
+    const formattedDate = moment(date).format('LL');
+
     return (
         <CardLayout>
-            <div className='cardDate'>13/09/2022</div>
+            <div className='cardDate'>{formattedDate}</div>
             <div className='cardContent'>
-                <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, doloremque.</strong>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde eaque, similique voluptate ducimus obcaecati ipsam et velit sapiente dolores repudiandae, delectus natus ratione ea inventore aliquam totam tenetur a fugit. Architecto natus soluta voluptate harum. Odio corrupti commodi dolor exercitationem debitis et rerum quibusdam consectetur reiciendis, excepturi provident! Ea.</p>
+                <strong>TITLE HERE</strong>
+                {parse(content)}
             </div>
-            <div className='cardImage'></div>
+            {
+                (hasThumbnail === true)
+                    ?
+                    <div className='cardImage' style={{ backgroundImage: "url(" + thumbnail + ")" }}></div>
+                    :
+                    <div className='cardImage' style={{ backgroundImage: "url(https://via.placeholder.com/270x175)" }}></div>
+            }
         </CardLayout>
     )
 }
@@ -58,7 +69,6 @@ const CardLayout = styled.div`
         width: 270px;
         height: 175px;
         background-color: #878787;
-        background-image: url(https://via.placeholder.com/270x175);
         background-size: cover;
         background-position: center;
     }
