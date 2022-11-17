@@ -69,24 +69,29 @@ export default function SearchResults({ isLoading, SRP }) {
                 }
             </SRPData>
 
-
             {
-                (SRP[0].rows.length >= 1) &&
-                <SRPFooter>
-                    <button className='pageSkipper prevSkipper'>
-                        <MdNavigateBefore className='icon prev' />
-                        Précédent
-                    </button>
-                    <div id="pagination">
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                    </div>
-                    <button className='pageSkipper nextSkipper'>
-                        Suivant
-                        <MdOutlineNavigateNext className='icon next' />
-                    </button>
-                </SRPFooter>
+                // MAKE SURE THERE ARE DATA RETURNED
+                (SRP.length >= 1) &&
+                <section>
+                    {
+                        (SRP[0].rows.length >= 1) &&
+                        <SRPFooter>
+                            <button className='pageSkipper prevSkipper'>
+                                <MdNavigateBefore className='icon prev' />
+                                Précédent
+                            </button>
+                            <div id="pagination">
+                                <button>1</button>
+                                <button>2</button>
+                                <button>3</button>
+                            </div>
+                            <button className='pageSkipper nextSkipper'>
+                                Suivant
+                                <MdOutlineNavigateNext className='icon next' />
+                            </button>
+                        </SRPFooter>
+                    }
+                </section>
             }
 
         </SRPLayout >
