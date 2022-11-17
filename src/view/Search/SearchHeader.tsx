@@ -4,6 +4,7 @@ import SearchService from 'src/modules/Search/SearchService';
 // ICONS
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import { VscChromeClose } from 'react-icons/vsc'
 
 export default function SearchHeader({ setIsLoading, isLoading, setSRP, searchString, setSearchString }) {
 
@@ -40,9 +41,12 @@ export default function SearchHeader({ setIsLoading, isLoading, setSRP, searchSt
             <form onSubmit={handleSubmit}>
                 <SearchBox>
                     <input type="text" value={searchString} onChange={handleChange} />
-                    <button type='reset' id='resetButton' onClick={cancelSearch}>
-                        <IoCloseOutline />
-                    </button>
+                    {
+                        (searchString.length >= 1) &&
+                        <button type='reset' id='resetButton' onClick={cancelSearch}>
+                            <VscChromeClose />
+                        </button>
+                    }
                     {/* 
                         Show submit button 
                         once search action triggers, show loading button till result has been returned
@@ -122,9 +126,14 @@ const SearchBox = styled.div`
     }
 
     #resetButton{
+        height: 1.8rem;
+        width: 1.8rem;
+
         position: absolute;
         right: 11rem;
-        font-size: 1.3rem;
+        
+        font-size: 1rem;
+        color: var(--gray3);
         background-color: #E0E0E0;
 
         display: flex;
