@@ -9,25 +9,29 @@ export default function SearchFilter() {
                     <input type="radio" name="filterCat" value="all" id="all" />
                     <span>Tous</span>
                 </label>
-                <label htmlFor="articles">
-                    <input type="radio" name="filterCat" value="articles" id="articles" />
-                    <span>Articles</span>
+                <label htmlFor="évenement">
+                    <input type="radio" name="filterCat" value="évenement" id="évenement" />
+                    <span>évenement</span>
                 </label>
-                <label htmlFor="communiques">
-                    <input type="radio" name="filterCat" value="communiques" id="communiques" />
-                    <span>communiqués</span>
+                <label htmlFor="manifestation">
+                    <input type="radio" name="filterCat" value="manifestation" id="manifestation" />
+                    <span>manifestation</span>
                 </label>
-                <label htmlFor="evenements">
-                    <input type="radio" name="filterCat" value="evenements" id="evenements" />
-                    <span>evenements</span>
+                <label htmlFor="articleScientifique">
+                    <input type="radio" name="filterCat" value="articleScientifique" id="articleScientifique" />
+                    <span>article scientifique</span>
                 </label>
-                <label htmlFor="photos">
-                    <input type="radio" name="filterCat" value="photos" id="photos" />
-                    <span>photos</span>
+                <label htmlFor="articleJournalistique">
+                    <input type="radio" name="filterCat" value="articleJournalistique" id="articleJournalistique" />
+                    <span>article journalistique</span>
                 </label>
-                <label htmlFor="videos">
-                    <input type="radio" name="filterCat" value="videos" id="videos" />
-                    <span>videos</span>
+                <label htmlFor="rapport">
+                    <input type="radio" name="filterCat" value="rapport" id="rapport" />
+                    <span>rapport</span>
+                </label>
+                <label htmlFor="entretien">
+                    <input type="radio" name="filterCat" value="entretien" id="entretien" />
+                    <span>entretien</span>
                 </label>
             </div>
         </FilterLayout>
