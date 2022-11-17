@@ -38,6 +38,9 @@ const CardLayout = styled.div`
     font-weight: 400;
     font-size: 16px;
 
+    border-top: 1px solid #E0E0E0;
+    padding-top: 1rem;
+
     .cardDate{
         width: 100px;
         color: #A3A3A9;

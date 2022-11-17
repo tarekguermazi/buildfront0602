@@ -16,8 +16,6 @@ export default function SearchHeader({ setIsLoading, setSRP }) {
     const handleSubmit = event => {
         event.preventDefault();
         setSRP([]);
-        // DO SOMETHING WITH searchString
-        setSearchString('');
         searchPublications(searchString);
     }
 
@@ -31,13 +29,18 @@ export default function SearchHeader({ setIsLoading, setSRP }) {
             })
     }
 
+    // RESET SEARCH INPUT TO EMPTY
+    const cancelSearch = _ => {
+        setSearchString('');
+    }
+
 
     return (
         <HeaderLayout>
             <form onSubmit={handleSubmit}>
                 <SearchBox>
                     <input type="text" value={searchString} onChange={handleChange} />
-                    <button type='reset' id='resetButton'>
+                    <button type='reset' id='resetButton' onClick={cancelSearch}>
                         <IoCloseOutline />
                     </button>
                     <button type="submit" id='searchButton'>
