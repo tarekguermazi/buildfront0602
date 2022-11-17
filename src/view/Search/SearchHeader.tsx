@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import SearchService from 'src/modules/Search/SearchService';
 // ICONS
@@ -6,7 +6,7 @@ import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { VscChromeClose } from 'react-icons/vsc'
 
-export default function SearchHeader({ setIsLoading, isLoading, setSRP, searchString, setSearchString }) {
+export default function SearchHeader({ setIsLoading, isLoading, setSRP, searchString, setSearchString, location }) {
 
     // SEARCH_STRING HANDLER
     const handleChange = event => {
@@ -35,6 +35,17 @@ export default function SearchHeader({ setIsLoading, isLoading, setSRP, searchSt
         setSearchString('');
     }
 
+    // 
+    // AUTO SEARCH IF COMMING FRO HOME SEARCH_BAR
+    useEffect(() => {
+        if (location.HOME_SEARCH_STRING) {
+            if (location.HOME_SEARCH_STRING.length >= 1) {
+                setSearchString(location.HOME_SEARCH_STRING);
+                setSRP([]);
+                searchPublications(location.HOME_SEARCH_STRING);
+            }
+        }
+    }, []);
 
     return (
         <HeaderLayout>

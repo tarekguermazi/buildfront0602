@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   logos,
@@ -85,6 +85,17 @@ function Header(props) {
       </li>
     </ul>
   );
+
+  // HANDLING SEARCH LOGIC
+  const [homeSearchString, setHomeSearchString] = useState('');
+  const handleChange = event => {
+    setHomeSearchString(event.target.value);
+  };
+  const searchPath = {
+    pathname: "/search",
+    HOME_SEARCH_STRING: homeSearchString
+  };
+
   return (
     <React.Fragment>
       <div className='header__nav'>
@@ -93,8 +104,10 @@ function Header(props) {
             <img className='lazyload' src={logos} alt='' />
           </div>
           <div className='nav__search'>
-            <input type='text' placeholder={i18n("common.recherche")} />
-            <i className='fa-solid fa-magnifying-glass' />
+            <input type='text' placeholder={i18n("common.recherche")} onChange={handleChange} value={homeSearchString} />
+            <Link to={searchPath}>
+              <i className='fa-solid fa-magnifying-glass' />
+            </Link>
           </div>
           <div className='nav__socialmedia'>
             <img className='lazyload' src={facebook} alt='FaceBook Icon' />

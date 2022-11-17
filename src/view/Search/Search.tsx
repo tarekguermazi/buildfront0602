@@ -7,18 +7,17 @@ import SearchFilter from './SearchFilter'
 import SearchResults from './SearchResults'
 // OTHER
 
-export default function Search() {
+export default function Search({ location }) {
 
     // GLOBAL STATE
     const [isLoading, setIsLoading] = useState(false);
     const [searchString, setSearchString] = useState('');
     const [SRP, setSRP] = useState([]);
 
-
     return (
         <SearchLayout>
             <section className='wideContent'>
-                <SearchHeader setIsLoading={setIsLoading} isLoading={isLoading} setSRP={setSRP} searchString={searchString} setSearchString={setSearchString} />
+                <SearchHeader setIsLoading={setIsLoading} isLoading={isLoading} setSRP={setSRP} searchString={searchString} setSearchString={setSearchString} location={location} />
                 <SearchFilter />
                 <SearchResults isLoading={isLoading} setIsLoading={setIsLoading} SRP={SRP} setSRP={setSRP} searchString={searchString} />
             </section>
