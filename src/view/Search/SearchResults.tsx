@@ -11,20 +11,23 @@ import { MdNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md'
 export default function SearchResults({ isLoading, SRP }) {
     return (
         <SRPLayout>
-            <SRPHeader>
-                <div>
-                    <strong>53</strong>
-                    <span>résultat pour cette recherche</span>
-                </div>
-                <div id='filterContainer'>
-                    <span>Trier par</span>
-                    <select name="filterBy" id="filterBySelect">
-                        <option value="Date">Date</option>
-                        <option value="az">Name A-Z</option>
-                        <option value="za">Name Z-A</option>
-                    </select>
-                </div>
-            </SRPHeader>
+            {
+                (SRP.length >= 1) &&
+                <SRPHeader>
+                    <div>
+                        <strong>{SRP[0].rows.length}</strong>
+                        <span>résultat pour cette recherche</span>
+                    </div>
+                    <div id='filterContainer'>
+                        <span>Trier par</span>
+                        <select name="filterBy" id="filterBySelect">
+                            <option value="Date">Date</option>
+                            <option value="az">Name A-Z</option>
+                            <option value="za">Name Z-A</option>
+                        </select>
+                    </div>
+                </SRPHeader>
+            }
 
             <SRPData>
                 {
@@ -75,7 +78,7 @@ export default function SearchResults({ isLoading, SRP }) {
                     <MdOutlineNavigateNext className='icon next' />
                 </button>
             </SRPFooter>
-        </SRPLayout>
+        </SRPLayout >
     )
 }
 

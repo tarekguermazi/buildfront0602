@@ -15,6 +15,7 @@ export default function SearchHeader({ setIsLoading, setSRP }) {
     // HANDLING FORM SUBMIT
     const handleSubmit = event => {
         event.preventDefault();
+        setSRP([]);
         // DO SOMETHING WITH searchString
         setSearchString('');
         searchPublications(searchString);
