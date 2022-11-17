@@ -5,10 +5,9 @@ import SearchService from 'src/modules/Search/SearchService';
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
-export default function SearchHeader({ setIsLoading, isLoading, setSRP }) {
+export default function SearchHeader({ setIsLoading, isLoading, setSRP, searchString, setSearchString }) {
 
     // SEARCH_STRING HANDLER
-    const [searchString, setSearchString] = useState('');
     const handleChange = event => {
         setSearchString(event.target.value);
     }
@@ -23,7 +22,7 @@ export default function SearchHeader({ setIsLoading, isLoading, setSRP }) {
     // FETCH DATA
     const searchPublications = (SEARCH_STRING: string) => {
         setIsLoading(true);
-        SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING)
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, '')
             .then(res => {
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);

@@ -1,15 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
+import SearchService from 'src/modules/Search/SearchService';
 // COMPONENTS
 import SRPCard from './SRPCard';
 import Skeleton from 'react-loading-skeleton';
 import "react-loading-skeleton/dist/skeleton.css";
-
 // ICONS
 import { MdNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md'
 import { BsBox } from 'react-icons/bs'
 
-export default function SearchResults({ isLoading, SRP }) {
+
+export default function SearchResults({ isLoading, setIsLoading, SRP, setSRP, searchString }) {
+    // HANDLING SUB FILTER (date / name)
+    const handleSubFilter = event => {
+        setIsLoading(true);
+        setSRP([]);
+        const FILTER_STRING = `&orderBy=[${event.target.value}]`;
+        // redo the search using chosen option
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, FILTER_STRING)
+            .then(res => {
+                setSRP(SRP => SRP.concat(res));
+                setIsLoading(false);
+            })
+    }
+
     return (
         <SRPLayout>
             {
@@ -21,8 +35,10 @@ export default function SearchResults({ isLoading, SRP }) {
                     </div>
                     <div id='filterContainer'>
                         <span>Trier par</span>
-                        <select name="filterBy" id="filterBySelect">
-                            <option value="Date">Date</option>
+                        <select name="filterBy" id="filterBySelect" onChange={handleSubFilter}>
+                            <option value="">--</option>
+                            <option value="createdAt_DESC">Date ( Desc )</option>
+                            <option value="createdAt_ASC">Date ( Asc )</option>
                             <option value="az">Name A-Z</option>
                             <option value="za">Name Z-A</option>
                         </select>
