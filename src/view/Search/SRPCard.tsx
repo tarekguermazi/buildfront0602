@@ -5,7 +5,7 @@ import moment from 'moment';
 
 export default function SRPCard({ date, content, hasThumbnail, thumbnail }) {
 
-    const formattedDate = moment(date).format('LL');
+    const formattedDate = moment(date).format('l');
 
     return (
         <CardLayout>

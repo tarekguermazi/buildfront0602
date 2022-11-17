@@ -7,6 +7,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 // ICONS
 import { MdNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md'
+import { BsBox } from 'react-icons/bs'
 
 export default function SearchResults({ isLoading, SRP }) {
     return (
@@ -41,43 +42,53 @@ export default function SearchResults({ isLoading, SRP }) {
                         <section>
                             {
                                 // MAKE SURE THERE ARE DATA RETURNED
-                                (SRP.length >= 1)
-                                    ?
-                                    <section>
-                                        {
-                                            SRP[0].rows.map((searchResult, index) => {
-                                                let hasThumbnail = false;
-                                                let thumbnail = "";
-                                                if (searchResult.supports.length >= 1) {
-                                                    hasThumbnail = true;
-                                                    thumbnail = searchResult.supports[0].downloadUrl
+                                (SRP.length >= 1) &&
+                                <section>
+                                    {
+                                        (SRP[0].rows.length >= 1)
+                                            ?
+                                            <section>
+                                                {
+                                                    SRP[0].rows.map((searchResult, index) => {
+                                                        let hasThumbnail = false;
+                                                        let thumbnail = "";
+                                                        if (searchResult.supports.length >= 1) {
+                                                            hasThumbnail = true;
+                                                            thumbnail = searchResult.supports[0].downloadUrl
+                                                        }
+                                                        return <SRPCard key={index} date={searchResult.createdAt} content={searchResult.descriptionFR} hasThumbnail={hasThumbnail} thumbnail={thumbnail} />
+                                                    })
                                                 }
-                                                return <SRPCard key={index} date={searchResult.createdAt} content={searchResult.descriptionFR} hasThumbnail={hasThumbnail} thumbnail={thumbnail} />
-                                            })
-                                        }
-                                    </section>
-                                    :
-                                    <h3>No data found !</h3>
+                                            </section>
+                                            :
+                                            <h3 id='noDataFound'><BsBox />&nbsp;No data found !</h3>
+                                    }
+                                </section>
                             }
                         </section>
                 }
             </SRPData>
 
-            <SRPFooter>
-                <button className='pageSkipper prevSkipper'>
-                    <MdNavigateBefore className='icon prev' />
-                    Précédent
-                </button>
-                <div id="pagination">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                </div>
-                <button className='pageSkipper nextSkipper'>
-                    Suivant
-                    <MdOutlineNavigateNext className='icon next' />
-                </button>
-            </SRPFooter>
+
+            {
+                (SRP[0].rows.length >= 1) &&
+                <SRPFooter>
+                    <button className='pageSkipper prevSkipper'>
+                        <MdNavigateBefore className='icon prev' />
+                        Précédent
+                    </button>
+                    <div id="pagination">
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                    </div>
+                    <button className='pageSkipper nextSkipper'>
+                        Suivant
+                        <MdOutlineNavigateNext className='icon next' />
+                    </button>
+                </SRPFooter>
+            }
+
         </SRPLayout >
     )
 }
@@ -134,6 +145,21 @@ const SRPHeader = styled.div`
 const SRPData = styled.div`
     width: 100%;
     margin: 1rem 0;
+
+    #noDataFound{
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: 100;
+        font-size: 1.5rem;
+        text-align: center;
+        color: #c7c6c6;
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 const SRPFooter = styled.div`

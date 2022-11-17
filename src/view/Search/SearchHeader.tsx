@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import SearchService from 'src/modules/Search/SearchService';
 // ICONS
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5'
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
-export default function SearchHeader({ setIsLoading, setSRP }) {
+export default function SearchHeader({ setIsLoading, isLoading, setSRP }) {
 
     // SEARCH_STRING HANDLER
     const [searchString, setSearchString] = useState('');
@@ -43,10 +44,23 @@ export default function SearchHeader({ setIsLoading, setSRP }) {
                     <button type='reset' id='resetButton' onClick={cancelSearch}>
                         <IoCloseOutline />
                     </button>
-                    <button type="submit" id='searchButton'>
-                        <IoSearchOutline />
-                        <span>Chercher</span>
-                    </button>
+                    {/* 
+                        Show submit button 
+                        once search action triggers, show loading button till result has been returned
+                    */}
+                    {
+                        (!isLoading)
+                            ?
+                            <button type="submit" className='searchButton'>
+                                <IoSearchOutline />
+                                <span>Chercher</span>
+                            </button>
+                            :
+                            <div id='loadingButton' className='searchButton'>
+                                <AiOutlineLoading3Quarters className='loadingIcon' />
+                                <span>loading</span>
+                            </div>
+                    }
                 </SearchBox>
             </form>
         </HeaderLayout>
@@ -81,7 +95,7 @@ const SearchBox = styled.div`
         padding-left: 1rem;
     }
 
-    #searchButton{
+    .searchButton{
         height: 50px;
         padding: 0 1rem;
         color: #fff;
@@ -99,6 +113,15 @@ const SearchBox = styled.div`
         }
     }
 
+    #loadingButton{
+        background-color: #E0E0E0;
+        color: #000;
+
+        .loadingIcon{
+            animation: spin .7s linear infinite;
+        }
+    }
+
     #resetButton{
         position: absolute;
         right: 11rem;
@@ -109,5 +132,10 @@ const SearchBox = styled.div`
         align-items: center;
         justify-content: center;
         border-radius: 50%;
+    }
+
+    @keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
     }
 `;

@@ -10,14 +10,14 @@ import SearchResults from './SearchResults'
 export default function Search() {
 
     // GLOBAL STATE
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [SRP, setSRP] = useState([]);
 
 
     return (
         <SearchLayout>
             <section className='wideContent'>
-                <SearchHeader setIsLoading={setIsLoading} setSRP={setSRP} />
+                <SearchHeader setIsLoading={setIsLoading} isLoading={isLoading} setSRP={setSRP} />
                 <SearchFilter />
                 <SearchResults isLoading={isLoading} SRP={SRP} />
             </section>
