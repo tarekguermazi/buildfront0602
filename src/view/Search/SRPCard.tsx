@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import parse from 'html-react-parser';
 import moment from 'moment';
 
-export default function SRPCard({ date, content, hasThumbnail, thumbnail }) {
+export default function SRPCard({ date, content, thumbnail }) {
 
     const formattedDate = moment(date).format('l');
 
@@ -14,13 +14,7 @@ export default function SRPCard({ date, content, hasThumbnail, thumbnail }) {
                 <strong>TITLE HERE</strong>
                 {parse(content)}
             </div>
-            {
-                (hasThumbnail === true)
-                    ?
-                    <div className='cardImage' style={{ backgroundImage: "url(" + thumbnail + ")" }}></div>
-                    :
-                    <div className='cardImage' style={{ backgroundImage: "url(https://via.placeholder.com/270x175)" }}></div>
-            }
+            <div className='cardImage' style={{ backgroundImage: "url(" + thumbnail + ")" }}></div>
         </CardLayout>
     )
 }
@@ -48,6 +42,8 @@ const CardLayout = styled.div`
 
     .cardContent{
         width: 470px;
+        height: 100px;
+        overflow-y: hidden;
 
         strong{
             color: #2B2840;
@@ -71,8 +67,8 @@ const CardLayout = styled.div`
     .cardImage{
         width: 270px;
         height: 175px;
-        background-color: #878787;
         background-size: cover;
         background-position: center;
     }
+
 `;

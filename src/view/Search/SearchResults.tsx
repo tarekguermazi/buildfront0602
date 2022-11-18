@@ -29,6 +29,19 @@ export default function SearchResults() {
             })
     }
 
+    // HELPER FUNCTION
+    const getValidThumbnail = attachmentsArray => {
+        const acceptableExtions = 'png, jpg, jpeg, gif';
+        let fakeUrl = "https://via.placeholder.com/270x175";
+        attachmentsArray.forEach(att => {
+            const urlExtension = att.downloadUrl.substring((att.downloadUrl.lastIndexOf('.') + 1), att.downloadUrl.length);
+            if (acceptableExtions.includes(urlExtension)) {
+                fakeUrl = att.downloadUrl;
+            }
+        })
+        return fakeUrl;
+    }
+
     return (
         <SRPLayout>
             {
@@ -71,13 +84,13 @@ export default function SearchResults() {
                                             <section>
                                                 {
                                                     SRP[0].rows.map((searchResult, index) => {
-                                                        let hasThumbnail = false;
-                                                        let thumbnail = "";
+                                                        let thumbnail: any;
                                                         if (searchResult.supports.length >= 1) {
-                                                            hasThumbnail = true;
-                                                            thumbnail = searchResult.supports[0].downloadUrl
+                                                            thumbnail = getValidThumbnail(searchResult.supports);
+                                                            console.log("THMBNAIL ::: ", thumbnail);
+
                                                         }
-                                                        return <SRPCard key={index} date={searchResult.createdAt} content={searchResult.descriptionFR} hasThumbnail={hasThumbnail} thumbnail={thumbnail} />
+                                                        return <SRPCard key={index} date={searchResult.createdAt} content={searchResult.descriptionFR} thumbnail={thumbnail} />
                                                     })
                                                 }
                                             </section>
