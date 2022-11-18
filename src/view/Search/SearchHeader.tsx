@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import SearchService from 'src/modules/Search/SearchService';
+import { SearchContext } from './SearchContext';
 // ICONS
-import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5'
+import { IoSearchOutline } from 'react-icons/io5'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { VscChromeClose } from 'react-icons/vsc'
 
-export default function SearchHeader({ setIsLoading, isLoading, setSRP, searchString, setSearchString, location }) {
+export default function SearchHeader({ location }) {
+
+    // GLOBAL STATE
+    const { isLoading, setIsLoading, setSRP, searchString, setSearchString } = useContext(SearchContext);
 
     // SEARCH_STRING HANDLER
     const handleChange = event => {

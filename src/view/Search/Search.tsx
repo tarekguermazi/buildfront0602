@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { SearchContext } from './SearchContext'
 // STYLES
 import SearchLayout from './styles/SearchLayout'
 // COMPONENTS
@@ -15,12 +16,14 @@ export default function Search({ location }) {
     const [SRP, setSRP] = useState([]);
 
     return (
-        <SearchLayout>
-            <section className='wideContent'>
-                <SearchHeader setIsLoading={setIsLoading} isLoading={isLoading} setSRP={setSRP} searchString={searchString} setSearchString={setSearchString} location={location} />
-                <SearchFilter />
-                <SearchResults isLoading={isLoading} setIsLoading={setIsLoading} SRP={SRP} setSRP={setSRP} searchString={searchString} />
-            </section>
-        </SearchLayout>
+        <SearchContext.Provider value={{ isLoading, setIsLoading, SRP, setSRP, searchString, setSearchString }}>
+            <SearchLayout>
+                <section className='wideContent'>
+                    <SearchHeader location={location} />
+                    <SearchFilter />
+                    <SearchResults />
+                </section>
+            </SearchLayout>
+        </SearchContext.Provider>
     )
 }

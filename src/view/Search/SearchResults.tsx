@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import SearchService from 'src/modules/Search/SearchService';
+import { SearchContext } from './SearchContext';
 // COMPONENTS
 import SRPCard from './SRPCard';
 import Skeleton from 'react-loading-skeleton';
@@ -10,7 +11,11 @@ import { MdNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md'
 import { BsBox } from 'react-icons/bs'
 
 
-export default function SearchResults({ isLoading, setIsLoading, SRP, setSRP, searchString }) {
+export default function SearchResults() {
+
+    // GLOBAL STATE
+    const { isLoading, setIsLoading, SRP, setSRP, searchString } = useContext(SearchContext);
+
     // HANDLING SUB FILTER (date / name)
     const handleSubFilter = event => {
         setIsLoading(true);
