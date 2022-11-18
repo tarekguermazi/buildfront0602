@@ -51,6 +51,10 @@ const CardLayout = styled.div`
             font-family: 'Bebas Neue Pro';
             font-style: normal;
             font-size: 20px;
+
+            &:hover{
+                text-decoration: underline;
+            }
         }
 
         p{
