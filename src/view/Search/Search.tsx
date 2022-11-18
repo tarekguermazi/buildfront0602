@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { SearchContext } from './SearchContext'
-// STYLES
-import SearchLayout from './styles/SearchLayout'
+import styled from 'styled-components'
 // COMPONENTS
 import SearchHeader from './SearchHeader'
 import SearchFilter from './SearchFilter'
-import SearchResults from './SearchResults'
+import SearchResults from './SRP/SearchResults'
 // OTHER
 
 export default function Search({ location }) {
@@ -27,3 +26,11 @@ export default function Search({ location }) {
         </SearchContext.Provider>
     )
 }
+
+const SearchLayout = styled.section`
+    height: 100%;
+    .wideContent{
+        padding: 0 7rem;
+    }
+
+`;
