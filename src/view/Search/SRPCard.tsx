@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import parse from 'html-react-parser';
 import moment from 'moment';
 
-export default function SRPCard({ date, content, thumbnail }) {
+export default function SRPCard({ _id, date, content, thumbnail }) {
 
     const formattedDate = moment(date).format('l');
 
@@ -11,7 +12,7 @@ export default function SRPCard({ date, content, thumbnail }) {
         <CardLayout>
             <div className='cardDate'>{formattedDate}</div>
             <div className='cardContent'>
-                <strong>TITLE HERE</strong>
+                <Link to={'/publication/' + _id}><strong>TITLE HERE</strong></Link>
                 {parse(content)}
             </div>
             <div className='cardImage' style={{ backgroundImage: "url(" + thumbnail + ")" }}></div>

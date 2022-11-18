@@ -90,7 +90,7 @@ export default function SearchResults() {
                                                             console.log("THMBNAIL ::: ", thumbnail);
 
                                                         }
-                                                        return <SRPCard key={index} date={searchResult.createdAt} content={searchResult.descriptionFR} thumbnail={thumbnail} />
+                                                        return <SRPCard key={index} _id={searchResult._id} date={searchResult.createdAt} content={searchResult.descriptionFR} thumbnail={thumbnail} />
                                                     })
                                                 }
                                             </section>
