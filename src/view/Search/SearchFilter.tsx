@@ -17,7 +17,7 @@ export default function SearchFilter() {
         <FilterLayout>
             <div id="filterCategories" onChange={handleFilterValueChange}>
                 <label htmlFor="all">
-                    <input type="radio" name="filterCat" value="autre" id="all" />
+                    <input type="radio" name="filterCat" value="autre" id="all" defaultChecked />
                     <span>Tous</span>
                 </label>
                 <label htmlFor="donneNumerique">

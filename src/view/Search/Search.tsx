@@ -13,7 +13,7 @@ export default function Search({ location }) {
     const [isLoading, setIsLoading] = useState(false);
     const [searchString, setSearchString] = useState('');
     const [SRP, setSRP] = useState([]);
-    const [publicationFilter, setpublicationFilter] = useState('');
+    const [publicationFilter, setpublicationFilter] = useState('autre');
 
     return (
         <SearchContext.Provider value={
