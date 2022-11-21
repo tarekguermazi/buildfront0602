@@ -38,12 +38,21 @@ function Archives() {
             <div className='archieve__left'>
               <div className='left__search'>
                 <input type='text' placeholder='Rechercher dans l’archive...' onChange={handleChange} value={archiveSearchString} />
-                <Link to={searchPath}>
-                  <div className='button__search'>
-                    <i className='fa-solid fa-magnifying-glass' />
-                    Chercher
-                  </div>
-                </Link>
+                {
+                  (archiveSearchString.length >= 1)
+                    ?
+                    <Link to={searchPath}>
+                      <div className='button__search'>
+                        <i className='fa-solid fa-magnifying-glass' />
+                        Chercher
+                      </div>
+                    </Link>
+                    :
+                    <div className='button__search'>
+                      <i className='fa-solid fa-magnifying-glass' />
+                      Chercher
+                    </div>
+                }
                 <div className='search__advanced'>Recherche avancée</div>
               </div>
               <div className='mobile__archeiveSearch'>
