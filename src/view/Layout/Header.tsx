@@ -105,9 +105,12 @@ function Header(props) {
           </div>
           <div className='nav__search'>
             <input type='text' placeholder={i18n("common.recherche")} onChange={handleChange} value={homeSearchString} />
-            <Link to={searchPath}>
-              <i className='fa-solid fa-magnifying-glass' />
-            </Link>
+            {
+              (homeSearchString.length >= 1) &&
+              <Link to={searchPath}>
+                <i className='fa-solid fa-magnifying-glass' />
+              </Link>
+            }
           </div>
           <div className='nav__socialmedia'>
             <img className='lazyload' src={facebook} alt='FaceBook Icon' />
