@@ -25,7 +25,18 @@ export default function SearchHeader({ location }) {
     }
 
     // FETCH DATA
+    // PUBLICATIONS
     const searchPublications = (SEARCH_STRING: string) => {
+        setIsLoading(true);
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, '')
+            .then(res => {
+                setSRP(SRP => SRP.concat(res));
+                setIsLoading(false);
+            })
+    }
+
+    // ARCHVIE
+    const searchArchive = (SEARCH_STRING: string, FILTER_STRING: string) => {
         setIsLoading(true);
         SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, '')
             .then(res => {
@@ -56,7 +67,7 @@ export default function SearchHeader({ location }) {
             if (location.ARCHIVE_SEARCH_STRING.length >= 1) {
                 setSearchString(location.ARCHIVE_SEARCH_STRING);
                 setSRP([]);
-                searchPublications(location.ARCHIVE_SEARCH_STRING);
+                searchArchive(location.ARCHIVE_SEARCH_STRING, location.ARCHIVE_FILTER);
             }
         }
     }, []);

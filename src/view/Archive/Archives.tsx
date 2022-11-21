@@ -18,12 +18,20 @@ function Archives() {
 
   // HANDLING SEARCH LOGIC
   const [archiveSearchString, setArchiveSearchString] = useState('');
+  const [archiveFilter, setarchiveFilter] = useState('');
+
   const handleChange = event => {
     setArchiveSearchString(event.target.value);
   };
+
+  const handleRadioChange = event => {
+    setarchiveFilter(event.target.value);
+  };
+
   const searchPath = {
     pathname: "/search",
-    ARCHIVE_SEARCH_STRING: archiveSearchString
+    ARCHIVE_SEARCH_STRING: archiveSearchString,
+    ARCHIVE_FILTER: archiveFilter
   };
 
 
@@ -73,7 +81,7 @@ function Archives() {
                 </div>
                 <div className='search__advanced'>Recherche avancée</div>
               </div>
-              <FilterLayout>
+              <FilterLayout onChange={handleRadioChange}>
                 {/* ETUDE */}
                 <label className="filterArchiveContianer" htmlFor="etude">
                   <input type="radio" name="archiveFilter" value="etude" id="etude" />
