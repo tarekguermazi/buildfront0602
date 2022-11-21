@@ -7,7 +7,10 @@ export default function SearchFilter() {
     // GLOBAL STATE
     const { setpublicationFilter } = useContext(SearchContext);
     const handleFilterValueChange = event => {
-        setpublicationFilter(event.target.value);
+        if (event.target.value === 'autre')
+            setpublicationFilter('');
+        else
+            setpublicationFilter(event.target.value);
     }
 
     return (

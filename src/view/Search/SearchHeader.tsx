@@ -27,10 +27,9 @@ export default function SearchHeader({ location }) {
     // FETCH DATA
     // PUBLICATIONS
     const searchPublications = (SEARCH_STRING: string) => {
-        console.log('PUBLICATION FILTER :: ', publicationFilter);
-
+        const FILTER_STRING = `&filter[categorie]=${publicationFilter}`;
         setIsLoading(true);
-        SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, '')
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, FILTER_STRING)
             .then(res => {
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
