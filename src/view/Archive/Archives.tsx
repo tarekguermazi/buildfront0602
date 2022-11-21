@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Communique,
   Etudes,
@@ -10,7 +10,22 @@ import {
 } from "src/assets/images";
 import { i18n } from "../../i18n";
 import Breadcrumb from "../shared/Breadcrumb";
+import { Link } from 'react-router-dom';
+
+
 function Archives() {
+
+  // HANDLING SEARCH LOGIC
+  const [archiveSearchString, setArchiveSearchString] = useState('');
+  const handleChange = event => {
+    setArchiveSearchString(event.target.value);
+  };
+  const searchPath = {
+    pathname: "/search",
+    ARCHIVE_SEARCH_STRING: archiveSearchString
+  };
+
+
   return (
     <>
       <Breadcrumb
@@ -22,11 +37,13 @@ function Archives() {
           <div className='archieve__content'>
             <div className='archieve__left'>
               <div className='left__search'>
-                <input type='text' placeholder='Rechercher dans l’archive...' />
-                <div className='button__search'>
-                  <i className='fa-solid fa-magnifying-glass' />
-                  Chercher
-                </div>
+                <input type='text' placeholder='Rechercher dans l’archive...' onChange={handleChange} value={archiveSearchString} />
+                <Link to={searchPath}>
+                  <div className='button__search'>
+                    <i className='fa-solid fa-magnifying-glass' />
+                    Chercher
+                  </div>
+                </Link>
                 <div className='search__advanced'>Recherche avancée</div>
               </div>
               <div className='mobile__archeiveSearch'>

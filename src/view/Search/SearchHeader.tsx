@@ -42,11 +42,21 @@ export default function SearchHeader({ location }) {
     // 
     // AUTO SEARCH IF COMMING FRO HOME SEARCH_BAR
     useEffect(() => {
+        // COMMING FROM THE HOME SEARCH BAR
         if (location.HOME_SEARCH_STRING) {
             if (location.HOME_SEARCH_STRING.length >= 1) {
                 setSearchString(location.HOME_SEARCH_STRING);
                 setSRP([]);
                 searchPublications(location.HOME_SEARCH_STRING);
+            }
+        }
+
+        // COMMING FROM THE ARCHIVE SECTION
+        if (location.ARCHIVE_SEARCH_STRING) {
+            if (location.ARCHIVE_SEARCH_STRING.length >= 1) {
+                setSearchString(location.ARCHIVE_SEARCH_STRING);
+                setSRP([]);
+                searchPublications(location.ARCHIVE_SEARCH_STRING);
             }
         }
     }, []);
