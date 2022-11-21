@@ -88,7 +88,7 @@ export default function SearchHeader({ location }) {
                         once search action triggers, show loading button till result has been returned
                     */}
                     {
-                        (!isLoading)
+                        (!isLoading && searchString.length >= 1)
                             ?
                             <button type="submit" className='searchButton'>
                                 <IoSearchOutline />
@@ -96,8 +96,11 @@ export default function SearchHeader({ location }) {
                             </button>
                             :
                             <div id='loadingButton' className='searchButton'>
-                                <AiOutlineLoading3Quarters className='loadingIcon' />
-                                <span>loading</span>
+                                {(!isLoading) && <IoSearchOutline />}
+                                {(isLoading) && <AiOutlineLoading3Quarters className='loadingIcon' />}
+
+                                {(!isLoading) && <span>Chercher</span>}
+                                {(isLoading) && <span>loading</span>}
                             </div>
                     }
                 </SearchBox>

@@ -12,7 +12,7 @@ export default class SearchService {
 
         // HANDLING FILTER
         if (FILTER_STRING !== "autre") {
-            if (extension.length >= 1) {
+            if (SEARCH_STRING.length >= 1) {
                 // THERE IS SEARCH STRING, use &
                 extension = `?filter[descriptionFR]=${SEARCH_STRING}&filter[categorie]=${FILTER_STRING}`;
             } else {
@@ -22,8 +22,6 @@ export default class SearchService {
         }
 
         const tenantId = AuthCurrentTenant.get();
-        console.log(`/tenant/${tenantId}/publication${extension}`);
-
         const response = await authAxios.get(`/tenant/${tenantId}/publication${extension}`);
         return response.data;
     }
