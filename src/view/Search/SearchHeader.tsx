@@ -10,7 +10,7 @@ import { VscChromeClose } from 'react-icons/vsc'
 export default function SearchHeader({ location }) {
 
     // GLOBAL STATE
-    const { isLoading, setIsLoading, setSRP, searchString, setSearchString } = useContext(SearchContext);
+    const { isLoading, setIsLoading, setSRP, searchString, setSearchString, publicationFilter } = useContext(SearchContext);
 
     // SEARCH_STRING HANDLER
     const handleChange = event => {
@@ -27,6 +27,8 @@ export default function SearchHeader({ location }) {
     // FETCH DATA
     // PUBLICATIONS
     const searchPublications = (SEARCH_STRING: string) => {
+        console.log('PUBLICATION FILTER :: ', publicationFilter);
+
         setIsLoading(true);
         SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, '')
             .then(res => {

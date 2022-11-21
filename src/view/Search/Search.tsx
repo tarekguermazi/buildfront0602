@@ -13,9 +13,17 @@ export default function Search({ location }) {
     const [isLoading, setIsLoading] = useState(false);
     const [searchString, setSearchString] = useState('');
     const [SRP, setSRP] = useState([]);
+    const [publicationFilter, setpublicationFilter] = useState('');
 
     return (
-        <SearchContext.Provider value={{ isLoading, setIsLoading, SRP, setSRP, searchString, setSearchString }}>
+        <SearchContext.Provider value={
+            {
+                isLoading, setIsLoading,
+                SRP, setSRP,
+                searchString, setSearchString,
+                publicationFilter, setpublicationFilter
+            }
+        }>
             <SearchLayout>
                 <section className='wideContent'>
                     <SearchHeader location={location} />

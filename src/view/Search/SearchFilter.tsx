@@ -1,28 +1,36 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
+import { SearchContext } from './SearchContext';
 
 export default function SearchFilter() {
+
+    // GLOBAL STATE
+    const { setpublicationFilter } = useContext(SearchContext);
+    const handleFilterValueChange = event => {
+        setpublicationFilter(event.target.value);
+    }
+
     return (
         <FilterLayout>
-            <div id="filterCategories">
+            <div id="filterCategories" onChange={handleFilterValueChange}>
                 <label htmlFor="all">
-                    <input type="radio" name="filterCat" value="all" id="all" />
+                    <input type="radio" name="filterCat" value="autre" id="all" />
                     <span>Tous</span>
                 </label>
-                <label htmlFor="évenement">
-                    <input type="radio" name="filterCat" value="évenement" id="évenement" />
-                    <span>évenement</span>
+                <label htmlFor="donneNumerique">
+                    <input type="radio" name="filterCat" value="données numériques" id="donneNumerique" />
+                    <span>Données numériques</span>
                 </label>
                 <label htmlFor="manifestation">
-                    <input type="radio" name="filterCat" value="manifestation" id="manifestation" />
+                    <input type="radio" name="filterCat" value="Manifestation" id="manifestation" />
                     <span>manifestation</span>
                 </label>
                 <label htmlFor="articleScientifique">
-                    <input type="radio" name="filterCat" value="articleScientifique" id="articleScientifique" />
+                    <input type="radio" name="filterCat" value="article scientifique" id="articleScientifique" />
                     <span>article scientifique</span>
                 </label>
                 <label htmlFor="articleJournalistique">
-                    <input type="radio" name="filterCat" value="articleJournalistique" id="articleJournalistique" />
+                    <input type="radio" name="filterCat" value="article journalistique" id="articleJournalistique" />
                     <span>article journalistique</span>
                 </label>
                 <label htmlFor="rapport">
