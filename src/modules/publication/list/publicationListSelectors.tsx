@@ -1,3 +1,4 @@
+import { create } from "lodash";
 import { createSelector } from "reselect";
 
 const selectRaw = (state) => state.publication.list;
@@ -9,6 +10,15 @@ const selectExportLoading = createSelector(
   (raw) => raw.exportLoading
 );
 
+const selectPublicationByThematiqueRows = createSelector(
+  [selectRaw],
+  (raw) => raw.allbythematique
+);
+
+const selectloadingpublicationbythematique = createSelector(
+  [selectRaw],
+  (raw) => raw.loadingpublicationbythematique
+);
 const selectRows = createSelector([selectRaw], (raw) => raw.rows);
 
 const selectCount = createSelector([selectRaw], (raw) => raw.count);
@@ -79,6 +89,7 @@ const selectSelectedRows = createSelector(
 );
 
 const publicationListSelectors = {
+  selectPublicationByThematiqueRows,
   selectLoading,
   selectRows,
   selectCount,
@@ -92,6 +103,7 @@ const publicationListSelectors = {
   selectHasRows,
   selectExportLoading,
   selectRawFilter,
+  selectloadingpublicationbythematique,
 };
 
 export default publicationListSelectors;

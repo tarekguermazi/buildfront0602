@@ -5,7 +5,6 @@ import selectors from "src/modules/publication/list/publicationListSelectors";
 import Spinner from "src/view/shared/Spinner";
 import Pagination from "src/view/shared/table/Pagination";
 import { Link } from "react-router-dom";
-
 // ICONS
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoVideocamOutline } from "react-icons/io5";

@@ -22,13 +22,10 @@ export default class PublicationService {
     const params = {
       ids,
     };
-
     const tenantId = AuthCurrentTenant.get();
-
     const response = await authAxios.delete(`/tenant/${tenantId}/publication`, {
       params,
     });
-
     return response.data;
   }
 
@@ -73,13 +70,20 @@ export default class PublicationService {
     return response.data;
   }
 
-  static async list() {
+  static async allpublicationbythematique() {
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.get(
-      `/tenant/${tenantId}/publication`,
-      {}
+      `/tenant/${tenantId}/allpublicationbyThematique`
     );
+
+    return response.data;
+  }
+
+  static async list() {
+    const tenantId = AuthCurrentTenant.get();
+
+    const response = await authAxios.get(`/tenant/${tenantId}/publication`, {});
 
     return response.data;
   }

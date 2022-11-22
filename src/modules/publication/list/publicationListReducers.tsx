@@ -6,6 +6,7 @@ const initialData = {
   rows: [],
   count: 0,
   loading: false,
+  loadingpublicationbythematique: false,
   filter: {},
   rawFilter: {},
   pagination: {
@@ -14,6 +15,7 @@ const initialData = {
   },
   sorter: {},
   selectedKeys: [],
+  allbythematique: [],
 };
 
 export default (state = initialData, { type, payload }) => {
@@ -79,6 +81,29 @@ export default (state = initialData, { type, payload }) => {
       loading: false,
       rows: [],
       count: 0,
+    };
+  }
+
+  if (type === actions.FETCH_STARTED_ALL_PUBLICATION) {
+    return {
+      ...state,
+      loadingpublicationbythematique: true,
+    };
+  }
+
+  if (type === actions.FETCH_SUCCESS_ALL_PUBLICATION) {
+    return {
+      ...state,
+      loadingpublicationbythematique: false,
+      allbythematique: payload,
+    };
+  }
+
+  if (type === actions.FETCH_ERROR_ALL_PUBLICATION) {
+    return {
+      ...state,
+      loadingpublicationbythematique: false,
+      allbythematique: [],
     };
   }
 

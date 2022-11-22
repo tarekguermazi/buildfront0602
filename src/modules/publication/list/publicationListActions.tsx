@@ -10,6 +10,10 @@ const publicationListActions = {
   FETCH_SUCCESS: `${prefix}_FETCH_SUCCESS`,
   FETCH_ERROR: `${prefix}_FETCH_ERROR`,
 
+  FETCH_STARTED_ALL_PUBLICATION: `${prefix}_FETCH_STARTED_ALL_PUBLICATION`,
+  FETCH_SUCCESS_ALL_PUBLICATION: `${prefix}_FETCH_SUCCESS_ALL_PUBLICATION`,
+  FETCH_ERROR_ALL_PUBLICATION: `${prefix}_FETCH_ERROR_ALL_PUBLICATION`,
+
   RESETED: `${prefix}_RESETED`,
   SELECTEDS_CHANGED: `${prefix}_SELECTEDS_CHANGED`,
 
@@ -114,6 +118,24 @@ const publicationListActions = {
         });
       }
     },
+
+  allpublicationbythematique: () => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: publicationListActions.FETCH_STARTED_ALL_PUBLICATION,
+      });
+      const response = await PublicationService.allpublicationbythematique();
+      dispatch({
+        type: publicationListActions.FETCH_SUCCESS_ALL_PUBLICATION,
+        payload: response,
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({
+        type: publicationListActions.FETCH_ERROR_ALL_PUBLICATION,
+      });
+    }
+  },
 };
 
 export default publicationListActions;

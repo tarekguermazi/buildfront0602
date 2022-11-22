@@ -11,23 +11,22 @@ import actionsPublication from "src/modules/publication/list/publicationListActi
 import selectorsPublication from "src/modules/publication/list/publicationListSelectors";
 import PublicationCategory from "./list/PublicationCategory";
 import PublicationDetaill from "./list/PublicationDetaill";
+import PublicationDetaillByThematique from "./list/PublicationDetaillByThematique";
 function Publications() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.doFetch());
+    dispatch(actionsPublication.allpublicationbythematique());
     dispatch(actionsPublication.doFetch());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const ObjectImage = [
-    { width: 570, height: 390 },
-    { width: 269, height: 390 },
-    { width: 272, height: 182 },
-    { width: 272, height: 182 },
-  ];
 
   const rows = useSelector(selectors.selectRows);
+  const rowsPublicationByThematique = useSelector(
+    selectorsPublication.selectPublicationByThematiqueRows
+  );
+
   const rowsPublication = useSelector(selectorsPublication.selectRows);
-  const contactObject = [{ ...rowsPublication, ObjectImage }];
 
   return (
     <>
@@ -57,43 +56,15 @@ function Publications() {
             </div>
           </div>
           {/* styling the migration section */}
-          <div className='pub__migration'>
-            <div className='archieve__header'>
-              <h2>Migration</h2>
-              <div className='satestique__bar'></div>
-            </div>
-            <div className='migration__images'>
-              {Array.from({ length: 3 }).map((item) => (
-                <div>
-                  <Image
-                    src='https://placehold.jp/570x390.png'
-                    width='370'
-                    height='300'
-                    alt='Image'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div className='detaill__content'>
-                      Immigration clandestine : Le FTDS critique l'approche de
-                      l'Etat
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Link to='/detaill'>
-              <div className='plus__button'>Voir plus</div>
-            </Link>
-          </div>
-
+          {rowsPublicationByThematique.map((item, index) => (
+            <PublicationDetaillByThematique
+              data={item.data}
+              thematique={item.cat[0]}
+              index={index}
+            />
+          ))}
           {/* stlyling the pollution */}
-          <div className='pub__migration'>
+          {/* <div className='pub__migration'>
             <div className='archieve__header'>
               <h2>Migration</h2>
               <div className='satestique__bar'></div>
@@ -126,7 +97,7 @@ function Publications() {
             <Link to='/detaill'>
               <div className='plus__button'>Voir plus</div>
             </Link>
-          </div>
+          </div> */}
           {/* 
         styling the articles + manifestation + évènement +Rapports */}
 
