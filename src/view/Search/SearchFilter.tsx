@@ -1,6 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { SearchContext } from './SearchContext';
+import Skeleton from 'react-loading-skeleton';
+import "react-loading-skeleton/dist/skeleton.css";
+// SERVICES
+import SearchService from 'src/modules/Search/SearchService';
 
 export default function SearchFilter() {
 
@@ -13,38 +17,61 @@ export default function SearchFilter() {
             setpublicationFilter(event.target.value);
     }
 
+    // DYNAMIC CATEGORY LIST
+    const [categoriesList, setCategoriesList] = useState<any[]>([]);
+    const [categoriesListIsLoading, setCategoriesListIsLoading] = useState(true);
+    const getCategoriesList = () => {
+        SearchService.getCategoriesList()
+            .then(res => {
+                setCategoriesListIsLoading(true);
+                setCategoriesList(categoriesList => categoriesList.concat(res));
+                setCategoriesListIsLoading(false);
+            })
+            .catch(err => { console.error(err) });
+    };
+
+    useEffect(() => {
+        getCategoriesList();
+    }, [])
+
     return (
         <FilterLayout>
-            <div id="filterCategories" onChange={handleFilterValueChange}>
-                <label htmlFor="all">
-                    <input type="radio" name="filterCat" value="autre" id="all" defaultChecked />
-                    <span>Tous</span>
-                </label>
-                <label htmlFor="donneNumerique">
-                    <input type="radio" name="filterCat" value="données numériques" id="donneNumerique" />
-                    <span>Données numériques</span>
-                </label>
-                <label htmlFor="manifestation">
-                    <input type="radio" name="filterCat" value="Manifestation" id="manifestation" />
-                    <span>manifestation</span>
-                </label>
-                <label htmlFor="articleScientifique">
-                    <input type="radio" name="filterCat" value="article scientifique" id="articleScientifique" />
-                    <span>article scientifique</span>
-                </label>
-                <label htmlFor="articleJournalistique">
-                    <input type="radio" name="filterCat" value="article journalistique" id="articleJournalistique" />
-                    <span>article journalistique</span>
-                </label>
-                <label htmlFor="rapport">
-                    <input type="radio" name="filterCat" value="rapport" id="rapport" />
-                    <span>rapport</span>
-                </label>
-                <label htmlFor="entretien">
-                    <input type="radio" name="filterCat" value="entretien" id="entretien" />
-                    <span>entretien</span>
-                </label>
-            </div>
+            {
+                (categoriesListIsLoading === false) &&
+                <div id="filterCategories" onChange={handleFilterValueChange}>
+                    <label htmlFor="all">
+                        <input type="radio" name="filterCat" value="autre" id="all" defaultChecked />
+                        <span>tous</span>
+                    </label>
+                    {
+                        (categoriesList.length >= 1) &&
+                        <>
+                            {
+                                categoriesList[0]['rows'].map((category: any) => {
+                                    console.log(category);
+
+                                    return (
+                                        <label htmlFor={category._id} key={category._id}>
+                                            <input type="radio" name="filterCat" value="autre" id={category._id} />
+                                            <span>{category.titleFR}</span>
+                                        </label>
+                                    )
+                                })
+                            }
+                        </>
+                    }
+                </div>
+            }
+
+            {/* SHOW THIS WHEN LOADING */}
+            {
+                (categoriesListIsLoading === true) &&
+                <div className='LoadingFlex'>
+                    {[...Array(5)].map((x, i) =>
+                        <Skeleton key={i} height={60} width={150} />
+                    )}
+                </div>
+            }
         </FilterLayout>
     )
 }
@@ -103,5 +130,15 @@ const FilterLayout = styled.div`
                 }
             }
         }
+    }
+
+    .LoadingFlex{
+        width: 100%;
+        height: 70px;
+        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
     }
 `;

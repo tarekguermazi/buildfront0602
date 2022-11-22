@@ -2,6 +2,12 @@ import authAxios from "src/modules/shared/axios/authAxios";
 import AuthCurrentTenant from "src/modules/auth/authCurrentTenant";
 
 export default class SearchService {
+    // GET CATEGORIES LIST FOR PUBLICATIONS
+    static async getCategoriesList() {
+        const tenantId = AuthCurrentTenant.get();
+        const response = await authAxios.get(`/tenant/${tenantId}/category-publication`);
+        return response.data;
+    }
 
     static async getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, FILTER_STRING) {
 
