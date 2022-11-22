@@ -28,7 +28,7 @@ export default class SearchService {
         }
 
         const tenantId = AuthCurrentTenant.get();
-        const response = await authAxios.get(`/tenant/${tenantId}/publication${extension}`);
+        const response = await authAxios.get(`/tenant/${tenantId}/publication${extension}&limit=5&offset=0`);
         return response.data;
     }
 
