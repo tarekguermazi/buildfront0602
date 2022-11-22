@@ -47,7 +47,7 @@ export default function SearchResults() {
                     (SRP.length >= 1) &&
                     <>
                         <div>
-                            <strong>{SRP[0].rows.length}</strong>
+                            <strong>{SRP[0].count}</strong>
                             <span>résultat pour cette recherche</span>
                         </div>
                         <div id='filterContainer'>
