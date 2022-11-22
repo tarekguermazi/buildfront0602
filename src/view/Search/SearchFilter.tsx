@@ -48,8 +48,6 @@ export default function SearchFilter() {
                         <>
                             {
                                 categoriesList[0]['rows'].map((category: any) => {
-                                    console.log(category);
-
                                     return (
                                         <label htmlFor={category._id} key={category._id}>
                                             <input type="radio" name="filterCat" value="autre" id={category._id} />
