@@ -28,7 +28,7 @@ export default function SearchHeader({ location }) {
     // PUBLICATIONS
     const searchPublications = (SEARCH_STRING: string) => {
         setIsLoading(true);
-        SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, publicationFilter)
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, publicationFilter, 0)
             .then(res => {
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);

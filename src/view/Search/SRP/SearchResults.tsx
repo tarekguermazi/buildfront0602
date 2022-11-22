@@ -20,11 +20,12 @@ export default function SearchResults() {
         setSRP([]);
         const FILTER_STRING = `&orderBy=[${event.target.value}]`;
         // redo the search using chosen option
-        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, FILTER_STRING)
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, FILTER_STRING, 0)
             .then(res => {
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
             })
+            .catch(err => { console.error(err) });
     }
 
     // PAGINATION LOGIC
@@ -71,7 +72,7 @@ export default function SearchResults() {
 
             {/* FOOTER WITH PAGINATION ENABLED */}
             <SRPFooter
-                totalPosts={(SRP.length) ? SRP[0].rows.length : 0}
+                totalPosts={(SRP.length >= 1) ? SRP[0].count : 0}
                 numberOfPostsPerPage={numberOfPostsPerPage}
                 currentPageIndex={currentPageIndex}
                 setcurrentPageIndex={setcurrentPageIndex}

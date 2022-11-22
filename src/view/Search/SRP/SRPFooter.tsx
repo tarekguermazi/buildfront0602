@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import SearchService from 'src/modules/Search/SearchService';
+import { SearchContext } from '../SearchContext';
 
 // ICONS
 import { MdNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md'
 
 export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPageIndex, setcurrentPageIndex }) {
 
+
+    // GLOBAL STATE
+    const { setIsLoading, SRP, setSRP, searchString } = useContext(SearchContext);
+
     let pages: any[] = [];
     for (let index = 0; index < Math.ceil(totalPosts / numberOfPostsPerPage); index++) {
         pages.push(index);
+    }
+
+    const handlePageChange = (pageNumber) => {
+        setIsLoading(true);
+        setcurrentPageIndex(pageNumber + 1);
+        setSRP([]);
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, 'autre', pageNumber)
+            .then(res => {
+                console.log("RESULTS FOR PAGE :: ", pageNumber);
+                console.log("rows :: ", res);
+
+                setSRP(SRP => SRP.concat(res));
+                setIsLoading(false);
+            })
+            .catch(err => { console.error(err) });
     }
 
     return (
@@ -37,8 +58,8 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
                     return (
                         <button
                             key={index}
-                            className={pageNumber === (currentPageIndex - 1) ? 'activeIndex' : ''}
-                            onClick={() => setcurrentPageIndex(pageNumber + 1)}
+                            className={(pageNumber + 1 === currentPageIndex) ? 'activeIndex' : ''}
+                            onClick={() => handlePageChange(pageNumber)}
                         >
                             {pageNumber + 1}
                         </button>
