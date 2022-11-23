@@ -14,6 +14,9 @@ export default function Search({ location }) {
     const [searchString, setSearchString] = useState('');
     const [SRP, setSRP] = useState([]);
     const [publicationFilter, setpublicationFilter] = useState('autre');
+    // PAGINATION LOGIC
+    const [currentPageIndex, setcurrentPageIndex] = useState(0);
+    const [numberOfPostsPerPage, setnumberOfPostsPerPage] = useState(5);
 
     return (
         <SearchContext.Provider value={
@@ -21,7 +24,9 @@ export default function Search({ location }) {
                 isLoading, setIsLoading,
                 SRP, setSRP,
                 searchString, setSearchString,
-                publicationFilter, setpublicationFilter
+                publicationFilter, setpublicationFilter,
+                currentPageIndex, setcurrentPageIndex,
+                numberOfPostsPerPage, setnumberOfPostsPerPage
             }
         }>
             <SearchLayout>

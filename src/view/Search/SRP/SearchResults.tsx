@@ -12,7 +12,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 export default function SearchResults() {
 
     // GLOBAL STATE
-    const { setIsLoading, SRP, setSRP, searchString } = useContext(SearchContext);
+    const { setIsLoading, SRP, setSRP, searchString, currentPageIndex, numberOfPostsPerPage, setcurrentPageIndex } = useContext(SearchContext);
 
     // HANDLING SUB FILTER (date / name)
     const handleSubFilter = event => {
@@ -29,16 +29,13 @@ export default function SearchResults() {
     }
 
     // PAGINATION LOGIC
-    const [currentPageIndex, setcurrentPageIndex] = useState(1);
-    const [numberOfPostsPerPage, setnumberOfPostsPerPage] = useState(5);
-
     const indexOfLastPost = currentPageIndex * numberOfPostsPerPage;
     const indexOfFirstPost = indexOfLastPost - numberOfPostsPerPage;
 
     let currentPostsToShow: any[] = [];
     if (SRP.length >= 1)
         if (SRP[0].rows.length >= 1)
-            currentPostsToShow = SRP[0].rows.slice(indexOfFirstPost, indexOfLastPost);
+            currentPostsToShow = SRP[0].rows;
 
     return (
         <SRPLayout>

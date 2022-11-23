@@ -30,6 +30,8 @@ export default function SearchHeader({ location }) {
         setIsLoading(true);
         SearchService.getSearchResultsForPublicationsBasedOnSearchString(SEARCH_STRING, publicationFilter, 0)
             .then(res => {
+                console.log("RES INITIAL SEARCH :: ", res);
+
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
             })

@@ -10,7 +10,7 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
 
 
     // GLOBAL STATE
-    const { setIsLoading, SRP, setSRP, searchString } = useContext(SearchContext);
+    const { setIsLoading, setSRP, searchString } = useContext(SearchContext);
 
     let pages: any[] = [];
     for (let index = 0; index < Math.ceil(totalPosts / numberOfPostsPerPage); index++) {
@@ -21,11 +21,9 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
         setIsLoading(true);
         setcurrentPageIndex(pageNumber + 1);
         setSRP([]);
-        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, 'autre', pageNumber)
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, 'autre', (pageNumber * 5))
             .then(res => {
-                console.log("RESULTS FOR PAGE :: ", pageNumber);
                 console.log("rows :: ", res);
-
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
             })
