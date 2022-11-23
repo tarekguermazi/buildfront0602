@@ -17,13 +17,22 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
         pages.push(index);
     }
 
-    const handlePageChange = (pageNumber) => {
+    const handlePageChange = (pageNumber: number, action: string) => {
+
+        console.log("SETTING PAGE INDEX ::: ", pageNumber, action);
+        console.log("PREV ::: ", action === 'prev');
+        console.log("NEXT ::: ", action === 'next');
+
         setIsLoading(true);
-        setcurrentPageIndex(pageNumber + 1);
+
+        if (action === "next")
+            setcurrentPageIndex(currentPageIndex + 1)
+        else
+            setcurrentPageIndex(currentPageIndex - 1);
+
         setSRP([]);
         SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, 'autre', (pageNumber * 5))
             .then(res => {
-                console.log("rows :: ", res);
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
             })
@@ -38,7 +47,7 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
                     ?
                     <button
                         className='pageSkipper prevSkipper'
-                        onClick={() => setcurrentPageIndex(currentPageIndex - 1)}
+                        onClick={() => handlePageChange((currentPageIndex - 1), 'prev')}
                     >
                         <MdNavigateBefore className='icon prev' />
                         Précédent
@@ -57,7 +66,7 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
                         <button
                             key={index}
                             className={(pageNumber === currentPageIndex - 1) ? 'activeIndex' : ''}
-                            onClick={() => handlePageChange(pageNumber)}
+                            onClick={() => handlePageChange(pageNumber, 'next')}
                         >
                             {pageNumber + 1}
                         </button>
@@ -70,7 +79,7 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
                     ?
                     <button
                         className='pageSkipper nextSkipper'
-                        onClick={() => setcurrentPageIndex(currentPageIndex + 1)}
+                        onClick={() => handlePageChange(currentPageIndex, 'next')}
                     >
                         Suivant
                         <MdOutlineNavigateNext className='icon next' />
