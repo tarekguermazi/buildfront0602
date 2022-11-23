@@ -56,7 +56,7 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
                     return (
                         <button
                             key={index}
-                            className={(pageNumber + 1 === currentPageIndex) ? 'activeIndex' : ''}
+                            className={(pageNumber === currentPageIndex - 1) ? 'activeIndex' : ''}
                             onClick={() => handlePageChange(pageNumber)}
                         >
                             {pageNumber + 1}
@@ -141,15 +141,17 @@ const FooterLayout = styled.div`
 
     #pagination{
         margin: 0 .5rem;
-        width: 150px;
+        width: calc(fit-content + 100px);
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
 
         button{
             display: inline-block;
-            height: 35px;
-            min-width: fit-content;
             width: 40px;
+            min-width: fit-content;
+            height: 35px;
+            margin: 0 .2rem;
+
         }
 
         .activeIndex{
