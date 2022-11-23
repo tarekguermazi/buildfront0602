@@ -24,10 +24,17 @@ export default function SRPFooter({ totalPosts }) {
         pages.push(index);
     }
 
-    const handlePageChange = (pageNumber: number, action: string) => {
+    const changePagesUsingArrows = (pageNumber: number, action: string) => {
         setIsLoading(true);
         setSRP([]);
-        fetchData(pageNumber);
+        if (action === 'prev') {
+            setcurrentPageIndex(pageNumber - 1);
+            fetchData(pageNumber - 1);
+        }
+        if (action === 'next') {
+            setcurrentPageIndex(pageNumber + 1);
+            fetchData(pageNumber + 1);
+        }
     }
 
     const loadCOntentOfCurrentPage = (index: number) => {
@@ -48,13 +55,17 @@ export default function SRPFooter({ totalPosts }) {
 
     return (
         <FooterLayout>
-            {/* PREVIOUS BUTTON */}
+            {/* 
+                PREVIOUS BUTTON
+                Enable if not in first page (0)
+                page number must be >=1
+             */}
             {
-                (currentPageIndex > 1)
+                (currentPageIndex >= 1)
                     ?
                     <button
                         className='pageSkipper prevSkipper'
-                        onClick={() => handlePageChange((currentPageIndex - 1), 'prev')}
+                        onClick={() => changePagesUsingArrows(currentPageIndex, 'prev')}
                     >
                         <MdNavigateBefore className='icon prev' />
                         Précédent
@@ -84,11 +95,11 @@ export default function SRPFooter({ totalPosts }) {
             </div>
             {/* NEXT BUTTON */}
             {
-                (currentPageIndex < (totalPosts / numberOfPostsPerPage))
+                (currentPageIndex < (totalPosts / numberOfPostsPerPage) - 1)
                     ?
                     <button
                         className='pageSkipper nextSkipper'
-                        onClick={() => handlePageChange(currentPageIndex, 'next')}
+                        onClick={() => changePagesUsingArrows(currentPageIndex, 'next')}
                     >
                         Suivant
                         <MdOutlineNavigateNext className='icon next' />
