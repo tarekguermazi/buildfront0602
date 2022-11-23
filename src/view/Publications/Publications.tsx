@@ -12,11 +12,13 @@ import selectorsPublication from "src/modules/publication/list/publicationListSe
 import PublicationCategory from "./list/PublicationCategory";
 import PublicationDetaill from "./list/PublicationDetaill";
 import PublicationDetaillByThematique from "./list/PublicationDetaillByThematique";
+import PublicationByCategory from "./list/PublicationByCategory";
 function Publications() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.doFetch());
     dispatch(actionsPublication.allpublicationbythematique());
+    dispatch(actionsPublication.allpublicationbyCategory());
     dispatch(actionsPublication.doFetch());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -27,7 +29,8 @@ function Publications() {
   );
 
   const rowsPublication = useSelector(selectorsPublication.selectRows);
-
+  const loadingByCategory = useSelector(selectorsPublication.loadingByCategory);
+  const rowsCategory = useSelector(selectorsPublication.slectByCategory);
   return (
     <>
       <div className='publication__page'>
@@ -47,12 +50,12 @@ function Publications() {
         <div className='app__pub'>
           <div className='publication__header'>
             <div className='image__pub'>
-              {rowsPublication.map((item, index) => (
+              {/* {rowsPublication.map((item, index) => (
                 <div className='pub__relative' key={index}>
-                  <img src={item.supports[0].downloadUrl} alt='header' />
+                  <img src={item?.supports[0]?.downloadUrl} alt='header' />
                   <PublicationDetaill data={item} />
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
           {/* styling the migration section */}
@@ -64,200 +67,17 @@ function Publications() {
             />
           ))}
           {/* stlyling the pollution */}
-          {/* <div className='pub__migration'>
-            <div className='archieve__header'>
-              <h2>Migration</h2>
-              <div className='satestique__bar'></div>
-            </div>
-            <div className='migration__images'>
-              {Array.from({ length: 3 }).map((item) => (
-                <div>
-                  <Image
-                    src='https://placehold.jp/570x390.png'
-                    width='370'
-                    height='300'
-                    alt='Image'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div className='detaill__content'>
-                      Immigration clandestine : Le FTDS critique l'approche de
-                      l'Etat
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Link to='/detaill'>
-              <div className='plus__button'>Voir plus</div>
-            </Link>
-          </div> */}
-          {/* 
-        styling the articles + manifestation + évènement +Rapports */}
 
           <div className='app__articles'>
             <div className='articles__top'>
               <div className='__top'>
-                <div>
-                  <div className='archieve__header'>
-                    <h2>Articles</h2>
-                    <div className='satestique__bar'></div>
-                  </div>
-                  <div className='manification__images'>
-                    <div>
-                      <Image
-                        src='https://placehold.jp/120x78.png'
-                        width={120}
-                        height={78}
-                        alt='Image'
-                      />
-                      <div className='list__detaill'>
-                        <div className='detaill__header'>
-                          <div className='header__left'>
-                            <p>Migration </p>
-                          </div>
-                          <div className='header__right'>10h32</div>
-                        </div>
-                        <div
-                          className='detaill__content text__wrap'
-                          style={{ width: 233 }}>
-                          Karbaï: Les conditions de vie des migrants à Lampedusa
-                          inhumaines inhumaines inhumaines
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <Image
-                        src='https://placehold.jp/120x78.png'
-                        width={120}
-                        height={78}
-                        alt='Image'
-                      />
-                      <div className='list__detaill'>
-                        <div className='detaill__header'>
-                          <div className='header__left'>
-                            <p>Migration </p>
-                          </div>
-                          <div className='header__right'>10h32</div>
-                        </div>
-                        <div
-                          className='detaill__content text__wrap'
-                          style={{ width: 233 }}>
-                          Karbaï: Les conditions de vie des migrants à Lampedusa
-                          inhumaines inhumaines inhumaines
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <Image
-                        src='https://placehold.jp/120x78.png'
-                        width={120}
-                        height={78}
-                        alt='Image'
-                      />
-                      <div className='list__detaill'>
-                        <div className='detaill__header'>
-                          <div className='header__left'>
-                            <p>Migration </p>
-                          </div>
-                          <div className='header__right'>10h32</div>
-                        </div>
-                        <div
-                          className='detaill__content text__wrap'
-                          style={{ width: 233 }}>
-                          Karbaï: Les conditions de vie des migrants à Lampedusa
-                          inhumaines inhumaines inhumaines
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <Link to='/detaill'>
-                    <div className='plus__button'>Voir plus</div>
-                  </Link>
-                </div>
-                <div>
-                  <div className='archieve__header'>
-                    <h2>Manifestation</h2>
-                    <div className='satestique__bar'></div>
-                  </div>
-                  <div className='manification__images'>
-                    <div>
-                      <Image
-                        src='https://placehold.jp/120x78.png'
-                        width={120}
-                        height={78}
-                        alt='Image'
-                      />
-                      <div className='list__detaill'>
-                        <div className='detaill__header'>
-                          <div className='header__left'>
-                            <p>Migration </p>
-                          </div>
-                          <div className='header__right'>10h32</div>
-                        </div>
-                        <div
-                          className='detaill__content text__wrap'
-                          style={{ width: 233 }}>
-                          Karbaï: Les conditions de vie des migrants à Lampedusa
-                          inhumaines inhumaines inhumaines
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <Image
-                        src='https://placehold.jp/120x78.png'
-                        width={120}
-                        height={78}
-                        alt='Image'
-                      />
-                      <div className='list__detaill'>
-                        <div className='detaill__header'>
-                          <div className='header__left'>
-                            <p>Migration </p>
-                          </div>
-                          <div className='header__right'>10h32</div>
-                        </div>
-                        <div
-                          className='detaill__content text__wrap'
-                          style={{ width: 233 }}>
-                          Karbaï: Les conditions de vie des migrants à Lampedusa
-                          inhumaines inhumaines inhumaines
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <Image
-                        src='https://placehold.jp/120x78.png'
-                        width={120}
-                        height={78}
-                        alt='Image'
-                      />
-                      <div className='list__detaill'>
-                        <div className='detaill__header'>
-                          <div className='header__left'>
-                            <p>Migration </p>
-                          </div>
-                          <div className='header__right'>10h32</div>
-                        </div>
-                        <div
-                          className='detaill__content text__wrap'
-                          style={{ width: 233 }}>
-                          Karbaï: Les conditions de vie des migrants à Lampedusa
-                          inhumaines inhumaines inhumaines
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <Link to='/detaill'>
-                    <div className='plus__button'>Voir plus</div>
-                  </Link>
-                </div>
+                {rowsCategory.map((item, index) => (
+                  <PublicationByCategory
+                    data={item.data}
+                    category={item.cat[0]}
+                    index={index}
+                  />
+                ))}
               </div>
               <div className='app__rapports'>
                 <div className='archieve__header'>
@@ -306,84 +126,6 @@ function Publications() {
                   <div className='plus__button'>Voir plus</div>
                 </Link>
               </div>
-            </div>
-
-            <div>
-              <div className='archieve__header'>
-                <h2>Articles</h2>
-                <div className='satestique__bar'></div>
-              </div>
-              <div className='manification__images'>
-                <div>
-                  <Image
-                    src='https://placehold.jp/120x78.png'
-                    width={120}
-                    height={78}
-                    alt='Image'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div
-                      className='detaill__content text__wrap'
-                      style={{ width: 233 }}>
-                      Karbaï: Les conditions de vie des migrants à Lampedusa
-                      inhumaines inhumaines inhumaines
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <Image
-                    src='https://placehold.jp/120x78.png'
-                    width={120}
-                    height={78}
-                    alt='Image'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div
-                      className='detaill__content text__wrap'
-                      style={{ width: 233 }}>
-                      Karbaï: Les conditions de vie des migrants à Lampedusa
-                      inhumaines inhumaines inhumaines
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <Image
-                    src='https://placehold.jp/120x78.png'
-                    width={120}
-                    height={78}
-                    alt='Image'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Migration </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div
-                      className='detaill__content text__wrap'
-                      style={{ width: 233 }}>
-                      Karbaï: Les conditions de vie des migrants à Lampedusa
-                      inhumaines inhumaines inhumaines
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <Link to='/detaill'>
-                <div className='plus__button'>Voir plus</div>
-              </Link>
             </div>
           </div>
 

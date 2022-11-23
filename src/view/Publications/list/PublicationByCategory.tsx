@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "../../shared/Image";
 import { Link } from "react-router-dom";
-function PublicationDetaillByThematique(props) {
-  const { data, index, thematique } = props;
+function PublicationByCategory(props) {
+  const { data, category, index } = props;
 
   const renderItem = (item) => {
     return (
       <div>
         <Image
-          src='https://placehold.jp/370x300.png'
-          width='370'
-          height='300'
-          alt='Image publication image '
+          src='https://placehold.jp/120x78.png'
+          width={120}
+          height={78}
+          alt='Image'
         />
         <div className='list__detaill'>
           <div className='detaill__header'>
@@ -20,30 +20,28 @@ function PublicationDetaillByThematique(props) {
             </div>
             <div className='header__right'>10h32</div>
           </div>
-          <div className='detaill__content'>
-            Immigration clandestine : Le FTDS critique l'approche de l'Etat
+          <div className='detaill__content text__wrap' style={{ width: 233 }}>
+            Karbaï: Les conditions de vie des migrants à Lampedusa inhumaines
+            inhumaines inhumaines
           </div>
         </div>
       </div>
     );
   };
-
   return (
-    <div className='pub__migration' key={index}>
+    <div>
       <div className='archieve__header'>
-        <h2>{thematique.titleFR}</h2>
+        <h2>{category.titleFR}</h2>
         <div className='satestique__bar'></div>
       </div>
-
-      <div className='migration__images'>
+      <div className='manification__images'>
         {data.map((item) => renderItem(item))}
       </div>
-
-      <Link to={`/detaill/${thematique._id}`}>
+      <Link to={`/detaill/${category._id}`}>
         <div className='plus__button'>Voir plus</div>
       </Link>
     </div>
   );
 }
 
-export default PublicationDetaillByThematique;
+export default PublicationByCategory;

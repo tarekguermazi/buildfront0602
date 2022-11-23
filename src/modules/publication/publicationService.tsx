@@ -80,6 +80,36 @@ export default class PublicationService {
     return response.data;
   }
 
+  static async allpublicationbyGroup() {
+    const tenantId = AuthCurrentTenant.get();
+
+    const response = await authAxios.get(
+      `/tenant/${tenantId}/allpublicationbycategory`
+    );
+
+    return response.data;
+  }
+
+  static async findbythematique(id) {
+    const tenantId = AuthCurrentTenant.get();
+
+    const response = await authAxios.get(
+      `/tenant/${tenantId}/publication/detaill/${id}`
+    );
+
+    return response.data;
+  }
+
+  static async findbygroup(id) {
+    const tenantId = AuthCurrentTenant.get();
+
+    const response = await authAxios.get(
+      `/tenant/${tenantId}/publication/group/detaill/${id}`
+    );
+
+    return response.data;
+  }
+
   static async list() {
     const tenantId = AuthCurrentTenant.get();
 

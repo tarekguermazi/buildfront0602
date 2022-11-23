@@ -1,267 +1,83 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { calendar__bttom } from "../../../assets/images";
 import { i18n } from "../../../i18n";
 import Breadcrumb from "../Breadcrumb";
 import Image from "../Image";
 import "./DetaillWrapper.css";
+import { useRouteMatch } from "react-router-dom";
+import actions from "src/modules/publication/list/publicationListActions";
+import selectors from "src/modules/publication/list/publicationListSelectors";
+import { useDispatch, useSelector } from "react-redux";
+import Translate from "../Translate";
+
 function Detaill() {
+  const match = useRouteMatch();
+  const dispatch = useDispatch();
+  const rows = useSelector(selectors.selectRows);
+  const loading = useSelector(selectors.selectLoading);
+
+  const doFetch = async () => {
+    if (match.path === "/detaill/category/:id") {
+      dispatch(actions.doFindAllByCategory(match.params.id));
+    } else if (match.path === "/detaill/:id") {
+      dispatch(actions.doFindAllByThematique(match.params.id));
+    }
+  };
+
+  let titleBreadcrumb =
+    match.path === "/detaill/category/:id"
+      ? rows[0]?.category?.titleFR
+      : rows[0]?.thematique?.titleFR;
+
+  useEffect(() => {
+    doFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className='app__detaill'>
-      <Breadcrumb
-        title='Migration'
-        items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
-      />
-
-      <div className='app__calendar'>
-        <img src={calendar__bttom} alt='' />
-      </div>
-      <div className='detaill'>
-        <div className='list__detaills'>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
+      {!rows && <h1> No rows</h1>}
+      {loading && <h1> Loading</h1>}
+      {!loading && rows && (
+        <>
+          {
+            <Breadcrumb
+              title={titleBreadcrumb}
+              items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
             />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
+          }
+          <div className='app__calendar'>
+            <img src={calendar__bttom} alt='' />
+          </div>
+          <div className='detaill'>
+            <div className='list__detaills'>
+              {rows.map((item) => (
+                <div>
+                  <Image
+                    src={item.supports[0]?.downloadUrl}
+                    alt='publication2 Icon'
+                    id='image__desktop'
+                    width='370'
+                    height='300'
+                  />
+                  <div className='list__detaill'>
+                    <div className='detaill__header'>
+                      <div className='header__left'>
+                        <p>Forum</p>
+                      </div>
+                      <div className='header__right'>10h32</div>
+                    </div>{" "}
+                    <div className='detaill__content'>
+                      Criminalization of refugees: the dark side of EU and UNHCR
+                      policies...
+                    </div>
+                  </div>
                 </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Criminalization of refugees: the dark side of EU and UNHCR
-                policies...
-              </div>
+              ))}
             </div>
           </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Criminalization of refugees: the dark side of EU and UNHCR
-                policies...
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={"https://placehold.jp/370x300.png"}
-              alt='publication2 Icon'
-              id='image__desktop'
-              width='370'
-              height='300'
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>Forum</p>
-                </div>
-                <div className='header__right'>10h32</div>
-              </div>{" "}
-              <div className='detaill__content'>
-                Immigration clandestine : Le FTDS critique l'approche de l'Etat
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 }

@@ -6,6 +6,8 @@ const initialData = {
   rows: [],
   count: 0,
   loading: false,
+  loadingByCategory: false,
+  allbyCategory: [],
   loadingpublicationbythematique: false,
   filter: {},
   rawFilter: {},
@@ -81,6 +83,43 @@ export default (state = initialData, { type, payload }) => {
       loading: false,
       rows: [],
       count: 0,
+    };
+  }
+
+  if (type === actions.FIND_THEMATIQUE_STARTED) {
+    return { ...state, loading: true };
+  }
+  if (type === actions.FIND_THEMATIQUE_SUCCESS) {
+    return { ...state, loading: false, rows: payload };
+  }
+  if (type === actions.FIND_THEMATIQUE_ERROR) {
+    return {
+      ...state,
+      loading: false,
+      rows: [],
+    };
+  }
+
+  if (type === actions.FETCH_STARTED_BY_CATEGORY) {
+    return {
+      ...state,
+      loadingpublicationbythematique: true,
+    };
+  }
+
+  if (type === actions.FETCH_SUCCESS_BY_CATEGORY) {
+    return {
+      ...state,
+      loadingByCategory: false,
+      allbyCategory: payload,
+    };
+  }
+
+  if (type === actions.FETCH_ERROR_BY_CATEGORY) {
+    return {
+      ...state,
+      loadingByCategory: false,
+      allbyCategory: [],
     };
   }
 

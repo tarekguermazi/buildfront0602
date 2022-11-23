@@ -15,6 +15,11 @@ const selectPublicationByThematiqueRows = createSelector(
   (raw) => raw.allbythematique
 );
 
+const slectByCategory = createSelector([selectRaw], (raw) => raw.allbyCategory);
+const loadingByCategory = createSelector(
+  [selectRaw],
+  (raw) => raw.loadingByCategory
+);
 const selectloadingpublicationbythematique = createSelector(
   [selectRaw],
   (raw) => raw.loadingpublicationbythematique
@@ -104,6 +109,8 @@ const publicationListSelectors = {
   selectExportLoading,
   selectRawFilter,
   selectloadingpublicationbythematique,
+  slectByCategory,
+  loadingByCategory,
 };
 
 export default publicationListSelectors;

@@ -1,4 +1,4 @@
-.app {
+category__list.app {
   overflow: hidden;
 }
 
@@ -303,6 +303,7 @@
   .mobile__top {
     padding: 25px 18px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
@@ -3912,8 +3913,10 @@ button.splide__arrow--prev {
   padding-top: 36px;
 }
 .__top {
-  display: flex;
-  column-gap: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-column-gap: 36px;
+  gap: 36px;
 }
 .app__rapports {
   padding-top: 48px;

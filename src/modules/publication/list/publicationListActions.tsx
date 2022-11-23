@@ -10,9 +10,17 @@ const publicationListActions = {
   FETCH_SUCCESS: `${prefix}_FETCH_SUCCESS`,
   FETCH_ERROR: `${prefix}_FETCH_ERROR`,
 
+  FIND_THEMATIQUE_STARTED: `${prefix}_FIND_THEMATIQUE_STARTED`,
+  FIND_THEMATIQUE_SUCCESS: `${prefix}_FIND_THEMATIQUE_SUCCESS`,
+  FIND_THEMATIQUE_ERROR: `${prefix}_FIND_THEMATIQUE_ERROR`,
+
   FETCH_STARTED_ALL_PUBLICATION: `${prefix}_FETCH_STARTED_ALL_PUBLICATION`,
   FETCH_SUCCESS_ALL_PUBLICATION: `${prefix}_FETCH_SUCCESS_ALL_PUBLICATION`,
   FETCH_ERROR_ALL_PUBLICATION: `${prefix}_FETCH_ERROR_ALL_PUBLICATION`,
+
+  FETCH_STARTED_BY_CATEGORY: `${prefix}_FETCH_STARTED_BY_CATEGORY`,
+  FETCH_SUCCESS_BY_CATEGORY: `${prefix}_FETCH_SUCCESS_BY_CATEGORY`,
+  FETCH_ERROR_BY_CATEGORY: `${prefix}_FETCH_ERROR_BY_CATEGORY`,
 
   RESETED: `${prefix}_RESETED`,
   SELECTEDS_CHANGED: `${prefix}_SELECTEDS_CHANGED`,
@@ -133,6 +141,59 @@ const publicationListActions = {
       Errors.handle(error);
       dispatch({
         type: publicationListActions.FETCH_ERROR_ALL_PUBLICATION,
+      });
+    }
+  },
+
+  allpublicationbyCategory: () => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: publicationListActions.FETCH_STARTED_BY_CATEGORY,
+      });
+      const response = await PublicationService.allpublicationbyGroup();
+      dispatch({
+        type: publicationListActions.FETCH_SUCCESS_BY_CATEGORY,
+        payload: response,
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({
+        type: publicationListActions.FETCH_ERROR_BY_CATEGORY,
+      });
+    }
+  },
+  doFindAllByThematique: (id) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: publicationListActions.FIND_THEMATIQUE_STARTED,
+      });
+      const response = await PublicationService.findbythematique(id);
+      dispatch({
+        type: publicationListActions.FIND_THEMATIQUE_SUCCESS,
+        payload: response,
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({
+        type: publicationListActions.FIND_THEMATIQUE_ERROR,
+      });
+    }
+  },
+
+  doFindAllByCategory: (id) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: publicationListActions.FIND_THEMATIQUE_STARTED,
+      });
+      const response = await PublicationService.findbygroup(id);
+      dispatch({
+        type: publicationListActions.FIND_THEMATIQUE_SUCCESS,
+        payload: response,
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({
+        type: publicationListActions.FIND_THEMATIQUE_ERROR,
       });
     }
   },
