@@ -6,11 +6,18 @@ import { SearchContext } from '../SearchContext';
 // ICONS
 import { MdNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md'
 
-export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPageIndex, setcurrentPageIndex }) {
+export default function SRPFooter({ totalPosts }) {
 
 
     // GLOBAL STATE
-    const { setIsLoading, setSRP, searchString } = useContext(SearchContext);
+    const {
+        setIsLoading,
+        setSRP,
+        searchString,
+        numberOfPostsPerPage,
+        currentPageIndex,
+        setcurrentPageIndex
+    } = useContext(SearchContext);
 
     let pages: any[] = [];
     for (let index = 0; index < Math.ceil(totalPosts / numberOfPostsPerPage); index++) {
@@ -18,16 +25,20 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
     }
 
     const handlePageChange = (pageNumber: number, action: string) => {
-        console.log("pageNumber ::: ", pageNumber, "|| Action :: ", action, "|| currentPageIndex :: ", currentPageIndex);
         setIsLoading(true);
-        if (pageNumber !== currentPageIndex) {
-            if (action === "next")
-                setcurrentPageIndex(pageNumber + 1);
-            else
-                setcurrentPageIndex(pageNumber - 1);
-        }
         setSRP([]);
-        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, 'autre', (currentPageIndex * 5))
+        fetchData(pageNumber);
+    }
+
+    const loadCOntentOfCurrentPage = (index: number) => {
+        setIsLoading(true);
+        setcurrentPageIndex(index);
+        setSRP([]);
+        fetchData(index);
+    }
+
+    const fetchData = index => {
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, 'autre', (index * 5))
             .then(res => {
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
@@ -57,17 +68,19 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
 
             {/* DYNAMIC BUTTONS BASED ON ITEMS COUNT */}
             <div id="pagination">
-                {pages.map((pageNumber, index) => {
-                    return (
-                        <button
-                            key={index}
-                            className={(pageNumber === currentPageIndex) ? 'activeIndex' : ''}
-                            onClick={() => handlePageChange(pageNumber, 'next')}
-                        >
-                            {pageNumber + 1}
-                        </button>
-                    )
-                })}
+                {
+                    pages.map((index) => {
+                        return (
+                            <button
+                                key={index}
+                                className={(index === currentPageIndex) ? 'activeIndex' : ''}
+                                onClick={() => loadCOntentOfCurrentPage(index)}
+                            >
+                                {index + 1}
+                            </button>
+                        )
+                    })
+                }
             </div>
             {/* NEXT BUTTON */}
             {
