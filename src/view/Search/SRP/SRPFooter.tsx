@@ -18,20 +18,16 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
     }
 
     const handlePageChange = (pageNumber: number, action: string) => {
-
-        console.log("SETTING PAGE INDEX ::: ", pageNumber, action);
-        console.log("PREV ::: ", action === 'prev');
-        console.log("NEXT ::: ", action === 'next');
-
+        console.log("pageNumber ::: ", pageNumber, "|| Action :: ", action, "|| currentPageIndex :: ", currentPageIndex);
         setIsLoading(true);
-
-        if (action === "next")
-            setcurrentPageIndex(currentPageIndex + 1)
-        else
-            setcurrentPageIndex(currentPageIndex - 1);
-
+        if (pageNumber !== currentPageIndex) {
+            if (action === "next")
+                setcurrentPageIndex(pageNumber + 1);
+            else
+                setcurrentPageIndex(pageNumber - 1);
+        }
         setSRP([]);
-        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, 'autre', (pageNumber * 5))
+        SearchService.getSearchResultsForPublicationsBasedOnSearchString(searchString, 'autre', (currentPageIndex * 5))
             .then(res => {
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
@@ -65,7 +61,7 @@ export default function SRPFooter({ totalPosts, numberOfPostsPerPage, currentPag
                     return (
                         <button
                             key={index}
-                            className={(pageNumber === currentPageIndex - 1) ? 'activeIndex' : ''}
+                            className={(pageNumber === currentPageIndex) ? 'activeIndex' : ''}
                             onClick={() => handlePageChange(pageNumber, 'next')}
                         >
                             {pageNumber + 1}
