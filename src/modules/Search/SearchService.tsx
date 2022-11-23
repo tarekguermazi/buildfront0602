@@ -27,8 +27,6 @@ export default class SearchService {
             }
         }
 
-        console.log("TRIGGEREING SEARCH USING THIS ENDPOINT ::: ", `/tenant/${123456789}/publication${extension}&limit=5&offset=${OFFSET}`);
-
         const tenantId = AuthCurrentTenant.get();
         const response = await authAxios.get(`/tenant/${tenantId}/publication${extension}&limit=5&offset=${OFFSET}`);
         return response.data;
