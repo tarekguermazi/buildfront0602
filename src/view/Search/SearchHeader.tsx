@@ -40,7 +40,7 @@ export default function SearchHeader({ location }) {
     // ARCHVIE
     const searchArchive = (SEARCH_STRING: string, FILTER_STRING: string) => {
         setIsLoading(true);
-        SearchService.getSearchResultsForArchiveBasedOnSearchString(SEARCH_STRING, FILTER_STRING)
+        SearchService.getSearchResultsForArchiveBasedOnSearchString(SEARCH_STRING, FILTER_STRING, 0)
             .then(res => {
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);

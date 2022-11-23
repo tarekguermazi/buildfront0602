@@ -33,9 +33,9 @@ export default class SearchService {
     }
 
     // ARCHIVE SEARCH
-    static async getSearchResultsForArchiveBasedOnSearchString(SEARCH_STRING, FILTER_STRING) {
+    static async getSearchResultsForArchiveBasedOnSearchString(SEARCH_STRING, FILTER_STRING, OFFSET) {
         const tenantId = AuthCurrentTenant.get();
-        const response = await authAxios.get(`/tenant/${tenantId}/publication?filter[descriptionFR]=${SEARCH_STRING}&filter[statut]=archive${FILTER_STRING}`);
+        const response = await authAxios.get(`/tenant/${tenantId}/publication?filter[descriptionFR]=${SEARCH_STRING}&limit=5&offset=${OFFSET}&filter[statut]=archive${FILTER_STRING}`);
         return response.data;
     }
 }
