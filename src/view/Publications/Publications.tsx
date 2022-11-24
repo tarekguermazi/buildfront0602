@@ -50,12 +50,12 @@ function Publications() {
         <div className='app__pub'>
           <div className='publication__header'>
             <div className='image__pub'>
-              {/* {rowsPublication.map((item, index) => (
+              {rowsPublication.map((item, index) => (
                 <div className='pub__relative' key={index}>
                   <img src={item?.supports[0]?.downloadUrl} alt='header' />
                   <PublicationDetaill data={item} />
                 </div>
-              ))} */}
+              ))}
             </div>
           </div>
           {/* styling the migration section */}

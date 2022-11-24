@@ -31,13 +31,13 @@ function PublicationByCategory(props) {
   return (
     <div>
       <div className='archieve__header'>
-        <h2>{category.titleFR}</h2>
+        <h2>{category.descriptionFR}</h2>
         <div className='satestique__bar'></div>
       </div>
       <div className='manification__images'>
         {data.map((item) => renderItem(item))}
       </div>
-      <Link to={`/detaill/${category._id}`}>
+      <Link to={`/detaill/category/${category._id}`}>
         <div className='plus__button'>Voir plus</div>
       </Link>
     </div>

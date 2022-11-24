@@ -95,38 +95,6 @@ const publicationListActions = {
       }
     },
 
-  doSearch:
-    (filter?, rawFilter?, keepPagination = false) =>
-    async (dispatch, getState) => {
-      try {
-        dispatch({
-          type: publicationListActions.FETCH_STARTED,
-          payload: { filter, rawFilter, keepPagination },
-        });
-
-        const response = await PublicationService.search(
-          filter,
-          selectors.selectOrderBy(getState()),
-          selectors.selectLimit(getState()),
-          selectors.selectOffset(getState())
-        );
-
-        dispatch({
-          type: publicationListActions.FETCH_SUCCESS,
-          payload: {
-            rows: response.rows,
-            count: response.count,
-          },
-        });
-      } catch (error) {
-        Errors.handle(error);
-
-        dispatch({
-          type: publicationListActions.FETCH_ERROR,
-        });
-      }
-    },
-
   allpublicationbythematique: () => async (dispatch, getState) => {
     try {
       dispatch({
