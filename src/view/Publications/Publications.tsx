@@ -24,10 +24,14 @@ function Publications() {
   const rowsPublicationByThematique = useSelector(
     selectorsPublication.selectPublicationByThematiqueRows
   );
-
+  const lodingThematique = useSelector(
+    selectorsPublication.selectloadingpublicationbythematique
+  );
   const rowsPublication = useSelector(selectorsPublication.selectRows);
+  const loadingPublication = useSelector(selectorsPublication.selectLoading);
   const loadingByCategory = useSelector(selectorsPublication.loadingByCategory);
   const rowsCategory = useSelector(selectorsPublication.slectByCategory);
+  const loading = loadingByCategory || lodingThematique || loadingPublication;
   return (
     <>
       <div className='publication__page'>
@@ -41,100 +45,56 @@ function Publications() {
             [i18n("entities.publication.label")],
           ]}
         />
-
-        <div className='app__category'>
-          <div className='category__title'>Catégorie</div>
-          <div className='category__list'>
-            {rowsCategory.map((item, index) => (
-              <PublicationCategory rows={item.cat[0]} index={index} />
-            ))}
-          </div>
-        </div>
-
-        <div className='app__pub'>
-          <div className='publication__header'>
-            <div className='image__pub'>
-              {rowsPublication.map((item, index) => (
-                <div className='pub__relative' key={index}>
-                  <img src={item?.supports[0]?.downloadUrl} alt='header' />
-                  <PublicationDetaill data={item} />
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* styling the migration section */}
-          {rowsPublicationByThematique.map((item, index) => (
-            <PublicationDetaillByThematique
-              data={item.data}
-              thematique={item.cat[0]}
-              index={index}
-            />
-          ))}
-          {/* stlyling the pollution */}
-
-          <div className='app__articles'>
-            <div className='articles__top'>
-              <div className='__top'>
-                {rowsCategory.map((item, index) => (
-                  <PublicationByCategory
-                    data={item.data}
-                    category={item.cat[0]}
-                    index={index}
-                  />
-                ))}
+        {loading && <h3 className='detaill__sketlon'>Loading ... </h3>}
+        {!loading && (
+          <>
+            <div className='app__category'>
+              <div className='category__title'>Catégorie</div>
+              <div className='category__list'>
+                {!loadingByCategory &&
+                  rowsCategory.map((item, index) => (
+                    <PublicationCategory rows={item.cat[0]} index={index} />
+                  ))}
               </div>
-              {/* <div className='app__rapports'>
-                <div className='archieve__header'>
-                  <h2>Rapport</h2>
-                  <div className='satestique__bar'></div>
-                </div>
-                <div className='rapport__detaill'>
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Rapport </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div className='detaill__content ' style={{ width: 233 }}>
-                      Végétation dans le mont Bargou : Ressources naturelles et
-                      pilier...
-                    </div>
-                  </div>
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Rapport </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div className='detaill__content ' style={{ width: 233 }}>
-                      Végétation dans le mont Bargou : Ressources naturelles et
-                      pilier...
-                    </div>
-                  </div>
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Rapport </p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div className='detaill__content ' style={{ width: 233 }}>
-                      Végétation dans le mont Bargou : Ressources naturelles et
-                      pilier...
-                    </div>
-                  </div>
-                </div>
-                <Link to='/detaill'>
-                  <div className='plus__button'>Voir plus</div>
-                </Link>
-              </div> */}
             </div>
-          </div>
+            <div className='app__pub'>
+              <div className='publication__header'>
+                <div className='image__pub'>
+                  {rowsPublication.map((item, index) => (
+                    <div className='pub__relative' key={index}>
+                      <img src={item?.supports[0]?.downloadUrl} alt='header' />
+                      <PublicationDetaill data={item} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* styling the migration section */}
+              {lodingThematique && <h3>Loading ... </h3>}
+              {rowsPublicationByThematique.map((item, index) => (
+                <PublicationDetaillByThematique
+                  data={item.data}
+                  thematique={item.cat[0]}
+                  index={index}
+                />
+              ))}
+              {/* stlyling the pollution */}
 
-          {/* styling the category */}
-        </div>
+              <div className='app__articles'>
+                <div className='articles__top'>
+                  <div className='__top'>
+                    {rowsCategory.map((item, index) => (
+                      <PublicationByCategory
+                        data={item.data}
+                        category={item.cat[0]}
+                        index={index}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

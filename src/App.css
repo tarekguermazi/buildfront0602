@@ -4015,3 +4015,12 @@ button.splide__arrow--prev {
     overflow: scroll;
   }
 }
+
+.detaill__sketlon {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 30px;
+  margin: auto;
+  max-width: 1170px;
+}

@@ -9,6 +9,7 @@ import actions from "src/modules/publication/list/publicationListActions";
 import selectors from "src/modules/publication/list/publicationListSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import Translate from "../Translate";
+import Skeletons from "../Skeletons";
 
 function Detaill() {
   const match = useRouteMatch();
@@ -36,8 +37,7 @@ function Detaill() {
 
   return (
     <div className='app__detaill'>
-      {!rows && <h1> No rows</h1>}
-      {loading && <h1> Loading</h1>}
+      {loading && <h3 className='detaill__sketlon'>Loading .... </h3>}
       {!loading && rows && (
         <>
           {
