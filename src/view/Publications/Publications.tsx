@@ -5,8 +5,7 @@ import { i18n } from "../../i18n";
 import Image from "src/view/shared/Image";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "src/modules/categoryPublication/list/categoryPublicationListActions";
-import selectors from "src/modules/categoryPublication/list/categoryPublicationListSelectors";
+
 import actionsPublication from "src/modules/publication/list/publicationListActions";
 import selectorsPublication from "src/modules/publication/list/publicationListSelectors";
 import PublicationCategory from "./list/PublicationCategory";
@@ -16,14 +15,12 @@ import PublicationByCategory from "./list/PublicationByCategory";
 function Publications() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(actions.doFetch());
     dispatch(actionsPublication.allpublicationbythematique());
     dispatch(actionsPublication.allpublicationbyCategory());
     dispatch(actionsPublication.doFetch());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const rows = useSelector(selectors.selectRows);
   const rowsPublicationByThematique = useSelector(
     selectorsPublication.selectPublicationByThematiqueRows
   );
@@ -45,7 +42,14 @@ function Publications() {
           ]}
         />
 
-        <PublicationCategory rows={rows} />
+        <div className='app__category'>
+          <div className='category__title'>Catégorie</div>
+          <div className='category__list'>
+            {rowsCategory.map((item, index) => (
+              <PublicationCategory rows={item.cat[0]} index={index} />
+            ))}
+          </div>
+        </div>
 
         <div className='app__pub'>
           <div className='publication__header'>
@@ -79,7 +83,7 @@ function Publications() {
                   />
                 ))}
               </div>
-              <div className='app__rapports'>
+              {/* <div className='app__rapports'>
                 <div className='archieve__header'>
                   <h2>Rapport</h2>
                   <div className='satestique__bar'></div>
@@ -125,7 +129,7 @@ function Publications() {
                 <Link to='/detaill'>
                   <div className='plus__button'>Voir plus</div>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
 
