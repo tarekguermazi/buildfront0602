@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Communique,
   Etudes,
@@ -12,7 +12,9 @@ import { i18n } from "../../i18n";
 import Breadcrumb from "../shared/Breadcrumb";
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import SearchService from "src/modules/Search/SearchService";
+import Skeleton from 'react-loading-skeleton';
+import "react-loading-skeleton/dist/skeleton.css";
 
 function Archives() {
 
@@ -33,6 +35,23 @@ function Archives() {
     ARCHIVE_SEARCH_STRING: archiveSearchString,
     ARCHIVE_FILTER: archiveFilter
   };
+
+  // DYNAMIC CATEGORY LIST
+  const [categoriesList, setCategoriesList] = useState<any[]>([]);
+  const [categoriesListIsLoading, setCategoriesListIsLoading] = useState(true);
+  const getCategoriesList = () => {
+    SearchService.getCategoriesList()
+      .then(res => {
+        setCategoriesListIsLoading(true);
+        setCategoriesList(categoriesList => categoriesList.concat(res));
+        setCategoriesListIsLoading(false);
+      })
+      .catch(err => { console.error(err) });
+  };
+
+  useEffect(() => {
+    getCategoriesList();
+  }, [])
 
 
   return (
@@ -82,94 +101,53 @@ function Archives() {
                 <div className='search__advanced'>Recherche avancée</div>
               </div>
               <FilterLayout onChange={handleRadioChange}>
-                {/* ETUDE */}
-                <label className="filterArchiveContianer" htmlFor="etude">
-                  <input type="radio" name="archiveFilter" value="etude" id="etude" />
-                  <div className="contentContainer">
-                    <div>
-                      <img className='lazyload' src={Etudes} alt='Etudes Icon' />
-                    </div>
-                    <div>
-                      <h4>études</h4>
-                    </div>
-                  </div>
-                </label>
-                {/* RAPPORT */}
-                <label className="filterArchiveContianer" htmlFor="rapport">
-                  <input type="radio" name="archiveFilter" value="rapport" id="rapport" />
-                  <div className="contentContainer">
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={rapport}
-                        alt='Rapport ICon'
-                      />
-                    </div>
-                    <div>
-                      <h4>Rapports</h4>
-                    </div>
-                  </div>
-                </label>
-                {/* INVIRATION */}
-                <label className="filterArchiveContianer" htmlFor="invitatino">
-                  <input type="radio" name="archiveFilter" value="invitatino" id="invitatino" />
-                  <div className="contentContainer">
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={invitation}
-                        alt='invitation ICon'
-                      />
-                    </div>
-                    <div>
-                      <h4>Invitations</h4>
-                    </div>
-                  </div>
-                </label>
-                {/* COMMUNIQUES */}
-                <label className="filterArchiveContianer" htmlFor="communique">
-                  <input type="radio" name="archiveFilter" value="communique" id="communique" />
-                  <div className="contentContainer">
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={Communique}
-                        alt='Communique Png'
-                      />
-                    </div>
-                    <div>
-                      <h4>Communiqués</h4>
-                    </div>
-                  </div>
-                </label>
-                {/* PETITION */}
-                <label className="filterArchiveContianer" htmlFor="petition">
-                  <input type="radio" name="archiveFilter" value="petition" id="petition" />
-                  <div className="contentContainer">
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={petition}
-                        alt='Petition Icon'
-                      />
-                    </div>
-                    <div>
-                      <h4>Pétitions</h4>
-                    </div>
-                  </div>
-                </label>
-                {/* POSTERS */}
-                <label className="filterArchiveContianer" htmlFor="poster">
-                  <input type="radio" name="archiveFilter" value="poster" id="poster" />
-                  <div className="contentContainer">
-                    <div>
-                      <img className='lazyload' src={Poster} alt='Poster Icon' />
-                    </div>
-                    <div>
-                      <h4>Posters</h4>
-                    </div>
-                  </div>
-                </label>
+                {
+                  (categoriesListIsLoading === false) &&
+                  <>
+                    <label className="filterArchiveContianer" htmlFor="all">
+                      <input type="radio" name="archiveFilter" value="autre" id="all" />
+                      <div className="contentContainer">
+                        <div>
+                          <img className='lazyload' src={Etudes} alt='Etudes Icon' />
+                        </div>
+                        <div>
+                          <h4>Tous</h4>
+                        </div>
+                      </div>
+                    </label>
+                    {
+                      (categoriesList.length >= 1) &&
+                      <>
+                        {
+                          categoriesList[0]['rows'].map((category: any) => {
+                            return (
+                              <label className="filterArchiveContianer" htmlFor={category._id} key={category._id}>
+                                <input type="radio" name="archiveFilter" value="etude" id={category._id} />
+                                <div className="contentContainer">
+                                  <div>
+                                    <img className='lazyload' src={Etudes} alt='Etudes Icon' />
+                                  </div>
+                                  <div>
+                                    <h4>{category.titleFR}</h4>
+                                  </div>
+                                </div>
+                              </label>
+                            )
+                          })
+                        }
+                      </>
+                    }
+                  </>
+                }
+                {/* LOADING ... */}
+                {
+                  (categoriesListIsLoading === true) &&
+                  <>
+                    {[...Array(5)].map((x, i) =>
+                      <Skeleton key={i} height={172} width={275} />
+                    )}
+                  </>
+                }
               </FilterLayout>
             </div>
           </div>
