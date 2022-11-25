@@ -312,7 +312,7 @@ function Home() {
             <div className='header__bar' />
           </div>
           <div className='archieve__content'>
-            <div className='archieve__left'>
+            {/* <div className='archieve__left'>
               <div className='left__search'>
                 <input type='text' placeholder='Rechercher dans l’archive...' />
                 <div className='button__search'>
@@ -404,7 +404,8 @@ function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <span>HI THERE</span>
           </div>
         </div>
       </div>
