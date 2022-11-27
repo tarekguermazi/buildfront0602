@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import SearchService from 'src/modules/Search/SearchService';
 import { SearchContext } from '../SearchContext';
@@ -15,9 +15,7 @@ export default function SearchResults() {
     const {
         setIsLoading,
         SRP, setSRP,
-        searchString,
-        currentPageIndex, setcurrentPageIndex,
-        numberOfPostsPerPage
+        searchString
     } = useContext(SearchContext);
 
     // HANDLING SUB FILTER (date / name)

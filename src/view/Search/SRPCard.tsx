@@ -5,14 +5,15 @@ import parse from 'html-react-parser';
 import moment from 'moment';
 
 export default function SRPCard({ _id, date, content, thumbnail }) {
-
     const formattedDate = moment(date).format('l');
+    console.log('USING THIS ID ::::: ', JSON.stringify(_id), typeof (JSON.stringify(_id)));
 
     return (
         <CardLayout>
             <div className='cardDate'>{formattedDate}</div>
             <div className='cardContent'>
-                <Link to={'/publication/' + _id}><strong>TITLE HERE</strong></Link>
+                <strong>TITLE HERE</strong>
+                {/* <Link to={'/publication/' + _id.toString()}><strong>TITLE HERE</strong></Link> */}
                 {parse(content)}
             </div>
             <div className='cardImage' style={{ backgroundImage: "url(" + thumbnail + ")" }}></div>

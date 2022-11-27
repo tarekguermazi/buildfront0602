@@ -9,12 +9,25 @@ import SearchService from 'src/modules/Search/SearchService';
 export default function SearchFilter() {
 
     // GLOBAL STATE
-    const { setpublicationFilter } = useContext(SearchContext);
+    const {
+        setSRP,
+        setIsLoading, searchString,
+        publicationFilter, setpublicationFilter
+    } = useContext(SearchContext);
+
     const handleFilterValueChange = event => {
         if (event.target.value === 'autre')
             setpublicationFilter('');
         else
             setpublicationFilter(event.target.value);
+
+        setSRP([]);
+        setIsLoading(true);
+        SearchService.searchUsingMainCatefories(searchString, publicationFilter, 0)
+            .then(res => {
+                setSRP(SRP => SRP.concat(res));
+                setIsLoading(false);
+            })
     }
 
     // DYNAMIC CATEGORY LIST
@@ -50,7 +63,7 @@ export default function SearchFilter() {
                                 categoriesList[0]['rows'].map((category: any) => {
                                     return (
                                         <label htmlFor={category._id} key={category._id}>
-                                            <input type="radio" name="filterCat" value="autre" id={category._id} />
+                                            <input type="radio" name="filterCat" value={category.titleFR} id={category._id} />
                                             <span>{category.titleFR}</span>
                                         </label>
                                     )
