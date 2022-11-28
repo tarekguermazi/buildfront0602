@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const FilterStyles = styled.section`
-  width: 600px;
+  max-width: 1170px;
   margin: 2rem 0;
   font-size: 1rem;
   background-color: #F1F1F1;
