@@ -32,6 +32,18 @@ export default class SearchService {
         return response.data;
     }
 
+    // SAERCH BASED ON CATEGORIES (REVERSE LOGIC)
+    static async searchUsingMainCatefories(SEARCH_STRING, categoryName, OFFSET) {
+        const tenantId = AuthCurrentTenant.get();
+        const response = await authAxios.get(`/tenant/${tenantId}/category-publication?filter[titleFR]=${categoryName}`);
+        const publicationsOfSelectedCategory = response.data.rows[0]?.publications;
+        const finalResponseOBject = {
+            rows: publicationsOfSelectedCategory ?? [],
+            count: publicationsOfSelectedCategory?.length ?? 0
+        }
+        return finalResponseOBject;
+    }
+
     // ARCHIVE SEARCH
     static async getSearchResultsForArchiveBasedOnSearchString(SEARCH_STRING, FILTER_STRING, OFFSET) {
         const tenantId = AuthCurrentTenant.get();

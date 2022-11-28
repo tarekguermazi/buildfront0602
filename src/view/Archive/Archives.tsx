@@ -1,12 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {
-  Communique,
-  Etudes,
-  rapport,
-  search__archeive,
-  petition,
-  Poster,
-} from "src/assets/images";
+import { Etudes, search__archeive } from "src/assets/images";
 import { i18n } from "../../i18n";
 import Breadcrumb from "../shared/Breadcrumb";
 import { Link } from "react-router-dom";

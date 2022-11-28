@@ -10,7 +10,6 @@ import { BsBox } from 'react-icons/bs'
 
 
 export default function SRPTable({ currentPostsToShow }) {
-
     // GLOBAL STATE
     const { isLoading } = useContext(SearchContext);
 
@@ -19,10 +18,13 @@ export default function SRPTable({ currentPostsToShow }) {
         const acceptableExtions = 'png, jpg, jpeg, gif';
         let fakeUrl = "https://via.placeholder.com/270x175";
         attachmentsArray.forEach(att => {
-            const urlExtension = att.downloadUrl.substring((att.downloadUrl.lastIndexOf('.') + 1), att.downloadUrl.length);
-            if (acceptableExtions.includes(urlExtension)) {
-                fakeUrl = att.downloadUrl;
-            }
+            if (att.downloadUrl)
+                if (att.downloadUrl.length >= 1) {
+                    const urlExtension = att.downloadUrl.substring((att.downloadUrl.lastIndexOf('.') + 1), att.downloadUrl.length);
+                    if (acceptableExtions.includes(urlExtension)) {
+                        fakeUrl = att.downloadUrl;
+                    }
+                }
         })
         return fakeUrl;
     }
@@ -53,9 +55,9 @@ export default function SRPTable({ currentPostsToShow }) {
                                                 return (
                                                     <SRPCard
                                                         key={index}
-                                                        _id={searchResult._id}
-                                                        date={searchResult.createdAt}
-                                                        content={searchResult.descriptionFR}
+                                                        _id={searchResult['_id'] ?? 0}
+                                                        date={searchResult['createdAt']}
+                                                        content={searchResult['descriptionFR'] ?? 'N.A'}
                                                         thumbnail={thumbnail}
                                                     />
                                                 )
