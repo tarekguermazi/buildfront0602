@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 // SERVICES
 import GlossaireService from 'src/modules/Glossaire/GlossaireService';
+// ICONS
+import { MdArrowBack } from 'react-icons/md';
 
 
 export default function ShowGlossaire() {
@@ -31,6 +34,16 @@ export default function ShowGlossaire() {
                     (glossaire)
                     &&
                     <>
+                        <ShowOneGlosaireBackButtonLayout>
+                            <Link
+                                className="link"
+                                to={'/glossaire'}
+                            >
+                                <MdArrowBack />
+                                Retour
+                            </Link>
+                        </ShowOneGlosaireBackButtonLayout>
+
                         <ShowOneGlosaireHeaderLayout>
                             {glossaire['nomFR'] ?? "N.A"}
                             <div className='label'>{glossaire["categorie"]?.titleFR ?? "N.A"}</div>
@@ -54,7 +67,23 @@ const ShowOneGlosaireLayout = styled.section`
     font-style: normal;
 `;
 
+const ShowOneGlosaireBackButtonLayout = styled.section`
+    width: 70px;
+    font-size: 1rem;
+    color: var(--violet);
+    
+    .link{
+        text-decoration: none;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+`;
+
 const ShowOneGlosaireHeaderLayout = styled.section`
+    margin-top: 2rem;
     width: 100%;
     font-size: 2.1rem;
     font-weight: 700;
