@@ -4,8 +4,8 @@ import { getLanguageCode } from "src/i18n";
 import moment from "moment";
 import Qs from "qs";
 const authAxios = axios.create({
-  // baseURL: "http://localhost:8080/api",
-  baseURL: "http://178.79.177.14:8080/api",
+  baseURL: "http://localhost:8080/api",
+  // baseURL: "http://178.79.177.14:8080/api",
   paramsSerializer: function (params) {
     return Qs.stringify(params, {
       arrayFormat: "brackets",
