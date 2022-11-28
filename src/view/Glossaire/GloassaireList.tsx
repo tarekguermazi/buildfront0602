@@ -1,10 +1,7 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import GlossaireSection from "./styles/GlossaireSection";
 import _ from "lodash";
-// MODAL
-import Modal from "react-modal";
-import ModalHeader from "./Modal/ModalHeader";
-import ModalLabel from "./Modal/ModalLabel";
 
 // PACKAGES
 var arraySort = require("array-sort");
@@ -32,33 +29,6 @@ export default function GloassaireList({ data, criteria }) {
 
   // ### CATEGORY TAB LOGIC ###
   const categoriesList: any = Object.keys(data);
-  const [isShowing, setIsShowing] = useState(false);
-
-  Modal.setAppElement("#root");
-  const [modalData, setModalData] = useState([
-    { nomFR: "", definitionFR: "", categorie: { titleFR: "" } },
-  ]);
-  const [modalDataLetter, setModalDataLetter] = useState([
-    { data: { nomFR: "", definitionFR: "", categorie: { titleFR: "" } } },
-  ]);
-  const handleClick = (CAT, ID) => {
-    setIsShowing(true);
-    if (criteria === "category") {
-      const modalData = data[CAT].filter((glossaireObject) => {
-        return glossaireObject.id === ID;
-      });
-      if (modalData.length > 0) {
-        setModalData(modalData);
-      }
-    } else {
-      const modalDataLetter = arrayOfData[CAT].filter((glossaireObject) => {
-        return glossaireObject.data._id === ID;
-      });
-      if (modalDataLetter.length > 0) {
-        setModalDataLetter(modalDataLetter);
-      }
-    }
-  };
 
   return (
     <div>
@@ -79,38 +49,9 @@ export default function GloassaireList({ data, criteria }) {
                       {glossList.map((GLOSS) => {
                         return (
                           <section key={GLOSS.id}>
-                            <button
-                              className='glossaireLink'
-                              onClick={() => handleClick(CAT, GLOSS.id)}>
+                            <Link className='glossaireLink' to={'/Glossaire/' + GLOSS.id}>
                               {GLOSS.nomFR}
-                            </button>
-
-                            <Modal
-                              isOpen={isShowing}
-                              onRequestClose={() => setIsShowing(false)}
-                              style={{
-                                overlay: {
-                                  backgroundColor: "rgba(43, 40, 64, 0.5)",
-                                },
-                                content: {
-                                  width: "700px",
-                                  height: "500px",
-                                  margin: "auto",
-                                  padding: "3.5rem",
-                                  fontFamily: "Proxima Nova",
-                                  textAlign: "justify",
-                                  color: "var(--violet)",
-                                },
-                              }}>
-                              <ModalHeader
-                                title={modalData[0]["nomFR"]}
-                                setIsShowing={setIsShowing}
-                              />
-                              <ModalLabel
-                                label={modalData[0]["categorie"].titleFR}
-                              />
-                              <p>{modalData[0]["definitionFR"]}</p>
-                            </Modal>
+                            </Link>
                           </section>
                         );
                       })}
@@ -141,45 +82,9 @@ export default function GloassaireList({ data, criteria }) {
                       {glossList.map((ENTRY) => {
                         return (
                           <section key={ENTRY.data.id}>
-                            <button
-                              className='glossaireLink'
-                              onClick={() =>
-                                handleClick(GLOSSAIREINITIAL, ENTRY.data.id)
-                              }>
+                            <Link className='glossaireLink' to={'/Glossaire/' + ENTRY.data.id}>
                               {ENTRY.data.nomFR}
-                            </button>
-
-                            <Modal
-                              isOpen={isShowing}
-                              onRequestClose={() => setIsShowing(false)}
-                              style={{
-                                overlay: {
-                                  backgroundColor: "rgba(43, 40, 64, 0.5)",
-                                },
-                                content: {
-                                  width: "700px",
-                                  height: "500px",
-                                  margin: "auto",
-                                  padding: "3.5rem",
-                                  fontFamily: "Proxima Nova",
-                                  textAlign: "justify",
-                                  color: "var(--violet)",
-                                },
-                              }}>
-                              <ModalHeader
-                                title={modalDataLetter[0]["data"]["nomFR"]}
-                                setIsShowing={setIsShowing}
-                              />
-                              <ModalLabel
-                                label={
-                                  modalDataLetter[0]["data"]["categorie"]
-                                    .titleFR
-                                }
-                              />
-                              <p>
-                                {modalDataLetter[0]["data"]["definitionFR"]}
-                              </p>
-                            </Modal>
+                            </Link>
                           </section>
                         );
                       })}

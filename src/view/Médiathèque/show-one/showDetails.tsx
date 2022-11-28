@@ -98,4 +98,5 @@ const MainLayout = styled.section`
     @media (max-width: 767px){
         width: 100%; 
     }
+  }
 `;
