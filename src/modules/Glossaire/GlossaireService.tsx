@@ -13,4 +13,10 @@ export default class GlossaireService {
         const response = await authAxios.get(`/tenant/${tenantId}/glossaire`, {});
         return response.data;
     }
+    // GET ONE
+    static async getOneGloassaire(GLOSSAIRE_ID) {
+        const tenantId = AuthCurrentTenant.get();
+        const response = await authAxios.get(`/tenant/${tenantId}/glossaire/${GLOSSAIRE_ID}`);
+        return response.data;
+    }
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from 'styled-components';
 import GlossaireService from "src/modules/Glossaire/GlossaireService";
 
 // COMPONENTS
@@ -33,34 +34,40 @@ function Glossaire() {
 
   return (
     <>
-      <div className='app__contenu'>
-        <section className='contenu'>
-          <Header />
-          <Filter setGroupByCategory={setGroupByCategory} />
-          {isLoading ? (
-            <LoadingData />
-          ) : (
-            <section>
-              {!glossaireList.length ? (
-                <NoDataFound />
-              ) : (
-                <>
-                  {groupByCategory ? (
-                    <GloassaireList
-                      data={groupArray(glossaireList, "categorie.titleFR")}
-                      criteria='category'
-                    />
-                  ) : (
-                    <GloassaireList data={glossaireList} criteria='letter' />
-                  )}
-                </>
-              )}
-            </section>
-          )}
-        </section>
-      </div>
+      <GlossaireLayout>
+        <Header />
+        <Filter setGroupByCategory={setGroupByCategory} />
+        {isLoading ? (
+          <LoadingData />
+        ) : (
+          <section>
+            {!glossaireList.length ? (
+              <NoDataFound />
+            ) : (
+              <>
+                {groupByCategory ? (
+                  <GloassaireList
+                    data={groupArray(glossaireList, "categorie.titleFR")}
+                    criteria='category'
+                  />
+                ) : (
+                  <GloassaireList data={glossaireList} criteria='letter' />
+                )}
+              </>
+            )}
+          </section>
+        )}
+      </GlossaireLayout>
     </>
   );
 }
 
 export default Glossaire;
+
+const GlossaireLayout = styled.section`
+  max-width: 1170px;
+  margin: 2rem auto;
+
+  font-family: "Proxima Nova";
+  font-style: normal;
+`;

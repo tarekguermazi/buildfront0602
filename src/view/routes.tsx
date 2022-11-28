@@ -14,6 +14,7 @@ const navigateRoutes = [
   },
   { path: "/Archives", loader: () => import("src/view/Archive/Archives") },
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
+  { path: "/Glossaire/:id", loader: () => import("src/view/Glossaire/ShowOne/ShowGlossaire") },
   {
     path: "/Evenements",
     loader: () => import("src/view/Evenements/Evenements"),
