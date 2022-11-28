@@ -3881,13 +3881,7 @@ button.splide__arrow--prev {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-<<<<<<< HEAD
-  justify-content: space-between;
-  column-gap: 39px;
-  max-width: 370px;
-=======
   column-gap: 30px;
->>>>>>> 0006910 (styling the publiction)
 }
 
 /*        styling the articles + manifestation + évènement +Rapports      */
