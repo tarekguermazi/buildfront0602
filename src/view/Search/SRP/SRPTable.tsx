@@ -10,7 +10,6 @@ import { BsBox } from 'react-icons/bs'
 
 
 export default function SRPTable({ currentPostsToShow }) {
-
     // GLOBAL STATE
     const { isLoading } = useContext(SearchContext);
 
@@ -49,6 +48,8 @@ export default function SRPTable({ currentPostsToShow }) {
                                     <section>
                                         {
                                             currentPostsToShow.map((searchResult, index) => {
+                                                console.log("SEARCH RESULT INSIDE MAP :: ", searchResult);
+
                                                 let thumbnail: any;
                                                 if (searchResult.supports.length >= 1) {
                                                     thumbnail = getValidThumbnail(searchResult.supports);
@@ -56,9 +57,9 @@ export default function SRPTable({ currentPostsToShow }) {
                                                 return (
                                                     <SRPCard
                                                         key={index}
-                                                        _id={searchResult._id}
-                                                        date={searchResult.createdAt}
-                                                        content={searchResult.descriptionFR}
+                                                        _id={searchResult['_id'] ?? 0}
+                                                        date={searchResult['createdAt']}
+                                                        content={searchResult['descriptionFR'] ?? 'N.A'}
                                                         thumbnail={thumbnail}
                                                     />
                                                 )

@@ -33,9 +33,9 @@ export default class SearchService {
     }
 
     // SAERCH BASED ON CATEGORIES (REVERSE LOGIC)
-    static async searchUsingMainCatefories(SEARCH_STRING, publicationFilter, OFFSET) {
+    static async searchUsingMainCatefories(SEARCH_STRING, categoryName, OFFSET) {
         const tenantId = AuthCurrentTenant.get();
-        const response = await authAxios.get(`/tenant/${tenantId}/category-publication?filter[titleFR]=${publicationFilter}`);
+        const response = await authAxios.get(`/tenant/${tenantId}/category-publication?filter[titleFR]=${categoryName}`);
         const publicationsOfSelectedCategory = response.data.rows[0]?.publications;
         const finalResponseOBject = {
             rows: publicationsOfSelectedCategory ?? [],

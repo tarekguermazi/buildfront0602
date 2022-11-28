@@ -10,21 +10,24 @@ export default function SearchFilter() {
 
     // GLOBAL STATE
     const {
-        setSRP,
+        SRP, setSRP,
         setIsLoading, searchString,
-        publicationFilter, setpublicationFilter
+        publicationFilter, setpublicationFilter,
+        setcurrentPageIndex
     } = useContext(SearchContext);
 
     const handleFilterValueChange = event => {
-        if (event.target.value === 'autre')
+        const filer_string = event.target.value;
+        if (filer_string === 'autre')
             setpublicationFilter('');
         else
-            setpublicationFilter(event.target.value);
+            setpublicationFilter(filer_string);
 
-        setSRP([]);
         setIsLoading(true);
-        SearchService.searchUsingMainCatefories(searchString, publicationFilter, 0)
+        setSRP([]);
+        SearchService.searchUsingMainCatefories(searchString, filer_string, 0)
             .then(res => {
+                setcurrentPageIndex(0);
                 setSRP(SRP => SRP.concat(res));
                 setIsLoading(false);
             })

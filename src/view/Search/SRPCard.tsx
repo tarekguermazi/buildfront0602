@@ -6,8 +6,6 @@ import moment from 'moment';
 
 export default function SRPCard({ _id, date, content, thumbnail }) {
     const formattedDate = moment(date).format('l');
-    console.log('USING THIS ID ::::: ', JSON.stringify(_id), typeof (JSON.stringify(_id)));
-
     return (
         <CardLayout>
             <div className='cardDate'>{formattedDate}</div>
