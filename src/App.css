@@ -3107,7 +3107,7 @@ styling the newsLettre */
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
-  color: var(--gray4);
+  color: var(--gray5);
   width: 100%;
 }
 
@@ -3184,7 +3184,7 @@ ul.nav > li {
   font-size: 23px;
   line-height: 26px;
   padding-bottom: 21px;
-  color: var(--gray4);
+  color: var(--gray5);
 }
 
 .active__li__tabs {
@@ -3875,7 +3875,7 @@ button.splide__arrow--prev {
 .image__pub > div:nth-child(1) > img {
   width: 570px;
   height: 390px;
-  object-fit: cover;
+  object-fit: fill;
 }
 .image__pub > div:nth-child(2) {
   grid-column: 2;
@@ -3884,7 +3884,7 @@ button.splide__arrow--prev {
 .image__pub > div:nth-child(2) > img {
   width: 269px;
   height: 390px;
-  object-fit: cover;
+  object-fit: fill;
 }
 .image__pub > div:nth-child(3) {
   grid-column: 3;
@@ -3894,7 +3894,7 @@ button.splide__arrow--prev {
 .image__pub > div:nth-child(3) > img {
   width: 272px;
   height: 182px;
-  object-fit: cover;
+  object-fit: fill;
 }
 .image__pub > div:nth-child(4) {
   grid-column: 3;
@@ -3903,7 +3903,7 @@ button.splide__arrow--prev {
 .image__pub > div:nth-child(4) > img {
   width: 272px;
   height: 182px;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .pub__relative {
@@ -4031,8 +4031,11 @@ button.splide__arrow--prev {
 
 .category__list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
   padding-top: 56px;
+  flex-wrap: wrap;
 }
 
 .category__list > div {

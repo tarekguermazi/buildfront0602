@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "../../shared/Image";
 import { Link } from "react-router-dom";
+import Date from "../../shared/Date";
 function PublicationDetaillByThematique(props) {
   const { data, index, thematique } = props;
 
@@ -18,11 +19,11 @@ function PublicationDetaillByThematique(props) {
             <div className='header__left'>
               <p>Migration </p>
             </div>
-            <div className='header__right'>10h32</div>
+            <div className='header__right'>
+              {Date.HourMinute(data.updatedAt)}
+            </div>
           </div>
-          <div className='detaill__content'>
-            Immigration clandestine : Le FTDS critique l'approche de l'Etat
-          </div>
+          <div className='detaill__content'>{item.title}</div>
         </div>
       </div>
     );
