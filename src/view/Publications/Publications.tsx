@@ -53,7 +53,7 @@ function Publications() {
               <div className='category__list'>
                 {!loadingByCategory &&
                   rowsCategory.map((item, index) => (
-                    <PublicationCategory rows={item.cat[0]} index={index} />
+                    <PublicationCategory rows={item?.cat[0]} index={index} />
                   ))}
               </div>
             </div>
@@ -72,8 +72,8 @@ function Publications() {
               {lodingThematique && <h3>Loading ... </h3>}
               {rowsPublicationByThematique.map((item, index) => (
                 <PublicationDetaillByThematique
-                  data={item.data}
-                  thematique={item.cat[0]}
+                  data={item?.data}
+                  thematique={item?.cat[0]}
                   index={index}
                 />
               ))}
@@ -84,8 +84,8 @@ function Publications() {
                   <div className='__top'>
                     {rowsCategory.map((item, index) => (
                       <PublicationByCategory
-                        data={item.data}
-                        category={item.cat[0]}
+                        data={item?.data}
+                        category={item?.cat[0]}
                         index={index}
                       />
                     ))}
