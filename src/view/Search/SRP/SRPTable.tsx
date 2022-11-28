@@ -48,8 +48,6 @@ export default function SRPTable({ currentPostsToShow }) {
                                     <section>
                                         {
                                             currentPostsToShow.map((searchResult, index) => {
-                                                console.log("SEARCH RESULT INSIDE MAP :: ", searchResult);
-
                                                 let thumbnail: any;
                                                 if (searchResult.supports.length >= 1) {
                                                     thumbnail = getValidThumbnail(searchResult.supports);
