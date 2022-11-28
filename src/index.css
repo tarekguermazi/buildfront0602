@@ -135,3 +135,7 @@ button {
   border: 0;
   cursor: pointer;
 }
+
+.lazy-load-image-background.blur.lazy-load-image-loaded > img {
+  object-fit: cover !important;
+}

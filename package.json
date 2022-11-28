@@ -27,6 +27,7 @@
     "lightgallery": "^2.7.0",
     "lodash": "^4.17.20",
     "md5": "2.3.0",
+    "moment": "^2.29.4",
     "nprogress": "0.2.0",
     "qs": "6.9.4",
     "query-string": "6.13.8",

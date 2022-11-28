@@ -1,4 +1,4 @@
-import actions from "src/modules/publication/list/publicationListActions";
+import actions from 'src/modules/evenement/list/evenementListActions';
 
 const INITIAL_PAGE_SIZE = 10;
 
@@ -6,9 +6,6 @@ const initialData = {
   rows: [],
   count: 0,
   loading: false,
-  loadingByCategory: false,
-  allbyCategory: [],
-  loadingpublicationbythematique: false,
   filter: {},
   rawFilter: {},
   pagination: {
@@ -17,7 +14,6 @@ const initialData = {
   },
   sorter: {},
   selectedKeys: [],
-  allbythematique: [],
 };
 
 export default (state = initialData, { type, payload }) => {
@@ -83,66 +79,6 @@ export default (state = initialData, { type, payload }) => {
       loading: false,
       rows: [],
       count: 0,
-    };
-  }
-
-  if (type === actions.FIND_THEMATIQUE_STARTED) {
-    return { ...state, loading: true };
-  }
-  if (type === actions.FIND_THEMATIQUE_SUCCESS) {
-    return { ...state, loading: false, rows: payload };
-  }
-  if (type === actions.FIND_THEMATIQUE_ERROR) {
-    return {
-      ...state,
-      loading: false,
-      rows: [],
-    };
-  }
-
-  if (type === actions.FETCH_STARTED_BY_CATEGORY) {
-    return {
-      ...state,
-      loadingpublicationbythematique: true,
-    };
-  }
-
-  if (type === actions.FETCH_SUCCESS_BY_CATEGORY) {
-    return {
-      ...state,
-      loadingByCategory: false,
-      allbyCategory: payload,
-    };
-  }
-
-  if (type === actions.FETCH_ERROR_BY_CATEGORY) {
-    return {
-      ...state,
-      loadingByCategory: false,
-      allbyCategory: [],
-    };
-  }
-
-  if (type === actions.FETCH_STARTED_ALL_PUBLICATION) {
-    return {
-      ...state,
-      loadingpublicationbythematique: true,
-    };
-  }
-
-  if (type === actions.FETCH_SUCCESS_ALL_PUBLICATION) {
-    return {
-      ...state,
-      loadingpublicationbythematique: false,
-      allbythematique: payload,
-    };
-  }
-
-  if (type === actions.FETCH_ERROR_ALL_PUBLICATION) {
-    return {
-      ...state,
-      loadingpublicationbythematique: false,
-      allbythematique: [],
     };
   }
 

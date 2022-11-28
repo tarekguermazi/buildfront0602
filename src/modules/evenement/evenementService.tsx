@@ -1,7 +1,7 @@
 import authAxios from "src/modules/shared/axios/authAxios";
 import AuthCurrentTenant from "src/modules/auth/authCurrentTenant";
 
-export default class PublicationService {
+export default class EvenementService {
   static async update(id, data) {
     const body = {
       id,
@@ -11,7 +11,7 @@ export default class PublicationService {
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.put(
-      `/tenant/${tenantId}/publication/${id}`,
+      `/tenant/${tenantId}/evenement/${id}`,
       body
     );
 
@@ -22,10 +22,13 @@ export default class PublicationService {
     const params = {
       ids,
     };
+
     const tenantId = AuthCurrentTenant.get();
-    const response = await authAxios.delete(`/tenant/${tenantId}/publication`, {
+
+    const response = await authAxios.delete(`/tenant/${tenantId}/evenement`, {
       params,
     });
+
     return response.data;
   }
 
@@ -37,7 +40,7 @@ export default class PublicationService {
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.post(
-      `/tenant/${tenantId}/publication`,
+      `/tenant/${tenantId}/evenement`,
       body
     );
 
@@ -53,7 +56,7 @@ export default class PublicationService {
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.post(
-      `/tenant/${tenantId}/publication/import`,
+      `/tenant/${tenantId}/evenement/import`,
       body
     );
 
@@ -63,86 +66,40 @@ export default class PublicationService {
   static async find(id) {
     const tenantId = AuthCurrentTenant.get();
 
-    const response = await authAxios.get(
-      `/tenant/${tenantId}/publication/${id}`
-    );
+    const response = await authAxios.get(`/tenant/${tenantId}/evenement/${id}`);
 
     return response.data;
   }
 
-  static async allpublicationbythematique() {
-    const tenantId = AuthCurrentTenant.get();
-
-    const response = await authAxios.get(
-      `/tenant/${tenantId}/allpublicationbyThematique`
-    );
-
-    return response.data;
-  }
-
-  static async allpublicationbyGroup() {
-    const tenantId = AuthCurrentTenant.get();
-
-    const response = await authAxios.get(
-      `/tenant/${tenantId}/allpublicationbycategory`
-    );
-
-    return response.data;
-  }
-
-  static async findbythematique(id) {
-    const tenantId = AuthCurrentTenant.get();
-
-    const response = await authAxios.get(
-      `/tenant/${tenantId}/publication/detaill/${id}`
-    );
-
-    return response.data;
-  }
-
-  static async findbygroup(id) {
-    const tenantId = AuthCurrentTenant.get();
-
-    const response = await authAxios.get(
-      `/tenant/${tenantId}/publication/group/detaill/${id}`
-    );
-
-    return response.data;
-  }
-
-  static async list() {
-    const limit = 4;
-    const offest = 4;
-    const orderBy = "updatedAt_DESC";
+  static async list(filter, orderBy, limit, offset) {
     const params = {
+      filter,
       orderBy,
       limit,
-      offest,
+      offset,
     };
+
     const tenantId = AuthCurrentTenant.get();
 
-    const response = await authAxios.get(`/tenant/${tenantId}/publication`, {
+    const response = await authAxios.get(`/tenant/${tenantId}/evenement`, {
       params,
     });
 
     return response.data;
   }
 
-  static async search(filter) {
-    const limit = 4;
-    const offest = 4;
-    const orderBy = "updatedAt_DESC";
+  static async search(filter, orderBy, limit, offset) {
     const params = {
       filter,
       orderBy,
       limit,
-      offest,
+      offset,
     };
 
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.get(
-      `/tenant/${tenantId}/publication/search`,
+      `/tenant/${tenantId}/evenement/search`,
       {
         params,
       }
@@ -160,7 +117,7 @@ export default class PublicationService {
     const tenantId = AuthCurrentTenant.get();
 
     const response = await authAxios.get(
-      `/tenant/${tenantId}/publication/autocomplete`,
+      `/tenant/${tenantId}/evenement/autocomplete`,
       {
         params,
       }

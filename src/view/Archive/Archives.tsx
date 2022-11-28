@@ -4,36 +4,34 @@ import {
   Etudes,
   rapport,
   search__archeive,
-  invitation,
   petition,
   Poster,
 } from "src/assets/images";
 import { i18n } from "../../i18n";
 import Breadcrumb from "../shared/Breadcrumb";
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 import SearchService from "src/modules/Search/SearchService";
-import Skeleton from 'react-loading-skeleton';
+import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 function Archives() {
-
   // HANDLING SEARCH LOGIC
-  const [archiveSearchString, setArchiveSearchString] = useState('');
-  const [archiveFilter, setarchiveFilter] = useState('');
+  const [archiveSearchString, setArchiveSearchString] = useState("");
+  const [archiveFilter, setarchiveFilter] = useState("");
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setArchiveSearchString(event.target.value);
   };
 
-  const handleRadioChange = event => {
+  const handleRadioChange = (event) => {
     setarchiveFilter(event.target.value);
   };
 
   const searchPath = {
     pathname: "/search",
     ARCHIVE_SEARCH_STRING: archiveSearchString,
-    ARCHIVE_FILTER: archiveFilter
+    ARCHIVE_FILTER: archiveFilter,
   };
 
   // DYNAMIC CATEGORY LIST
@@ -41,18 +39,19 @@ function Archives() {
   const [categoriesListIsLoading, setCategoriesListIsLoading] = useState(true);
   const getCategoriesList = () => {
     SearchService.getCategoriesList()
-      .then(res => {
+      .then((res) => {
         setCategoriesListIsLoading(true);
-        setCategoriesList(categoriesList => categoriesList.concat(res));
+        setCategoriesList((categoriesList) => categoriesList.concat(res));
         setCategoriesListIsLoading(false);
       })
-      .catch(err => { console.error(err) });
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   useEffect(() => {
     getCategoriesList();
-  }, [])
-
+  }, []);
 
   return (
     <>
@@ -65,22 +64,25 @@ function Archives() {
           <div className='archieve__content'>
             <div className='archieve__left'>
               <div className='left__search'>
-                <input type='text' placeholder='Rechercher dans l’archive...' onChange={handleChange} value={archiveSearchString} />
-                {
-                  (archiveSearchString.length >= 1)
-                    ?
-                    <Link to={searchPath}>
-                      <div className='button__search'>
-                        <i className='fa-solid fa-magnifying-glass' />
-                        Chercher
-                      </div>
-                    </Link>
-                    :
+                <input
+                  type='text'
+                  placeholder='Rechercher dans l’archive...'
+                  onChange={handleChange}
+                  value={archiveSearchString}
+                />
+                {archiveSearchString.length >= 1 ? (
+                  <Link to={searchPath}>
                     <div className='button__search'>
                       <i className='fa-solid fa-magnifying-glass' />
                       Chercher
                     </div>
-                }
+                  </Link>
+                ) : (
+                  <div className='button__search'>
+                    <i className='fa-solid fa-magnifying-glass' />
+                    Chercher
+                  </div>
+                )}
                 <div className='search__advanced'>Recherche avancée</div>
               </div>
               <div className='mobile__archeiveSearch'>
@@ -101,53 +103,69 @@ function Archives() {
                 <div className='search__advanced'>Recherche avancée</div>
               </div>
               <FilterLayout onChange={handleRadioChange}>
-                {
-                  (categoriesListIsLoading === false) &&
+                {categoriesListIsLoading === false && (
                   <>
-                    <label className="filterArchiveContianer" htmlFor="all">
-                      <input type="radio" name="archiveFilter" value="autre" id="all" />
-                      <div className="contentContainer">
+                    <label className='filterArchiveContianer' htmlFor='all'>
+                      <input
+                        type='radio'
+                        name='archiveFilter'
+                        value='autre'
+                        id='all'
+                      />
+                      <div className='contentContainer'>
                         <div>
-                          <img className='lazyload' src={Etudes} alt='Etudes Icon' />
+                          <img
+                            className='lazyload'
+                            src={Etudes}
+                            alt='Etudes Icon'
+                          />
                         </div>
                         <div>
                           <h4>Tous</h4>
                         </div>
                       </div>
                     </label>
-                    {
-                      (categoriesList.length >= 1) &&
+                    {categoriesList.length >= 1 && (
                       <>
-                        {
-                          categoriesList[0]['rows'].map((category: any) => {
-                            return (
-                              <label className="filterArchiveContianer" htmlFor={category._id} key={category._id}>
-                                <input type="radio" name="archiveFilter" value="etude" id={category._id} />
-                                <div className="contentContainer">
-                                  <div>
-                                    <img className='lazyload' src={Etudes} alt='Etudes Icon' />
-                                  </div>
-                                  <div>
-                                    <h4>{category.titleFR}</h4>
-                                  </div>
+                        {categoriesList[0]["rows"].map((category: any) => {
+                          return (
+                            <label
+                              className='filterArchiveContianer'
+                              htmlFor={category._id}
+                              key={category._id}>
+                              <input
+                                type='radio'
+                                name='archiveFilter'
+                                value='etude'
+                                id={category._id}
+                              />
+                              <div className='contentContainer'>
+                                <div>
+                                  <img
+                                    className='lazyload'
+                                    src={Etudes}
+                                    alt='Etudes Icon'
+                                  />
                                 </div>
-                              </label>
-                            )
-                          })
-                        }
+                                <div>
+                                  <h4>{category.titleFR}</h4>
+                                </div>
+                              </div>
+                            </label>
+                          );
+                        })}
                       </>
-                    }
-                  </>
-                }
-                {/* LOADING ... */}
-                {
-                  (categoriesListIsLoading === true) &&
-                  <>
-                    {[...Array(5)].map((x, i) =>
-                      <Skeleton key={i} height={172} width={275} />
                     )}
                   </>
-                }
+                )}
+                {/* LOADING ... */}
+                {categoriesListIsLoading === true && (
+                  <>
+                    {[...Array(5)].map((x, i) => (
+                      <Skeleton key={i} height={172} width={275} />
+                    ))}
+                  </>
+                )}
               </FilterLayout>
             </div>
           </div>
@@ -166,8 +184,7 @@ const FilterLayout = styled.div`
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
 
-
-  .contentContainer{
+  .contentContainer {
     width: 275px;
     height: 172px;
     background-color: #fff;
@@ -177,25 +194,24 @@ const FilterLayout = styled.div`
     align-items: center;
     justify-content: center;
 
-    img{
+    img {
       margin-bottom: 2rem;
     }
 
-    &:hover{
+    &:hover {
       cursor: pointer;
-      background-color: #F7F7F7;
+      background-color: #f7f7f7;
     }
   }
 
-  input[type="radio"]{
+  input[type="radio"] {
     display: none;
 
-    &:checked~.contentContainer{
-      border: 1px solid #E1011A;
-      h4{
-        color: #E1011A;
+    &:checked ~ .contentContainer {
+      border: 1px solid #e1011a;
+      h4 {
+        color: #e1011a;
       }
     }
   }
-
 `;

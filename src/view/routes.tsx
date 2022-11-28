@@ -89,7 +89,13 @@ const privateRoutes = [
     exact: true,
   },
   {
-    path: "/detaill",
+    path: "/detaill/:id",
+    loader: () => import("src/view/shared/Detaill/Detaill"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/detaill/category/:id",
     loader: () => import("src/view/shared/Detaill/Detaill"),
     permissionRequired: null,
     exact: true,
