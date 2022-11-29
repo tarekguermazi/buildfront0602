@@ -172,7 +172,7 @@ const FormWrapper = styled.div`
     border: 1px solid #bdbdbd;
     width: 100%;
     cursor: pointer;
-    color: var(--gray4);
+    color: var(--gray5);
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
