@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Breadcrumb from "../shared/Breadcrumb";
 import { i18n } from "../../i18n";
 import Skeletons from "../shared/Skeletons";
@@ -10,7 +10,21 @@ import Slider from "../shared/Slider/Slider";
 import { dataSlider } from "../shared/Slider/dataSlider";
 import EvenementAvenir from "./EvenementAvenir";
 import EvenementPasse from "./EvenementPasse";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "src/modules/evenement/list/evenementListActions";
+import selectors from "src/modules/evenement/list/evenementListSelectors";
 function Evenements() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actions.evenementvenir());
+    dispatch(actions.evenementpasse());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const selectLoadingPasse = useSelector(selectors.selectLoadingPasse);
+  const selectLoadingVenir = useSelector(selectors.selectLoadingVenir);
+
   const RenderItem = (obj) => {
     return (
       <div className='evenement__message'>

@@ -3284,7 +3284,7 @@ td {
 }
 
 table > thead > tr:nth-child(1) {
-  color: var(--gray4);
+  color: var(--gray3);
   background-color: transparent;
 }
 

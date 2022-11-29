@@ -77,7 +77,7 @@ export default (state = initialData, { type, payload }) => {
   if (type === actions.FETCH_STARTED_EVENEMENT_VENIR) {
     return {
       ...state,
-      loadingvenir: true,
+      loading: true,
     };
   }
 
