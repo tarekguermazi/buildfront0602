@@ -30,8 +30,7 @@ const BodyLayout = styled.section`
     margin-top: 1rem;
     background-color: #fff;
     padding: 1rem;
-
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    border-top: 2px solid #E1011A;
 
     h3{
         font-family: "Proxima Nova";
@@ -53,6 +52,7 @@ const BodyLayout = styled.section`
         color: var(--violet);
 
         label{
+            font-size: 1.1rem;
             font-weight: bold;
             display: block;
             margin-top: 1rem;
@@ -62,11 +62,11 @@ const BodyLayout = styled.section`
         textarea {
             width: 100%;
             margin-top: .5rem;
-            padding: .5rem 1rem;
+            padding: 1rem;
             font-size: 1rem;
             color: var(--violet);
             border: 1px solid var(--gray3);
-            border-radius: .5rem;
+            border-radius: .3rem;
         }
 
         textarea{
