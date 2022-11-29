@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 // SERVICES
-import MediathequeService from 'src/modules/mediatheque/MediathequeService';
+import PublicationService from 'src/modules/publication/publicationService';
 // COMPONENTSS
-// import SectionHeader from './components/SectionHeader';
+import SectionHeader from './components/SectionHeader';
 
 
 export default function RelatedContent({ type }) {
@@ -14,12 +14,11 @@ export default function RelatedContent({ type }) {
     const [entityIsLoading, setEntityIsLoading] = useState(true);
 
     const fetchRelatedContent = type => {
-        const routeExtension = `?filter[type]=${type}`;
-        MediathequeService.getMediathequesBasedOnType(routeExtension)
+        PublicationService.getRelated(type)
             .then((value) => {
-
                 value.rows?.map(entry => {
                     setRelated(related => related.concat(entry));
+                    console.log("RELATED ::: ", value);
                 });
                 setEntityIsLoading(false);
             });
@@ -29,7 +28,7 @@ export default function RelatedContent({ type }) {
 
     return (
         <RelatedCOntentLayout>
-            {/* <SectionHeader title='publications qui peuvent vous intéresser' /> */}
+            <SectionHeader title='publications qui peuvent vous intéresser' />
             {
                 entityIsLoading
                     ?
@@ -55,7 +54,7 @@ export default function RelatedContent({ type }) {
                                         <div className="cardContent">
                                             <div className="cardHeader">
                                                 <span className="categoryBadge">{entity['type']}</span>
-                                                <span>{MediathequeService.pipeDate(entity['createdAt'])}</span>
+                                                <span>{entity['createdAt']}</span>
                                             </div>
                                             <Link to={'/Mediatheque/entity/' + entity['_id']} className="title">
                                                 <span>{entity['titleFR']}</span>
@@ -90,7 +89,6 @@ const RelatedCOntentLayout = styled.section`
         padding: 0 .5rem;
     }
 `;
-
 const HorizontalCard = styled.div`
     height: 200px;
 

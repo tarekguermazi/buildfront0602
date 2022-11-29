@@ -73,6 +73,12 @@ export default class PublicationService {
     return response.data;
   }
 
+  static async getRelated(type) {
+    const tenantId = AuthCurrentTenant.get();
+    const response = await authAxios.get(`/tenant/${tenantId}/publication?filter[type]=${type}`);
+    return response.data;
+  }
+
   static async list() {
     const tenantId = AuthCurrentTenant.get();
 

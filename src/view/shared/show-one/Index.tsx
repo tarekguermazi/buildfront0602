@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { ShowOneContext } from "./ShowOneContext";
 // SERVICES
 import PublicationService from 'src/modules/publication/publicationService';
 // COMPONENTS
 import Header from './components/Header';
-import Main from './Main';
+import Main from './components/Main';
+import RelatedContent from './RelatedContent';
 
 export default function Index() {
     // STATES AND VARS
@@ -19,7 +19,6 @@ export default function Index() {
     const getPublicationDetails = PUBLICATION_ID => {
         PublicationService.find(PUBLICATION_ID)
             .then((response: any) => {
-                console.log("PUBLICATION DTAILS :: ", response);
                 setPublicationDetails(response);
                 // loadig photos to be used in the grid
                 if (response.photos.length >= 1) {
@@ -45,8 +44,13 @@ export default function Index() {
     // TEMPLATE
     return (
         <MainLayout>
-            <Header PUBLICATION_TITLE={PublicationDetails['titleFR'] ?? 'N.A'} PUBLICATION_CREATED_AT={PublicationDetails['createdAt'] ?? 'N.A'} PUBLICATION_TYPE={PublicationDetails['thematique']?.titleFR ?? 'N.A'} />
+            <Header
+                PUBLICATION_TITLE={PublicationDetails['title'] ?? 'N.A'}
+                PUBLICATION_CREATED_AT={PublicationDetails['createdAt'] ?? 'N.A'}
+                PUBLICATION_TYPE={PublicationDetails['thematique']?.titleFR ?? 'N.A'}
+            />
             <Main PUBLICATION={PublicationDetails} data={data} />
+            <RelatedContent type={PublicationDetails['type'] ?? 'N.A'} />
         </MainLayout>
     )
 }
