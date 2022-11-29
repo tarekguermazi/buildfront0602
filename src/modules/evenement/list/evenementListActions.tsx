@@ -10,6 +10,14 @@ const evenementListActions = {
   FETCH_SUCCESS: `${prefix}_FETCH_SUCCESS`,
   FETCH_ERROR: `${prefix}_FETCH_ERROR`,
 
+  FETCH_STARTED_EVENEMENT_VENIR: `${prefix}_FETCH_STARTED_EVENEMENT_VENIR`,
+  FETCH_SUCCESS_EVENEMENT_VENIR: `${prefix}_FETCH_SUCCESS_EVENEMENT_VENIR`,
+  FETCH_ERROR_EVENEMENT_VENIR: `${prefix}_FETCH_ERROR_EVENEMENT_VENIR`,
+
+  FETCH_STARTED_EVENEMENT_PASSE: `${prefix}_FETCH_STARTED_EVENEMENT_PASSE`,
+  FETCH_SUCCESS_EVENEMENT_PASSE: `${prefix}_FETCH_SUCCESS_EVENEMENT_PASSE`,
+  FETCH_ERROR_EVENEMENT_PASSE: `${prefix}_FETCH_ERROR_EVENEMENT_PASSE`,
+
   RESETED: `${prefix}_RESETED`,
   SELECTEDS_CHANGED: `${prefix}_SELECTEDS_CHANGED`,
 
@@ -56,6 +64,41 @@ const evenementListActions = {
     dispatch(evenementListActions.doFetch(filter, rawFilter, true));
   },
 
+  evenementpasse: () => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: evenementListActions.FETCH_STARTED_EVENEMENT_PASSE,
+      });
+      const response = await EvenementService.evenementpasse();
+      dispatch({
+        type: evenementListActions.FETCH_SUCCESS_EVENEMENT_PASSE,
+        payload: response,
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({
+        type: evenementListActions.FETCH_ERROR_EVENEMENT_PASSE,
+      });
+    }
+  },
+
+  evenementvenir: () => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: evenementListActions.FETCH_STARTED_EVENEMENT_VENIR,
+      });
+      const response = await EvenementService.evenementvenir();
+      dispatch({
+        type: evenementListActions.FETCH_SUCCESS_EVENEMENT_VENIR,
+        payload: response,
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({
+        type: evenementListActions.FETCH_ERROR_EVENEMENT_VENIR,
+      });
+    }
+  },
   doFetch:
     (filter?, rawFilter?, keepPagination = false) =>
     async (dispatch, getState) => {

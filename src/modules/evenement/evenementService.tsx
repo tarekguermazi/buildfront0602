@@ -125,4 +125,25 @@ export default class EvenementService {
 
     return response.data;
   }
+  static async evenementvenir() {
+    const tenantId = AuthCurrentTenant.get();
+
+    const response = await authAxios.get(
+      `/tenant/${tenantId}/evenement/evenementavenir`,
+      {}
+    );
+
+    return response.data;
+  }
+
+  static async evenementpasse() {
+    const tenantId = AuthCurrentTenant.get();
+
+    const response = await authAxios.get(
+      `/tenant/${tenantId}/evenement/evenementapasse`,
+      {}
+    );
+
+    return response.data;
+  }
 }

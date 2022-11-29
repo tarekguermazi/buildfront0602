@@ -8,6 +8,8 @@ import { MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Slider from "../shared/Slider/Slider";
 import { dataSlider } from "../shared/Slider/dataSlider";
+import EvenementAvenir from "./EvenementAvenir";
+import EvenementPasse from "./EvenementPasse";
 function Evenements() {
   const RenderItem = (obj) => {
     return (
@@ -56,31 +58,7 @@ function Evenements() {
             </div>
             <div className='venir__content'>
               {Array.from({ length: 3 }).map((item, index) => (
-                <div>
-                  <Link to='/Evenements/12'>
-                    <div className='contentVenir__top'>
-                      <Image
-                        width={370}
-                        height={220}
-                        src='https://placehold.jp/370x220.png'
-                        alt=''
-                      />
-                      <div className='venir__clendar'>
-                        <div className='calendar__number'>15</div>
-                        <div className='calendar__months'>Avril</div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className='contentVenir__bottom'>
-                    <div className='venir__localistaion'>
-                      <MdLocationOn /> Tunis
-                    </div>
-                    <div className='venir__description'>
-                      Atelier de restitution de l’événement Echange des Jeunes
-                      du projet Justice Environnementale
-                    </div>
-                  </div>
-                </div>
+                <EvenementAvenir />
               ))}
             </div>
             <div className='plus__button'>Voir plus</div>
@@ -94,31 +72,7 @@ function Evenements() {
             </div>
             <div className='passe__content'>
               {Array.from({ length: 3 }).map((item, index) => (
-                <div>
-                  <Link to='/Evenements/12'>
-                    <div className='contentVenir__top'>
-                      <Image
-                        width={370}
-                        height={220}
-                        src='https://placehold.jp/370x220.png'
-                        alt=''
-                      />
-                      <div className='venir__clendar'>
-                        <div className='calendar__number'>15</div>
-                        <div className='calendar__months'>Avril</div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className='contentVenir__bottom'>
-                    <div className='venir__localistaion'>
-                      <MdLocationOn /> Tunis
-                    </div>
-                    <div className='venir__description'>
-                      Atelier de restitution de l’événement Echange des Jeunes
-                      du projet Justice Environnementale
-                    </div>
-                  </div>
-                </div>
+                <EvenementPasse />
               ))}
             </div>
             <div className='plus__button'>Voir plus</div>

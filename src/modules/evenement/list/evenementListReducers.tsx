@@ -1,9 +1,13 @@
-import actions from 'src/modules/evenement/list/evenementListActions';
+import actions from "src/modules/evenement/list/evenementListActions";
 
 const INITIAL_PAGE_SIZE = 10;
 
 const initialData = {
   rows: [],
+  loadingpasse: false,
+  evenementpasse: [],
+  loadingvenir: false,
+  evenementvenir: [],
   count: 0,
   loading: false,
   filter: {},
@@ -44,6 +48,52 @@ export default (state = initialData, { type, payload }) => {
     return {
       ...state,
       sorter: payload || {},
+    };
+  }
+
+  if (type === actions.FETCH_STARTED_EVENEMENT_PASSE) {
+    return {
+      ...state,
+      loadingpasse: true,
+    };
+  }
+
+  if (type === actions.FETCH_SUCCESS_EVENEMENT_PASSE) {
+    return {
+      ...state,
+      loadingpasse: false,
+      evenementpasse: payload,
+    };
+  }
+
+  if (type === actions.FETCH_ERROR_EVENEMENT_PASSE) {
+    return {
+      ...state,
+      loadingpasse: false,
+      evenementpasse: [],
+    };
+  }
+
+  if (type === actions.FETCH_STARTED_EVENEMENT_VENIR) {
+    return {
+      ...state,
+      loadingvenir: true,
+    };
+  }
+
+  if (type === actions.FETCH_SUCCESS_EVENEMENT_VENIR) {
+    return {
+      ...state,
+      loadingpasse: false,
+      evenementpasse: payload,
+    };
+  }
+
+  if (type === actions.FETCH_ERROR_EVENEMENT_VENIR) {
+    return {
+      ...state,
+      loadingvenir: false,
+      evenementvenir: [],
     };
   }
 

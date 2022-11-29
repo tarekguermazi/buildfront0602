@@ -1,61 +1,46 @@
-import { createSelector } from 'reselect';
-import authSelectors from 'src/modules/auth/authSelectors';
-import PermissionChecker from 'src/modules/auth/permissionChecker';
-import Permissions from 'src/security/permissions';
+import { createSelector } from "reselect";
+import authSelectors from "src/modules/auth/authSelectors";
+import PermissionChecker from "src/modules/auth/permissionChecker";
+import Permissions from "src/security/permissions";
 
 const selectPermissionToRead = createSelector(
-  [
-    authSelectors.selectCurrentTenant,
-    authSelectors.selectCurrentUser,
-  ],
+  [authSelectors.selectCurrentTenant, authSelectors.selectCurrentUser],
   (currentTenant, currentUser) =>
     new PermissionChecker(currentTenant, currentUser).match(
-      Permissions.values.evenementRead,
-    ),
+      Permissions.values.evenementRead
+    )
 );
 
 const selectPermissionToEdit = createSelector(
-  [
-    authSelectors.selectCurrentTenant,
-    authSelectors.selectCurrentUser,
-  ],
+  [authSelectors.selectCurrentTenant, authSelectors.selectCurrentUser],
   (currentTenant, currentUser) =>
     new PermissionChecker(currentTenant, currentUser).match(
-      Permissions.values.evenementEdit,
-    ),
+      Permissions.values.evenementEdit
+    )
 );
 
 const selectPermissionToCreate = createSelector(
-  [
-    authSelectors.selectCurrentTenant,
-    authSelectors.selectCurrentUser,
-  ],
+  [authSelectors.selectCurrentTenant, authSelectors.selectCurrentUser],
   (currentTenant, currentUser) =>
     new PermissionChecker(currentTenant, currentUser).match(
-      Permissions.values.evenementCreate,
-    ),
+      Permissions.values.evenementCreate
+    )
 );
 
 const selectPermissionToImport = createSelector(
-  [
-    authSelectors.selectCurrentTenant,
-    authSelectors.selectCurrentUser,
-  ],
+  [authSelectors.selectCurrentTenant, authSelectors.selectCurrentUser],
   (currentTenant, currentUser) =>
     new PermissionChecker(currentTenant, currentUser).match(
-      Permissions.values.evenementImport,
-    ),
+      Permissions.values.evenementImport
+    )
 );
 
 const selectPermissionToDestroy = createSelector(
-  [
-    authSelectors.selectCurrentTenant,
-    authSelectors.selectCurrentUser,
-  ],
+  [authSelectors.selectCurrentTenant, authSelectors.selectCurrentUser],
   (currentTenant, currentUser) =>
     new PermissionChecker(currentTenant, currentUser).match(
-      Permissions.values.evenementDestroy,
-    ),
+      Permissions.values.evenementDestroy
+    )
 );
 
 const evenementSelectors = {
