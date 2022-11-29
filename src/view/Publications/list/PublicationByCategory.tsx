@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "../../shared/Image";
 import { Link } from "react-router-dom";
+import Date from "../../shared/Date";
 function PublicationByCategory(props) {
   const { data, category, index } = props;
 
@@ -18,11 +19,12 @@ function PublicationByCategory(props) {
             <div className='header__left'>
               <p>Migration </p>
             </div>
-            <div className='header__right'>10h32</div>
+            <div className='header__right'>
+              {Date.HourMinute(data.updatedAt)}
+            </div>
           </div>
           <div className='detaill__content text__wrap' style={{ width: 233 }}>
-            Karbaï: Les conditions de vie des migrants à Lampedusa inhumaines
-            inhumaines inhumaines
+            {item.title}
           </div>
         </div>
       </div>
