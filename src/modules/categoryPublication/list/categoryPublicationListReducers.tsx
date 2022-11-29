@@ -1,4 +1,4 @@
-import actions from 'src/modules/categoryPublication/list/categoryPublicationListActions';
+import actions from "src/modules/categoryPublication/list/categoryPublicationListActions";
 
 const INITIAL_PAGE_SIZE = 10;
 
@@ -76,7 +76,7 @@ export default (state = initialData, { type, payload }) => {
   if (type === actions.FETCH_ERROR) {
     return {
       ...state,
-      loading: false,
+      loading: true,
       rows: [],
       count: 0,
     };

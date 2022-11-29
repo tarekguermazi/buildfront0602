@@ -8,12 +8,12 @@ function PublicationDetaill(props) {
       <div className='list__detaill'>
         <div className='detaill__header'>
           <div className='__left'>
-            <p>{data.thematique.titleFR}</p>
+            <p>{data.thematique?.titleFR}</p>
           </div>
           <div className='__right'>{Date.HourMinute(data.updatedAt)}</div>
         </div>
         <div className='__content'>{data.title}</div>
-        <div className='sub__content'>{data.thematique.descriptionFR}</div>
+        <div className='sub__content'>{data.thematique?.descriptionFR}</div>
       </div>
     </div>
   );

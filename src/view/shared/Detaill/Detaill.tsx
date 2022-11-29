@@ -10,6 +10,7 @@ import selectors from "src/modules/publication/list/publicationListSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import Translate from "../Translate";
 import Skeletons from "../Skeletons";
+import Date from "../Date";
 
 function Detaill() {
   const match = useRouteMatch();
@@ -65,12 +66,12 @@ function Detaill() {
                       <div className='header__left'>
                         <p>Forum</p>
                       </div>
-                      <div className='header__right'>10h32</div>
+                      <div className='header__right'>
+                        {" "}
+                        {Date.HourMinute(item.updatedAt)}
+                      </div>
                     </div>{" "}
-                    <div className='detaill__content'>
-                      Criminalization of refugees: the dark side of EU and UNHCR
-                      policies...
-                    </div>
+                    <div className='detaill__content'>{item.title}</div>
                   </div>
                 </div>
               ))}
