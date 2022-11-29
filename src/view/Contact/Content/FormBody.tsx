@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-export default function FormBody() {
+// ICONS
+import { BiMailSend } from 'react-icons/bi';
+
+export default function FormBody({ userType }) {
     return (
         <BodyLayout>
-            <h3>Chercheur/se</h3>
+            <h3>{userType}</h3>
             <p>Contact, question, problème d'inscription</p>
 
             <form>
@@ -19,6 +22,11 @@ export default function FormBody() {
                     <label htmlFor="problemInput">Problème d'inscription</label>
                     <textarea id="problemInput" cols={30} rows={10}></textarea>
                 </div>
+
+                <button type="submit" className='sendButton'>
+                    <BiMailSend className='icon' />
+                    Send
+                </button>
             </form>
         </BodyLayout>
     )
@@ -34,6 +42,7 @@ const BodyLayout = styled.section`
 
     h3{
         font-family: "Proxima Nova";
+        text-transform: capitalize;
         color: var(--violet);
     }
     p{
@@ -72,6 +81,25 @@ const BodyLayout = styled.section`
         textarea{
             resize: none; 
             border-radius: 0;
+        }
+
+        .sendButton{
+            width: 100%;
+            padding: 1rem 0;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-color: #E1011A;
+            color: #fff;
+            text-transform: uppercase;
+
+            .icon{
+                margin-right: 1rem;
+                font-size: 1.5rem;
+            }
         }
     }
 `;

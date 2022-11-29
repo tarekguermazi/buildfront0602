@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export default function LeftSection() {
     return (
         <LeftLayout>
-            <h4>Echanger avec <br /> nous</h4>
+            <h3>Echanger avec <br /> nous</h3>
 
             <h3 className="sectionTitle">Par téléphone</h3>
             <p>Du lundi au Vendredi de 8H à 16H au 71.325.109</p>
@@ -22,12 +22,9 @@ const LeftLayout = styled.section`
     width: 500px;
     padding: 2rem 0;
 
-    h4{
+    h3{
         font-family: "Proxima Nova";
-        font-weight: bold;
         text-transform: capitalize;
-        /* font-size: 1.2rem; */
-        line-height: 1.5;
         color: var(--violet);
     }
     

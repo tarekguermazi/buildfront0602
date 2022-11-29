@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import parse from 'html-react-parser';
-
 // ICONS
 import { GiMicroscope } from 'react-icons/gi';
 import { FaGraduationCap, FaNewspaper, FaFistRaised } from 'react-icons/fa';
 import { IoIosContact } from 'react-icons/io';
 
-export default function FormHeader() {
+export default function FormHeader({ setUserType }) {
 
     const userTypes = [
         { type: 'étudiant', display: 'étudiant/e', icon: 'graduation' },
@@ -16,12 +14,17 @@ export default function FormHeader() {
         { type: 'acteursSociaux', display: 'acteurs sociaux', icon: 'contact' }
     ]
 
+    const handleUserTypeSelection = event => {
+        const typeToDisplay = userTypes.filter(ut => ut.type === event.target.value)[0].display;
+        setUserType(typeToDisplay);
+    }
+
     return (
         <HeaderLayout>
             <h3>Vous êtes ?</h3>
             <p>Choisissez un thème parmi les options suivantes pour accéder à la demande associée.</p>
 
-            <div className="radioOptins">
+            <div className="radioOptins" onChange={handleUserTypeSelection}>
                 <label htmlFor="chercheur">
                     <input type="radio" name="userType" value="chercheur" id="chercheur" />
                     <div className="contentContainer">
