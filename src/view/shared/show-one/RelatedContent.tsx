@@ -18,7 +18,6 @@ export default function RelatedContent({ type }) {
             .then((value) => {
                 value.rows?.map(entry => {
                     setRelated(related => related.concat(entry));
-                    console.log("RELATED ::: ", value);
                 });
                 setEntityIsLoading(false);
             });

@@ -75,7 +75,7 @@ export default class PublicationService {
 
   static async getRelated(type) {
     const tenantId = AuthCurrentTenant.get();
-    const response = await authAxios.get(`/tenant/${tenantId}/publication?filter[type]=${type}`);
+    const response = await authAxios.get(`/tenant/${tenantId}/publication?filter[type]=${type}&limit=4`);
     return response.data;
   }
 
