@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import MediathequeService from 'src/modules/mediatheque/MediathequeService'
+import PublicationService from 'src/modules/publication/publicationService'
 // ICONS
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from 'react-icons/bs'
 
@@ -13,7 +13,7 @@ export default function Header({ PUBLICATION_TITLE, PUBLICATION_CREATED_AT, PUBL
 
             <div className="data">
                 <div className="dateAndOwner">
-                    <span>Publié le {PUBLICATION_CREATED_AT}</span>
+                    <span>Publié le {PublicationService.pipeDate(PUBLICATION_CREATED_AT)}</span>
                 </div>
                 <div className="socials">
                     <span>Partager :</span>

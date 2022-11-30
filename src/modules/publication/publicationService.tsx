@@ -1,5 +1,6 @@
 import authAxios from "src/modules/shared/axios/authAxios";
 import AuthCurrentTenant from "src/modules/auth/authCurrentTenant";
+import moment from 'moment';
 
 export default class PublicationService {
   static async update(id, data) {
@@ -127,4 +128,10 @@ export default class PublicationService {
 
     return response.data;
   }
+
+  // HELPER METHODS
+  static pipeDate(date) {
+    let d = date.split('T')[0];
+    return moment(d).format('LL');
+  };
 }

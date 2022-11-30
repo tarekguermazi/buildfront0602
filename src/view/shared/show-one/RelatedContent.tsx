@@ -53,7 +53,7 @@ export default function RelatedContent({ type }) {
                                         <div className="cardContent">
                                             <div className="cardHeader">
                                                 <span className="categoryBadge">{entity['type']}</span>
-                                                <span>{entity['createdAt']}</span>
+                                                <span>{PublicationService.pipeDate(entity['createdAt'])}</span>
                                             </div>
                                             <Link to={'/Mediatheque/entity/' + entity['_id']} className="title">
                                                 <span>{entity['titleFR']}</span>
