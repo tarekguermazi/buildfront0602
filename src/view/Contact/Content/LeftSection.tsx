@@ -19,9 +19,6 @@ export default function LeftSection() {
 }
 
 const LeftLayout = styled.section`
-    width: 500px;
-    padding: 2rem 0;
-
     h3{
         font-family: "Proxima Nova";
         text-transform: capitalize;

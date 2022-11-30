@@ -7,16 +7,16 @@ export default function FormBody({ userType }) {
     return (
         <BodyLayout>
             <h3>{userType}</h3>
-            <p>Contact, question, problème d'inscription</p>
 
             <form>
                 <div>
-                    <label htmlFor="emailInput">Contatct</label>
-                    <input type="email" placeholder='E-mail' id='emailInput' />
-                </div>
-                <div>
-                    <label htmlFor="quesstionInput">Question</label>
-                    <input type="text" placeholder='Question' id='questionInput' />
+                    <label htmlFor="contacttype">Contatct</label>
+                    <select id='contacttype'>
+                        <option value="--">--</option>
+                        <option value="contact">contact</option>
+                        <option value="question">question</option>
+                        <option value="problem">problem</option>
+                    </select>
                 </div>
                 <div>
                     <label htmlFor="problemInput">Problème d'inscription</label>
@@ -35,9 +35,8 @@ export default function FormBody({ userType }) {
 
 const BodyLayout = styled.section`
     width: 700px;
-    margin-top: 1rem;
     background-color: #fff;
-    padding: 1rem;
+    padding-top: 1rem;
     border-top: 2px solid #E1011A;
 
     h3{
@@ -54,7 +53,6 @@ const BodyLayout = styled.section`
     }
 
     form{
-        margin-top: 1rem;
         font-family: "Proxima Nova";
         font-size: 1rem;
         line-height: 1.5;
@@ -68,6 +66,7 @@ const BodyLayout = styled.section`
         }
 
         input,
+        select,
         textarea {
             width: 100%;
             margin-top: .5rem;

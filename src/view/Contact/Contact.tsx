@@ -28,7 +28,7 @@ const ContactLayout = styled.section`
 
 const WideContent = styled.section`
   max-width: 100%;
-  margin-top: 5rem;
+  margin-top: 2rem;
   /* background-color: var(--gray6); */
   /* border-top: 5px solid var(--violet); */
 `;

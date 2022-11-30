@@ -8,10 +8,11 @@ import { IoIosContact } from 'react-icons/io';
 export default function FormHeader({ setUserType }) {
 
     const userTypes = [
-        { type: 'étudiant', display: 'étudiant/e', icon: 'graduation' },
-        { type: 'presse', display: 'presse', icon: 'newPaper' },
-        { type: 'activiste', display: 'activiste', icon: 'power' },
-        { type: 'acteursSociaux', display: 'acteurs sociaux', icon: 'contact' }
+        { type: 'chercheur', display: 'chercheur/se', icon: 'GiMicroscope', state: 0 },
+        { type: 'étudiant', display: 'étudiant/e', icon: 'graduation', state: 1 },
+        { type: 'presse', display: 'presse', icon: 'newPaper', state: 1 },
+        { type: 'activiste', display: 'activiste', icon: 'power', state: 1 },
+        { type: 'acteursSociaux', display: 'acteurs sociaux', icon: 'contact', state: 1 }
     ]
 
     const handleUserTypeSelection = event => {
@@ -26,7 +27,7 @@ export default function FormHeader({ setUserType }) {
 
             <div className="radioOptins" onChange={handleUserTypeSelection}>
                 <label htmlFor="chercheur">
-                    <input type="radio" name="userType" value="chercheur" id="chercheur" />
+                    <input type="radio" name="userType" value="chercheur" id="chercheur" defaultChecked />
                     <div className="contentContainer">
                         <GiMicroscope className='icon' />
                         <span>chercheur/se</span>
@@ -36,33 +37,35 @@ export default function FormHeader({ setUserType }) {
                 {/* OTHERS */}
                 {
                     userTypes.map((userTypes, index) => {
-                        return (
-                            <label htmlFor={userTypes.type} key={index}>
-                                <input type="radio" name='userType' value={userTypes.type} id={userTypes.type} />
-                                <div className="contentContainer">
-                                    {
+                        if (userTypes.state === 1) {
+                            return (
+                                <label htmlFor={userTypes.type} key={index}>
+                                    <input type="radio" name='userType' value={userTypes.type} id={userTypes.type} />
+                                    <div className="contentContainer">
                                         {
-                                            microscope: (
-                                                <GiMicroscope className='icon' />
-                                            ),
-                                            graduation: (
-                                                <FaGraduationCap className='icon' />
-                                            ),
-                                            newPaper: (
-                                                <FaNewspaper className='icon' />
-                                            ),
-                                            power: (
-                                                <FaFistRaised className='icon' />
-                                            ),
-                                            contact: (
-                                                <IoIosContact className='icon' />
-                                            )
-                                        }[userTypes.icon]
-                                    }
-                                    <span>{userTypes.display}</span>
-                                </div>
-                            </label>
-                        )
+                                            {
+                                                microscope: (
+                                                    <GiMicroscope className='icon' />
+                                                ),
+                                                graduation: (
+                                                    <FaGraduationCap className='icon' />
+                                                ),
+                                                newPaper: (
+                                                    <FaNewspaper className='icon' />
+                                                ),
+                                                power: (
+                                                    <FaFistRaised className='icon' />
+                                                ),
+                                                contact: (
+                                                    <IoIosContact className='icon' />
+                                                )
+                                            }[userTypes.icon]
+                                        }
+                                        <span>{userTypes.display}</span>
+                                    </div>
+                                </label>
+                            )
+                        }
                     })
                 }
             </div>
@@ -74,7 +77,7 @@ export default function FormHeader({ setUserType }) {
 const HeaderLayout = styled.section`
     width: 700px;
     background-color: #fff;
-    padding: 1rem;
+    padding-bottom: 1rem;
    
     font-family: "Proxima Nova";
     font-size: 1.2rem;
@@ -95,7 +98,7 @@ const HeaderLayout = styled.section`
         width: 100%;
         display: grid;
         grid-gap: 1rem;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
 
         input[type="radio"]{
             display: none;

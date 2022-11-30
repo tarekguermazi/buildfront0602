@@ -15,7 +15,8 @@ export default function Content() {
 }
 
 const MainLayout = styled.section`
-    margin: 2rem auto;
+    margin: 0 auto;
+    margin-bottom: 1rem;
     width: 1170px;
     min-height: 200px;
 
