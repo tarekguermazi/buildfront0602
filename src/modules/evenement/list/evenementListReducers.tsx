@@ -62,7 +62,8 @@ export default (state = initialData, { type, payload }) => {
     return {
       ...state,
       loadingpasse: false,
-      evenementpasse: payload,
+      evenementpasse: payload.rows,
+      count: payload.count,
     };
   }
 
@@ -85,7 +86,8 @@ export default (state = initialData, { type, payload }) => {
     return {
       ...state,
       loadingpasse: false,
-      evenementpasse: payload,
+      evenementvenir: payload.rows,
+      count: payload.count,
     };
   }
 

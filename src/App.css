@@ -2082,7 +2082,6 @@ Styling the archeive verison Mobile  */
 
 .venir__clendar {
   background-color: var(--white);
-  max-width: 73px;
   max-height: 91px;
   position: absolute;
   bottom: 18px;

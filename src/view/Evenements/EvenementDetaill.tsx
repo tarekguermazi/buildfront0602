@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Breadcrumb from "../shared/Breadcrumb";
 import { i18n } from "../../i18n";
 import { AiOutlineCalendar } from "react-icons/ai";
@@ -6,8 +6,22 @@ import { MdLocationOn } from "react-icons/md";
 import Image from "../shared/Image";
 import { BsPlayFill } from "react-icons/bs";
 import { Facebook, Instagramm, Linkedin, Twitter } from "../../assets/images";
-
+import { useDispatch, useSelector } from "react-redux";
+import action from "src/modules/evenement/view/evenementViewActions";
+import { useRouteMatch } from "react-router-dom";
+import selector from "src/modules/evenement/view/evenementViewSelectors";
+import Date from "../shared/Date";
+import Youtube from "../shared/Youtube";
 function EvenementDetaill() {
+  const dispatch = useDispatch();
+  const match = useRouteMatch();
+  const selectRows = useSelector(selector.selectRecord);
+  const selectLoading = useSelector(selector.selectLoading);
+
+  useEffect(() => {
+    dispatch(action.doFind(match.params.id));
+  }, []);
+
   return (
     <>
       <Breadcrumb
@@ -18,19 +32,18 @@ function EvenementDetaill() {
           <Image
             width={1170}
             height={404}
-            src='https://placehold.jp/1170x404.png'
+            src={selectRows?.supports[0]?.downloadUrl}
             alt='Placeholder'
           />
 
           <div className='evenement__message'>
             <div className='messageEvenement__left'>
-              <div className='left__number'>15</div>
-              <div className='left__months'>Avril</div>
+              <div className='left__number'>{Date.Day(selectRows?.date)}</div>
+              <div className='left__months'>{Date.Month(selectRows?.date)}</div>
             </div>
             <div className='messageEvenement__right'>
               <div className='messageEvenement__title'>
-                Atelier de restitution de l’événement Echange des Jeunes du
-                projet Justice Environnementale
+                {selectRows?.titleFR}
               </div>
               <div className='messageEvenement__description'>
                 <div>par FTDES</div>
@@ -38,7 +51,7 @@ function EvenementDetaill() {
                   <AiOutlineCalendar /> 14 octobre 2022
                 </div>
                 <div>
-                  <MdLocationOn /> Tunis
+                  <MdLocationOn /> {selectRows?.emplacementAR}
                 </div>
               </div>
             </div>
@@ -50,20 +63,7 @@ function EvenementDetaill() {
             <div className='left__description'>
               <div className='title__detaillEvenemet'>Description</div>
               <div className='description__detaillEvenement'>
-                Il a indiqué, lors d'une conférence de presse organisée par le
-                FTDS au siège du syndicat national des journalistes tunisiens
-                (SNJT), que de nombreuses difficultés ont été constatées au
-                niveau de l'obtention des chiffres réels des opérations de
-                franchissement illégal des frontières et la répartition des
-                migrants selon les catégories d'âge et de genre. Selon le
-                rapport de la FTDS sur la migration non réglementaire qui a été
-                présenté par le porte-parole du forum, 13500 émigrés ont rejoint
-                illicitement l'Italie depuis le mois de janvier jusqu'à ce jour.
-                Selon les nationalités, les migrants irréguliers se répartissent
-                entre 42% de tunisiens et 57% de plusieurs autres nationalités
-                notamment d'Afrique subsaharienne a-t-il relevé, ajoutant que
-                2600 mineurs et 640 femmes ont atteint les côtes du nord de la
-                méditerranée.
+                {selectRows?.descriptionAR}
               </div>
             </div>
             <div className='left__date'>
@@ -77,11 +77,11 @@ function EvenementDetaill() {
             <div className='left__photos'>
               <div className='title__detaillEvenemet'>Photos</div>
               <div className='photos__gallery'>
-                {Array.from({ length: 8 }).map((item) => (
+                {selectRows?.supports?.map((item) => (
                   <Image
                     width={165}
                     height={159}
-                    src='https://placehold.jp/165x159.png'
+                    src={item.downloadUrl}
                     alt='Placeholder'
                   />
                 ))}
@@ -92,17 +92,9 @@ function EvenementDetaill() {
             <div className='left__videos'>
               <div className='title__detaillEvenemet'>Videos</div>
               <div className='photos__gallery'>
-                {Array.from({ length: 2 }).map((item) => (
+                {selectRows?.videos?.map((item) => (
                   <div className='videos__list'>
-                    <Image
-                      width={349}
-                      height={240}
-                      src='https://placehold.jp/349x240.png'
-                      alt='Placeholder'
-                    />
-                    <div className='videos__button'>
-                      <BsPlayFill color='red' fontSize={40} />
-                    </div>
+                    <Youtube link={item.link} />
                   </div>
                 ))}
               </div>

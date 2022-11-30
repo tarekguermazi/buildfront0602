@@ -72,7 +72,7 @@ const evenementListActions = {
       const response = await EvenementService.evenementpasse();
       dispatch({
         type: evenementListActions.FETCH_SUCCESS_EVENEMENT_PASSE,
-        payload: response,
+        payload: { rows: response.rows, count: response.coutn },
       });
     } catch (error) {
       Errors.handle(error);
@@ -90,7 +90,7 @@ const evenementListActions = {
       const response = await EvenementService.evenementvenir();
       dispatch({
         type: evenementListActions.FETCH_SUCCESS_EVENEMENT_VENIR,
-        payload: response,
+        payload: { rows: response.rows, count: response.coutn },
       });
     } catch (error) {
       Errors.handle(error);

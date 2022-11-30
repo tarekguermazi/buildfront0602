@@ -1,8 +1,8 @@
-import EvenementService from 'src/modules/evenement/evenementService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import EvenementService from "src/modules/evenement/evenementService";
+import Errors from "src/modules/shared/error/errors";
+import { getHistory } from "src/modules/store";
 
-const prefix = 'EVENEMENT_VIEW';
+const prefix = "EVENEMENT_VIEW";
 
 const evenementViewActions = {
   FIND_STARTED: `${prefix}_FIND_STARTED`,
@@ -28,7 +28,7 @@ const evenementViewActions = {
         type: evenementViewActions.FIND_ERROR,
       });
 
-      getHistory().push('/evenement');
+      getHistory().push("/evenement");
     }
   },
 };

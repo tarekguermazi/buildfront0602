@@ -9,10 +9,11 @@ import { Link } from "react-router-dom";
 import Slider from "../shared/Slider/Slider";
 import { dataSlider } from "../shared/Slider/dataSlider";
 import EvenementAvenir from "./EvenementAvenir";
-import EvenementPasse from "./EvenementPasse";
+import EvenementPasse from "./EvenementItem";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "src/modules/evenement/list/evenementListActions";
 import selectors from "src/modules/evenement/list/evenementListSelectors";
+import EvenementItem from "./EvenementItem";
 function Evenements() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,6 +25,9 @@ function Evenements() {
 
   const selectLoadingPasse = useSelector(selectors.selectLoadingPasse);
   const selectLoadingVenir = useSelector(selectors.selectLoadingVenir);
+
+  const selectRowsPasse = useSelector(selectors.selectRowsPasse);
+  const selectRowsVenir = useSelector(selectors.selectRowsVenir);
 
   const RenderItem = (obj) => {
     return (
@@ -71,8 +75,8 @@ function Evenements() {
               <div className='satestique__bar'></div>
             </div>
             <div className='venir__content'>
-              {Array.from({ length: 3 }).map((item, index) => (
-                <EvenementAvenir />
+              {selectRowsVenir.map((item, index) => (
+                <EvenementItem data={item} />
               ))}
             </div>
             <div className='plus__button'>Voir plus</div>
@@ -85,8 +89,8 @@ function Evenements() {
               <div className='satestique__bar'></div>
             </div>
             <div className='passe__content'>
-              {Array.from({ length: 3 }).map((item, index) => (
-                <EvenementPasse />
+              {selectRowsPasse.map((item, index) => (
+                <EvenementItem data={item} />
               ))}
             </div>
             <div className='plus__button'>Voir plus</div>
