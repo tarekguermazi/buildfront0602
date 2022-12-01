@@ -2673,6 +2673,11 @@ styling the newsLettre */
   width: 311px;
 }
 
+.footer__content .footerLink {
+  text-decoration: none;
+  color: #fff;
+}
+
 .content__socialmedia {
   display: flex;
   flex-direction: column;
