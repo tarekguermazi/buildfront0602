@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import Breadcrumb from "../shared/Breadcrumb";
 import { i18n } from "../../i18n";
 import { AiOutlineCalendar } from "react-icons/ai";
@@ -12,6 +12,7 @@ import { useRouteMatch } from "react-router-dom";
 import selector from "src/modules/evenement/view/evenementViewSelectors";
 import Date from "../shared/Date";
 import Youtube from "../shared/Youtube";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 function EvenementDetaill() {
   const dispatch = useDispatch();
   const match = useRouteMatch();
@@ -21,7 +22,16 @@ function EvenementDetaill() {
   useEffect(() => {
     dispatch(action.doFind(match.params.id));
   }, []);
+  const center = useMemo(() => ({ lat: 44, lng: -40 }), []);
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyDRX@D21tjCpNmpABQp8bnfNyA99pscQrM",
+  });
 
+  if (!isLoaded) return <div>Loading ... </div>;
+  const containerStyle = {
+    width: "398px",
+    height: "386px",
+  };
   return (
     <>
       <Breadcrumb
@@ -115,13 +125,14 @@ function EvenementDetaill() {
           </div>
           <div className='detailEvenement__right'>
             <div className='title__detaillEvenemet'>Lieu</div>
+
             <div>
-              <Image
-                width={398}
-                height={386}
-                src='https://placehold.jp/398x386.png'
-                alt='Placeholder'
-              />
+              <GoogleMap
+                zoom={10}
+                center={center}
+                mapContainerStyle={containerStyle}>
+                <Marker position={center} />
+              </GoogleMap>
             </div>
             <div className='detaillEvenement__socialMedia'>
               <div className='socialMedia__title'>Partager :</div>
