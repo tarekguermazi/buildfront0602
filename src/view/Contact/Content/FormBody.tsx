@@ -1,17 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import ContactService from 'src/modules/Contact/ContactService';
 // ICONS
 import { BiMailSend } from 'react-icons/bi';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
-export default function FormBody({ userType }) {
+export default function FormBody({ sender, type, setType, explanation, setExplanation }) {
+
+    const [formIsSubmitting, setformIsSubmitting] = useState(false)
+
+    const handleFormSubmit = event => {
+        event.preventDefault();
+        const formValues = {
+            sender: sender.type ?? null,
+            type: (type === "--") ? null : type,
+            explanation: explanation ?? 'N.A'
+        };
+        setformIsSubmitting(true)
+        ContactService.submitFormData(formValues)
+            .then((response: any) => {
+                console.log(response);
+                setformIsSubmitting(false);
+            })
+    }
+
     return (
         <BodyLayout>
-            <h3>{userType}</h3>
+            <h3>{sender.display}</h3>
 
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 <div>
                     <label htmlFor="contacttype">Contatct</label>
-                    <select id='contacttype'>
+                    <select id='contacttype' onChange={(event) => setType(event.target.value)}>
                         <option value="--">--</option>
                         <option value="contact">contact</option>
                         <option value="question">question</option>
@@ -20,13 +40,21 @@ export default function FormBody({ userType }) {
                 </div>
                 <div>
                     <label htmlFor="problemInput">Problème d'inscription</label>
-                    <textarea id="problemInput" cols={30} rows={10}></textarea>
+                    <textarea id="problemInput" cols={30} rows={10} value={explanation} onChange={e => setExplanation(e.target.value)}></textarea>
                 </div>
-
-                <button type="submit" className='sendButton'>
-                    <BiMailSend className='icon' />
-                    Send
-                </button>
+                {
+                    (!formIsSubmitting) &&
+                    <button type="submit" className='sendButton'>
+                        <BiMailSend className='icon' />
+                        Send
+                    </button>
+                }
+                {
+                    (formIsSubmitting) &&
+                    <button className='sendButton'>
+                        <AiOutlineLoading3Quarters className='loadingIcon' />
+                    </button>
+                }
             </form>
         </BodyLayout>
     )
@@ -99,6 +127,15 @@ const BodyLayout = styled.section`
                 margin-right: 1rem;
                 font-size: 1.5rem;
             }
+
+            .loadingIcon{
+                animation: spin .7s linear infinite;
+            }
         }
+    }
+
+    @keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
     }
 `;

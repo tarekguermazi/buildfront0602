@@ -5,12 +5,21 @@ import FormHeader from './FormHeader';
 import FormBody from './FormBody';
 
 export default function RightSection() {
-    const [userType, setUserType] = useState('chercheur/se');
+    // SIMPLE FORM SATTES
+    // SIMPLE FORM REQUIRES SIMPLE LOGIC
+    // PLEASE CONCIDER REFACTORING IF FORM GETS MORE COMPLICATED
+    const [sender, setSender] = useState('chercheur/se');
+    const [type, setType] = useState(null);
+    const [explanation, setExplanation] = useState('');
 
     return (
         <RightLayout>
-            <FormHeader setUserType={setUserType} />
-            <FormBody userType={userType} />
+            <FormHeader setUserType={setSender} />
+            <FormBody
+                sender={sender}
+                type={type} setType={setType}
+                explanation={explanation} setExplanation={setExplanation}
+            />
         </RightLayout>
     )
 }

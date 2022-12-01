@@ -9,14 +9,14 @@ export default function FormHeader({ setUserType }) {
 
     const userTypes = [
         { type: 'chercheur', display: 'chercheur/se', icon: 'GiMicroscope', state: 0 },
-        { type: 'étudiant', display: 'étudiant/e', icon: 'graduation', state: 1 },
+        { type: 'etudiant', display: 'étudiant/e', icon: 'graduation', state: 1 },
         { type: 'presse', display: 'presse', icon: 'newPaper', state: 1 },
         { type: 'activiste', display: 'activiste', icon: 'power', state: 1 },
-        { type: 'acteursSociaux', display: 'acteurs sociaux', icon: 'contact', state: 1 }
+        { type: 'acteur_social', display: 'acteurs sociaux', icon: 'contact', state: 1 }
     ]
 
     const handleUserTypeSelection = event => {
-        const typeToDisplay = userTypes.filter(ut => ut.type === event.target.value)[0].display;
+        const typeToDisplay = userTypes.filter(ut => ut.type === event.target.value)[0];
         setUserType(typeToDisplay);
     }
 
