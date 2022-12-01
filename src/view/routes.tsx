@@ -17,6 +17,14 @@ const navigateRoutes = [
     loader: () => import("src/view/shared/Detaill/Detaill"),
   },
   {
+    path: "/detaill/Evenement/Venir",
+    loader: () => import("src/view/shared/Detaill/DetaillEvenemnts"),
+  },
+  {
+    path: "/detaill/Evenement/Passe",
+    loader: () => import("src/view/shared/Detaill/DetaillEvenemnts"),
+  },
+  {
     path: "/Publications",
     loader: () => import("src/view/Publications/Publications"),
   },

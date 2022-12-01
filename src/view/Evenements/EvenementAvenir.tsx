@@ -30,7 +30,9 @@ function EvenementAvenir() {
             <EvenementItem data={item} />
           ))}
         </div>
-        <div className='plus__button'>Voir plus</div>
+        <Link to='/detaill/Evenement/Venir'>
+          <div className='plus__button'>Voir plus</div>
+        </Link>
       </div>
     </div>
   );

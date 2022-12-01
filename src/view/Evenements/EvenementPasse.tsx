@@ -3,6 +3,7 @@ import EvenementItem from "./EvenementItem";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "src/modules/evenement/list/evenementListActions";
 import selectors from "src/modules/evenement/list/evenementListSelectors";
+import { Link } from "react-router-dom";
 function EvenementPasse() {
   const selectLoadingPasse = useSelector(selectors.selectLoadingPasse);
   const selectRowsPasse = useSelector(selectors.selectRowsPasse);
@@ -24,7 +25,9 @@ function EvenementPasse() {
             <EvenementItem data={item} />
           ))}
         </div>
-        <div className='plus__button'>Voir plus</div>
+        <Link to='/detaill/Evenement/Passe'>
+          <div className='plus__button'>Voir plus</div>
+        </Link>
       </div>
     </div>
   );
