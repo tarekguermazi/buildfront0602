@@ -68,20 +68,7 @@ function Evenements() {
             showDots={true}
           />
         </div>
-        <div className='evenment__venir'>
-          <div className='venir'>
-            <div className='archieve__header'>
-              <h2>événements à venir</h2>
-              <div className='satestique__bar'></div>
-            </div>
-            <div className='venir__content'>
-              {selectRowsVenir.map((item, index) => (
-                <EvenementItem data={item} />
-              ))}
-            </div>
-            <div className='plus__button'>Voir plus</div>
-          </div>
-        </div>
+        <EvenementAvenir />
         <div className='evenment__passe'>
           <div className='passe'>
             <div className='archieve__header'>

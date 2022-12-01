@@ -13,6 +13,7 @@ import selector from "src/modules/evenement/view/evenementViewSelectors";
 import Date from "../shared/Date";
 import Youtube from "../shared/Youtube";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import EvenementAvenir from "./EvenementAvenir";
 function EvenementDetaill() {
   const dispatch = useDispatch();
   const match = useRouteMatch();
@@ -27,11 +28,12 @@ function EvenementDetaill() {
     googleMapsApiKey: "AIzaSyDRX@D21tjCpNmpABQp8bnfNyA99pscQrM",
   });
 
-  if (!isLoaded) return <div>Loading ... </div>;
   const containerStyle = {
     width: "398px",
     height: "386px",
   };
+  if (!isLoaded) return <div>Loading ... </div>;
+
   return (
     <>
       <Breadcrumb
@@ -151,43 +153,7 @@ function EvenementDetaill() {
             </div>
           </div>
         </div>
-
-        <div className='evenment__venir'>
-          <div className='venir'>
-            <div className='archieve__header'>
-              <h2>événements à venir</h2>
-              <div className='satestique__bar'></div>
-            </div>
-            <div className='venir__content'>
-              {Array.from({ length: 3 }).map((item, index) => (
-                <div>
-                  <div className='contentVenir__top'>
-                    <Image
-                      width={370}
-                      height={220}
-                      src='https://placehold.jp/370x220.png'
-                      alt=''
-                    />
-                    <div className='venir__clendar'>
-                      <div className='calendar__number'>15</div>
-                      <div className='calendar__months'>Avril</div>
-                    </div>
-                  </div>
-                  <div className='contentVenir__bottom'>
-                    <div className='venir__localistaion'>
-                      <MdLocationOn /> Tunis
-                    </div>
-                    <div className='venir__description'>
-                      Atelier de restitution de l’événement Echange des Jeunes
-                      du projet Justice Environnementale
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className='plus__button'>Voir plus</div>
-          </div>
-        </div>
+        <EvenementAvenir />
       </div>
     </>
   );

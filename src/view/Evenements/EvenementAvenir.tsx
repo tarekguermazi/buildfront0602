@@ -1,32 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Image from "../shared/Image";
+import EvenementItem from "./EvenementItem";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "src/modules/evenement/list/evenementListActions";
+import selectors from "src/modules/evenement/list/evenementListSelectors";
 function EvenementAvenir() {
+  const dispatch = useDispatch();
+
+  const selectLoadingVenir = useSelector(selectors.selectLoadingVenir);
+
+  const selectRowsVenir = useSelector(selectors.selectRowsVenir);
+
+  useEffect(() => {
+    dispatch(actions.evenementvenir());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <div>
-      <Link to='/Evenements/12'>
-        <div className='contentVenir__top'>
-          <Image
-            width={370}
-            height={220}
-            src='https://placehold.jp/370x220.png'
-            alt=''
-          />
-          <div className='venir__clendar'>
-            <div className='calendar__number'>15</div>
-            <div className='calendar__months'>Avril</div>
-          </div>
+    <div className='evenment__venir'>
+      <div className='venir'>
+        <div className='archieve__header'>
+          <h2>événements à venir</h2>
+          <div className='satestique__bar'></div>
         </div>
-      </Link>
-      <div className='contentVenir__bottom'>
-        <div className='venir__localistaion'>
-          <MdLocationOn /> Tunis
+        <div className='venir__content'>
+          {selectRowsVenir.map((item, index) => (
+            <EvenementItem data={item} />
+          ))}
         </div>
-        <div className='venir__description'>
-          Atelier de restitution de l’événement Echange des Jeunes du projet
-          Justice Environnementale
-        </div>
+        <div className='plus__button'>Voir plus</div>
       </div>
     </div>
   );
