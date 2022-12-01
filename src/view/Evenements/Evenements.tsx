@@ -5,30 +5,11 @@ import Skeletons from "../shared/Skeletons";
 import Image from "../shared/Image";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
-import { Link } from "react-router-dom";
 import Slider from "../shared/Slider/Slider";
 import { dataSlider } from "../shared/Slider/dataSlider";
 import EvenementAvenir from "./EvenementAvenir";
-import EvenementPasse from "./EvenementItem";
-import { useDispatch, useSelector } from "react-redux";
-import actions from "src/modules/evenement/list/evenementListActions";
-import selectors from "src/modules/evenement/list/evenementListSelectors";
-import EvenementItem from "./EvenementItem";
+import EvenementPasse from "./EvenementPasse";
 function Evenements() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(actions.evenementvenir());
-    dispatch(actions.evenementpasse());
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const selectLoadingPasse = useSelector(selectors.selectLoadingPasse);
-  const selectLoadingVenir = useSelector(selectors.selectLoadingVenir);
-
-  const selectRowsPasse = useSelector(selectors.selectRowsPasse);
-  const selectRowsVenir = useSelector(selectors.selectRowsVenir);
-
   const RenderItem = (obj) => {
     return (
       <div className='evenement__message'>
@@ -71,20 +52,7 @@ function Evenements() {
           />
         </div>
         <EvenementAvenir />
-        <div className='evenment__passe'>
-          <div className='passe'>
-            <div className='archieve__header'>
-              <h2>événements passé</h2>
-              <div className='satestique__bar'></div>
-            </div>
-            <div className='passe__content'>
-              {selectRowsPasse.map((item, index) => (
-                <EvenementItem data={item} />
-              ))}
-            </div>
-            <div className='plus__button'>Voir plus</div>
-          </div>
-        </div>
+        <EvenementPasse />
       </div>
     </>
   );

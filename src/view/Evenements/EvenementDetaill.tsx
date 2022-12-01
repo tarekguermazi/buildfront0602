@@ -60,7 +60,7 @@ function EvenementDetaill() {
               <div className='messageEvenement__description'>
                 <div>par FTDES</div>
                 <div>
-                  <AiOutlineCalendar /> 14 octobre 2022
+                  <AiOutlineCalendar /> {Date.date(selectRows?.date)}
                 </div>
                 <div>
                   <MdLocationOn /> {selectRows?.emplacementAR}
@@ -83,8 +83,8 @@ function EvenementDetaill() {
             <div className='left__date'>
               <div className='title__detaillEvenemet'>Date</div>
               <div className='description__detaillEvenement'>
-                <b> Dimanche, 15 avril 2022</b> <br /> Hoarraire :{" "}
-                <b> 08:00 - 18:00</b>
+                <b> {Date.DetaillDate(selectRows?.date)} </b> <br />
+                Hoarraire : <b>{Date.Hour(selectRows?.date)}</b>
               </div>
             </div>
 

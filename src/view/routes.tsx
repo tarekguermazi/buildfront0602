@@ -9,6 +9,14 @@ const navigateRoutes = [
   },
   { path: "/A_propos", loader: () => import("src/view/Propos_nous/Propos") },
   {
+    path: "/detaill/:id",
+    loader: () => import("src/view/shared/Detaill/Detaill"),
+  },
+  {
+    path: "/detaill/category/:id",
+    loader: () => import("src/view/shared/Detaill/Detaill"),
+  },
+  {
     path: "/Publications",
     loader: () => import("src/view/Publications/Publications"),
   },
@@ -85,18 +93,6 @@ const privateRoutes = [
   {
     path: "/favoris",
     loader: () => import("src/view/Favoris/Favoris"),
-    permissionRequired: null,
-    exact: true,
-  },
-  {
-    path: "/detaill/:id",
-    loader: () => import("src/view/shared/Detaill/Detaill"),
-    permissionRequired: null,
-    exact: true,
-  },
-  {
-    path: "/detaill/category/:id",
-    loader: () => import("src/view/shared/Detaill/Detaill"),
     permissionRequired: null,
     exact: true,
   },
