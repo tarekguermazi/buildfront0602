@@ -62,9 +62,11 @@ function EvenementDetaill() {
           <div className='detaillEvenement__left'>
             <div className='left__description'>
               <div className='title__detaillEvenemet'>Description</div>
-              <div className='description__detaillEvenement'>
-                {selectRows?.descriptionAR}
-              </div>
+              <div
+                className='description__detaillEvenement'
+                dangerouslySetInnerHTML={{
+                  __html: selectRows?.descriptionAR,
+                }}></div>
             </div>
             <div className='left__date'>
               <div className='title__detaillEvenemet'>Date</div>
@@ -103,12 +105,12 @@ function EvenementDetaill() {
 
             <div className='left__contact'>
               <div className='title__detaillEvenemet'>Contact</div>
-              <div className='description__detaillEvenement'>
-                <b> John Doe </b> <br /> Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit: <br /> <b> 70 123 675 </b>
-                <br /> <b>55 236 456</b> <br />
-                consectetur adipiscing elit : www.ftdes.com/contact
-              </div>
+
+              <div
+                className='description__detaillEvenement'
+                dangerouslySetInnerHTML={{
+                  __html: selectRows?.contact2,
+                }}></div>
             </div>
           </div>
           <div className='detailEvenement__right'>
@@ -130,12 +132,11 @@ function EvenementDetaill() {
             </div>
             <div className='left__contact'>
               <div className='title__detaillEvenemet'>Contact</div>
-              <div className='description__detaillEvenement'>
-                <b> John Doe </b> <br /> Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit: <br /> <b> 70 123 675 </b>
-                <br /> <b>55 236 456</b> <br />
-                consectetur adipiscing elit : www.ftdes.com/contact
-              </div>
+              <div
+                className='description__detaillEvenement'
+                dangerouslySetInnerHTML={{
+                  __html: selectRows?.contact1,
+                }}></div>
             </div>
           </div>
         </div>
