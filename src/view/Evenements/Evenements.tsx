@@ -33,8 +33,10 @@ function Evenements() {
     return (
       <div className='evenement__message'>
         <div className='messageEvenement__left'>
-          <div className='left__number'>15</div>
-          <div className='left__months'>Avril</div>
+          <div>
+            <div className='left__number'>15</div>
+            <div className='left__months'>Avril</div>
+          </div>
         </div>
         <div className='messageEvenement__right'>
           <div className='messageEvenement__title'>{obj?.title}</div>

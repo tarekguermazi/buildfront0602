@@ -1958,11 +1958,22 @@ Styling the archeive verison Mobile  */
   position: relative;
 }
 
+.evenment__header::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: all 0.3s ease 0s;
+}
+
 .evenement__message {
   display: grid;
   place-content: baseline;
   place-items: center;
   position: absolute;
+  z-index: 3;
   top: 119px;
   left: 108px;
   right: 108px;
@@ -1973,11 +1984,13 @@ Styling the archeive verison Mobile  */
 
 .messageEvenement__left {
   background-color: var(--white);
-  width: 100%;
+  /* width: 100%; */
   height: 165px;
   display: grid;
   place-content: center;
   place-items: center;
+  min-width: 101px;
+  padding: 0 10px;
 }
 
 .left__number {
@@ -2079,10 +2092,20 @@ Styling the archeive verison Mobile  */
 .contentVenir__top {
   position: relative;
 }
+.contentVenir__top::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: all 0.3s ease 0s;
+}
 
 .venir__clendar {
+  z-index: 3;
   background-color: var(--white);
-  max-height: 91px;
+
   position: absolute;
   bottom: 18px;
   left: 18px;
@@ -2178,7 +2201,7 @@ Styling the archeive verison Mobile  */
   font-size: 14px !important;
   line-height: 25px;
   color: var(--gray2);
-  text-align: justify ;
+  text-align: justify;
 }
 
 .photos__gallery {
