@@ -8,9 +8,11 @@ import "react-loading-skeleton/dist/skeleton.css";
 export default function Content() {
 
   const [propsText, setPropsText] = useState([]);
+  const [currentlySelectedLanguage, setCurrentlySelectedLanguage] = useState('fr');
   const [aboutIsLoading, setaboutIsLoading] = useState(true);
 
   const getAboutText = () => {
+    setCurrentlySelectedLanguage(localStorage.getItem('language') ?? 'fr');
     AproposService.getApropos()
       .then((res: any) => {
         setPropsText(propsText => propsText.concat(res));
@@ -34,7 +36,13 @@ export default function Content() {
           </>
           :
           <>
-            {(propsText) && <p> {(propsText[0]['rows'][0]['aboutFR'])} </p>}
+            {
+              {
+                fr: (<p> {(propsText[0]['rows'][0]['aboutFR'])} </p>),
+                en: (<p> {(propsText[0]['rows'][0]['aboutEN'])} </p>),
+                ar: (<p> {(propsText[0]['rows'][0]['aboutAR'])} </p>)
+              }[currentlySelectedLanguage]
+            }
           </>
       }
     </ContentLayout>
