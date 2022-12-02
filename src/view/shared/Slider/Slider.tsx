@@ -6,14 +6,15 @@ import Image from "../../shared/Image";
 import PropTypes from "prop-types";
 function Slider(props) {
   const alt = props.slider;
+  const rows = props.rows;
   const [slideIndex, setSlideIndex] = useState(1);
   const width = Number(props.width);
   const height = Number(props.height);
 
   const nextSlide = () => {
-    if (slideIndex !== dataSlider.length) {
+    if (slideIndex !== rows.length) {
       setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === dataSlider.length) {
+    } else if (slideIndex === rows.length) {
       setSlideIndex(1);
     }
   };
@@ -22,7 +23,7 @@ function Slider(props) {
     if (slideIndex !== 1) {
       setSlideIndex(slideIndex - 1);
     } else if (slideIndex === 1) {
-      setSlideIndex(dataSlider.length);
+      setSlideIndex(rows.length);
     }
   };
 
@@ -42,7 +43,7 @@ function Slider(props) {
             <Image
               width={width}
               height={height}
-              src={`https://placehold.jp/${width}x${height}.png`}
+              src={obj.supports[0].downloadUrl}
               alt={alt}
             />
             {props.render(obj)}
@@ -53,7 +54,7 @@ function Slider(props) {
       <BtnSlider moveSlide={prevSlide} direction={"prev"} />
       {props?.showDots && (
         <div className='container-dots'>
-          {Array.from({ length: 5 }).map((item, index) => (
+          {props.rows.map((item, index) => (
             <div
               onClick={() => moveDot(index + 1)}
               className={slideIndex === index + 1 ? "dot active" : "dot"}></div>
