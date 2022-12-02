@@ -100,9 +100,11 @@ function Header(props) {
     <React.Fragment>
       <div className='header__nav'>
         <div className='nav'>
-          <div className='nav__logo'>
-            <img className='lazyload' src={logos} alt='' />
-          </div>
+          <Link to='/'>
+            <div className='nav__logo'>
+              <img className='lazyload' src={logos} alt='' />
+            </div>
+          </Link>
           <div className='nav__search'>
             <input type='text' placeholder={i18n("common.recherche")} onChange={handleChange} value={homeSearchString} />
             {

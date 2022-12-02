@@ -9,6 +9,8 @@ import {
 } from "src/assets/images";
 import CopyWrite from "./CopyWrite";
 import NewsLettre from "./NewsLettre";
+import { Link } from "react-router-dom";
+
 export default function MegaFooter() {
   return (
     <>
@@ -29,18 +31,18 @@ export default function MegaFooter() {
             <div className='footer__content content__menu'>
               <div>
                 <ul>
-                  <li>A propos</li>
-                  <li>Archive</li>
-                  <li>Glossaire</li>
-                  <li>Publications</li>
+                  <li><Link className='footerLink' to='A_propos'>A propos</Link></li>
+                  <li><Link className='footerLink' to='Archives'>Archive</Link></li>
+                  <li><Link className='footerLink' to='Glossaire'>Glossaire</Link></li>
+                  <li><Link className='footerLink' to='Publications'>Publications</Link></li>
                 </ul>
               </div>
               <div>
                 <ul>
-                  <li>Galerie</li>
-                  <li>Entretiens</li>
-                  <li>Evenements</li>
-                  <li>Contact</li>
+                  <li><Link className='footerLink' to='/'>Galerie</Link></li>
+                  <li><Link className='footerLink' to='/'>Entretiens</Link></li>
+                  <li><Link className='footerLink' to='Evenements'>Evenements</Link></li>
+                  <li><Link className='footerLink' to='Contact'>Contact</Link></li>
                 </ul>
               </div>
             </div>

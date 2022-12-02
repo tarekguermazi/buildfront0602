@@ -10,8 +10,7 @@ export default function SRPCard({ _id, date, content, thumbnail }) {
         <CardLayout>
             <div className='cardDate'>{formattedDate}</div>
             <div className='cardContent'>
-                <strong>TITLE HERE</strong>
-                {/* <Link to={'/publication/' + _id.toString()}><strong>TITLE HERE</strong></Link> */}
+                <Link to={'/publications/' + _id.toString()}><strong>TITLE HERE</strong></Link>
                 {parse(content)}
             </div>
             <div className='cardImage' style={{ backgroundImage: "url(" + thumbnail + ")" }}></div>
