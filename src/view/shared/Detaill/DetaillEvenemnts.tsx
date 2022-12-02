@@ -18,6 +18,15 @@ import Date from "../Date";
 function Detaill() {
   const match = useRouteMatch();
   const dispatch = useDispatch();
+
+  const doFetch = async () => {
+    if (match.path === "/detaill/Evenement/Venir") {
+      dispatch(actions.evenementvenir());
+    } else if (match.path === "/detaill/Evenement/Passe") {
+      dispatch(actions.evenementpasse());
+    }
+  };
+
   let rows: any;
   const rowsPasse = useSelector(selectors.selectRowsPasse);
   const rowsVenir = useSelector(selectors.selectRowsVenir);
@@ -30,14 +39,6 @@ function Detaill() {
   const selectLoadingPasse = useSelector(selectors.selectLoadingPasse);
   const selectLoadingVenir = useSelector(selectors.selectLoadingVenir);
   const loading = selectLoadingPasse || selectLoadingVenir;
-  
-  const doFetch = async () => {
-    if (match.path === "/detaill/Evenement/Venir") {
-      dispatch(actions.evenementvenir());
-    } else if (match.path === "/detaill/Evenement/Passe") {
-      dispatch(actions.evenementpasse());
-    }
-  };
 
   let titleBreadcrumb =
     match.path === "/detaill/category/:id"

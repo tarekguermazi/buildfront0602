@@ -43,27 +43,6 @@ const evenementListActions = {
     dispatch(evenementListActions.doFetch());
   },
 
-  doChangePaginationAndSort:
-    (pagination, sorter) => async (dispatch, getState) => {
-      dispatch({
-        type: evenementListActions.PAGINATION_CHANGED,
-        payload: pagination,
-      });
-
-      dispatch({
-        type: evenementListActions.SORTER_CHANGED,
-        payload: sorter,
-      });
-
-      dispatch(evenementListActions.doFetchCurrentFilter());
-    },
-
-  doFetchCurrentFilter: () => async (dispatch, getState) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(evenementListActions.doFetch(filter, rawFilter, true));
-  },
-
   evenementpasse: () => async (dispatch, getState) => {
     try {
       dispatch({
@@ -99,37 +78,29 @@ const evenementListActions = {
       });
     }
   },
-  doFetch:
-    (filter?, rawFilter?, keepPagination = false) =>
-    async (dispatch, getState) => {
-      try {
-        dispatch({
-          type: evenementListActions.FETCH_STARTED,
-          payload: { filter, rawFilter, keepPagination },
-        });
+  doFetch: () => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: evenementListActions.FETCH_STARTED,
+      });
 
-        const response = await EvenementService.list(
-          filter,
-          selectors.selectOrderBy(getState()),
-          selectors.selectLimit(getState()),
-          selectors.selectOffset(getState())
-        );
+      const response = await EvenementService.list();
 
-        dispatch({
-          type: evenementListActions.FETCH_SUCCESS,
-          payload: {
-            rows: response.rows,
-            count: response.count,
-          },
-        });
-      } catch (error) {
-        Errors.handle(error);
+      dispatch({
+        type: evenementListActions.FETCH_SUCCESS,
+        payload: {
+          rows: response.rows,
+          count: response.count,
+        },
+      });
+    } catch (error) {
+      Errors.handle(error);
 
-        dispatch({
-          type: evenementListActions.FETCH_ERROR,
-        });
-      }
-    },
+      dispatch({
+        type: evenementListActions.FETCH_ERROR,
+      });
+    }
+  },
 
   doSearch:
     (filter?, rawFilter?, keepPagination = false) =>

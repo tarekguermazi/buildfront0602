@@ -9,7 +9,18 @@ import Slider from "../shared/Slider/Slider";
 import { dataSlider } from "../shared/Slider/dataSlider";
 import EvenementAvenir from "./EvenementAvenir";
 import EvenementPasse from "./EvenementPasse";
+import actions from "src/modules/evenement/list/evenementListActions";
+import selector from "src/modules/evenement/list/evenementListSelectors";
+import { useDispatch, useSelector } from "react-redux";
+
 function Evenements() {
+  const dispatch = useDispatch();
+  const loading = useSelector(selector.selectRows);
+  const rows = useSelector(selector.selectRows);
+  useEffect(() => {
+    dispatch(actions.doFetch());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const RenderItem = (obj) => {
     return (
       <div className='evenement__message'>
@@ -34,6 +45,7 @@ function Evenements() {
       </div>
     );
   };
+
   return (
     <>
       <Breadcrumb

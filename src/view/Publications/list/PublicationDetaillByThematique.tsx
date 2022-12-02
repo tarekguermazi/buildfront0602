@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "../../shared/Image";
 import { Link } from "react-router-dom";
 import Date from "../../shared/Date";
+import authAxios from "../../../modules/shared/axios/authAxios";
 function PublicationDetaillByThematique(props) {
   const { data, index, thematique } = props;
 
@@ -9,7 +10,7 @@ function PublicationDetaillByThematique(props) {
     return (
       <div>
         <Image
-          src='https://placehold.jp/370x300.png'
+          src={`http://178.79.177.14:8080/api/file/download?privateUrl=${item.supports[0].privateUrl}`}
           width='370'
           height='300'
           alt='Image publication image '
