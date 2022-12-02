@@ -1,31 +1,37 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
 const selectRaw = (state) => state.evenement.list;
 
-const selectLoading = createSelector(
+const selectLoading = createSelector([selectRaw], (raw) => raw.loading);
+const selectLoadingPasse = createSelector(
   [selectRaw],
-  (raw) => raw.loading,
+  (raw) => raw.loadingpasse
+);
+const selectRowsPasse = createSelector(
+  [selectRaw],
+  (raw) => raw.evenementpasse
+);
+
+const selectRowsVenir = createSelector(
+  [selectRaw],
+  (raw) => raw.evenementvenir
+);
+
+const selectLoadingVenir = createSelector(
+  [selectRaw],
+  (raw) => raw.loadingvenir
 );
 
 const selectExportLoading = createSelector(
   [selectRaw],
-  (raw) => raw.exportLoading,
+  (raw) => raw.exportLoading
 );
 
-const selectRows = createSelector(
-  [selectRaw],
-  (raw) => raw.rows,
-);
+const selectRows = createSelector([selectRaw], (raw) => raw.rows);
 
-const selectCount = createSelector(
-  [selectRaw],
-  (raw) => raw.count,
-);
+const selectCount = createSelector([selectRaw], (raw) => raw.count);
 
-const selectHasRows = createSelector(
-  [selectCount],
-  (count) => count > 0,
-);
+const selectHasRows = createSelector([selectCount], (count) => count > 0);
 
 const selectOrderBy = createSelector([selectRaw], (raw) => {
   const sorter = raw.sorter;
@@ -38,8 +44,7 @@ const selectOrderBy = createSelector([selectRaw], (raw) => {
     return null;
   }
 
-  let direction =
-    sorter.order === 'descend' ? 'DESC' : 'ASC';
+  let direction = sorter.order === "descend" ? "DESC" : "ASC";
 
   return `${sorter.field}_${direction}`;
 });
@@ -48,12 +53,9 @@ const selectFilter = createSelector([selectRaw], (raw) => {
   return raw.filter;
 });
 
-const selectRawFilter = createSelector(
-  [selectRaw],
-  (raw) => {
-    return raw.rawFilter;
-  },
-);
+const selectRawFilter = createSelector([selectRaw], (raw) => {
+  return raw.rawFilter;
+});
 
 const selectLimit = createSelector([selectRaw], (raw) => {
   const pagination = raw.pagination;
@@ -80,23 +82,18 @@ const selectPagination = createSelector(
       total: count,
       showSizeChanger: true,
     };
-  },
+  }
 );
 
-const selectSelectedKeys = createSelector(
-  [selectRaw],
-  (raw) => {
-    return raw.selectedKeys;
-  },
-);
+const selectSelectedKeys = createSelector([selectRaw], (raw) => {
+  return raw.selectedKeys;
+});
 
 const selectSelectedRows = createSelector(
   [selectRaw, selectRows],
   (raw, rows) => {
-    return rows.filter((row) =>
-      raw.selectedKeys.includes(row.id),
-    );
-  },
+    return rows.filter((row) => raw.selectedKeys.includes(row.id));
+  }
 );
 
 const evenementListSelectors = {
@@ -113,6 +110,10 @@ const evenementListSelectors = {
   selectHasRows,
   selectExportLoading,
   selectRawFilter,
+  selectLoadingPasse,
+  selectRowsPasse,
+  selectRowsVenir,
+  selectLoadingVenir,
 };
 
 export default evenementListSelectors;

@@ -9,7 +9,7 @@ function PublicationByCategory(props) {
     return (
       <div>
         <Image
-          src='https://placehold.jp/120x78.png'
+          src={`http://178.79.177.14:8080/api/file/download?privateUrl=${item.supports[0].privateUrl}`}
           width={120}
           height={78}
           alt='Image'
@@ -22,6 +22,7 @@ function PublicationByCategory(props) {
             <div className='header__right'>
               {Date.HourMinute(data.updatedAt)}
             </div>
+            <div className='header__right'></div>
           </div>
           <div className='detaill__content text__wrap' style={{ width: 233 }}>
             {item.title}
