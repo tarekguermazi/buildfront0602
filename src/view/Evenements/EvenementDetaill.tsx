@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Breadcrumb from "../shared/Breadcrumb";
 import { i18n } from "../../i18n";
 import { AiOutlineCalendar } from "react-icons/ai";
@@ -14,15 +14,16 @@ import Date from "../shared/Date";
 import Youtube from "../shared/Youtube";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import EvenementAvenir from "./EvenementAvenir";
+import ImageModal from "../shared/modals/ImageModal";
 function EvenementDetaill() {
   const dispatch = useDispatch();
   const match = useRouteMatch();
   const selectRows = useSelector(selector.selectRecord);
   const selectLoading = useSelector(selector.selectLoading);
-
+  const [image, setImage] = useState<any>(null);
   useEffect(() => {
     dispatch(action.doFind(match.params.id));
-  }, []);
+  }, [dispatch]);
   const center = useMemo(() => ({ lat: 44, lng: -40 }), []);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyDRX@D21tjCpNmpABQp8bnfNyA99pscQrM",
@@ -34,6 +35,16 @@ function EvenementDetaill() {
   };
   if (!isLoaded) return <div>Loading ... </div>;
 
+  const doPreviewImage = (image) => {
+    setImage({
+      src: image.downloadUrl,
+      alt: image.name,
+    });
+  };
+
+  const doCloseImageModal = () => {
+    setImage(null);
+  };
   return (
     <>
       <Breadcrumb
@@ -58,7 +69,6 @@ function EvenementDetaill() {
                 {selectRows?.titleFR}
               </div>
               <div className='messageEvenement__description'>
-                <div>par FTDES</div>
                 <div>
                   <AiOutlineCalendar /> {Date.date(selectRows?.date)}
                 </div>
@@ -92,14 +102,31 @@ function EvenementDetaill() {
               <div className='title__detaillEvenemet'>Photos</div>
               <div className='photos__gallery'>
                 {selectRows?.supports?.map((item) => (
-                  <Image
-                    width={165}
-                    height={159}
-                    src={item.downloadUrl}
-                    alt='Placeholder'
-                  />
+                  <>
+                    <Image
+                      width={165}
+                      height={159}
+                      src={item.downloadUrl}
+                      alt='Placeholder'
+                    />
+
+                    <button
+                      type='button'
+                      className='btn btn-link'
+                      onClick={() => doPreviewImage(item)}>
+                      <i className='fas fa-search'></i>
+                    </button>
+                  </>
                 ))}
               </div>
+
+              {image && (
+                <ImageModal
+                  src={image.src}
+                  alt={image.alt}
+                  onClose={() => doCloseImageModal()}
+                />
+              )}
               <div className='plus__button'>Voir toutes les photos</div>
             </div>
 

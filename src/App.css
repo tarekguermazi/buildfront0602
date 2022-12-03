@@ -2209,7 +2209,12 @@ Styling the archeive verison Mobile  */
   flex-wrap: wrap;
   gap: 19px;
 }
-
+.hover__background {
+  position: absolute;
+  z-index: 3;
+  width: 100px;
+  height: 100px;
+}
 .videos__list {
   position: relative;
 }

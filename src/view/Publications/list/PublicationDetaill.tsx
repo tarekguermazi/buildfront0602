@@ -1,5 +1,6 @@
 import React from "react";
 import Date from "../../shared/Date";
+import Translate from "../../shared/Translate";
 function PublicationDetaill(props) {
   const { data } = props;
 
@@ -12,8 +13,12 @@ function PublicationDetaill(props) {
           </div>
           <div className='__right'>{Date.HourMinute(data.updatedAt)}</div>
         </div>
-        <div className='__content'>{data.title}</div>
-        <div className='sub__content'>{data.thematique?.descriptionFR}</div>
+        <div className='__content'>
+          {Translate.Trans("title", data.thematique)}
+        </div>
+        <div className='sub__content'>
+          {Translate.Trans("description", data.thematique)}
+        </div>
       </div>
     </div>
   );

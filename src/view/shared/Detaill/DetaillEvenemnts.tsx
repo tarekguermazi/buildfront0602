@@ -71,7 +71,7 @@ function Detaill() {
                     <div className='detaill__header'>
                       <div className='header__left'></div>
                       <div className='header__right'>
-                        {Date.HourMinute(item.updatedAt)}
+                        {Date.HourMinute(item.date)}
                       </div>
                     </div>{" "}
                     <div className='detaill__content'>

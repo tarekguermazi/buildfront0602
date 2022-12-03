@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "../../shared/Image";
 import { Link } from "react-router-dom";
+import Translate from "../../shared/Translate";
 function PublicationByCategory(props) {
   const { data, category, index } = props;
 
@@ -21,8 +22,7 @@ function PublicationByCategory(props) {
             <div className='header__right'></div>
           </div>
           <div className='detaill__content text__wrap' style={{ width: 233 }}>
-            Karbaï: Les conditions de vie des migrants à Lampedusa inhumaines
-            inhumaines inhumaines
+            {Translate.Trans("title", item)}
           </div>
         </div>
       </div>

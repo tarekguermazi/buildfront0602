@@ -32,6 +32,7 @@ export default [
     subMenue: [
       {
         label: "Vidéos",
+        path: "/",
       },
       { label: "Podcast" },
       { label: "Photos" },
