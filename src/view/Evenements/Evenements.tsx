@@ -13,6 +13,7 @@ import actions from "src/modules/evenement/list/evenementListActions";
 import selector from "src/modules/evenement/list/evenementListSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import Date from "../shared/Date";
+import Translate from "../shared/Translate";
 
 function Evenements() {
   const dispatch = useDispatch();
@@ -30,11 +31,13 @@ function Evenements() {
           <div className='left__months'>{Date.Month(obj?.date)}</div>
         </div>
         <div className='messageEvenement__right'>
-          <div className='messageEvenement__title'>{obj?.titleFR}</div>
+          <div className='messageEvenement__title'>
+            {Translate.Trans("title", obj)}
+          </div>
           <div className='messageEvenement__description'>
-            <div>par FTDES</div>
             <div>
-              <AiOutlineCalendar /> {Date.date(obj?.date)}
+              <AiOutlineCalendar />
+              {Date.date(obj?.date)}
             </div>
             <div>
               <MdLocationOn /> {obj?.emplacementAR}

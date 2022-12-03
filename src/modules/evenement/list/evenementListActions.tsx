@@ -10,6 +10,12 @@ const evenementListActions = {
   FETCH_SUCCESS: `${prefix}_FETCH_SUCCESS`,
   FETCH_ERROR: `${prefix}_FETCH_ERROR`,
 
+  FETCH_STARTED_EVENEMENT: `${prefix}FETCH_STARTED_EVENEMENT`,
+
+  FETCH_SUCCESS_EVENEMENT: `${prefix}FETCH_SUCCESS_EVENEMENT`,
+
+  FETCH_ERROR_EVENEMENT: `${prefix}FETCH_ERROR_EVENEMENT`,
+
   FETCH_STARTED_EVENEMENT_VENIR: `${prefix}_FETCH_STARTED_EVENEMENT_VENIR`,
   FETCH_SUCCESS_EVENEMENT_VENIR: `${prefix}_FETCH_SUCCESS_EVENEMENT_VENIR`,
   FETCH_ERROR_EVENEMENT_VENIR: `${prefix}_FETCH_ERROR_EVENEMENT_VENIR`,
@@ -43,6 +49,32 @@ const evenementListActions = {
     dispatch(evenementListActions.doFetch());
   },
 
+  listevenementVenir: () => async (dispatch) => {
+    try {
+      dispatch({ type: evenementListActions.FETCH_STARTED_EVENEMENT });
+      const response = await EvenementService.evenementvenir();
+      dispatch({
+        type: evenementListActions.FETCH_SUCCESS_EVENEMENT,
+        payload: { rows: response.rows, count: response.coutn },
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({ type: evenementListActions.FETCH_ERROR_EVENEMENT });
+    }
+  },
+  listevenementPasse: () => async (dispatch) => {
+    try {
+      dispatch({ type: evenementListActions.FETCH_STARTED_EVENEMENT });
+      const response = await EvenementService.evenementpasse();
+      dispatch({
+        type: evenementListActions.FETCH_SUCCESS_EVENEMENT,
+        payload: { rows: response.rows, count: response.coutn },
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({ type: evenementListActions.FETCH_ERROR_EVENEMENT });
+    }
+  },
   evenementpasse: () => async (dispatch, getState) => {
     try {
       dispatch({

@@ -43,7 +43,7 @@ function Slider(props) {
             <Image
               width={width}
               height={height}
-              src={obj.supports[0].downloadUrl}
+              src={obj?.supports[0]?.downloadUrl || undefined}
               alt={alt}
             />
             {props.render(obj)}

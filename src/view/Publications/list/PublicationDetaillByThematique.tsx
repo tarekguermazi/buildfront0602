@@ -10,7 +10,7 @@ function PublicationDetaillByThematique(props) {
     return (
       <div>
         <Image
-          src={`http://178.79.177.14:8080/api/file/download?privateUrl=${item.supports[0].privateUrl}`}
+          src={`http://localhost:8080/api/file/download?privateUrl=${item.supports[0].privateUrl}`}
           width='370'
           height='300'
           alt='Image publication image '

@@ -21,36 +21,26 @@ function Detaill() {
 
   const doFetch = async () => {
     if (match.path === "/detaill/Evenement/Venir") {
-      dispatch(actions.evenementvenir());
+      dispatch(actions.listevenementVenir());
     } else if (match.path === "/detaill/Evenement/Passe") {
-      dispatch(actions.evenementpasse());
+      dispatch(actions.listevenementPasse());
     }
   };
 
-  let rows: any;
-  const rowsPasse = useSelector(selectors.selectRowsPasse);
-  const rowsVenir = useSelector(selectors.selectRowsVenir);
+  const rows = useSelector(selectors.selectRows);
 
-  if (rowsPasse.length > 0) {
-    rows = rowsPasse;
-  } else {
-    rows = rowsVenir;
-  }
   const selectLoadingPasse = useSelector(selectors.selectLoadingPasse);
   const selectLoadingVenir = useSelector(selectors.selectLoadingVenir);
   const loading = selectLoadingPasse || selectLoadingVenir;
 
   let titleBreadcrumb =
-    match.path === "/detaill/category/:id"
-      ? rows[0]?.category?.titleFR
-      : rows[0]?.thematique?.titleFR
-      ? rows[0].titleFR
-      : "";
-
+    match.path === "/detaill/Evenement/Venir"
+      ? "événement a venir "
+      : "événement passé";
   useEffect(() => {
     doFetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className='app__detaill'>
@@ -84,7 +74,9 @@ function Detaill() {
                         {Date.HourMinute(item.updatedAt)}
                       </div>
                     </div>{" "}
-                    <div className='detaill__content'>{item?.title}</div>
+                    <div className='detaill__content'>
+                      {Translate.Trans("title", item)}
+                    </div>
                   </div>
                 </div>
               ))}
