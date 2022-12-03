@@ -51,6 +51,8 @@ const fr = {
     Médiathèque: "Médiathèque",
     Contact: "Contact",
     recherche: "Chercher",
+    lettre: "Par lettre",
+    category: "Par catégorie",
   },
   app: {
     title: "Al-Forum",

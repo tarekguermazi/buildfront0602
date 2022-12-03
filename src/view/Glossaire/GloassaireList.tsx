@@ -18,15 +18,35 @@ export default function GloassaireList({ data, criteria }) {
 
   // ### LETTER TAB LOGIC ###
   let arrayOfData: any[] = [];
+  const langue = localStorage.getItem("language");
 
   if (criteria === "letter") {
-    data.forEach((GLOSSOBJECT) => {
-      arrayOfData.push({
-        letter: initial(GLOSSOBJECT.nomFR),
-        data: GLOSSOBJECT,
+    if (langue === "fr") {
+      data.forEach((GLOSSOBJECT) => {
+        arrayOfData.push({
+          letter: initial(GLOSSOBJECT.nomFR),
+          data: GLOSSOBJECT,
+        });
       });
-    });
-    arrayOfData = groupArray(arraySort(arrayOfData, "letter"), "letter");
+      arrayOfData = groupArray(arraySort(arrayOfData, "letter"), "letter");
+    } else if (langue === "en") {
+      data.forEach((GLOSSOBJECT) => {
+        arrayOfData.push({
+          letter: initial(GLOSSOBJECT.nomEN),
+          data: GLOSSOBJECT,
+        });
+      });
+      arrayOfData = groupArray(arraySort(arrayOfData, "letter"), "letter");
+    }
+    if (langue === "ar") {
+      data.forEach((GLOSSOBJECT) => {
+        arrayOfData.push({
+          letter: initial(GLOSSOBJECT.nomAR),
+          data: GLOSSOBJECT,
+        });
+      });
+      arrayOfData = groupArray(arraySort(arrayOfData, "letter"), "letter");
+    }
   }
   const initialsList: any = Object.keys(arrayOfData);
 
@@ -36,10 +56,28 @@ export default function GloassaireList({ data, criteria }) {
 
   Modal.setAppElement("#root");
   const [modalData, setModalData] = useState([
-    { nomFR: "", definitionFR: "", categorie: { titleFR: "" } },
+    {
+      nomFR: "",
+      nomAR: "",
+      nomEN: "",
+      definitionFR: "",
+      definitionAR: "",
+      definitionEN: "",
+      categorie: { titleFR: "", titleAR: "", titleEN: "" },
+    },
   ]);
   const [modalDataLetter, setModalDataLetter] = useState([
-    { data: { nomFR: "", definitionFR: "", categorie: { titleFR: "" } } },
+    {
+      data: {
+        nomFR: "",
+        nomAR: "",
+        nomEN: "",
+        definitionFR: "",
+        definitionAR: "",
+        definitionEN: "",
+        categorie: { titleFR: "", titleAR: "", titleEN: "" },
+      },
+    },
   ]);
   const handleClick = (CAT, ID) => {
     setIsShowing(true);
@@ -63,7 +101,7 @@ export default function GloassaireList({ data, criteria }) {
   return (
     <div>
       {/* LIST OF ENTRIES */}
-      <section className='listOfEntries'>
+      <section className="listOfEntries">
         {
           // ============ CATEGORY TAB ============
           criteria === "category" && (
@@ -72,17 +110,22 @@ export default function GloassaireList({ data, criteria }) {
                 const glossList = data[CAT];
                 return (
                   <GlossaireSection key={CAT} id={CAT}>
-                    <div className='sectionHeader'>
+                    <div className="sectionHeader">
                       <span>{CAT}</span>
                     </div>
-                    <section className='sectionBody'>
+                    <section className="sectionBody">
                       {glossList.map((GLOSS) => {
                         return (
                           <section key={GLOSS.id}>
                             <button
-                              className='glossaireLink'
-                              onClick={() => handleClick(CAT, GLOSS.id)}>
-                              {GLOSS.nomFR}
+                              className="glossaireLink"
+                              onClick={() => handleClick(CAT, GLOSS.id)}
+                            >
+                              {langue === "fr"
+                                ? GLOSS.nomFR
+                                : langue === "ar"
+                                ? GLOSS.nomAR
+                                : GLOSS.nomEN}
                             </button>
 
                             <Modal
@@ -101,15 +144,34 @@ export default function GloassaireList({ data, criteria }) {
                                   textAlign: "justify",
                                   color: "var(--violet)",
                                 },
-                              }}>
+                              }}
+                            >
                               <ModalHeader
-                                title={modalData[0]["nomFR"]}
+                                title={
+                                  langue === "fr"
+                                    ? modalData[0]["nomFR"]
+                                    : langue === "ar"
+                                    ? modalData[0]["nomAR"]
+                                    : modalData[0]["nomEN"]
+                                }
                                 setIsShowing={setIsShowing}
                               />
                               <ModalLabel
-                                label={modalData[0]["categorie"].titleFR}
+                                label={
+                                  langue === "fr"
+                                    ? modalData[0]["categorie"].titleFR
+                                    : langue === "ar"
+                                    ? modalData[0]["categorie"].titleAR
+                                    : modalData[0]["categorie"].titleEN
+                                }
                               />
-                              <p>{modalData[0]["definitionFR"]}</p>
+                              <p>
+                                {langue === "fr"
+                                  ? modalData[0]["definitionFR"]
+                                  : langue === "ar"
+                                  ? modalData[0]["definitionAR"]
+                                  : modalData[0]["definitionEN"]}
+                              </p>
                             </Modal>
                           </section>
                         );
@@ -133,20 +195,26 @@ export default function GloassaireList({ data, criteria }) {
                 return (
                   <GlossaireSection
                     key={GLOSSAIREINITIAL}
-                    id={GLOSSAIREINITIAL}>
-                    <div className='sectionHeader'>
+                    id={GLOSSAIREINITIAL}
+                  >
+                    <div className="sectionHeader">
                       <span>{GLOSSAIREINITIAL}</span>
                     </div>
-                    <section className='sectionBody'>
+                    <section className="sectionBody">
                       {glossList.map((ENTRY) => {
                         return (
                           <section key={ENTRY.data.id}>
                             <button
-                              className='glossaireLink'
+                              className="glossaireLink"
                               onClick={() =>
                                 handleClick(GLOSSAIREINITIAL, ENTRY.data.id)
-                              }>
-                              {ENTRY.data.nomFR}
+                              }
+                            >
+                              {langue === "fr"
+                                ? ENTRY.data.nomFR
+                                : langue === "ar"
+                                ? ENTRY.data.nomAR
+                                : ENTRY.data.nomEN}
                             </button>
 
                             <Modal
@@ -165,19 +233,36 @@ export default function GloassaireList({ data, criteria }) {
                                   textAlign: "justify",
                                   color: "var(--violet)",
                                 },
-                              }}>
+                              }}
+                            >
                               <ModalHeader
-                                title={modalDataLetter[0]["data"]["nomFR"]}
+                                title={
+                                  langue === "fr"
+                                    ? modalDataLetter[0]["data"]["nomFR"]
+                                    : langue === "ar"
+                                    ? modalDataLetter[0]["data"]["nomAR"]
+                                    : modalDataLetter[0]["data"]["nomEN"]
+                                }
                                 setIsShowing={setIsShowing}
                               />
                               <ModalLabel
                                 label={
-                                  modalDataLetter[0]["data"]["categorie"]
-                                    .titleFR
+                                  langue === "fr"
+                                    ? modalDataLetter[0]["data"]["categorie"]
+                                        .titleFR
+                                    : langue === "ar"
+                                    ? modalDataLetter[0]["data"]["categorie"]
+                                        .titleAR
+                                    : modalDataLetter[0]["data"]["categorie"]
+                                        .titleEN
                                 }
                               />
                               <p>
-                                {modalDataLetter[0]["data"]["definitionFR"]}
+                                {langue === "fr"
+                                  ? modalDataLetter[0]["data"]["definitionFR"]
+                                  : langue === "ar"
+                                  ? modalDataLetter[0]["data"]["definitionAR"]
+                                  : modalDataLetter[0]["data"]["definitionEN"]}
                               </p>
                             </Modal>
                           </section>

@@ -20,7 +20,7 @@ const en = {
     destroy: "Delete",
     mustSelectARow: "Must select a row",
     filters: "Filters",
-    Menue: "menu",
+    Menue: "Menu",
     propos: "About",
     Publications: "Publications",
     Archives: "Archives",
@@ -30,6 +30,8 @@ const en = {
     Médiathèque: "Media library",
     Contact: "Contact",
     recherche: "Search",
+    lettre: "By letter",
+    category: "By category",
   },
 
   app: {

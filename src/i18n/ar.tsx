@@ -22,6 +22,8 @@ const ar = {
     filters: "بحث متقدم",
     Archives: "أرشيف",
     recherche: "بحث",
+    lettre: "حسب الأبجدية",
+    category: "بالتصنيف",
   },
 
   app: {
