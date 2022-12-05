@@ -77,7 +77,39 @@ const publicationListActions = {
           payload: { filter, rawFilter, keepPagination },
         });
 
-        const response = await PublicationService.list();
+        const response = await PublicationService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState())
+        );
+
+        dispatch({
+          type: publicationListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: publicationListActions.FETCH_ERROR,
+        });
+      }
+    },
+
+  doFetchValidePublication:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: publicationListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
+
+        const response = await PublicationService.listPublicationValide();
 
         dispatch({
           type: publicationListActions.FETCH_SUCCESS,

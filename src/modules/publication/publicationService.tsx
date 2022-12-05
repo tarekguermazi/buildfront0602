@@ -117,7 +117,24 @@ export default class PublicationService {
     return response.data;
   }
 
-  static async list() {
+  static async list(filter, orderBy, limit, offset) {
+    const params = {
+      filter,
+      orderBy,
+      limit,
+      offset,
+    };
+
+    const tenantId = AuthCurrentTenant.get();
+
+    const response = await authAxios.get(`/tenant/${tenantId}/publication`, {
+      params,
+    });
+
+    return response.data;
+  }
+
+  static async listPublicationValide() {
     const limit = 4;
     const offest = 4;
     const orderBy = "updatedAt_DESC";
@@ -128,7 +145,7 @@ export default class PublicationService {
     };
     const tenantId = AuthCurrentTenant.get();
 
-    const response = await authAxios.get(`/tenant/${tenantId}/publication`, {
+    const response = await authAxios.get(`/tenant/${tenantId}/allpublication`, {
       params,
     });
 

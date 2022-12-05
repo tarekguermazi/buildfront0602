@@ -19,7 +19,7 @@ function Publications() {
   useEffect(() => {
     dispatch(actionsPublication.allpublicationbythematique());
     dispatch(actionsPublication.allpublicationbyCategory());
-    dispatch(actionsPublication.doFetch());
+    dispatch(actionsPublication.doFetchValidePublication());
     dispatch(actions.doFetch());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
