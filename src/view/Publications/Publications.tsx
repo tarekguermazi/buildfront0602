@@ -5,7 +5,8 @@ import { i18n } from "../../i18n";
 import Image from "src/view/shared/Image";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import actions from "src/modules/categoryPublication/list/categoryPublicationListActions";
+import selectors from "src/modules/categoryPublication/list/categoryPublicationListSelectors";
 import actionsPublication from "src/modules/publication/list/publicationListActions";
 import selectorsPublication from "src/modules/publication/list/publicationListSelectors";
 import PublicationCategory from "./list/PublicationCategory";
@@ -14,10 +15,12 @@ import PublicationDetaillByThematique from "./list/PublicationDetaillByThematiqu
 import PublicationByCategory from "./list/PublicationByCategory";
 function Publications() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(actionsPublication.allpublicationbythematique());
     dispatch(actionsPublication.allpublicationbyCategory());
     dispatch(actionsPublication.doFetch());
+    dispatch(actions.doFetch());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -31,7 +34,13 @@ function Publications() {
   const loadingPublication = useSelector(selectorsPublication.selectLoading);
   const loadingByCategory = useSelector(selectorsPublication.loadingByCategory);
   const rowsCategory = useSelector(selectorsPublication.slectByCategory);
-  const loading = loadingByCategory || lodingThematique || loadingPublication;
+  const loadingCategory = useSelector(selectors.selectLoading);
+  const selectRowsCategory = useSelector(selectors.selectRows);
+  const loading =
+    loadingByCategory ||
+    lodingThematique ||
+    loadingPublication ||
+    loadingCategory;
   return (
     <>
       <div className='publication__page'>
@@ -49,11 +58,10 @@ function Publications() {
         {!loading && (
           <>
             <div className='app__category'>
-              <div className='category__title'>Catégorie</div>
               <div className='category__list'>
                 {!loadingByCategory &&
-                  rowsCategory.map((item, index) => (
-                    <PublicationCategory rows={item?.cat[0]} index={index} />
+                  selectRowsCategory.map((item, index) => (
+                    <PublicationCategory rows={item} index={index} />
                   ))}
               </div>
             </div>

@@ -27,6 +27,23 @@ export default (state = initialData, { type, payload }) => {
     };
   }
 
+  if (type === actions.FETCH_STARTED_EVENEMENT) {
+    return { ...state, loading: true };
+  }
+
+  if (type === actions.FETCH_SUCCESS_EVENEMENT) {
+    return {
+      ...state,
+      loading: false,
+      rows: payload.rows,
+      count: payload.count,
+    };
+  }
+
+  if (type === actions.FETCH_ERROR_EVENEMENT) {
+    return { ...state, loading: false, rows: [] };
+  }
+
   if (type === actions.SELECTEDS_CHANGED) {
     return {
       ...state,

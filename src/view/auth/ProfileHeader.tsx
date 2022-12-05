@@ -38,9 +38,7 @@ function ProfileHeader(props) {
             <div className='description__number'>{countPublication}</div>
             {i18n("entities.publication.label")}
           </div>
-          <div>
-            <div className='description__number'>0</div> Discussions
-          </div>
+
           <div>
             <div className='description__number'>{countAppui}</div>
             {i18n("entities.demandeAppui.label")}

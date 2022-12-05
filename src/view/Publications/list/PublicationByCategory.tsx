@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "../../shared/Image";
 import { Link } from "react-router-dom";
+import Translate from "../../shared/Translate";
 import Date from "../../shared/Date";
 function PublicationByCategory(props) {
   const { data, category, index } = props;
@@ -25,7 +26,7 @@ function PublicationByCategory(props) {
             <div className='header__right'></div>
           </div>
           <div className='detaill__content text__wrap' style={{ width: 233 }}>
-            {item.title}
+            {Translate.Trans("title", item)}
           </div>
         </div>
       </div>

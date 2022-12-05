@@ -60,7 +60,7 @@ function PublicationList(props) {
           {count} {i18n("menu.contenus")}
         </div>
 
-        <div className='search__right'>
+        {/* <div className='search__right'>
           <div className='search__result'>
             <i className='fas fa-search'></i>
             {i18n("buttons.chercher")}
@@ -69,7 +69,7 @@ function PublicationList(props) {
             <i className='fas fa-sliders-h'></i>
             {i18n("buttons.filtrer")}
           </div>
-        </div>
+        </div> */}
       </div>
       <div className='list__items'>
         <table>

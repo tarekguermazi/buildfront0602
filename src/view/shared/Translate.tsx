@@ -1,37 +1,50 @@
 export default class Translate {
-  static Trans(item) {
-    console.log(item);
+  static Trans(field?, item?) {
+    let title = "";
+    const Currentlangue = localStorage.getItem("language");
+    if (Currentlangue === "fr") {
+      title = this.TransLateFR(field, item);
+    }
+    if (Currentlangue === "ar") {
+      title = this.TransLateAR(field, item);
+    }
 
-    const langue = localStorage.getItem("language");
+    if (Currentlangue === "en") {
+      title = this.TransLateEN(field, item);
+    }
+    return title;
+  }
+  static TransLateFR(field?, data?) {
+    let title = " ";
+    if (field === "title") {
+      title = data.titleFR;
+    }
+    if (field === "description") {
+      title = data.descriptionFR;
+    }
 
-    console.log(langue);
-    // var title = ["titleFR", "titleEN", "titleAR"];
-    // var description = ["descriptionFR", "descriptionEN", "descriptionAR"];
-    // if (item.includes(title)) {
-    //   console.log("the item is title");
-    // } else if (item.includes(description)) {
-    //   console.log("the item is description");
-    // }
+    return title;
+  }
+  static TransLateAR(field?, data?) {
+    let title = " ";
+    if (field === "title") {
+      title = data.titleAR;
+    }
+    if (field === "description") {
+      title = data.descriptionAR;
+    }
 
-    // switch (langue) {
-    //   case "fr":
-    //     return item.titleFR;
-    //   case "en":
-    //     return item.titleEN;
-    //   case "ar":
-    //     return item.titleAR;
-    //   default:
-    //     return item.titleAR;
-    // }
-    // switch (langue) {
-    //   case "fr":
-    //     return item.descriptionFR;
-    //   case "en":
-    //     return item.descriptionEN;
-    //   case "ar":
-    //     return item.descriptionAR;
-    //   default:
-    //     return item.titleAR;
-    // }
+    return title;
+  }
+  static TransLateEN(field?, data?) {
+    let title = " ";
+    if (field === "title") {
+      title = data.titleEN;
+    }
+    if (field === "description") {
+      title = data.descriptionEN;
+    }
+
+    return title;
   }
 }
