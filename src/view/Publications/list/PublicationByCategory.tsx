@@ -3,6 +3,7 @@ import Image from "../../shared/Image";
 import { Link } from "react-router-dom";
 import Translate from "../../shared/Translate";
 import Date from "../../shared/Date";
+import { baseUrl } from "../../shared/BaseUrl";
 function PublicationByCategory(props) {
   const { data, category, index } = props;
 
@@ -11,7 +12,7 @@ function PublicationByCategory(props) {
       <Link to={`/publications/${item.id}`}>
         <div>
           <Image
-            src={`http://178.79.177.14:8080/api/file/download?privateUrl=${item.supports[0].privateUrl}`}
+            src={`${baseUrl}/file/download?privateUrl=${item.supports[0].privateUrl}`}
             width={120}
             height={78}
             alt='Image'

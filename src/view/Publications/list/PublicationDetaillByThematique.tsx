@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Date from "../../shared/Date";
 import authAxios from "../../../modules/shared/axios/authAxios";
 import Translate from "../../shared/Translate";
+import { baseUrl } from "../../shared/BaseUrl";
 function PublicationDetaillByThematique(props) {
   const { data, index, thematique } = props;
 
@@ -12,7 +13,7 @@ function PublicationDetaillByThematique(props) {
       <Link to={`/publications/${item.id}`}>
         <div>
           <Image
-            src={`http://178.79.177.14:8080/api/file/download?privateUrl=${item.supports[0].privateUrl}`}
+            src={`${baseUrl}/file/download?privateUrl=${item.supports[0].privateUrl}`}
             width='370'
             height='300'
             alt='Image publication image '
