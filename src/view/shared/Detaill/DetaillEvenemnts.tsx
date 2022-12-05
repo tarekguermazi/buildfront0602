@@ -14,6 +14,7 @@ import actions from "src/modules/evenement/list/evenementListActions";
 import selectors from "src/modules/evenement/list/evenementListSelectors";
 
 import Date from "../Date";
+import Empty from "../Nodatafound/Empty";
 
 function Detaill() {
   const match = useRouteMatch();
@@ -45,6 +46,8 @@ function Detaill() {
   return (
     <div className='app__detaill'>
       {loading && <h3 className='detaill__sketlon'>Loading .... </h3>}
+      {rows.length <= 0 && <Empty />}
+
       {!loading && rows && (
         <>
           {
