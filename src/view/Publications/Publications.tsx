@@ -81,13 +81,11 @@ function Publications() {
               {/* styling the migration section */}
               {lodingThematique && <h3>Loading ... </h3>}
               {rowsPublicationByThematique.map((item, index) => (
-                <Link to={`/publications/${item.id}`}>
-                  <PublicationDetaillByThematique
-                    data={item?.data}
-                    thematique={item?.cat[0]}
-                    index={index}
-                  />
-                </Link>
+                <PublicationDetaillByThematique
+                  data={item?.data}
+                  thematique={item?.cat[0]}
+                  index={index}
+                />
               ))}
               {/* stlyling the pollution */}
 
@@ -95,13 +93,11 @@ function Publications() {
                 <div className='articles__top'>
                   <div className='__top'>
                     {rowsCategory.map((item, index) => (
-                      <Link to={`/publications/${item.id}`}>
-                        <PublicationByCategory
-                          data={item?.data}
-                          category={item?.cat[0]}
-                          index={index}
-                        />
-                      </Link>
+                      <PublicationByCategory
+                        data={item?.data}
+                        category={item?.cat[0]}
+                        index={index}
+                      />
                     ))}
                   </div>
                 </div>

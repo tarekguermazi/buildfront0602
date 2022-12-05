@@ -10,23 +10,29 @@ function PublicationDetaillByThematique(props) {
 
   const renderItem = (item) => {
     return (
-      <div>
-        <Image
-          src={`${baseUrl}/file/download?privateUrl=${item.supports[0].privateUrl}`}
-          width='370'
-          height='300'
-          alt='Image publication image '
-        />
-        <div className='list__detaill'>
-          <div className='detaill__header'>
-            <div></div>
-            <div className='header__right'>{Date.fullDate(data.updatedAt)}</div>
-          </div>
-          <div className='detaill__content'>
-            {Translate.Trans("title", data)}
+      <Link to={`/publications/${item.id}`}>
+        <div>
+          <Image
+            src={`${baseUrl}/file/download?privateUrl=${item.supports[0].privateUrl}`}
+            width='370'
+            height='300'
+            alt='Image publication image '
+          />
+          <div className='list__detaill'>
+            <div className='detaill__header'>
+              <div></div>
+              <div className='header__right'>
+                {Date.fullDate(item.updatedAt)}
+              </div>
+            </div>
+            <div
+              className='detaill__content text__wrap'
+              style={{ maxWidth: 307 }}>
+              {Translate.Trans("title", item)}
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   };
 

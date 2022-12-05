@@ -3,6 +3,7 @@ import Date from "../../shared/Date";
 import Translate from "../../shared/Translate";
 function PublicationDetaill(props) {
   const { data } = props;
+  console.log(data);
 
   return (
     <div className='__detaills'>
@@ -13,8 +14,8 @@ function PublicationDetaill(props) {
           </div>
           <div className='__right'>{Date.fullDate(data.updatedAt)}</div>
         </div>
-        <div className='__content'>
-          {Translate.Trans("description", data.thematique)}
+        <div className='__content text__wrap' style={{ maxWidth: 250 }}>
+          {Translate.Trans("title", data)}
         </div>
       </div>
     </div>
