@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import Translate from "../../shared/Translate";
 function PublicationByCategory(props) {
   const { data, category, index } = props;
-
+  console.log("====================================");
+  console.log(data);
+  console.log("====================================");
   const renderItem = (item) => {
     return (
       <div>

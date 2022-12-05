@@ -9,14 +9,11 @@ function PublicationDetaill(props) {
       <div className='list__detaill'>
         <div className='detaill__header'>
           <div className='__left'>
-            <p>{data.thematique?.titleFR}</p>
+            <p> {Translate.Trans("title", data.thematique)}</p>
           </div>
           <div className='__right'>{Date.HourMinute(data.updatedAt)}</div>
         </div>
         <div className='__content'>
-          {Translate.Trans("title", data.thematique)}
-        </div>
-        <div className='sub__content'>
           {Translate.Trans("description", data.thematique)}
         </div>
       </div>
