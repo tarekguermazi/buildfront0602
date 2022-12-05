@@ -14,7 +14,7 @@ import Date from "../Date";
 import { BsBox } from "react-icons/bs";
 import Empty from "../Nodatafound/Empty";
 import Skeleton from "react-loading-skeleton";
-
+import { Link } from "react-router-dom";
 function Detaill() {
   const match = useRouteMatch();
   const dispatch = useDispatch();
@@ -58,27 +58,29 @@ function Detaill() {
           <div className='detaill'>
             <div className='list__detaills'>
               {rows.map((item) => (
-                <div>
-                  <Image
-                    src={item.supports[0]?.downloadUrl}
-                    alt='publication2 Icon'
-                    id='image__desktop'
-                    width='370'
-                    height='300'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Forum</p>
-                      </div>
-                      <div className='header__right'>
-                        {" "}
-                        {Date.HourMinute(item.updatedAt)}
-                      </div>
-                    </div>{" "}
-                    <div className='detaill__content'>{item.title}</div>
+                <Link to={`/publications/${item.id}`}>
+                  <div>
+                    <Image
+                      src={item.supports[0]?.downloadUrl}
+                      alt='publication2 Icon'
+                      id='image__desktop'
+                      width='370'
+                      height='300'
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>Forum</p>
+                        </div>
+                        <div className='header__right'>
+                          {" "}
+                          {Date.HourMinute(item.updatedAt)}
+                        </div>
+                      </div>{" "}
+                      <div className='detaill__content'>{item.title}</div>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

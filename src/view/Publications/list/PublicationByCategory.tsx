@@ -9,30 +9,27 @@ function PublicationByCategory(props) {
 
   const renderItem = (item) => {
     return (
-      <Link to={`/publications/${item.id}`}>
-        <div>
-          <Image
-            src={`${baseUrl}/file/download?privateUrl=${item.supports[0].privateUrl}`}
-            width={120}
-            height={78}
-            alt='Image'
-          />
-          <div className='list__detaill'>
-            <div className='detaill__header'>
-              <div className='header__left'>
-                <p>Migration </p>
-              </div>
-              <div className='header__right'>
-                {Date.fullDate(data.updatedAt)}
-              </div>
-              <div className='header__right'></div>
+      <div>
+        <Image
+          src={`${baseUrl}/file/download?privateUrl=${item.supports[0].privateUrl}`}
+          width={120}
+          height={78}
+          alt='Image'
+        />
+
+        <div className='list__detaill'>
+          <div className='detaill__header'>
+            <div className='header__left'>
+              <p>Migration </p>
             </div>
-            <div className='detaill__content text__wrap' style={{ width: 233 }}>
-              {Translate.Trans("title", item)}
-            </div>
+            <div className='header__right'>{Date.fullDate(data.updatedAt)}</div>
+            <div className='header__right'></div>
+          </div>
+          <div className='detaill__content text__wrap' style={{ width: 233 }}>
+            {Translate.Trans("title", item)}
           </div>
         </div>
-      </Link>
+      </div>
     );
   };
   return (
