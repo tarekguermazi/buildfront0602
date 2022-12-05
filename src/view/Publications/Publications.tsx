@@ -71,7 +71,9 @@ function Publications() {
                   {rowsPublication.map((item, index) => (
                     <div className='pub__relative' key={index}>
                       <img src={item?.supports[0]?.downloadUrl} alt='header' />
-                      <PublicationDetaill data={item} />
+                      <Link to={`/publications/${item.id}`}>
+                        <PublicationDetaill data={item} />
+                      </Link>
                     </div>
                   ))}
                 </div>
