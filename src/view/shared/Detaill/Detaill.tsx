@@ -11,12 +11,16 @@ import { useDispatch, useSelector } from "react-redux";
 import Translate from "../Translate";
 import Skeletons from "../Skeletons";
 import Date from "../Date";
+import { BsBox } from "react-icons/bs";
+import Empty from "../Nodatafound/Empty";
+import Skeleton from "react-loading-skeleton";
 
 function Detaill() {
   const match = useRouteMatch();
   const dispatch = useDispatch();
   const rows = useSelector(selectors.selectRows);
   const loading = useSelector(selectors.selectLoading);
+  const selectHasRows = useSelector(selectors.selectHasRows);
 
   const doFetch = async () => {
     if (match.path === "/detaill/category/:id") {
@@ -39,7 +43,8 @@ function Detaill() {
   return (
     <div className='app__detaill'>
       {loading && <h3 className='detaill__sketlon'>Loading .... </h3>}
-      {!loading && rows && (
+      {!selectHasRows && <Empty />}
+      {!loading && rows && selectHasRows && (
         <>
           {
             <Breadcrumb

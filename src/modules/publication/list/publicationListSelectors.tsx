@@ -28,7 +28,7 @@ const selectRows = createSelector([selectRaw], (raw) => raw.rows);
 
 const selectCount = createSelector([selectRaw], (raw) => raw.count);
 
-const selectHasRows = createSelector([selectCount], (count) => count > 0);
+const selectHasRows = createSelector([selectRows], (count) => count.length > 0);
 
 const selectOrderBy = createSelector([selectRaw], (raw) => {
   const sorter = raw.sorter;

@@ -27,13 +27,17 @@ const navigateRoutes = [
   {
     path: "/Publications",
     loader: () => import("src/view/Publications/Publications"),
-  }, {
+  },
+  {
     path: "/Publications/:id",
     loader: () => import("src/view/shared/show-one/Index"),
   },
   { path: "/Archives", loader: () => import("src/view/Archive/Archives") },
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
-  { path: "/Glossaire/:id", loader: () => import("src/view/Glossaire/ShowOne/ShowGlossaire") },
+  {
+    path: "/Glossaire/:id",
+    loader: () => import("src/view/Glossaire/ShowOne/ShowGlossaire"),
+  },
   {
     path: "/Evenements",
     loader: () => import("src/view/Evenements/Evenements"),

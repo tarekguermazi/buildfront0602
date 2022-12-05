@@ -85,7 +85,11 @@ import Linkedin from "./linkedin.svg";
 import Facebook from "./facebook.svg";
 import Instagramm from "./instagram.svg";
 import Twitter from "./twitter.svg";
+import PageNotFound from "./pagenotfound.svg";
+import InternalServerErreur from "./InternalServerErreur.svg";
 export {
+  InternalServerErreur,
+  PageNotFound,
   emptyImage,
   logos,
   check__list,

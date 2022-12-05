@@ -1,0 +1,14 @@
+.app__empty {
+  width: 100%;
+  height: 100%;
+  max-width: 1170px;
+  margin: auto;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40vh;
+}

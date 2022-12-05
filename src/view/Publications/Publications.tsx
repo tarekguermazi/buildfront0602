@@ -54,7 +54,7 @@ function Publications() {
             [i18n("entities.publication.label")],
           ]}
         />
-        {loading && <h3 className='detaill__sketlon'>Loading ... </h3>}
+        {loading && <h3 className='detaill__sketlon'> Loading ... </h3>}
         {!loading && (
           <>
             <div className='app__category'>
