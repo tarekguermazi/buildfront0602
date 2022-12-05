@@ -77,7 +77,11 @@ function Detaill() {
                           {Date.HourMinute(item.updatedAt)}
                         </div>
                       </div>{" "}
-                      <div className='detaill__content'>{item.title}</div>
+                      <div
+                        className='detaill__content text__wrap'
+                        style={{ maxWidth: 350 }}>
+                        {Translate.Trans("title", item)}
+                      </div>
                     </div>
                   </div>
                 </Link>
