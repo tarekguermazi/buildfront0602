@@ -47,7 +47,6 @@ function Detaill() {
     <div className='app__detaill'>
       {loading && <h3 className='detaill__sketlon'>Loading .... </h3>}
       {rows.length <= 0 && <Empty />}
-
       {!loading && rows && (
         <>
           {

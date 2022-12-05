@@ -11,7 +11,7 @@ function PublicationDetaill(props) {
           <div className='__left'>
             <p> {Translate.Trans("title", data.thematique)}</p>
           </div>
-          <div className='__right'>{Date.HourMinute(data.updatedAt)}</div>
+          <div className='__right'>{Date.fullDate(data.updatedAt)}</div>
         </div>
         <div className='__content'>
           {Translate.Trans("description", data.thematique)}

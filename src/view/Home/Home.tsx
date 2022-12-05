@@ -1,49 +1,26 @@
 import React from "react";
 
 import {
-  image__header,
   arrow__left,
   arrow__right,
-  art1,
-  art2,
-  art3,
-  art4,
   bar,
   calendar__image,
   calendar_timing,
   calendar,
   chart__bar,
   chart_donught,
-  check,
-  Communique,
-  envelope,
-  Etudes,
   evenement1,
   evenement2,
   evenement3,
-  facebook,
   list3,
-  logo__footer,
   publication2,
   publication3,
   publications1,
-  rapport,
-  search__archeive,
   slider1,
-  slider2,
-  slider4,
   time_clock_circle,
-  twitter,
-  youtube,
   calendar__bttom,
   school,
   header__image__mobile,
-  invitation,
-  petition,
-  Poster,
-  member,
-  down__footer,
-  instagram,
   users,
   sheep,
   clandestins,
@@ -53,6 +30,7 @@ import {
 import Gallery from "../shared/Gallery";
 import Slider from "../shared/Slider/Slider";
 import { bottomSLider } from "../shared/Slider/dataSlider";
+import Slider2 from "../shared/Slider/slider2";
 function Home() {
   const sliderTop = (obj) => {
     return (
@@ -86,7 +64,7 @@ function Home() {
         <div className='header__content' style={{ height: 549 }}>
           <div className='content'>
             <div className='content__imagePrincipale'>
-              <Slider
+              <Slider2
                 rows={bottomSLider}
                 height={549}
                 width={1170}

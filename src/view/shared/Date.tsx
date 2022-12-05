@@ -8,6 +8,9 @@ class Date {
     return moment(date).format("DD-MM-YYYY HH:mm");
   }
 
+  static fullDate(date) {
+    return moment(date).format("DD-MM-YYYY");
+  }
   static Day(date) {
     return moment(date).format("D");
   }

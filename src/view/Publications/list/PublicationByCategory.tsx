@@ -20,9 +20,7 @@ function PublicationByCategory(props) {
             <div className='header__left'>
               <p>Migration </p>
             </div>
-            <div className='header__right'>
-              {Date.HourMinute(data.updatedAt)}
-            </div>
+            <div className='header__right'>{Date.fullDate(data.updatedAt)}</div>
             <div className='header__right'></div>
           </div>
           <div className='detaill__content text__wrap' style={{ width: 233 }}>

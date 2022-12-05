@@ -19,9 +19,7 @@ function PublicationDetaillByThematique(props) {
         <div className='list__detaill'>
           <div className='detaill__header'>
             <div></div>
-            <div className='header__right'>
-              {Date.HourMinute(data.updatedAt)}
-            </div>
+            <div className='header__right'>{Date.fullDate(data.updatedAt)}</div>
           </div>
           <div className='detaill__content'>
             {Translate.Trans("title", data)}
