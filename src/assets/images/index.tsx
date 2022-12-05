@@ -87,7 +87,9 @@ import Instagramm from "./instagram.svg";
 import Twitter from "./twitter.svg";
 import PageNotFound from "./pagenotfound.svg";
 import InternalServerErreur from "./InternalServerErreur.svg";
+import notfoundsearch from "./notfoundsearch.svg";
 export {
+  notfoundsearch,
   InternalServerErreur,
   PageNotFound,
   emptyImage,
