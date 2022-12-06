@@ -11,79 +11,75 @@ export default function SRPCard({
   thumbnail,
   title,
   entite,
+  type,
 }) {
-  console.log("content", content);
   const formattedDate = moment(date).format("l");
   return (
-    // <Link to={`/${entite}/` + _id.toString()}>
     <CardLayout>
-      <div className="cardDate">{formattedDate}</div>
-      <div className="cardContent">
-        <strong>{title}</strong>
-        <div>{parse(content)}</div>
-      </div>
-      {/* <div
-        className="cardImage"
-        style={{ backgroundImage: "url(" + thumbnail + ")" }}
-      ></div> */}
+      <Link to={"/" + entite + "/" + _id}>
+        <div className="cardContent">
+          <div className="cardHeader">
+            <span className="categoryBadge">{type}</span>
+            <span>{formattedDate}</span>
+          </div>
+
+          <span>{title}</span>
+          {content ? (
+            <div className="cardContent">
+              {content.length > 100
+                ? parse(content.substring(0, 100) + "...")
+                : parse(content)}
+            </div>
+          ) : null}
+        </div>
+      </Link>
+      <hr></hr>
     </CardLayout>
-    // </Link>
   );
 }
 
 const CardLayout = styled.div`
-  width: 100%;
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  font-family: "Bebas Neue Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-
-  border-top: 1px solid #e0e0e0;
-  padding-top: 1rem;
-
-  .cardDate {
-    width: 100px;
-    color: #a3a3a9;
-  }
-
+  /* LEFT SECTION */
   .cardContent {
-    width: 470px;
-    height: 100px;
-    overflow-y: hidden;
+    flex-grow: 1;
+    height: 100%;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-    strong {
-      color: #2b2840;
-      font-family: "Bebas Neue Pro";
-      font-style: normal;
-      font-size: 20px;
+    .cardHeader {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-family: "Proxima Nova";
 
-      &:hover {
-        text-decoration: underline;
+      .categoryBadge {
+        background: #f8d7da;
+        border-radius: 3px;
+        color: var(--dark--red);
+        padding: 0.4rem 0.5rem;
+        font-size: 12px;
+        font-family: "Proxima Nova";
       }
     }
 
-    p {
-      margin-top: 0.3rem;
-      font-family: "Proxima Nova";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 25px;
-      color: #4f4f4f;
-      text-align: justify;
+    .title {
+      margin-top: 1.5rem;
+      color: var(--violet);
+
+      span {
+        font-family: "Bebas Neue Pro";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 24px;
+      }
     }
   }
-
-  .cardImage {
-    width: 270px;
-    height: 175px;
-    background-size: cover;
-    background-position: center;
+  hr {
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
 `;

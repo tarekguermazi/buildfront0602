@@ -53,6 +53,8 @@ const fr = {
     recherche: "Chercher",
     lettre: "Par lettre",
     category: "Par catégorie",
+    published: "Publié",
+    by: "Par",
   },
   app: {
     title: "Al-Forum",

@@ -50,10 +50,12 @@ export default function SRPTable({ currentPostsToShow }) {
                     <>
                       <Breadcrumb
                         title={i18n("menu.Evènements")}
-                        items={[
-                          [i18n("dashboard.menu"), "/"],
-                          [i18n("menu.Evènements")],
-                        ]}
+                        items={
+                          [
+                            // [i18n("dashboard.menu"), "/"],
+                            // [i18n("menu.Evènements")],
+                          ]
+                        }
                       />
                       {currentPostsToShow.rows.rowsEvent.map(
                         (searchResult, index) => {
@@ -66,11 +68,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           if (langue === "fr") {
                             return (
                               <SRPCard
+                                type={searchResult["category"]["titleFR"]}
                                 title={searchResult["titleFR"]}
                                 entite={"Evenements"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionFR"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -78,11 +81,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           } else if (langue === "ar") {
                             return (
                               <SRPCard
+                                type={searchResult["category"]["titleAR"]}
                                 title={searchResult["titleAR"]}
                                 entite={"Evenements"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionAR"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -90,11 +94,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           } else if (langue === "en") {
                             return (
                               <SRPCard
+                                type={searchResult["category"]["titleEN"]}
                                 title={searchResult["titleEN"]}
                                 entite={"Evenements"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionEN"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -108,10 +113,12 @@ export default function SRPTable({ currentPostsToShow }) {
                     <>
                       <Breadcrumb
                         title={i18n("menu.Publications")}
-                        items={[
-                          [i18n("dashboard.menu"), "/"],
-                          [i18n("menu.Publications")],
-                        ]}
+                        items={
+                          [
+                            // [i18n("dashboard.menu"), "/"],
+                            // [i18n("menu.Publications")],
+                          ]
+                        }
                       />
                       {currentPostsToShow.rows.rowsPublication.map(
                         (searchResult, index) => {
@@ -124,11 +131,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           if (langue === "fr") {
                             return (
                               <SRPCard
+                                type={searchResult["category"]["titleFR"]}
                                 title={searchResult["titleFR"]}
                                 entite={"Publications"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionFR"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -136,11 +144,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           } else if (langue === "ar") {
                             return (
                               <SRPCard
+                                type={searchResult["category"]["titleAR"]}
                                 title={searchResult["titleAR"]}
                                 entite={"Publications"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionAR"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -148,11 +157,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           } else if (langue === "en") {
                             return (
                               <SRPCard
+                                type={searchResult["category"]["titleEN"]}
                                 title={searchResult["titleEN"]}
                                 entite={"Publications"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionEN"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -166,10 +176,12 @@ export default function SRPTable({ currentPostsToShow }) {
                     <>
                       <Breadcrumb
                         title={i18n("menu.Glossaire")}
-                        items={[
-                          [i18n("dashboard.menu"), "/"],
-                          [i18n("menu.Glossaire")],
-                        ]}
+                        items={
+                          [
+                            // [i18n("dashboard.menu"), "/"],
+                            // [i18n("menu.Glossaire")],
+                          ]
+                        }
                       />
                       {currentPostsToShow.rows.rowsGlosaire.map(
                         (searchResult, index) => {
@@ -182,11 +194,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           if (langue === "fr") {
                             return (
                               <SRPCard
+                                type={searchResult["categorie"]["titleFR"]}
                                 title={searchResult["nomFR"]}
                                 entite={"Glossaire"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["definitionFR"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -194,11 +207,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           } else if (langue === "ar") {
                             return (
                               <SRPCard
+                                type={searchResult["categorie"]["titleAR"]}
                                 title={searchResult["nomAR"]}
                                 entite={"Glossaire"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["definitionAR"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -206,11 +220,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           } else if (langue === "en") {
                             return (
                               <SRPCard
+                                type={searchResult["categorie"]["titleEN"]}
                                 title={searchResult["nomEN"]}
                                 entite={"Glossaire"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["definitionEN"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -224,10 +239,12 @@ export default function SRPTable({ currentPostsToShow }) {
                     <>
                       <Breadcrumb
                         title={i18n("menu.Médiathèque")}
-                        items={[
-                          [i18n("dashboard.menu"), "/"],
-                          [i18n("menu.Médiathèque")],
-                        ]}
+                        items={
+                          [
+                            // [i18n("dashboard.menu"), "/"],
+                            // [i18n("menu.Médiathèque")],
+                          ]
+                        }
                       />
                       {currentPostsToShow.rows.rowsMediatheque.map(
                         (searchResult, index) => {
@@ -240,11 +257,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           if (langue === "fr") {
                             return (
                               <SRPCard
+                                type={searchResult["type"]}
                                 title={searchResult["titleFR"]}
                                 entite={"Mediatheque/entity"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionFR"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -252,11 +270,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           } else if (langue === "ar") {
                             return (
                               <SRPCard
+                                type={searchResult["type"]}
                                 title={searchResult["titleAR"]}
                                 entite={"Mediatheque/entity"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionAR"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />
@@ -264,11 +283,12 @@ export default function SRPTable({ currentPostsToShow }) {
                           } else if (langue === "en") {
                             return (
                               <SRPCard
+                                type={searchResult["type"]}
                                 title={searchResult["titleEN"]}
                                 entite={"Mediatheque/entity"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
-                                date={searchResult["createdAt"]}
+                                date={searchResult["updatedAt"]}
                                 content={searchResult["descriptionEN"] ?? "N.A"}
                                 thumbnail={thumbnail}
                               />

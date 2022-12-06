@@ -160,7 +160,7 @@ export default function Filter({ setGroupByCategory }) {
               {!isLoading ? (
                 <div>
                   {glossaireCategories.length ? (
-                    <section>
+                    <section style={{ display: "grid" }}>
                       {glossaireCategories.map((gc) => {
                         return (
                           <Link

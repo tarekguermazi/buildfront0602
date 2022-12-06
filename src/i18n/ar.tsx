@@ -24,6 +24,8 @@ const ar = {
     recherche: "بحث",
     lettre: "حسب الأبجدية",
     category: "بالتصنيف",
+    published: "نشرت",
+    by: "من قبل",
   },
 
   app: {
@@ -213,7 +215,59 @@ const ar = {
         hint: "يجب أن تكون أعمدة الملفات / الصور عناوين URL للملفات مفصولة بمسافة.",
       },
     },
-
+    glossaire: {
+      name: "glossaire",
+      label: "Glossaires",
+      menu: "Glossaires",
+      exporterFileName: "exportation_domaine",
+      list: {
+        menu: "Glossaires",
+        title: "Glossaires",
+      },
+      create: {
+        success: "Glossaire enregistré avec succès",
+      },
+      update: {
+        success: "Glossaire enregistré avec succès",
+      },
+      destroy: {
+        success: "Glossaire successfully deleted",
+      },
+      destroyAll: {
+        success: "Glossaire(s) supprimé avec succès",
+      },
+      edit: {
+        title: "Éditer Glossaire",
+      },
+      fields: {
+        id: "Id",
+        thematique: "Thématique",
+        categorie: "Catégorie",
+        abreviation: "اختصار",
+        abreviationFR: "Abréviation en français",
+        abreviationAR: "Abréviation en arabe",
+        abreviationEN: "Abréviation en anglais",
+        nom: "أسم",
+        definition: "تعريف",
+        createdAt: "Créé le",
+        updatedAt: "Mis à jour le",
+        createdAtRange: "Créé le",
+      },
+      enumerators: {},
+      placeholders: {},
+      hints: {},
+      new: {
+        title: "Nouveau Glossaire",
+      },
+      view: {
+        title: " Afficher Glossaire",
+      },
+      importer: {
+        title: "Importer Glossaires",
+        fileName: "glossaire_import_template",
+        hint: "Les fichiers/Les collones des images doivent contenir les URL des fichiers séparés par des espaces.",
+      },
+    },
     demandeAppui: {
       name: "demandeAppui",
       label: "طلب دعم",

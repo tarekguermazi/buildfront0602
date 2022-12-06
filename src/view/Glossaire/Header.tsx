@@ -25,7 +25,6 @@ export default function Header() {
   }, []);
   return (
     <div>
-      {/* <BreadCrumbs view="glossaire" /> */}
       <Breadcrumb
         title={i18n("menu.Glossaire")}
         items={[[i18n("dashboard.menu"), "/"], [i18n("menu.Glossaire")]]}

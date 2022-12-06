@@ -8,7 +8,6 @@ import SearchResults from "./SRP/SearchResults";
 // OTHER
 
 export default function Search({ location }) {
-  console.log("location", location);
   // GLOBAL STATE
   const [isLoading, setIsLoading] = useState(false);
   const [searchString, setSearchString] = useState("");
