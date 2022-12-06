@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   logos,
@@ -72,12 +72,7 @@ function Header(props) {
           {i18n("menu.demander_d_appui")}
         </li>
       </Link>
-      <Link to='/favoris'>
-        <li>
-          <img src={question} alt='question' className='lazyload' />
-          {i18n("menu.favoris")}
-        </li>
-      </Link>
+
       <li onClick={doSignout}>
         <img src={logout} alt='logout' className='lazyload' />
 
@@ -87,13 +82,13 @@ function Header(props) {
   );
 
   // HANDLING SEARCH LOGIC
-  const [homeSearchString, setHomeSearchString] = useState('');
-  const handleChange = event => {
+  const [homeSearchString, setHomeSearchString] = useState("");
+  const handleChange = (event) => {
     setHomeSearchString(event.target.value);
   };
   const searchPath = {
     pathname: "/search",
-    HOME_SEARCH_STRING: homeSearchString
+    HOME_SEARCH_STRING: homeSearchString,
   };
 
   return (
@@ -104,13 +99,17 @@ function Header(props) {
             <img className='lazyload' src={logos} alt='' />
           </div>
           <div className='nav__search'>
-            <input type='text' placeholder={i18n("common.recherche")} onChange={handleChange} value={homeSearchString} />
-            {
-              (homeSearchString.length >= 1) &&
+            <input
+              type='text'
+              placeholder={i18n("common.recherche")}
+              onChange={handleChange}
+              value={homeSearchString}
+            />
+            {homeSearchString.length >= 1 && (
               <Link to={searchPath}>
                 <i className='fa-solid fa-magnifying-glass' />
               </Link>
-            }
+            )}
           </div>
           <div className='nav__socialmedia'>
             <img className='lazyload' src={facebook} alt='FaceBook Icon' />

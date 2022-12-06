@@ -9,31 +9,45 @@ import Slider from "../shared/Slider/Slider";
 import { dataSlider } from "../shared/Slider/dataSlider";
 import EvenementAvenir from "./EvenementAvenir";
 import EvenementPasse from "./EvenementPasse";
+import actions from "src/modules/evenement/list/evenementListActions";
+import selector from "src/modules/evenement/list/evenementListSelectors";
+import { useDispatch, useSelector } from "react-redux";
+import Date from "../shared/Date";
+import Translate from "../shared/Translate";
+
 function Evenements() {
+  const dispatch = useDispatch();
+  const loading = useSelector(selector.selectRows);
+  const rows = useSelector(selector.selectRows);
+  useEffect(() => {
+    dispatch(actions.doFetch());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const RenderItem = (obj) => {
     return (
       <div className='evenement__message'>
         <div className='messageEvenement__left'>
-          <div>
-            <div className='left__number'>15</div>
-            <div className='left__months'>Avril</div>
-          </div>
+          <div className='left__number'>{Date.Day(obj?.date)}</div>
+          <div className='left__months'>{Date.Month(obj?.date)}</div>
         </div>
         <div className='messageEvenement__right'>
-          <div className='messageEvenement__title'>{obj?.title}</div>
+          <div className='messageEvenement__title'>
+            {Translate.Trans("title", obj)}
+          </div>
           <div className='messageEvenement__description'>
-            <div>par FTDES</div>
             <div>
-              <AiOutlineCalendar /> 14 octobre 2022
+              <AiOutlineCalendar />
+              {Date.date(obj?.date)}
             </div>
             <div>
-              <MdLocationOn /> Tunis
+              <MdLocationOn /> {obj?.emplacementAR}
             </div>
           </div>
         </div>
       </div>
     );
   };
+
   return (
     <>
       <Breadcrumb
@@ -43,7 +57,7 @@ function Evenements() {
       <div className='page__evenement'>
         <div className='evenment__header'>
           <Slider
-            rows={dataSlider}
+            rows={rows}
             height={404}
             width={1170}
             label='slider'

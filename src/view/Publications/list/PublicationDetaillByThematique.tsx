@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Image from "../../shared/Image";
 import { Link } from "react-router-dom";
 import Date from "../../shared/Date";
+import authAxios from "../../../modules/shared/axios/authAxios";
+import Translate from "../../shared/Translate";
 function PublicationDetaillByThematique(props) {
   const { data, index, thematique } = props;
 
@@ -9,21 +11,21 @@ function PublicationDetaillByThematique(props) {
     return (
       <div>
         <Image
-          src='https://placehold.jp/370x300.png'
+          src={`http://localhost:8080/api/file/download?privateUrl=${item.supports[0].privateUrl}`}
           width='370'
           height='300'
           alt='Image publication image '
         />
         <div className='list__detaill'>
           <div className='detaill__header'>
-            <div className='header__left'>
-              <p>Migration </p>
-            </div>
+            <div></div>
             <div className='header__right'>
               {Date.HourMinute(data.updatedAt)}
             </div>
           </div>
-          <div className='detaill__content'>{item.title}</div>
+          <div className='detaill__content'>
+            {Translate.Trans("title", data)}
+          </div>
         </div>
       </div>
     );
@@ -32,7 +34,7 @@ function PublicationDetaillByThematique(props) {
   return (
     <div className='pub__migration' key={index}>
       <div className='archieve__header'>
-        <h2>{thematique.titleFR}</h2>
+        <h2>{Translate.Trans("title", thematique)}</h2>
         <div className='satestique__bar'></div>
       </div>
 

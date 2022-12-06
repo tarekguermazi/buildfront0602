@@ -18,38 +18,29 @@ import Date from "../Date";
 function Detaill() {
   const match = useRouteMatch();
   const dispatch = useDispatch();
-  let rows: any;
-  const rowsPasse = useSelector(selectors.selectRowsPasse);
-  const rowsVenir = useSelector(selectors.selectRowsVenir);
 
-  if (rowsPasse.length > 0) {
-    rows = rowsPasse;
-  } else {
-    rows = rowsVenir;
-  }
-  const selectLoadingPasse = useSelector(selectors.selectLoadingPasse);
-  const selectLoadingVenir = useSelector(selectors.selectLoadingVenir);
-  const loading = selectLoadingPasse || selectLoadingVenir;
-  
   const doFetch = async () => {
     if (match.path === "/detaill/Evenement/Venir") {
-      dispatch(actions.evenementvenir());
+      dispatch(actions.listevenementVenir());
     } else if (match.path === "/detaill/Evenement/Passe") {
-      dispatch(actions.evenementpasse());
+      dispatch(actions.listevenementPasse());
     }
   };
 
-  let titleBreadcrumb =
-    match.path === "/detaill/category/:id"
-      ? rows[0]?.category?.titleFR
-      : rows[0]?.thematique?.titleFR
-      ? rows[0].titleFR
-      : "";
+  const rows = useSelector(selectors.selectRows);
 
+  const selectLoadingPasse = useSelector(selectors.selectLoadingPasse);
+  const selectLoadingVenir = useSelector(selectors.selectLoadingVenir);
+  const loading = selectLoadingPasse || selectLoadingVenir;
+
+  let titleBreadcrumb =
+    match.path === "/detaill/Evenement/Venir"
+      ? "événement a venir "
+      : "événement passé";
   useEffect(() => {
     doFetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className='app__detaill'>
@@ -80,10 +71,12 @@ function Detaill() {
                     <div className='detaill__header'>
                       <div className='header__left'></div>
                       <div className='header__right'>
-                        {Date.HourMinute(item.updatedAt)}
+                        {Date.HourMinute(item.date)}
                       </div>
                     </div>{" "}
-                    <div className='detaill__content'>{item?.title}</div>
+                    <div className='detaill__content'>
+                      {Translate.Trans("title", item)}
+                    </div>
                   </div>
                 </div>
               ))}

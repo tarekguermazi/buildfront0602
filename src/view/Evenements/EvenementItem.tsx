@@ -6,6 +6,7 @@ import Image from "../shared/Image";
 import { useDispatch, useSelector } from "react-redux";
 import action from "src/modules/evenement/view/evenementViewActions";
 import { useRouteMatch } from "react-router-dom";
+import Translate from "../shared/Translate";
 
 function EvenementItem(props) {
   const { data } = props;
@@ -30,8 +31,7 @@ function EvenementItem(props) {
           <MdLocationOn /> {data.emplacementAR}
         </div>
         <div className='venir__description'>
-          Atelier de restitution de l’événement Echange des Jeunes du projet
-          Justice Environnementale
+          {Translate.Trans("title", data)}
         </div>
       </div>
     </div>

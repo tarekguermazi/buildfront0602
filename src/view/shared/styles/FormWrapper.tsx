@@ -8,7 +8,7 @@ const FormWrapper = styled.div`
   button {
     color: var(--dark--red);
     border: 0;
-    padding: 0.8rem 1.2rem;
+    // padding: 0.8rem 1.2rem;
     cursor: pointer;
   }
   .container__form {

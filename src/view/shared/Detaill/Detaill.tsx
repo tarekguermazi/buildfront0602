@@ -44,7 +44,7 @@ function Detaill() {
           {
             <Breadcrumb
               title={titleBreadcrumb}
-              items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
+              items={[[i18n("dashboard.menu"), "/"], [i18n(titleBreadcrumb)]]}
             />
           }
           <div className='app__calendar'>

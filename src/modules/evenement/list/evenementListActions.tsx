@@ -10,6 +10,12 @@ const evenementListActions = {
   FETCH_SUCCESS: `${prefix}_FETCH_SUCCESS`,
   FETCH_ERROR: `${prefix}_FETCH_ERROR`,
 
+  FETCH_STARTED_EVENEMENT: `${prefix}FETCH_STARTED_EVENEMENT`,
+
+  FETCH_SUCCESS_EVENEMENT: `${prefix}FETCH_SUCCESS_EVENEMENT`,
+
+  FETCH_ERROR_EVENEMENT: `${prefix}FETCH_ERROR_EVENEMENT`,
+
   FETCH_STARTED_EVENEMENT_VENIR: `${prefix}_FETCH_STARTED_EVENEMENT_VENIR`,
   FETCH_SUCCESS_EVENEMENT_VENIR: `${prefix}_FETCH_SUCCESS_EVENEMENT_VENIR`,
   FETCH_ERROR_EVENEMENT_VENIR: `${prefix}_FETCH_ERROR_EVENEMENT_VENIR`,
@@ -43,27 +49,32 @@ const evenementListActions = {
     dispatch(evenementListActions.doFetch());
   },
 
-  doChangePaginationAndSort:
-    (pagination, sorter) => async (dispatch, getState) => {
+  listevenementVenir: () => async (dispatch) => {
+    try {
+      dispatch({ type: evenementListActions.FETCH_STARTED_EVENEMENT });
+      const response = await EvenementService.evenementvenir();
       dispatch({
-        type: evenementListActions.PAGINATION_CHANGED,
-        payload: pagination,
+        type: evenementListActions.FETCH_SUCCESS_EVENEMENT,
+        payload: { rows: response.rows, count: response.coutn },
       });
-
-      dispatch({
-        type: evenementListActions.SORTER_CHANGED,
-        payload: sorter,
-      });
-
-      dispatch(evenementListActions.doFetchCurrentFilter());
-    },
-
-  doFetchCurrentFilter: () => async (dispatch, getState) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(evenementListActions.doFetch(filter, rawFilter, true));
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({ type: evenementListActions.FETCH_ERROR_EVENEMENT });
+    }
   },
-
+  listevenementPasse: () => async (dispatch) => {
+    try {
+      dispatch({ type: evenementListActions.FETCH_STARTED_EVENEMENT });
+      const response = await EvenementService.evenementpasse();
+      dispatch({
+        type: evenementListActions.FETCH_SUCCESS_EVENEMENT,
+        payload: { rows: response.rows, count: response.coutn },
+      });
+    } catch (error) {
+      Errors.handle(error);
+      dispatch({ type: evenementListActions.FETCH_ERROR_EVENEMENT });
+    }
+  },
   evenementpasse: () => async (dispatch, getState) => {
     try {
       dispatch({
@@ -99,37 +110,29 @@ const evenementListActions = {
       });
     }
   },
-  doFetch:
-    (filter?, rawFilter?, keepPagination = false) =>
-    async (dispatch, getState) => {
-      try {
-        dispatch({
-          type: evenementListActions.FETCH_STARTED,
-          payload: { filter, rawFilter, keepPagination },
-        });
+  doFetch: () => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: evenementListActions.FETCH_STARTED,
+      });
 
-        const response = await EvenementService.list(
-          filter,
-          selectors.selectOrderBy(getState()),
-          selectors.selectLimit(getState()),
-          selectors.selectOffset(getState())
-        );
+      const response = await EvenementService.list();
 
-        dispatch({
-          type: evenementListActions.FETCH_SUCCESS,
-          payload: {
-            rows: response.rows,
-            count: response.count,
-          },
-        });
-      } catch (error) {
-        Errors.handle(error);
+      dispatch({
+        type: evenementListActions.FETCH_SUCCESS,
+        payload: {
+          rows: response.rows,
+          count: response.count,
+        },
+      });
+    } catch (error) {
+      Errors.handle(error);
 
-        dispatch({
-          type: evenementListActions.FETCH_ERROR,
-        });
-      }
-    },
+      dispatch({
+        type: evenementListActions.FETCH_ERROR,
+      });
+    }
+  },
 
   doSearch:
     (filter?, rawFilter?, keepPagination = false) =>

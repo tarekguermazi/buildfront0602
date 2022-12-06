@@ -71,12 +71,11 @@ export default class EvenementService {
     return response.data;
   }
 
-  static async list(filter, orderBy, limit, offset) {
+  static async list() {
     const params = {
-      filter,
-      orderBy,
-      limit,
-      offset,
+      orderBy: "UpdatedAt_DESC",
+      limit: 4,
+      offset: 0,
     };
 
     const tenantId = AuthCurrentTenant.get();
