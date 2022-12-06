@@ -26,6 +26,9 @@ export default class Translate {
     return title;
   }
   static TransLateAR(field?, data?) {
+    console.log("====================================");
+    console.log(data);
+    console.log("====================================");
     let title = " ";
     if (field === "title") {
       title = data.titleAR;

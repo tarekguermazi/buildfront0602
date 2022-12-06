@@ -30,6 +30,17 @@ const en = {
     Médiathèque: "Media library",
     Contact: "Contact",
     recherche: "Search",
+    voirPlus: "See more",
+    evenementVenir: "upcoming event",
+    evenementPasse: "Past event",
+    Description: "Description",
+    Date: "Date",
+    Photos: "Pictures",
+    Videos: "Videos",
+    Lieu: "Venue",
+    Partager: "To share",
+    Contact2: "Contact 2 ",
+    horraire: " the time",
   },
 
   app: {

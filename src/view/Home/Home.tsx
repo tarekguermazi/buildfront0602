@@ -31,6 +31,8 @@ import Gallery from "../shared/Gallery";
 import Slider from "../shared/Slider/Slider";
 import { bottomSLider } from "../shared/Slider/dataSlider";
 import Slider2 from "../shared/Slider/slider2";
+import { i18n } from "src/i18n";
+
 function Home() {
   const sliderTop = (obj) => {
     return (
@@ -494,7 +496,7 @@ function Home() {
               </div>
             </div>
 
-            <div className='plus__button'>Voir plus</div>
+            <div className='plus__button'>{i18n("common.voirPlus")}</div>
           </div>
           <div className='publication__right'>
             <div className='communique'>
@@ -634,7 +636,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className='plus__button'>Voir plus</div>
+              <div className='plus__button'>{i18n("common.voirPlus")}</div>
             </div>
           </div>
         </div>

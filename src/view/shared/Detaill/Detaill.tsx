@@ -32,8 +32,8 @@ function Detaill() {
 
   let titleBreadcrumb =
     match.path === "/detaill/category/:id"
-      ? rows[0]?.category?.titleFR
-      : rows[0]?.thematique?.titleFR;
+      ? Translate.Trans("title", rows[0]?.category)
+      : Translate.Trans("title", rows[0]?.thematique);
 
   useEffect(() => {
     doFetch();
@@ -69,9 +69,7 @@ function Detaill() {
                     />
                     <div className='list__detaill'>
                       <div className='detaill__header'>
-                        <div className='header__left'>
-                          <p>Forum</p>
-                        </div>
+                        <div></div>
                         <div className='header__right'>
                           {" "}
                           {Date.HourMinute(item.updatedAt)}

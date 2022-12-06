@@ -5,6 +5,7 @@ import Date from "../../shared/Date";
 import authAxios from "../../../modules/shared/axios/authAxios";
 import Translate from "../../shared/Translate";
 import { baseUrl } from "../../shared/BaseUrl";
+import { i18n } from "../../../i18n";
 function PublicationDetaillByThematique(props) {
   const { data, index, thematique } = props;
 
@@ -48,7 +49,7 @@ function PublicationDetaillByThematique(props) {
       </div>
 
       <Link to={`/detaill/${thematique._id}`}>
-        <div className='plus__button'>Voir plus</div>
+        <div className='plus__button'>{i18n("common.voirPlus")}</div>
       </Link>
     </div>
   );

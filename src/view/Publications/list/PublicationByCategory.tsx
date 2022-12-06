@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Translate from "../../shared/Translate";
 import Date from "../../shared/Date";
 import { baseUrl } from "../../shared/BaseUrl";
+import { i18n } from "src/i18n";
+
 function PublicationByCategory(props) {
   const { data, category, index } = props;
 
@@ -46,7 +48,7 @@ function PublicationByCategory(props) {
         {data.map((item) => renderItem(item))}
       </div>
       <Link to={`/detaill/category/${category._id}`}>
-        <div className='plus__button'>Voir plus</div>
+        <div className='plus__button'>{i18n("common.voirPlus")}</div>
       </Link>
     </div>
   );
