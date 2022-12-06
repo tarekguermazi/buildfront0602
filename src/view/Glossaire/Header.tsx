@@ -30,11 +30,6 @@ export default function Header() {
         title={i18n("menu.Glossaire")}
         items={[[i18n("dashboard.menu"), "/"], [i18n("menu.Glossaire")]]}
       />
-      {/* TITLE */}
-      <div className="archieve__header">
-        <h2>{i18n("menu.Glossaire")} &nbsp;</h2>
-        <div className="communiquer__bar"></div>
-      </div>
 
       {/* DESCRIPTION PLACEHOLDER */}
       <DescriptionSection>
