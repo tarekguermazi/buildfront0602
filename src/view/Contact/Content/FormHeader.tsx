@@ -4,15 +4,16 @@ import styled from 'styled-components'
 import { GiMicroscope } from 'react-icons/gi';
 import { FaGraduationCap, FaNewspaper, FaFistRaised } from 'react-icons/fa';
 import { IoIosContact } from 'react-icons/io';
+import { i18n, i18nExists } from 'src/i18n';
 
 export default function FormHeader({ setUserType }) {
 
     const userTypes = [
-        { type: 'chercheur', display: 'chercheur/se', icon: 'GiMicroscope', state: 0 },
-        { type: 'etudiant', display: 'étudiant/e', icon: 'graduation', state: 1 },
+        { type: 'chercheur', display: 'chercheur', icon: 'GiMicroscope', state: 0 },
+        { type: 'etudiant', display: 'etudiant', icon: 'graduation', state: 1 },
         { type: 'presse', display: 'presse', icon: 'newPaper', state: 1 },
         { type: 'activiste', display: 'activiste', icon: 'power', state: 1 },
-        { type: 'acteur_social', display: 'acteurs sociaux', icon: 'contact', state: 1 }
+        { type: 'acteur_social', display: 'acteur_social', icon: 'contact', state: 1 }
     ]
 
     const handleUserTypeSelection = event => {
@@ -22,15 +23,15 @@ export default function FormHeader({ setUserType }) {
 
     return (
         <HeaderLayout>
-            <h3>Vous êtes ?</h3>
-            <p>Choisissez un thème parmi les options suivantes pour accéder à la demande associée.</p>
+            <h3>{i18n("ContactPage.EtesVous")}</h3>
+            <p>{i18n("ContactPage.Phrase")}</p>
 
             <div className="radioOptins" onChange={handleUserTypeSelection}>
                 <label htmlFor="chercheur">
                     <input type="radio" name="userType" value="chercheur" id="chercheur" defaultChecked />
                     <div className="contentContainer">
                         <GiMicroscope className='icon' />
-                        <span>chercheur/se</span>
+                        <span>{i18n("ContactPage.chercheur")}</span>
                     </div>
                 </label>
 
@@ -61,7 +62,7 @@ export default function FormHeader({ setUserType }) {
                                                 )
                                             }[userTypes.icon]
                                         }
-                                        <span>{userTypes.display}</span>
+                                        <span>{i18n(`ContactPage.${userTypes.display}`)}   </span>
                                     </div>
                                 </label>
                             )

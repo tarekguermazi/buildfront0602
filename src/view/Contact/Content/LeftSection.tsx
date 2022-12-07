@@ -1,18 +1,19 @@
 import React from 'react'
+import { i18n } from 'src/i18n';
 import styled from 'styled-components'
 
 export default function LeftSection() {
     return (
         <LeftLayout>
-            <h3>Echanger avec <br /> nous</h3>
+            <h3>{i18n("ContactPage.titlep")}</h3>
 
-            <h3 className="sectionTitle">Par téléphone</h3>
-            <p>Du lundi au Vendredi de 8H à 16H au 71.325.109</p>
+            <h3 className="sectionTitle">{i18n("ContactPage.ParTelephone")}</h3>
+            <p>{i18n("ContactPage.Jour")}</p>
 
-            <h3 className="sectionTitle">Par E-mail</h3>
-            <p>Contactez-nous sur le <a href="mailto:contact@al-forum.org">Contact@al-forum.org</a></p>
+            <h3 className="sectionTitle">{i18n("ContactPage.Email")}</h3>
+            <p>{i18n("ContactPage.contactp")}<a href="mailto:contact@al-forum.org">Contact@al-forum.org</a></p>
 
-            <h3 className="sectionTitle">Par réseaux sociaux</h3>
+            <h3 className="sectionTitle">{i18n("ContactPage.ReseauxSociaux")}</h3>
             <p>SOCIAL_MEDIA_HERE</p>
         </LeftLayout>
     )

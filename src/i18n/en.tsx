@@ -89,9 +89,29 @@ const en = {
       Autres: "Others",
     },
   },
+  ContactPage:{
+    titlep:"Contact Us",
+    ParTelephone:"By phone",
+    Jour:"Monday to Friday from 8 a.m. to 4 p.m. at 71.325.109",
+    Email:"By E-mail",
+    contactp:"Contact us on",
+    ReseauxSociaux:"By social networks",
+    EtesVous:"Are You?",
+    Phrase:"Choose a theme from the following options to access the associated request.",
+    chercheur:'Researcher',
+    etudiant:'Student',
+    presse:'Journalist',
+    activiste:'Activist',
+    acteur_social:'Social Actor',
+    question:"Question",
+    problem:"Problem",
+    problemInput:"",
+  },
+
   buttons: {
     chercher: "look for",
     filtrer: "filter",
+    envoyer:"Send",
   },
   entities: {
     publication: {
