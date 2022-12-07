@@ -35,17 +35,17 @@ export default function ViewDetails() {
 
   return (
     <section>
-      <section className="wideContent">
-        <BreadCrumbs view="Glossaire" />
+      <section className='wideContent'>
+        <BreadCrumbs view='Glossaire' />
         <MainLayout>
-          <section className="rightSection">
+          <section className='rightSection'>
             {entityIsLoading ? (
               <Skeleton height={500} />
             ) : (
-              <div className="cardContent">
+              <div className='cardContent'>
                 {langue === "fr" ? (
                   <>
-                    <div className="dateAndOwner">
+                    <div className='dateAndOwner'>
                       <span>
                         {i18n("common.published")}{" "}
                         {moment(entity["createdAt"]).format("l")}
@@ -56,33 +56,33 @@ export default function ViewDetails() {
                         {<strong>{entity["createdBy"]["fullName"]}</strong>}
                       </span>
                     </div>
-                    <div className="cardHeader">
-                      <span className="categoryBadge">
+                    <div className='cardHeader'>
+                      <span className='categoryBadge'>
                         {entity["categorie"]["titleFR"]}
                       </span>
-                      <span className="categoryBadgeTheme">
+                      <span className='categoryBadgeTheme'>
                         {entity["thematique"]["titleFR"]}
                       </span>
                     </div>
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.nom")}
                     </span>
                     <span>{entity["nomFR"]}</span>
                     <br />
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.abreviation")}
                     </span>
                     <span>{entity["abreviationFR"]}</span>
                     <br />
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.definition")}
                     </span>
-                    <div className="cardContent">{entity["definitionFR"]}</div>
+                    <div className='cardContent'>{entity["definitionFR"]}</div>
                     <br />
                   </>
                 ) : langue === "ar" ? (
                   <>
-                    <div className="dateAndOwner">
+                    <div className='dateAndOwner'>
                       <span>
                         {i18n("common.published")}{" "}
                         {moment(entity["createdAt"]).format("l")}
@@ -93,33 +93,33 @@ export default function ViewDetails() {
                         {<strong>{entity["createdBy"]["fullName"]}</strong>}
                       </span>
                     </div>
-                    <div className="cardHeader">
-                      <span className="categoryBadge">
+                    <div className='cardHeader'>
+                      <span className='categoryBadge'>
                         {entity["categorie"]["titleAR"]}
                       </span>
-                      <span className="categoryBadgeTheme">
+                      <span className='categoryBadgeTheme'>
                         {entity["thematique"]["titleAR"]}
                       </span>
                     </div>
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.nom")}
                     </span>
                     <span>{entity["nomAR"]}</span>
                     <br />
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.abreviation")}
                     </span>
                     <span>{entity["abreviationAR"]}</span>
                     <br />
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.definition")}
                     </span>
-                    <div className="cardContent">{entity["definitionAR"]}</div>
+                    <div className='cardContent'>{entity["definitionAR"]}</div>
                     <br />
                   </>
                 ) : (
                   <>
-                    <div className="dateAndOwner">
+                    <div className='dateAndOwner'>
                       <span>
                         {i18n("common.published")}{" "}
                         {moment(entity["createdAt"]).format("l")}
@@ -130,34 +130,34 @@ export default function ViewDetails() {
                         {<strong>{entity["createdBy"]["fullName"]}</strong>}
                       </span>
                     </div>
-                    <div className="cardHeader">
-                      <span className="categoryBadge">
+                    <div className='cardHeader'>
+                      <span className='categoryBadge'>
                         {entity["categorie"]["titleEN"]}
                       </span>
-                      <span className="categoryBadgeTheme">
+                      <span className='categoryBadgeTheme'>
                         {entity["thematique"]["titleEN"]}
                       </span>
                     </div>
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.nom")}
                     </span>
                     <span>{entity["nomEN"]}</span>
                     <br />
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.abreviation")}
                     </span>
                     <span>{entity["abreviationEN"]}</span>
                     <br />
-                    <span className="titre">
+                    <span className='titre'>
                       {i18n("entities.glossaire.fields.definition")}
                     </span>
-                    <div className="cardContent">{entity["definitionEN"]}</div>
+                    <div className='cardContent'>{entity["definitionEN"]}</div>
                     <br />
                   </>
                 )}
               </div>
             )}
-            <div className="socials">
+            <div className='socials'>
               <span>{i18n("common.Partager")}</span>
               <button>
                 <BsFacebook />

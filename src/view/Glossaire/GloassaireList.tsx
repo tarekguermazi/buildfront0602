@@ -99,7 +99,7 @@ export default function GloassaireList({ data, criteria }) {
   return (
     <div>
       {/* LIST OF ENTRIES */}
-      <section className="listOfEntries">
+      <section className='listOfEntries'>
         {
           // ============ CATEGORY TAB ============
           criteria === "category" && (
@@ -108,18 +108,17 @@ export default function GloassaireList({ data, criteria }) {
                 const glossList = data[CAT];
                 return (
                   <GlossaireSection key={CAT} id={CAT}>
-                    <div className="sectionHeader">
+                    <div className='sectionHeader'>
                       <span>{CAT}</span>
                     </div>
-                    <section className="sectionBody">
+                    <section className='sectionBody'>
                       {glossList.map((GLOSS) => {
                         return (
                           <Link to={"/Glossaire/" + GLOSS._id}>
                             <section key={GLOSS.id}>
                               <button
-                                className="glossaireLink"
-                                onClick={() => {}}
-                              >
+                                className='glossaireLink'
+                                onClick={() => {}}>
                                 {langue === "fr"
                                   ? GLOSS.nomFR
                                   : langue === "ar"
@@ -149,22 +148,20 @@ export default function GloassaireList({ data, criteria }) {
                 return (
                   <GlossaireSection
                     key={GLOSSAIREINITIAL}
-                    id={GLOSSAIREINITIAL}
-                  >
-                    <div className="sectionHeader">
+                    id={GLOSSAIREINITIAL}>
+                    <div className='sectionHeader'>
                       <span>{GLOSSAIREINITIAL}</span>
                     </div>
-                    <section className="sectionBody">
+                    <section className='sectionBody'>
                       {glossList.map((ENTRY) => {
                         return (
                           <Link to={"/Glossaire/" + ENTRY.data._id}>
                             <section key={ENTRY.data.id}>
                               <button
-                                className="glossaireLink"
+                                className='glossaireLink'
                                 onClick={() =>
                                   handleClick(GLOSSAIREINITIAL, ENTRY.data.id)
-                                }
-                              >
+                                }>
                                 {langue === "fr"
                                   ? ENTRY.data.nomFR
                                   : langue === "ar"
