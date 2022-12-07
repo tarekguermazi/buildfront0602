@@ -1,77 +1,85 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import styled from 'styled-components'
-import parse from 'html-react-parser';
-import moment from 'moment';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import parse from "html-react-parser";
+import moment from "moment";
 
-export default function SRPCard({ _id, date, content, thumbnail }) {
-    const formattedDate = moment(date).format('l');
-    return (
-        <CardLayout>
-            <div className='cardDate'>{formattedDate}</div>
-            <div className='cardContent'>
-                <Link to={'/publications/' + _id.toString()}><strong>TITLE HERE</strong></Link>
-                {parse(content)}
+export default function SRPCard({
+  _id,
+  date,
+  content,
+  thumbnail,
+  title,
+  entite,
+  type,
+}) {
+  const formattedDate = moment(date).format("l");
+  return (
+    <CardLayout>
+      <Link to={"/" + entite + "/" + _id}>
+        <div className="cardContent">
+          <div className="cardHeader">
+            <span className="categoryBadge">{type}</span>
+            <span>{formattedDate}</span>
+          </div>
+
+          <span>{title}</span>
+          {content ? (
+            <div className="cardContent">
+              {content.length > 100
+                ? parse(content.substring(0, 100) + "...")
+                : parse(content)}
             </div>
-            <div className='cardImage' style={{ backgroundImage: "url(" + thumbnail + ")" }}></div>
-        </CardLayout>
-    )
+          ) : null}
+        </div>
+      </Link>
+      <hr></hr>
+    </CardLayout>
+  );
 }
 
 const CardLayout = styled.div`
-    width: 100%;
-    margin-top: 1rem;
+  /* LEFT SECTION */
+  .cardContent {
+    flex-grow: 1;
+    height: 100%;
+    padding-left: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
 
-    font-family: 'Bebas Neue Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    .cardHeader {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-family: "Proxima Nova";
 
-    border-top: 1px solid #E0E0E0;
-    padding-top: 1rem;
-
-    .cardDate{
-        width: 100px;
-        color: #A3A3A9;
+      .categoryBadge {
+        background: #f8d7da;
+        border-radius: 3px;
+        color: var(--dark--red);
+        padding: 0.4rem 0.5rem;
+        font-size: 12px;
+        font-family: "Proxima Nova";
+      }
     }
 
-    .cardContent{
-        width: 470px;
-        height: 100px;
-        overflow-y: hidden;
+    .title {
+      margin-top: 1.5rem;
+      color: var(--violet);
 
-        strong{
-            color: #2B2840;
-            font-family: 'Bebas Neue Pro';
-            font-style: normal;
-            font-size: 20px;
-
-            &:hover{
-                text-decoration: underline;
-            }
-        }
-
-        p{
-            margin-top: .3rem;
-            font-family: 'Proxima Nova';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 25px;
-            color: #4F4F4F;
-            text-align: justify;
-        }
+      span {
+        font-family: "Bebas Neue Pro";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 24px;
+      }
     }
-
-    .cardImage{
-        width: 270px;
-        height: 175px;
-        background-size: cover;
-        background-position: center;
-    }
-
+  }
+  hr {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
 `;

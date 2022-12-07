@@ -20,7 +20,7 @@ const en = {
     destroy: "Delete",
     mustSelectARow: "Must select a row",
     filters: "Filters",
-    Menue: "menu",
+    Menue: "Menu",
     propos: "About",
     Publications: "Publications",
     Archives: "Archives",
@@ -41,6 +41,10 @@ const en = {
     Partager: "To share",
     Contact2: "Contact 2 ",
     horraire: " the time",
+    lettre: "By letter",
+    category: "By category",
+    published: "Published",
+    by: "By",
   },
 
   app: {
@@ -169,7 +173,59 @@ const en = {
         hint: "Files/Images columns must be the URLs of the files separated by space.",
       },
     },
-
+    glossaire: {
+      name: "glossaire",
+      label: "Glossaires",
+      menu: "Glossaires",
+      exporterFileName: "exportation_domaine",
+      list: {
+        menu: "Glossaires",
+        title: "Glossaires",
+      },
+      create: {
+        success: "Glossaire enregistré avec succès",
+      },
+      update: {
+        success: "Glossaire enregistré avec succès",
+      },
+      destroy: {
+        success: "Glossaire successfully deleted",
+      },
+      destroyAll: {
+        success: "Glossaire(s) supprimé avec succès",
+      },
+      edit: {
+        title: "Éditer Glossaire",
+      },
+      fields: {
+        id: "Id",
+        thematique: "Thématique",
+        categorie: "Catégorie",
+        abreviation: "Abreviation",
+        abreviationFR: "Abréviation en français",
+        abreviationAR: "Abréviation en arabe",
+        abreviationEN: "Abréviation en anglais",
+        nom: "Name",
+        definition: "Definition",
+        createdAt: "Créé le",
+        updatedAt: "Mis à jour le",
+        createdAtRange: "Créé le",
+      },
+      enumerators: {},
+      placeholders: {},
+      hints: {},
+      new: {
+        title: "Nouveau Glossaire",
+      },
+      view: {
+        title: " Afficher Glossaire",
+      },
+      importer: {
+        title: "Importer Glossaires",
+        fileName: "glossaire_import_template",
+        hint: "Les fichiers/Les collones des images doivent contenir les URL des fichiers séparés par des espaces.",
+      },
+    },
     forum: {
       name: "forum",
       label: "Forums",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import GlossaireService from "src/modules/Glossaire/GlossaireService";
 
 // COMPONENTS
@@ -17,7 +17,7 @@ function Glossaire() {
   // state to hold a copy of the glossaire list (with all data)
   const [glossaireList, setGlossaireList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const langue = localStorage.getItem("language");
   // FETCHING initial data from DB
   const getGlossaire = () => {
     GlossaireService.getGloassaireList().then((gl) => {
@@ -47,11 +47,17 @@ function Glossaire() {
               <>
                 {groupByCategory ? (
                   <GloassaireList
-                    data={groupArray(glossaireList, "categorie.titleFR")}
-                    criteria='category'
+                    data={
+                      langue === "fr"
+                        ? groupArray(glossaireList, "categorie.titleFR")
+                        : langue === "ar"
+                        ? groupArray(glossaireList, "categorie.titleAR")
+                        : groupArray(glossaireList, "categorie.titleEN")
+                    }
+                    criteria="category"
                   />
                 ) : (
-                  <GloassaireList data={glossaireList} criteria='letter' />
+                  <GloassaireList data={glossaireList} criteria="letter" />
                 )}
               </>
             )}
