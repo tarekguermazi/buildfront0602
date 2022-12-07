@@ -9,6 +9,7 @@ import { getHistory } from "src/modules/store";
 import { useRouteMatch } from "react-router-dom";
 import Spinner from "../../shared/Spinner";
 import { i18n } from "../../../i18n";
+import Retour from "../../shared/Retour";
 function Appui(props) {
   const [dispatched, setDispatched] = useState(false);
   const dispatch = useDispatch();
@@ -38,9 +39,7 @@ function Appui(props) {
   return (
     <div className='app__contenu'>
       <Link to='/profile'>
-        <div className='retour'>
-          <i className='fa-solid fa-arrow-left'></i> Retour
-        </div>
+        <Retour />
       </Link>
       <div className='contenu'>
         <div className='archieve__header'>

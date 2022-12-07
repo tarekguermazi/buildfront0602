@@ -75,7 +75,8 @@ function FilesUploader(props) {
       className='btn btn-outline-secondary px-4 mb-2'
       style={{ cursor: "pointer" }}>
       <div className='upload__file'>
-        {"upload"} &nbsp;{" "}
+        {i18n("fileUploader.upload")}
+
         <ButtonIcon loading={loading} iconClass='fas fa-plus' />
       </div>
       <input

@@ -10,6 +10,7 @@ import PublicationForm from "./PublicationForm";
 import Spinner from "src/view/shared/Spinner";
 import FormWrapper from "../../shared/styles/FormWrapper";
 import moment from "moment";
+import Retour from "../../shared/Retour";
 
 function PublicationFormPage() {
   const [dispatched, setDispatched] = useState(false);
@@ -41,14 +42,12 @@ function PublicationFormPage() {
   return (
     <div className='app__contenu'>
       <Link to='/profile'>
-        <div className='retour'>
-          <i className='fa-solid fa-arrow-left'></i>
-        </div>
+        <Retour />
       </Link>
       <section className='contenu'>
         <div className='mainContent'>
           <div className='archieve__header'>
-            <h2>Suggérer&nbsp;DU&nbsp;contenu</h2>
+            <h2>{i18n("menu.suggerer_des_donnees")}</h2>
             <div className='communiquer__bar'></div>
           </div>
           <div className='contenu__description'>

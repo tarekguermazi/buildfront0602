@@ -150,10 +150,11 @@ function EvenementDetaill() {
                   <div className='title__detaillEvenemet'>
                     {i18n("common.Videos")}
                   </div>
+
                   <div className='photos__gallery'>
                     {selectRows?.videos?.map((item) => (
                       <div className='videos__list'>
-                        <Youtube link={item.link} />
+                        <Youtube link={item?.link} />
                       </div>
                     ))}
                   </div>
@@ -176,7 +177,6 @@ function EvenementDetaill() {
                 <div className='title__detaillEvenemet'>
                   {i18n("common.Lieu")}
                 </div>
-
                 <div>
                   <GoogleMap
                     zoom={10}

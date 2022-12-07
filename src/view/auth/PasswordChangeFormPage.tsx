@@ -12,6 +12,7 @@ import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 import FormWrapper from "../shared/styles/FormWrapper";
 import { i18n } from "src/i18n";
+import Retour from "../shared/Retour";
 
 const schema = yup.object().shape({
   oldPassword: yupFormSchemas.string(i18n("user.fields.oldPassword"), {
@@ -60,9 +61,7 @@ function PasswordChangeFormPage() {
   return (
     <div className='app__updateprofile'>
       <Link to='/profile'>
-        <div className='retour'>
-          <i className='fa-solid fa-arrow-left'></i> Retour
-        </div>
+        <Retour />
       </Link>
 
       <FormWrapper>
