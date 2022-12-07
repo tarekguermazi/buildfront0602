@@ -42,7 +42,7 @@ function PublicationFormPage() {
     <div className='app__contenu'>
       <Link to='/profile'>
         <div className='retour'>
-          <i className='fa-solid fa-arrow-left'></i> Retour
+          <i className='fa-solid fa-arrow-left'></i>
         </div>
       </Link>
       <section className='contenu'>

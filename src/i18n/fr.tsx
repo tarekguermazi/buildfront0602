@@ -62,6 +62,7 @@ const fr = {
     Partager: "Partager",
     Contact2: "Contact2 ",
     horraire: " Horraire",
+    retour: "retour",
   },
   app: {
     title: "Al-Forum",

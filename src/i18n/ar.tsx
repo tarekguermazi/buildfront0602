@@ -35,6 +35,7 @@ const ar = {
     Partager: "مشاركة",
     Contact2: "اتصال",
     horraire: " الوقت",
+    retour: "عودة",
   },
 
   app: {

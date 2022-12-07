@@ -41,6 +41,7 @@ const en = {
     Partager: "To share",
     Contact2: "Contact 2 ",
     horraire: " the time",
+    retour: "Retour",
   },
 
   app: {
