@@ -7,6 +7,7 @@ import Pagination from "src/view/shared/table/Pagination";
 import { Link } from "react-router-dom";
 import { i18n } from "src/i18n";
 import { BsPencil } from "react-icons/bs";
+import Translate from "../../shared/Translate";
 
 function ListAppui(props) {
   const dispatch = useDispatch();
@@ -88,7 +89,7 @@ function ListAppui(props) {
                   <td>{row.personne}</td>
                   <td>{row.email}</td>
                   <td>{row.phoneNumber}</td>
-                  <td>{row.descriptionFR}</td>
+                  <td>{Translate.Trans("description", row)}</td>
                   <td style={actionButtons}>
                     <Link to={`/appui/${row.id}/edit`}>
                       <BsPencil className='icon' color='#a3a3a9' />
