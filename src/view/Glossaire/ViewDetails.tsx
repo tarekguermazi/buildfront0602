@@ -1,5 +1,6 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
+import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
 import Skeleton from "react-loading-skeleton";
 import { useParams } from "react-router-dom";
 import { i18n } from "src/i18n";
@@ -156,6 +157,21 @@ export default function ViewDetails() {
                 )}
               </div>
             )}
+            <div className="socials">
+              <span>{i18n("common.Partager")}</span>
+              <button>
+                <BsFacebook />
+              </button>
+              <button>
+                <BsTwitter />
+              </button>
+              <button>
+                <BsInstagram />
+              </button>
+              <button>
+                <BsLinkedin />
+              </button>
+            </div>
           </section>
         </MainLayout>
         {/* <RelatedContent type={entity["categorie"]} /> */}
