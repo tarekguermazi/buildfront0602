@@ -66,6 +66,7 @@ const fr = {
     category: "Par catégorie",
     published: "Publié",
     by: "Par",
+    retour: "retour",
   },
   app: {
     title: "Al-Forum",
@@ -109,31 +110,30 @@ const fr = {
       Autres: "Autres",
     },
   },
-  ContactPage:{
-    titlep:"Échanger avec nous",
-    ParTelephone:"Par téléphone",
-    Jour:"Du lundi au Vendredi de 8H à 16H au 71.325.109",
-    Email:"Par E-mail",
-    contactp:"Contactez-nous sur le",
-    ReseauxSociaux:"Par réseaux sociaux",
-    EtesVous:"Êtes-vous?",
-    Phrase:"Choisissez un thème parmi les options suivantes pour accéder à la demande associée.",
-    chercheur:'Chercheur/se',
-    etudiant:'Etudiant/e',
-    presse:'Presse',
-    activiste:'Activiste',
-    acteur_social:'Acteur Social',
-    question:"Question",
-    problem:"Problème",
-    problemInput:"Registration problem",
-    
+  ContactPage: {
+    titlep: "Échanger avec nous",
+    ParTelephone: "Par téléphone",
+    Jour: "Du lundi au Vendredi de 8H à 16H au 71.325.109",
+    Email: "Par E-mail",
+    contactp: "Contactez-nous sur le",
+    ReseauxSociaux: "Par réseaux sociaux",
+    EtesVous: "Êtes-vous?",
+    Phrase:
+      "Choisissez un thème parmi les options suivantes pour accéder à la demande associée.",
+    chercheur: "Chercheur/se",
+    etudiant: "Etudiant/e",
+    presse: "Presse",
+    activiste: "Activiste",
+    acteur_social: "Acteur Social",
+    question: "Question",
+    problem: "Problème",
+    problemInput: "Registration problem",
   },
 
-  
   buttons: {
     chercher: "chercher",
     filtrer: "filtrer",
-    envoyer:"Envoyer",
+    envoyer: "Envoyer",
   },
   entities: {
     mouvement: {

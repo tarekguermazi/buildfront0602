@@ -15,6 +15,7 @@ import ImagesFormItem from "../shared/form/items/ImagesFormItem";
 import SelectFormItem from "../shared/form/items/SelectFormItem";
 import userEnumerators from "../user/userEnumerators";
 import { i18n } from "src/i18n";
+import Retour from "../shared/Retour";
 
 const schema = yup.object().shape({
   firstName: yupFormSchemas.string(i18n("user.fields.firstName"), {
@@ -78,9 +79,7 @@ function ProfileForm() {
   return (
     <div className='app__updateprofile'>
       <Link to='/profile'>
-        <div className='retour'>
-          <i className='fa-solid fa-arrow-left'></i> Retour
-        </div>
+        <Retour />
       </Link>
       <FormWrapper>
         <FormProvider {...form}>

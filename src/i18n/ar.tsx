@@ -39,6 +39,7 @@ const ar = {
     category: "بالتصنيف",
     published: "نشرت",
     by: "من قبل",
+    retour: "عودة",
   },
 
   app: {
