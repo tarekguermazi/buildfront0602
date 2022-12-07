@@ -62,6 +62,10 @@ const fr = {
     Partager: "Partager",
     Contact2: "Contact2 ",
     horraire: " Horraire",
+    lettre: "Par lettre",
+    category: "Par catégorie",
+    published: "Publié",
+    by: "Par",
   },
   app: {
     title: "Al-Forum",

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { i18n } from "src/i18n";
 
 export default function BreadCrumbs({ view }) {
   const capitalize = (text) => {
@@ -11,10 +12,10 @@ export default function BreadCrumbs({ view }) {
     <div>
       {/* BREADCRUMBS */}
       <BreadCrumbsHeader>
-        <Link to='/' className='homeLinkInBC'>
-          Accueil
+        <Link to="/" className="homeLinkInBC">
+          {i18n("menu.Tableau")}
         </Link>{" "}
-        <span className='currentView'>/ {capitalize(view)}</span>
+        <span className="currentView">/ {capitalize(view)}</span>
       </BreadCrumbsHeader>
     </div>
   );

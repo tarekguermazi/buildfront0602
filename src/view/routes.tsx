@@ -36,7 +36,8 @@ const navigateRoutes = [
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
   {
     path: "/Glossaire/:id",
-    loader: () => import("src/view/Glossaire/ShowOne/ShowGlossaire"),
+    // loader: () => import("src/view/Glossaire/ShowOne/ShowGlossaire"),
+    loader: () => import("src/view/Glossaire/ViewDetails"),
   },
   {
     path: "/Evenements",
