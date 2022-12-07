@@ -5,7 +5,6 @@ import selectors from "src/modules/publication/list/publicationListSelectors";
 import Spinner from "src/view/shared/Spinner";
 import Pagination from "src/view/shared/table/Pagination";
 import { Link } from "react-router-dom";
-
 // ICONS
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoVideocamOutline } from "react-icons/io5";
@@ -48,23 +47,29 @@ function PublicationList(props) {
     <>
       <div className='list__button'>
         <div className='list__title'>
-          <h2>contenu récent </h2>
+          <h2>{i18n("menu.contenu_recent")}</h2>
         </div>
         <Link to='/publication/new'>
-          <div className='button__contenue'>Suggérer de contenu</div>
+          <div className='button__contenue'>
+            {i18n("menu.suggerer_de_contenu")}
+          </div>
         </Link>
       </div>
       <div className='list__search'>
-        <div className='search__left'>{count} contenus </div>
+        <div className='search__left'>
+          {count} {i18n("menu.contenus")}
+        </div>
 
-        <div className='search__right'>
+        {/* <div className='search__right'>
           <div className='search__result'>
-            <i className='fas fa-search'></i>Chercher
+            <i className='fas fa-search'></i>
+            {i18n("buttons.chercher")}
           </div>
           <div className='filter'>
-            <i className='fas fa-sliders-h'></i>Filtrer
+            <i className='fas fa-sliders-h'></i>
+            {i18n("buttons.filtrer")}
           </div>
-        </div>
+        </div> */}
       </div>
       <div className='list__items'>
         <table>
@@ -143,7 +148,7 @@ function PublicationList(props) {
                   <td> {row.date}</td>
                   <td style={actionButtons}>
                     <Link to={`/publication/${row.id}/edit`}>
-                      <BsPencil className='icon' />
+                      <BsPencil className='icon' color='#a3a3a9' />
                     </Link>
                   </td>
                 </tr>

@@ -8,6 +8,7 @@ import selectors from "src/modules/demandeAppui/form/demandeAppuiFormSelectors";
 import { getHistory } from "src/modules/store";
 import { useRouteMatch } from "react-router-dom";
 import Spinner from "../../shared/Spinner";
+import { i18n } from "../../../i18n";
 function Appui(props) {
   const [dispatched, setDispatched] = useState(false);
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ function Appui(props) {
       </Link>
       <div className='contenu'>
         <div className='archieve__header'>
-          <h2>Demande&nbsp;d’Appui&nbsp;</h2>
+          <h2>{i18n("menu.demande_appui")}</h2>
           <div className='communiquer__bar'></div>
         </div>
         <div className='contenu__description'>
@@ -52,23 +53,22 @@ function Appui(props) {
           pharetra lacus. Class aptent taciti sociosqu ad litora torquent per
           conubia nostra
         </div>
-        <div className='contenue__formulaire'>
-          <FormWrapper>
-            <div className='Login__container'>
-              {initLoading && <Spinner />}
-              {dispatched && !initLoading && (
-                <DemandeAppuiForm
-                  title={title}
-                  saveLoading={saveLoading}
-                  record={record}
-                  isEditing={isEditing}
-                  onSubmit={doSubmit}
-                  onCancel={() => getHistory().push("/demande-appui")}
-                />
-              )}
-            </div>
-          </FormWrapper>
-        </div>
+
+        <FormWrapper>
+          <div className='Login__container'>
+            {initLoading && <Spinner />}
+            {dispatched && !initLoading && (
+              <DemandeAppuiForm
+                title={title}
+                saveLoading={saveLoading}
+                record={record}
+                isEditing={isEditing}
+                onSubmit={doSubmit}
+                onCancel={() => getHistory().push("/demande-appui")}
+              />
+            )}
+          </div>
+        </FormWrapper>
       </div>
     </div>
   );

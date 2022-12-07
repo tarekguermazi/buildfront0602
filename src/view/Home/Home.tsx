@@ -1,51 +1,60 @@
 import React from "react";
 
 import {
-  image__header,
   arrow__left,
   arrow__right,
-  art1,
-  art2,
-  art3,
-  art4,
   bar,
   calendar__image,
   calendar_timing,
   calendar,
   chart__bar,
   chart_donught,
-  check,
-  Communique,
-  envelope,
-  Etudes,
   evenement1,
   evenement2,
   evenement3,
-  facebook,
   list3,
-  logo__footer,
   publication2,
   publication3,
   publications1,
-  rapport,
-  search__archeive,
   slider1,
-  slider2,
-  slider4,
   time_clock_circle,
-  twitter,
-  youtube,
   calendar__bttom,
   school,
   header__image__mobile,
-  invitation,
-  petition,
-  Poster,
-  member,
-  down__footer,
-  instagram,
+  users,
+  sheep,
+  clandestins,
+  car,
 } from "src/assets/images";
+
+import Gallery from "../shared/Gallery";
+import Slider from "../shared/Slider/Slider";
+import { bottomSLider } from "../shared/Slider/dataSlider";
+import Slider2 from "../shared/Slider/slider2";
+import { i18n } from "src/i18n";
+
 function Home() {
+  const sliderTop = (obj) => {
+    return (
+      <div className='content__sliderTop'>
+        <h3>{obj?.title}</h3>
+      </div>
+    );
+  };
+
+  const sliderBottom = (obj, index, slideIndex) => {
+    return (
+      <div className={slideIndex === index + 1 ? "active__slideBottom" : ""}>
+        <img className='lazyload' src={slider1} alt=' Slider Icon' />
+        <p
+          className={
+            slideIndex === index + 1 ? "text__p text__gras" : "text__p"
+          }>
+          {obj?.title}
+        </p>
+      </div>
+    );
+  };
   return (
     <div className='app'>
       {/* Styling the Header */}
@@ -54,15 +63,19 @@ function Home() {
         <img src={calendar__bttom} alt='' />
       </div>
       <div className='app__header'>
-        <div className='header__content'>
+        <div className='header__content' style={{ height: 549 }}>
           <div className='content'>
             <div className='content__imagePrincipale'>
-              <img
-                className='lazyload'
-                src={image__header}
-                id='image__desktop'
-                alt=' Header'
+              <Slider2
+                rows={bottomSLider}
+                height={549}
+                width={1170}
+                label='slider'
+                render={sliderTop}
+                showDots={false}
+                bottomrender={sliderBottom}
               />
+
               <img
                 className='lazyload'
                 src={header__image__mobile}
@@ -71,56 +84,8 @@ function Home() {
               />
             </div>
             {/* Slider Top */}
-            <div className='content__sliderTop'>
-              <div className='arrow__left'>
-                <img
-                  className='lazyload'
-                  src={arrow__right}
-                  alt='Arrow Right '
-                />
-              </div>
-              <h3>
-                En Tunisie, réfugié.e.s et demandeur.se.s d’asile abandonnés
-                dans une situation humanitaire critique
-              </h3>
-              <div className='arrow__right'>
-                <img
-                  className='lazyload'
-                  src={arrow__left}
-                  alt='Arrow Left Icon'
-                />
-              </div>
-            </div>
+
             {/* Slider Bottom  */}
-            <div className='content__sliderBottom'>
-              <div>
-                <img className='lazyload' src={slider1} alt=' Slider Icon' />
-                <p>
-                  Criminalization of refugees: the dark side of EU and UNHCR
-                  policies...
-                </p>
-              </div>
-              <div>
-                <img className='lazyload' src={slider2} alt='Slider 2 Icon' />
-                <p>
-                  En Tunisie, réfugié.e.s et demandeur.se.s d’asile abandonnés
-                  dans une situation humanitaire critique
-                </p>
-              </div>
-              <div>
-                <img className='lazyload' src={slider2} alt='' />
-                <p>
-                  Enjeux de gouvernance des forêts urbaines. Cas du parc urbain
-                  Farhat Hached à Radès
-                </p>
-              </div>
-              <div>
-                <img className='lazyload' src={slider4} alt='Slider 4 Icon' />
-                <p>
-                  Zones urbaines et forestières semi-urbaines. Quelle relation ?
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -150,17 +115,25 @@ function Home() {
               <div className='graph__description'>
                 <div className='descripition__left'>
                   <div>
-                    <div className='description__number'>236</div>
+                    <div className='description__number'>
+                      <h2>236</h2>
+                    </div>
                     <div className='description__text'>
                       Tentatives échouées de départ clandestins
                     </div>
                   </div>
                   <div>
-                    <div className='description__number'>34</div>
+                    <div className='description__number'>
+                      {" "}
+                      <h2> 34</h2>
+                    </div>
                     Tentatives échouées de départ clandestins
                   </div>
                   <div>
-                    <div className='description__number'>67</div>
+                    <div className='description__number'>
+                      {" "}
+                      <h2> 67</h2>
+                    </div>
                     Tentatives échouées de départ clandestins
                   </div>
                 </div>
@@ -214,46 +187,37 @@ function Home() {
                 pays où les droits humains sont respectés...
               </div>
               <div className='global__button'>Plus de détails</div>
-              <div className='global__navigations'>
-                <div className='arrow__left'>
-                  <img
-                    className='lazyload'
-                    src={arrow__right}
-                    alt='arrow__right Icon'
-                  />
-                </div>
-                <div className='arrow__right'>
-                  <img
-                    className='lazyload'
-                    src={arrow__left}
-                    alt='arrow__left Icon'
-                  />
-                </div>
-              </div>
             </div>
             <div className='global__right'>
               <div>
-                <div className='global__number'>236</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  236
+                  <img src={users} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Tentatives échouées de départ clandestins
                 </div>
               </div>
               <div>
-                <div className='global__number'>1564</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  1564
+                  <img src={sheep} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Clandestins arrivés en Italie
                 </div>
               </div>
               <div>
-                <div className='global__number'>85</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  85
+                  <img src={clandestins} alt='' />
+                </div>
                 <div className='detaill__number'>Clandestins expulsés</div>
               </div>
               <div>
-                <div className='global__number'>7</div>
-                <div className='small__bar' />
+                <div className='global__number'>
+                  7<img src={car} alt='' />
+                </div>
                 <div className='detaill__number'>
                   Tentatives échouées de départ clandestins
                 </div>
@@ -328,7 +292,7 @@ function Home() {
             <div className='header__bar' />
           </div>
           <div className='archieve__content'>
-            <div className='archieve__left'>
+            {/* <div className='archieve__left'>
               <div className='left__search'>
                 <input type='text' placeholder='Rechercher dans l’archive...' />
                 <div className='button__search'>
@@ -420,7 +384,8 @@ function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <span>HI THERE</span>
           </div>
         </div>
       </div>
@@ -531,7 +496,7 @@ function Home() {
               </div>
             </div>
 
-            <div className='plus__button'>Voir plus</div>
+            <div className='plus__button'>{i18n("common.voirPlus")}</div>
           </div>
           <div className='publication__right'>
             <div className='communique'>
@@ -671,7 +636,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className='plus__button'>Voir plus</div>
+              <div className='plus__button'>{i18n("common.voirPlus")}</div>
             </div>
           </div>
         </div>
@@ -681,7 +646,7 @@ function Home() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             cursus et augue id consequat. Suspendisse sodales est lectus...
           </div>
-          <div className='global__button'>Plus de détails</div>
+          <div className='global__button'>Découvrir</div>
         </div>
         {/* <div className='vue'>
           <div className='vue__header'>Les plus lus cette semaine</div>
@@ -893,271 +858,7 @@ function Home() {
         </div>
       </div>
       {/* styling the gallery */}
-      <div className='app__galery'>
-        {/* <div className='gallery'>
-          <div className='navig'>
-            <div className='global__navigations'>
-              <div className='arrow__left'>
-                <img className='lazyload' src={arrow__right} alt='' />
-              </div>
-              <div className='arrow__right'>
-                <img className='lazyload' src={arrow__left} alt='' />
-              </div>
-            </div>
-          </div>
-          <div className='archieve__header'>
-            <h2>Galerie</h2>
-            <div className='satestique__bar' />
-          </div>
-          <div className='gallery__images'>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery1} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Le champ pétrolier de Nawara ou l’entêtement vers les énergies
-                fossiles
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery2} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={camera} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Refoulement de migrants subsahariens vers la frontière libyenne
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery3} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                Faj Rouissat : Une lutte continue pour la justice
-                environnementale et sociale
-              </div>
-            </div>
-            <div>
-              <div className='image'>
-                <img className='lazyload' src={gallery4} alt='' />
-                <div className='youtube__button'>
-                  <img className='lazyload' src={Polygon} alt='' />
-                </div>
-              </div>
-              <div className='gallery__detaill'>
-                La lutte continue pour le droit à l’eau potable à Redeyef
-              </div>
-            </div>
-          </div>
-        </div> */}
-        <div className='art__images'>
-          <div>Galerie&nbsp;D'art</div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art1} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art3} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art2} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art3} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-          <div>
-            <div className='art__photo'>
-              <img className='lazyload' src={art4} alt='' srcSet='' />
-            </div>
-            <div className='art__detaill'>
-              Lorem ipsum dolor sit amet, consectetur
-            </div>
-            <div className='art__author'>Hatem Mekki</div>
-          </div>
-        </div>
-        <div className='naviation__art'>
-          <div className='graph__navigate'>
-            <div className='navigate__left'>
-              <i className='fa-solid fa-chevron-left' />
-            </div>
-            <div className='navigate__right'>
-              <i className='fa-solid fa-chevron-right' />
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* styling the newsLettre */}
-      <div className='app__newsLettre'>
-        <div className='newsLettre'>
-          <div className='newsLettre__left'>
-            <div className='archieve__header'>
-              <h2>Espace&nbsp;membre</h2>
-              <div className='satestique__bar' />
-            </div>
-            <div className='news'>
-              <div className='left__image'>
-                <div className='background__red' />
-                <img className='lazyload' src={member} alt='' />
-              </div>
-              <div className='right__text'>
-                <div className='text__header'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  cursus et augue id consequat. Suspendisse sodales est lectus.
-                  Phasellus dapibus nisl ut nisl accumsan,
-                </div>
-                <div className='text__content'>
-                  <div>
-                    <div className='check'>
-                      <img className='lazyload' src={check} alt='' />
-                    </div>
-                    Nullam dolor diam,efficitur et pellentesque eget
-                  </div>
-                  <div>
-                    <div className='check'>
-                      <img className='lazyload' src={check} alt='' />
-                    </div>
-                    vestibulum a dui. Nullam sit amet cursus libero
-                  </div>
-                  <div>
-                    <div className='check'>
-                      <img className='lazyload' src={check} alt='' />
-                    </div>
-                    Donec dolor est, accumsan ac venenatis vitae
-                  </div>
-                </div>
-                <div className='global__button'>Se connecter</div>
-              </div>
-            </div>
-            <div className='text__content'>
-              <div>
-                <div className='check'>
-                  <img className='lazyload' src={check} alt='' />
-                </div>
-                Nullam dolor diam,efficitur et pellentesque eget
-              </div>
-              <div>
-                <div className='check'>
-                  <img className='lazyload' src={check} alt='' />
-                </div>
-                vestibulum a dui. Nullam sit amet cursus libero
-              </div>
-              <div>
-                <div className='check'>
-                  <img className='lazyload' src={check} alt='' />
-                </div>
-                Donec dolor est, accumsan ac venenatis vitae
-              </div>
-              <div className='global__button'>Se connecter</div>
-            </div>
-          </div>
-          <div className='newsLettre__right'>
-            <div className='archieve__header'>
-              <h2>Newsletter</h2>
-              <div className='satestique__bar' />
-            </div>
-            <div className='newsLettre__title'>LET’S KEEP IN TOUCH</div>
-            <div className='newsLettere__detaill'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              cursus et augue id consequat. Suspendisse sodales est lectus.
-            </div>
-            <div className='newsLettre__formulaire'>
-              <img className='lazyload' src={envelope} alt='Envolope Image' />
-              <input type='text' placeholder=' Votre adresse email' />
-              <div className='button__newLettre'>Envoyer</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* stying the Footer */}
-
-      <div className='app__footer'>
-        <div className='footer'>
-          <div className='footer__logo'>
-            <img src={logo__footer} alt='' />
-            <div className='footer__content detaill__footer'>
-              Le Forum Tunsien pour les Droits Economiques et Sociaux est une
-              organisation non gouvernementale, neutre, indépendante de tout
-              parti politique et de toute institution religieuse.
-            </div>
-          </div>
-          <div className='footer__menu '>
-            <div className='label__footer'>Menu</div>
-            <div className='footer__content content__menu'>
-              <div>
-                <ul>
-                  <li>A propos</li>
-                  <li>Archive</li>
-                  <li>Glossaire</li>
-                  <li>Publications</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li>Galerie</li>
-                  <li>Entretiens</li>
-                  <li>Evenements</li>
-                  <li>Contact</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className='footer__socialmedia'>
-            <div className='label__footer'> Social media</div>
-            <div className='footer__content content__socialmedia'>
-              <div className='socialmedia__facebook'>
-                <img className='lazyload' src={facebook} alt='' />
-                Facebook
-              </div>
-              <div className='socialmedia__Twitter'>
-                <img className='lazyload' src={twitter} alt='' />
-                Twitter
-              </div>
-              <div className='socialmedia__Youtube'>
-                <img className='lazyload' src={youtube} alt='' />
-                Youtube
-              </div>
-              <div className='socialmedia__Instagram'>
-                <img className='lazyload' src={instagram} alt='' />
-                Instagram
-              </div>
-            </div>
-          </div>
-          <div className='footer__contact'>
-            <div className='label__footer'> Contact</div>
-          </div>
-        </div>
-      </div>
+      <Gallery />
     </div>
   );
 }

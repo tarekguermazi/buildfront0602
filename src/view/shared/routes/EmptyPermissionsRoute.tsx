@@ -2,7 +2,7 @@ import PermissionChecker from "src/modules/auth/permissionChecker";
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import Layout from "../../Layout/Layout";
-import Footer from "../../Layout/Footer";
+import CopyWrite from "../../Layout/CopyWrite";
 
 function EmptyPermissionsRoute({
   component: Component,
@@ -38,7 +38,7 @@ function EmptyPermissionsRoute({
             <Layout>
               <Component {...props} />
             </Layout>
-            <Footer />
+            <CopyWrite />
           </div>
         );
       }}

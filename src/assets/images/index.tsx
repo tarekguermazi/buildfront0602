@@ -81,8 +81,17 @@ import profile from "./profile.svg";
 import question from "./question.svg";
 import emptyImage from "./emptyImage.png";
 import logos from "./logos.png";
-
+import Linkedin from "./linkedin.svg";
+import Facebook from "./facebook.svg";
+import Instagramm from "./instagram.svg";
+import Twitter from "./twitter.svg";
+import PageNotFound from "./pagenotfound.svg";
+import InternalServerErreur from "./InternalServerErreur.svg";
+import notfoundsearch from "./notfoundsearch.svg";
 export {
+  notfoundsearch,
+  InternalServerErreur,
+  PageNotFound,
   emptyImage,
   logos,
   check__list,
@@ -164,4 +173,8 @@ export {
   users,
   youtube,
   profileAvatar,
+  Linkedin,
+  Facebook,
+  Instagramm,
+  Twitter,
 };

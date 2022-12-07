@@ -5,11 +5,11 @@ import { getLanguages, getLanguageCode } from "src/i18n";
 
 function Layout(props) {
   const match = useRouteMatch();
-  // function setPageDirection() {
-  //   const dir = getLanguageCode().includes("ar") ? "rtl" : "ltr";
-  //   document.documentElement.dir = dir;
-  // }
-  // setPageDirection();
+  function setPageDirection() {
+    const dir = getLanguageCode().includes("ar") ? "rtl" : "ltr";
+    document.documentElement.dir = dir;
+  }
+  setPageDirection();
 
   return (
     <div style={{ minHeight: `calc(100vh - 52px)` }}>

@@ -9,20 +9,59 @@ const navigateRoutes = [
   },
   { path: "/A_propos", loader: () => import("src/view/Propos_nous/Propos") },
   {
+    path: "/detaill/:id",
+    loader: () => import("src/view/shared/Detaill/Detaill"),
+  },
+  {
+    path: "/detaill/category/:id",
+    loader: () => import("src/view/shared/Detaill/Detaill"),
+  },
+  {
+    path: "/detaill/Evenement/Venir",
+    loader: () => import("src/view/shared/Detaill/DetaillEvenemnts"),
+  },
+  {
+    path: "/detaill/Evenement/Passe",
+    loader: () => import("src/view/shared/Detaill/DetaillEvenemnts"),
+  },
+  {
     path: "/Publications",
     loader: () => import("src/view/Publications/Publications"),
   },
+  {
+    path: "/Publications/:id",
+    loader: () => import("src/view/shared/show-one/Index"),
+  },
   { path: "/Archives", loader: () => import("src/view/Archive/Archives") },
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
+  {
+    path: "/Glossaire/:id",
+    // loader: () => import("src/view/Glossaire/ShowOne/ShowGlossaire"),
+    loader: () => import("src/view/Glossaire/ViewDetails"),
+  },
   {
     path: "/Evenements",
     loader: () => import("src/view/Evenements/Evenements"),
   },
   {
+    path: "/Evenements/:id",
+    loader: () => import("src/view/Evenements/EvenementDetaill"),
+  },
+  {
     path: "/Mediatheque",
     loader: () => import("src/view/Médiathèque/Mediatheque"),
   },
+  {
+    path: "/Mediatheque/type/:entity_type",
+    loader: () => import("src/view/Médiathèque/shared/SpecificEntityList"),
+  },
+  {
+    path: "/Mediatheque/entity/:entity_id",
+    loader: () => import("src/view/Médiathèque/show-one/showDetails"),
+  },
   { path: "/contact", loader: () => import("src/view/Contact/Contact") },
+  // { path: "/contact", loader: () => import("src/view/Search/Search") },
+  { path: "/search", loader: () => import("src/view/Search/Search") },
 ];
 const privateRoutes = [
   {
@@ -71,12 +110,6 @@ const privateRoutes = [
   {
     path: "/favoris",
     loader: () => import("src/view/Favoris/Favoris"),
-    permissionRequired: null,
-    exact: true,
-  },
-  {
-    path: "/detaill",
-    loader: () => import("src/view/shared/Detaill/Detaill"),
     permissionRequired: null,
     exact: true,
   },

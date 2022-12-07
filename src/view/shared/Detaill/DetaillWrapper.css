@@ -8,7 +8,8 @@
 .list__detaills {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 30px;
+  max-width: 1170px;
 }
 .list__detaills > div {
   max-width: 370px;

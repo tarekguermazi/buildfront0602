@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   logos,
@@ -12,11 +12,6 @@ import {
   twitter,
   youtube,
   Etudes,
-  Communique,
-  petition,
-  rapport,
-  Poster,
-  invitation,
   question,
   pen,
   logout,
@@ -28,6 +23,7 @@ import authSelectors from "src/modules/auth/authSelectors";
 import authActions from "src/modules/auth/authActions";
 import { useSelector, useDispatch } from "react-redux";
 import I18nSelect from "./I18nSelect";
+import { i18n } from "../../i18n";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -61,43 +57,61 @@ function Header(props) {
       <Link to='/publication/new'>
         <li>
           <img src={pen} alt='pen' />
-          Suggérer des données
+          {i18n("menu.suggerer_des_donnees")}
         </li>
       </Link>
       <Link to='/profile'>
         <li>
           <img src={profile} alt='profile' className='lazyload' />
-          Profil
+          {i18n("menu.profile")}
         </li>
       </Link>
       <Link to='/appui/new'>
         <li>
           <img src={question} alt='question' className='lazyload' />
-          Demander d’appui
+          {i18n("menu.demander_d_appui")}
         </li>
       </Link>
-      <Link to='/favoris'>
-        <li>
-          <img src={question} alt='question' className='lazyload' />
-          Favoris
-        </li>
-      </Link>
+
       <li onClick={doSignout}>
         <img src={logout} alt='logout' className='lazyload' />
-        Déconnexion
+
+        {i18n("menu.deconnexion")}
       </li>
     </ul>
   );
+
+  // HANDLING SEARCH LOGIC
+  const [homeSearchString, setHomeSearchString] = useState("");
+  const handleChange = (event) => {
+    setHomeSearchString(event.target.value);
+  };
+  const searchPath = {
+    pathname: "/search",
+    HOME_SEARCH_STRING: homeSearchString,
+  };
+
   return (
     <React.Fragment>
       <div className='header__nav'>
         <div className='nav'>
-          <div className='nav__logo'>
-            <img className='lazyload' src={logos} alt='' />
-          </div>
+          <Link to='/'>
+            <div className='nav__logo'>
+              <img className='lazyload' src={logos} alt='' />
+            </div>
+          </Link>
           <div className='nav__search'>
-            <input type='text' placeholder='Recherche' />
-            <i className='fa-solid fa-magnifying-glass' />
+            <input
+              type='text'
+              placeholder={i18n("common.recherche")}
+              onChange={handleChange}
+              value={homeSearchString}
+            />
+            {homeSearchString.length >= 1 && (
+              <Link to={searchPath}>
+                <i className='fa-solid fa-magnifying-glass' />
+              </Link>
+            )}
           </div>
           <div className='nav__socialmedia'>
             <img className='lazyload' src={facebook} alt='FaceBook Icon' />
@@ -134,7 +148,7 @@ function Header(props) {
               <Link to='/auth/signin'>
                 <div className='button__connexion'>
                   <i className='fa-solid fa-user' />
-                  <p>Espace&nbsp;membres</p>
+                  <p>{i18n("menu.espace_membre")}</p>
                 </div>
               </Link>
             )}
@@ -146,77 +160,32 @@ function Header(props) {
             <ul className='ul__links'>
               {menus.map((item, index) => (
                 <Link to={item.path} key={index}>
-                  <li style={{ padding: 8 }} className={selectClass(item)}>
-                    {item.label}
+                  <li
+                    style={{
+                      padding: 8,
+                      display: "flex",
+                      alignItems: "baseline",
+                      columnGap: 10,
+                    }}
+                    className={selectClass(item)}>
+                    {i18n(`menu.${item.label}`)}
                     {item.icon && (
-                      <i
-                        className={item.icon}
-                        style={{ color: "red", paddingLeft: 10 }}
-                      />
+                      <i className={item.icon} style={{ color: "red" }} />
                     )}
                     {item.class && (
                       <ul className='links__sub'>
-                        <div>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={Etudes}
-                              alt='Etudes Icon'
-                            />
-                            études
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={Communique}
-                              alt='Communique Png'
-                            />
-                            Communiqués
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={petition}
-                              alt='Petition Icon'
-                            />
-                            Pétitions
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={petition}
-                              alt='Petition Icon'
-                            />
-                            Médiatheques
-                          </li>
-                        </div>
-
-                        <div>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={rapport}
-                              alt='Rapport ICon'
-                            />
-                            Rapports
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={Poster}
-                              alt='Poster Icon'
-                            />
-                            Posters
-                          </li>
-                          <li>
-                            <img
-                              className='lazyload'
-                              src={invitation}
-                              alt='invitation ICon'
-                            />
-                            Invitations
-                          </li>
-                        </div>
+                        {item.subMenue?.map((item, index) => (
+                          <div key={index}>
+                            <li>
+                              <img
+                                className='lazyload'
+                                src={Etudes}
+                                alt='Etudes Icon'
+                              />
+                              {i18n(`menu.submenu.${item.label}`)}
+                            </li>
+                          </div>
+                        ))}
                       </ul>
                     )}
                   </li>

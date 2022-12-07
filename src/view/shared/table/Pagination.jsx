@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import RCPagination from "rc-pagination";
 import PaginationWrapper from "src/view/shared/table/PaginationWrapper";
 import PropTypes from "prop-types";
+import { i18n } from "src/i18n";
 
 const Pagination = (props) => {
   const onChange = (current, pageSize) => {
@@ -10,6 +11,13 @@ const Pagination = (props) => {
       pageSize: Number(pageSize),
     });
   };
+
+  useEffect(() => {
+    const NextButton = document.querySelector('[aria-label="next page"]');
+    NextButton.innerHTML = `${i18n("table.suivant")}`;
+    const PrevButton = document.querySelector('[aria-label="prev page"]');
+    PrevButton.innerHTML = `${i18n("table.precedent")}`;
+  }, []);
 
   const { pagination, disabled, showTotal } = props;
   const { current, pageSize, total } = pagination;

@@ -4,9 +4,21 @@ const FormWrapper = styled.div`
     padding-top: 44px;
     position: relative;
   }
+
+  button {
+    color: var(--dark--red);
+    border: 0;
+    // padding: 0.8rem 1.2rem;
+    cursor: pointer;
+  }
   .container__form {
-    display: grid;
+    display: flex;
     row-gap: 25px;
+    justify-content: center;
+    align-items: flex-end;
+    width: calc(100vw - 10%);
+    max-width: 501px;
+    flex-direction: column;
   }
   input[type="text"],
   input[type="password"] {
@@ -47,6 +59,7 @@ const FormWrapper = styled.div`
   }
   .form-group {
     text-align: start;
+    width: 100% !important;
   }
   .form__button:hover {
     color: #fff;
@@ -70,7 +83,7 @@ const FormWrapper = styled.div`
   .oublier {
     cursor: pointer;
     position: absolute;
-    left: 0;
+    right: 0;
     font-family: "Proxima Nova";
     font-style: normal;
     font-weight: 400;
@@ -80,6 +93,7 @@ const FormWrapper = styled.div`
   .Login__container {
     padding-top: 32px;
     position: relative;
+    width: 100% !important;
   }
   .form__link {
     display: flex;
@@ -104,9 +118,10 @@ const FormWrapper = styled.div`
   .invalid-feedback {
     color: var(--red);
   }
-  .form__group {
-    width: 501px;
+
+  @media (max-wdith: 800px) {
   }
+
   .cancel__button {
     padding: 0;
     background-color: transparent;
@@ -157,7 +172,7 @@ const FormWrapper = styled.div`
     border: 1px solid #bdbdbd;
     width: 100%;
     cursor: pointer;
-    color: var(--gray4);
+    color: var(--gray5);
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
@@ -208,6 +223,9 @@ const FormWrapper = styled.div`
 
   input[type="radio"]:checked {
     background-color: #93e026;
+  }
+  .form_textarea {
+    width: 100%;
   }
 `;
 export default FormWrapper;

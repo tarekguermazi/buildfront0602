@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AuthWrapper from "./styles/AuthWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ import * as yup from "yup";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 import SelectFormItem from "../shared/form/items/SelectFormItem";
 import userEnumerators from "../user/userEnumerators";
+
 const schema = yup.object().shape({
   firstName: yupFormSchemas.string(i18n("user.fields.firstName"), {
     max: 80,
@@ -101,6 +102,18 @@ function SignupPage() {
       )
     );
   };
+  const clearErrorMessage = () => {
+    dispatch(actions.doClearErrorMessage());
+  };
+  useEffect(() => {
+    clearErrorMessage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const handleChange = () => {
+    if (externalErrorMessage) {
+      clearErrorMessage();
+    }
+  };
   return (
     <div className='app__signup'>
       <AuthWrapper>
@@ -108,7 +121,7 @@ function SignupPage() {
           <div className='Login__container' style={{ paddingTop: 0 }}>
             <div className='login__header'>
               <div className='communiquer__bar'></div>
-              <h2>Inscription</h2>
+              <h2>{i18n("auth.signup")}</h2>
               <div className='communiquer__bar'></div>
             </div>
             <FormProvider {...form}>
@@ -131,21 +144,22 @@ function SignupPage() {
                   </div>
                   <InputFormItem
                     name='email'
-                    label='Email'
+                    label={i18n("user.fields.email")}
                     placeholder='email'
                     autoComplete='email'
+                    onChange={handleChange}
                     externalErrorMessage={externalErrorMessage}
                   />
                   <InputFormItem
                     name='password'
-                    label='Password'
+                    label={i18n("user.fields.password")}
                     placeholder='password'
                     autoComplete='email'
                     type='password'
                   />
                   <InputFormItem
                     name='newPasswordConfirmation'
-                    label='Confirm password'
+                    label={i18n("user.fields.newPasswordConfirmation")}
                     placeholder='password'
                     autoComplete='email'
                     type='password'
@@ -182,7 +196,6 @@ function SignupPage() {
                     name='phoneNumber'
                     label={i18n("user.fields.phoneNumber")}
                     autoComplete='phoneNumber'
-                    autoFocus
                   />
                   <button className='form__button' disabled={loading}>
                     <ButtonIcon loading={loading} />
@@ -193,7 +206,7 @@ function SignupPage() {
                     <div className='link__account'>{i18n("auth.already")}</div>
                     <div className='__create'>
                       <Link to='/auth/signin' className='link__create'>
-                        {i18n("auth.alreadyHaveAnAccount")}
+                        {i18n("auth.signin")}
                       </Link>
                     </div>
                   </div>
