@@ -33,6 +33,7 @@ export default function SearchResults({ location }) {
       setIsLoading(false);
     });
   };
+  console.log("SRP ==> ", SRP);
   // HANDLING SUB FILTER (date / name)
   const handleSubFilter = (event) => {
     setIsLoading(true);

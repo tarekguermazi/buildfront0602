@@ -57,12 +57,16 @@ export default function ViewDetails() {
                       </span>
                     </div>
                     <div className="cardHeader">
-                      <span className="categoryBadge">
-                        {entity["categorie"]["titleFR"]}
-                      </span>
-                      <span className="categoryBadgeTheme">
-                        {entity["thematique"]["titleFR"]}
-                      </span>
+                      {entity["categorie"] ? (
+                        <span className="categoryBadge">
+                          {entity["categorie"]["titleFR"]}
+                        </span>
+                      ) : null}
+                      {entity["thematique"] ? (
+                        <span className="categoryBadgeTheme">
+                          {entity["thematique"]["titleFR"]}
+                        </span>
+                      ) : null}
                     </div>
                     <span className="titre">
                       {i18n("entities.glossaire.fields.nom")}
@@ -94,12 +98,16 @@ export default function ViewDetails() {
                       </span>
                     </div>
                     <div className="cardHeader">
-                      <span className="categoryBadge">
-                        {entity["categorie"]["titleAR"]}
-                      </span>
-                      <span className="categoryBadgeTheme">
-                        {entity["thematique"]["titleAR"]}
-                      </span>
+                      {entity["categorie"] ? (
+                        <span className="categoryBadge">
+                          {entity["categorie"]["titleAR"]}
+                        </span>
+                      ) : null}
+                      {entity["thematique"] ? (
+                        <span className="categoryBadgeTheme">
+                          {entity["thematique"]["titleAR"]}
+                        </span>
+                      ) : null}
                     </div>
                     <span className="titre">
                       {i18n("entities.glossaire.fields.nom")}
@@ -131,12 +139,16 @@ export default function ViewDetails() {
                       </span>
                     </div>
                     <div className="cardHeader">
-                      <span className="categoryBadge">
-                        {entity["categorie"]["titleEN"]}
-                      </span>
-                      <span className="categoryBadgeTheme">
-                        {entity["thematique"]["titleEN"]}
-                      </span>
+                      {entity["categorie"] ? (
+                        <span className="categoryBadge">
+                          {entity["categorie"]["titleEN"]}
+                        </span>
+                      ) : null}
+                      {entity["thematique"] ? (
+                        <span className="categoryBadgeTheme">
+                          {entity["thematique"]["titleEN"]}
+                        </span>
+                      ) : null}
                     </div>
                     <span className="titre">
                       {i18n("entities.glossaire.fields.nom")}

@@ -90,11 +90,6 @@ function Header(props) {
     setHomeSearchString(event.target.value);
   };
   const handleClick = () => {
-    // if (location.pathname === "/search") {
-    //   console.log("searchPath", searchPath);
-    //   history.go(0, { HOME_SEARCH_STRING: homeSearchString });
-    //   // history.push(searchPath);
-    // }
     history.push(searchPath);
   };
   const searchPath = {
