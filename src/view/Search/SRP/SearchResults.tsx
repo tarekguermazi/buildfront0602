@@ -25,7 +25,6 @@ export default function SearchResults({ location }) {
     setIsLoading(true);
     SearchService.getSearchResultsForPublicationsBasedOnSearchString(
       SEARCH_STRING,
-      publicationFilter,
       0
     ).then((res) => {
       setcurrentPageIndex(0);
@@ -42,7 +41,6 @@ export default function SearchResults({ location }) {
     // redo the search using chosen option
     SearchService.getSearchResultsForPublicationsBasedOnSearchString(
       searchString,
-      FILTER_STRING,
       0
     )
       .then((res) => {

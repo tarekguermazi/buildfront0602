@@ -74,7 +74,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionFR"] ?? "N.A"}
+                                content={searchResult["descriptionFR"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -87,7 +87,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionAR"] ?? "N.A"}
+                                content={searchResult["descriptionAR"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -100,7 +100,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionEN"] ?? "N.A"}
+                                content={searchResult["descriptionEN"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -137,7 +137,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionFR"] ?? "N.A"}
+                                content={searchResult["descriptionFR"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -150,7 +150,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionAR"] ?? "N.A"}
+                                content={searchResult["descriptionAR"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -163,7 +163,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionEN"] ?? "N.A"}
+                                content={searchResult["descriptionEN"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -200,7 +200,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["definitionFR"] ?? "N.A"}
+                                content={searchResult["definitionFR"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -213,7 +213,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["definitionAR"] ?? "N.A"}
+                                content={searchResult["definitionAR"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -226,7 +226,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["definitionEN"] ?? "N.A"}
+                                content={searchResult["definitionEN"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -263,7 +263,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionFR"] ?? "N.A"}
+                                content={searchResult["descriptionFR"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -276,7 +276,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionAR"] ?? "N.A"}
+                                content={searchResult["descriptionAR"]}
                                 thumbnail={thumbnail}
                               />
                             );
@@ -289,7 +289,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionEN"] ?? "N.A"}
+                                content={searchResult["descriptionEN"]}
                                 thumbnail={thumbnail}
                               />
                             );

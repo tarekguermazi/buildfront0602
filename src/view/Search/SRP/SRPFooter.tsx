@@ -49,8 +49,7 @@ export default function SRPFooter({ totalPosts }) {
   const fetchData = (index) => {
     SearchService.getSearchResultsForPublicationsBasedOnSearchString(
       searchString,
-      "autre",
-      index * 3
+      index + 1
     )
       .then((res) => {
         setSRP((SRP) => SRP.concat(res));

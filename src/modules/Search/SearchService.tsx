@@ -13,12 +13,11 @@ export default class SearchService {
 
   static async getSearchResultsForPublicationsBasedOnSearchString(
     SEARCH_STRING,
-    FILTER_STRING,
     OFFSET
   ) {
     const tenantId = AuthCurrentTenant.get();
     const response = await authAxios.get(
-      `/tenant/${tenantId}/search?filter=${SEARCH_STRING}&limit=3&offset=${OFFSET}&validated={true}`
+      `/tenant/${tenantId}/search?filter=${SEARCH_STRING}&limit=10&offset=${OFFSET}&validated={true}`
     );
     return response.data;
   }
