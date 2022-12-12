@@ -4,6 +4,7 @@ import ContactService from 'src/modules/Contact/ContactService';
 // ICONS
 import { BiMailSend } from 'react-icons/bi';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import { i18n } from 'src/i18n';
 
 export default function FormBody({ sender, type, setType, explanation, setExplanation }) {
 
@@ -30,23 +31,23 @@ export default function FormBody({ sender, type, setType, explanation, setExplan
 
             <form onSubmit={handleFormSubmit}>
                 <div>
-                    <label htmlFor="contacttype">Contatct</label>
+                    <label htmlFor="contacttype">{i18n('menu.Contact')}</label>
                     <select id='contacttype' onChange={(event) => setType(event.target.value)}>
                         <option value="--">--</option>
-                        <option value="contact">contact</option>
-                        <option value="question">question</option>
-                        <option value="problem">problem</option>
+                        <option value="contact">{i18n('menu.Contact')}</option>
+                        <option value="question">{i18n('ContactPage.question')}</option>
+                        <option value="problem">{i18n('ContactPage.problem')}</option>
                     </select>
                 </div>
                 <div>
-                    <label htmlFor="problemInput">Problème d'inscription</label>
+                    <label htmlFor="problemInput">{i18n('ContactPage.problemInput')}</label>
                     <textarea id="problemInput" cols={30} rows={10} value={explanation} onChange={e => setExplanation(e.target.value)}></textarea>
                 </div>
                 {
                     (!formIsSubmitting) &&
                     <button type="submit" className='sendButton'>
                         <BiMailSend className='icon' />
-                        Send
+                        {i18n('buttons.envoyer')}
                     </button>
                 }
                 {

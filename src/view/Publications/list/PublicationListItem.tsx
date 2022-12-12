@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Translate from "../../shared/Translate";
 
 function PublicationListItem(props) {
   const valueAsArray = () => {
@@ -16,7 +17,7 @@ function PublicationListItem(props) {
   };
 
   const displayableRecord = (record) => {
-    return <div key={record.id}>{record.titleFR}</div>;
+    return <div key={record.id}>{Translate.Trans("title", record)}</div>;
   };
 
   if (!valueAsArray().length) {

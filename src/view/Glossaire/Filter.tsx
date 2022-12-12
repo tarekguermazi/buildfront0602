@@ -98,25 +98,23 @@ export default function Filter({ setGroupByCategory }) {
     <div>
       {/* FILTER */}
       <FilterStyles>
-        <div className="tabsHeader">
+        <div className='tabsHeader'>
           <button
             className={activeTab ? "active" : ""}
-            onClick={toggleTabOnClick}
-          >
+            onClick={toggleTabOnClick}>
             {i18n("common.lettre")}
           </button>
           <button
             className={!activeTab ? "active" : ""}
-            onClick={toggleTabOnClick}
-          >
+            onClick={toggleTabOnClick}>
             {i18n("common.category")}
           </button>
         </div>
-        <div className="tabContent">
+        <div className='tabContent'>
           {langue === "ar" ? (
             <>
               {activeTab && (
-                <div className="tab letterTab">
+                <div className='tab letterTab'>
                   {arabicLetters.map((l) => {
                     return (
                       <Link
@@ -124,8 +122,7 @@ export default function Filter({ setGroupByCategory }) {
                         smooth={true}
                         duration={300}
                         key={l}
-                        className="letterLinkFilter"
-                      >
+                        className='letterLinkFilter'>
                         {l}
                       </Link>
                     );
@@ -136,7 +133,7 @@ export default function Filter({ setGroupByCategory }) {
           ) : (
             <>
               {activeTab && (
-                <div className="tab letterTab">
+                <div className='tab letterTab'>
                   {letters.map((l) => {
                     return (
                       <Link
@@ -144,8 +141,7 @@ export default function Filter({ setGroupByCategory }) {
                         smooth={true}
                         duration={300}
                         key={l}
-                        className="letterLinkFilter"
-                      >
+                        className='letterLinkFilter'>
                         {l.toUpperCase()}
                       </Link>
                     );
@@ -156,7 +152,7 @@ export default function Filter({ setGroupByCategory }) {
           )}
 
           {!activeTab && (
-            <div className="tab categoryTab">
+            <div className='tab categoryTab'>
               {!isLoading ? (
                 <div>
                   {glossaireCategories.length ? (
@@ -174,8 +170,7 @@ export default function Filter({ setGroupByCategory }) {
                             smooth={true}
                             duration={300}
                             key={gc["id"]}
-                            className="categoryLink"
-                          >
+                            className='categoryLink'>
                             {langue === "fr"
                               ? gc["titleFR"]
                               : langue === "ar"

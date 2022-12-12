@@ -39,6 +39,7 @@ const ar = {
     category: "بالتصنيف",
     published: "نشرت",
     by: "من قبل",
+    retour: "عودة",
   },
 
   app: {
@@ -82,10 +83,29 @@ const ar = {
       Autres: "آحرون",
     },
   },
+  ContactPage:{
+    titlep:"اتصل بنا",
+    ParTelephone:" عبرالهاتف",
+    Jour:"من الاثنين إلى الجمعة من الساعة 8 صباحًا حتى الساعة 4 مساءً عبر 71.325.109",
+    Email:"عبرالبريد الالكتروني",
+    contactp:"اتصل بنا على",
+    ReseauxSociaux:"عبر مواقع التواصل الإجتماعي",
+    EtesVous:"أنت؟",
+    Phrase:"اختر سمة من الخيارات التالية للوصول إلى الطلب المرتبط.",
+    chercheur:'باحث',
+    etudiant:'طالب',
+    presse:'صحافي',
+    activiste:'ناشط',
+    acteur_social:'ممثل اجتماعي',
+    question:"السؤال",
+    problem:"المشكلة",
+    problemInput:"مشكلة التسجيل",
+  },
 
   buttons: {
     chercher: "يبحث عن",
     filtrer: "تصفية",
+    envoyer:"إرسال",
   },
 
   entities: {
