@@ -11,6 +11,8 @@ const fr = {
     export: "Exporter vers Excel",
     noDataToExport: "Aucune donnée à exporter",
     noData: "Aucune données!",
+    all: "Tous",
+    archiveSearch: "Rechercher dans l’archive...",
     import: "Importer",
     discard: "Jeter",
     yes: "Oui",

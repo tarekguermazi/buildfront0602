@@ -11,6 +11,8 @@ const en = {
     export: "Export to Excel",
     noDataToExport: "No data to export",
     noData: "No data found !",
+    all: "All",
+    archiveSearch: "Search the archive...",
     import: "Import",
     discard: "Discard",
     yes: "Yes",

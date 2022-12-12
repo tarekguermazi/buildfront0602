@@ -15,7 +15,6 @@ export default function SRPTable({ currentPostsToShow }) {
 
   const { isLoading } = useContext(SearchContext);
   const langue = localStorage.getItem("language");
-  console.log("currentPostsToShow", currentPostsToShow);
   // HELPER FUNCTION
   const getValidThumbnail = (attachmentsArray) => {
     const acceptableExtions = "png, jpg, jpeg, gif";

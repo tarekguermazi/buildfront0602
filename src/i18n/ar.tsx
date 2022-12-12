@@ -11,6 +11,8 @@ const ar = {
     export: "تصدير إلى Excel",
     noDataToExport: "لا توجد بيانات للتصدير",
     noData: "لا توجد بيانات",
+    all: "كل شئ",
+    archiveSearch: "ابحث في الأرشيف ...",
     import: "استيراد",
     discard: "تجاهل",
     yes: "نعم",
