@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import parse from "html-react-parser";
 import moment from "moment";
-
+import { calendar, noData } from "src/assets/images";
 export default function SRPCard({
   _id,
   date,
@@ -17,20 +17,45 @@ export default function SRPCard({
   return (
     <CardLayout>
       <Link to={"/" + entite + "/" + _id}>
-        <div className="cardContent">
-          <div className="cardHeader">
-            <span className="categoryBadge">{type}</span>
-            <span>{formattedDate}</span>
-          </div>
-
-          <span>{title}</span>
-          {content ? (
-            <div className="cardContent">
-              {content.length > 100
-                ? parse(content.substring(0, 100) + "...")
-                : parse(content)}
+        <div className="search__description">
+          <div>
+            <div className="evenement__left">
+              {thumbnail ? (
+                <img
+                  className="lazyload"
+                  style={{ width: 100, height: 100 }}
+                  src={thumbnail}
+                  alt=""
+                />
+              ) : (
+                <img
+                  className="lazyload"
+                  style={{ width: 100, height: 100 }}
+                  src={noData}
+                  alt=""
+                />
+              )}
             </div>
-          ) : null}
+            <div className="evenement__right">
+              <div className="right__date">
+                <div>
+                  <img className="lazyload" src={calendar} alt="" srcSet="" />
+                  {formattedDate}
+                </div>
+                <div className="cardHeader">
+                  <span className="categoryBadge">{type}</span>
+                </div>
+              </div>
+              <div className="righ__desctiption">{title}</div>
+              {content ? (
+                <div className="right__footer">
+                  {content.length > 100
+                    ? parse(content.substring(0, 100) + "...")
+                    : parse(content)}
+                </div>
+              ) : null}
+            </div>
+          </div>
         </div>
       </Link>
       <hr></hr>

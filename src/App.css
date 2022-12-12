@@ -1769,6 +1769,26 @@ Styling the archeive verison Mobile  */
   width: 673px;
 }
 
+.search__description {
+  display: grid;
+  row-gap: 23px;
+}
+
+.search__description > div {
+  display: flex;
+  column-gap: 22px;
+  padding: 13px 15px;
+  background-color: var(--white);
+  width: 673px;
+}
+.categoryBadge {
+  background: #f8d7da;
+  border-radius: 3px;
+  color: var(--dark--red);
+  padding: 0.4rem 0.5rem;
+  font-size: 12px;
+  font-family: "Proxima Nova";
+}
 .evenement__right {
   display: flex;
   flex-direction: column;

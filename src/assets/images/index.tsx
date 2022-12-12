@@ -88,6 +88,7 @@ import Twitter from "./twitter.svg";
 import PageNotFound from "./pagenotfound.svg";
 import InternalServerErreur from "./InternalServerErreur.svg";
 import notfoundsearch from "./notfoundsearch.svg";
+import noData from "./noData.png";
 export {
   notfoundsearch,
   InternalServerErreur,
@@ -177,4 +178,5 @@ export {
   Facebook,
   Instagramm,
   Twitter,
+  noData,
 };

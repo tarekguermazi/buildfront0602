@@ -100,7 +100,35 @@ li {
   line-height: 32px;
   cursor: pointer;
 }
+.ant-tabs-tab {
+  font-family: "Bebas Neue", cursive;
+  white-space: nowrap;
+  color: var(--violet);
+  list-style: none;
+  font-size: 19px !important;
+  line-height: 32px;
+  cursor: pointer;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--red) !important;
+  text-shadow: 0 0 0.25px var(--red) !important;
+}
+.ant-tabs-tab-btn:focus,
+.ant-tabs-tab-remove:focus,
+.ant-tabs-tab-btn:active,
+.ant-tabs-tab-remove:active {
+  color: var(--red) !important;
+}
+.ant-tabs-tab-remove:hover {
+  color: rgba(0, 0, 0, 0.85) !important;
+}
 
+.ant-tabs-tab:hover {
+  color: var(--red) !important;
+}
+.ant-tabs-ink-bar {
+  border-bottom: 2px solid var(--red) !important;
+}
 p {
   font-weight: 400;
   font-size: 18px;

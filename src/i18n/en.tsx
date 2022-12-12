@@ -10,6 +10,7 @@ const en = {
     new: "New",
     export: "Export to Excel",
     noDataToExport: "No data to export",
+    noData: "No data found !",
     import: "Import",
     discard: "Discard",
     yes: "Yes",

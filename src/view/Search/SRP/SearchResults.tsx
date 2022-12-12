@@ -90,7 +90,7 @@ export default function SearchResults({ location }) {
       <SRPTable currentPostsToShow={SRP} />
 
       {/* FOOTER WITH PAGINATION ENABLED */}
-      <SRPFooter totalPosts={SRP.length >= 1 ? SRP[0].count : 0} />
+      {/* <SRPFooter totalPosts={SRP.length >= 1 ? SRP[0].count : 0} /> */}
     </SRPLayout>
   );
 }
