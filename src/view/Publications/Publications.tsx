@@ -13,6 +13,7 @@ import PublicationCategory from "./list/PublicationCategory";
 import PublicationDetaill from "./list/PublicationDetaill";
 import PublicationDetaillByThematique from "./list/PublicationDetaillByThematique";
 import PublicationByCategory from "./list/PublicationByCategory";
+import Skeleton from "react-loading-skeleton";
 function Publications() {
   const dispatch = useDispatch();
 
@@ -54,57 +55,70 @@ function Publications() {
             [i18n("entities.publication.label")],
           ]}
         />
-        {loading && <h3 className='detaill__sketlon'> Loading ... </h3>}
-        {!loading && (
-          <>
-            <div className='app__category'>
-              <div className='category__list'>
-                {!loadingByCategory &&
-                  selectRowsCategory.map((item, index) => (
-                    <PublicationCategory rows={item} index={index} />
-                  ))}
-              </div>
+
+        <div className='app__category'>
+          <div className='category__list'>
+            {loadingCategory &&
+              Array.from({ length: 7 }).map((item, i) => (
+                <Skeleton key={i} height={60} width={100} />
+              ))}
+            {!loadingCategory &&
+              selectRowsCategory.map((item, index) => (
+                <PublicationCategory rows={item} index={index} />
+              ))}
+          </div>
+        </div>
+        <div className='app__pub'>
+          <div className='publication__header'>
+            <div className='image__pub'>
+              {loadingPublication &&
+                Array.from({ length: 5 }).map((item, i) => (
+                  <Skeleton key={i} height={390} width={269} />
+                ))}
+              {!loadingPublication &&
+                rowsPublication.map((item, index) => (
+                  <div className='pub__relative' key={index}>
+                    <img src={item?.supports[0]?.downloadUrl} alt='header' />
+                    <Link to={`/detail/${item.id}`}>
+                      <PublicationDetaill data={item} />
+                    </Link>
+                  </div>
+                ))}
             </div>
-            <div className='app__pub'>
-              <div className='publication__header'>
-                <div className='image__pub'>
-                  {rowsPublication.map((item, index) => (
-                    <div className='pub__relative' key={index}>
-                      <img src={item?.supports[0]?.downloadUrl} alt='header' />
-                      <Link to={`/publications/${item.id}`}>
-                        <PublicationDetaill data={item} />
-                      </Link>
+          </div>
+          {/* styling the migration section */}
+          {lodingThematique && <h3>Loading ... </h3>}
+          {rowsPublicationByThematique.map((item, index) => (
+            <PublicationDetaillByThematique
+              data={item?.data}
+              thematique={item?.cat[0]}
+              index={index}
+            />
+          ))}
+          {/* stlyling the pollution */}
+
+          <div className='app__articles'>
+            <div className='articles__top'>
+              <div className='__top'>
+                {loadingPublication &&
+                  Array.from({ length: 3 }).map((item, i) => (
+                    <div>
+                      <Skeleton key={i} height={30} width={269} />
+                      <Skeleton key={i} height={390} width={269} />
                     </div>
                   ))}
-                </div>
-              </div>
-              {/* styling the migration section */}
-              {lodingThematique && <h3>Loading ... </h3>}
-              {rowsPublicationByThematique.map((item, index) => (
-                <PublicationDetaillByThematique
-                  data={item?.data}
-                  thematique={item?.cat[0]}
-                  index={index}
-                />
-              ))}
-              {/* stlyling the pollution */}
-
-              <div className='app__articles'>
-                <div className='articles__top'>
-                  <div className='__top'>
-                    {rowsCategory.map((item, index) => (
-                      <PublicationByCategory
-                        data={item?.data}
-                        category={item?.cat[0]}
-                        index={index}
-                      />
-                    ))}
-                  </div>
-                </div>
+                {!loadingPublication &&
+                  rowsCategory.map((item, index) => (
+                    <PublicationByCategory
+                      data={item?.data}
+                      category={item?.cat[0]}
+                      index={index}
+                    />
+                  ))}
               </div>
             </div>
-          </>
-        )}
+          </div>
+        </div>
       </div>
     </>
   );

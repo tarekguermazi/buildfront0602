@@ -11,7 +11,7 @@ function PublicationByCategory(props) {
 
   const renderItem = (item) => {
     return (
-      <Link to={`/publications/${item.id}`}>
+      <Link to={`/detail/${item.id}`}>
         <div style={{ display: "flex", columnGap: "20px" }}>
           <Image
             src={`${baseUrl}/file/download?privateUrl=${item.supports[0].privateUrl}`}

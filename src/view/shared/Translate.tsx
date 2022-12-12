@@ -16,10 +16,10 @@ export default class Translate {
   }
   static TransLateFR(field?, data?) {
     let title = " ";
-    if (field === "title") {
+    if (field === "title" && data?.titleFR) {
       title = data.titleFR;
     }
-    if (field === "description") {
+    if (field === "description" && data?.descriptionFR) {
       title = data.descriptionFR;
     }
 
@@ -27,10 +27,10 @@ export default class Translate {
   }
   static TransLateAR(field?, data?) {
     let title = " ";
-    if (field === "title") {
+    if (field === "title" && data?.titleAR) {
       title = data.titleAR;
     }
-    if (field === "description") {
+    if (field === "description" && data?.descriptionAR) {
       title = data.descriptionAR;
     }
 
@@ -38,10 +38,10 @@ export default class Translate {
   }
   static TransLateEN(field?, data?) {
     let title = " ";
-    if (field === "title") {
+    if (field === "title" && data?.titleEN) {
       title = data.titleEN;
     }
-    if (field === "description") {
+    if (field === "description" && data?.descriptionEN) {
       title = data.descriptionEN;
     }
 
