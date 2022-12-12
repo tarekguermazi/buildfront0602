@@ -100,32 +100,29 @@ const publicationListActions = {
       }
     },
 
-  doFetchValidePublication:
-    (filter?, rawFilter?, keepPagination = false) =>
-    async (dispatch, getState) => {
-      try {
-        dispatch({
-          type: publicationListActions.FETCH_STARTED,
-          payload: { filter, rawFilter, keepPagination },
-        });
+  doFetchValidePublication: (thematique?) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: publicationListActions.FETCH_STARTED,
+      });
+      const response = await PublicationService.listPublicationValide(
+        thematique
+      );
+      dispatch({
+        type: publicationListActions.FETCH_SUCCESS,
+        payload: {
+          rows: response.rows,
+          count: response.count,
+        },
+      });
+    } catch (error) {
+      Errors.handle(error);
 
-        const response = await PublicationService.listPublicationValide();
-
-        dispatch({
-          type: publicationListActions.FETCH_SUCCESS,
-          payload: {
-            rows: response.rows,
-            count: response.count,
-          },
-        });
-      } catch (error) {
-        Errors.handle(error);
-
-        dispatch({
-          type: publicationListActions.FETCH_ERROR,
-        });
-      }
-    },
+      dispatch({
+        type: publicationListActions.FETCH_ERROR,
+      });
+    }
+  },
 
   allpublicationbythematique: () => async (dispatch, getState) => {
     try {

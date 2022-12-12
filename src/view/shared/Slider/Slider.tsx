@@ -32,19 +32,20 @@ function Slider(props) {
   };
 
   return (
-    <div className="container-slider" style={{ width: width, height: height }}>
-      {dataSlider.map((obj, index) => {
+    <div className='container-slider' style={{ width: width, height: height }}>
+      {rows.map((obj, index) => {
         return (
           <div
             key={obj.id}
-            className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
-          >
-            {/* <Image
+            className={
+              slideIndex === index + 1 ? "slide active-anim" : "slide"
+            }>
+            <Image
               width={width}
               height={height}
               src={obj?.supports[0]?.downloadUrl || undefined}
               alt={alt}
-            /> */}
+            />
             {props.render(obj)}
           </div>
         );
@@ -52,17 +53,16 @@ function Slider(props) {
       <BtnSlider moveSlide={nextSlide} direction={"next"} />
       <BtnSlider moveSlide={prevSlide} direction={"prev"} />
       {props?.showDots && (
-        <div className="container-dots">
+        <div className='container-dots'>
           {props.rows.map((item, index) => (
             <div
               onClick={() => moveDot(index + 1)}
-              className={slideIndex === index + 1 ? "dot active" : "dot"}
-            ></div>
+              className={slideIndex === index + 1 ? "dot active" : "dot"}></div>
           ))}
         </div>
       )}
       {!props?.showDots && (
-        <div className="content__sliderBottom">
+        <div className='content__sliderBottom'>
           {bottomSLider.map((item, index) =>
             props.bottomrender(item, index, slideIndex)
           )}

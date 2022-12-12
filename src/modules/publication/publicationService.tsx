@@ -134,17 +134,14 @@ export default class PublicationService {
     return response.data;
   }
 
-  static async listPublicationValide() {
+  static async listPublicationValide(thematique?) {
     const limit = 4;
     const offest = 4;
     const orderBy = "updatedAt_DESC";
     const params = {
-      orderBy,
-      limit,
-      offest,
+      thematique,
     };
     const tenantId = AuthCurrentTenant.get();
-
     const response = await authAxios.get(`/tenant/${tenantId}/allpublication`, {
       params,
     });

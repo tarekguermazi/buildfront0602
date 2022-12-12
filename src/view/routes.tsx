@@ -64,7 +64,7 @@ const navigateRoutes = [
   { path: "/search", loader: () => import("src/view/Search/Search") },
   {
     path: "/detail/:id",
-    loader: () => import("src/view/shared/show-one/detail"),
+    loader: () => import("src/view/shared/show-one/Detail"),
   },
 ];
 const privateRoutes = [
