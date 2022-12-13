@@ -10,6 +10,10 @@ const publicationListActions = {
   FETCH_SUCCESS: `${prefix}_FETCH_SUCCESS`,
   FETCH_ERROR: `${prefix}_FETCH_ERROR`,
 
+  FETCH_STARTED_THEMATIQUE: `${prefix}_FETCH_STARTED_THEMATIQUE`,
+  FETCH_SUCCESS_THEMATIQUE: `${prefix}_FETCH_SUCCESS_THEMATIQUE`,
+  FETCH_ERROR_THEMATIQUE: `${prefix}_FETCH_ERROR_THEMATIQUE`,
+
   FIND_THEMATIQUE_STARTED: `${prefix}_FIND_THEMATIQUE_STARTED`,
   FIND_THEMATIQUE_SUCCESS: `${prefix}_FIND_THEMATIQUE_SUCCESS`,
   FIND_THEMATIQUE_ERROR: `${prefix}_FIND_THEMATIQUE_ERROR`,
@@ -100,14 +104,12 @@ const publicationListActions = {
       }
     },
 
-  doFetchValidePublication: (thematique?) => async (dispatch, getState) => {
+  doFetchValidePublication: () => async (dispatch, getState) => {
     try {
       dispatch({
         type: publicationListActions.FETCH_STARTED,
       });
-      const response = await PublicationService.listPublicationValide(
-        thematique
-      );
+      const response = await PublicationService.listPublicationValide();
       dispatch({
         type: publicationListActions.FETCH_SUCCESS,
         payload: {
@@ -123,6 +125,31 @@ const publicationListActions = {
       });
     }
   },
+
+  doFetchPublicationWithThematique:
+    (thematique?) => async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: publicationListActions.FETCH_STARTED_THEMATIQUE,
+        });
+        const response = await PublicationService.listPublicationValide(
+          thematique
+        );
+        dispatch({
+          type: publicationListActions.FETCH_SUCCESS_THEMATIQUE,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: publicationListActions.FETCH_ERROR_THEMATIQUE,
+        });
+      }
+    },
 
   allpublicationbythematique: () => async (dispatch, getState) => {
     try {

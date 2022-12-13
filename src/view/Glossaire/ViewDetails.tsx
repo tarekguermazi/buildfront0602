@@ -7,8 +7,7 @@ import { i18n } from "src/i18n";
 import GlossaireService from "src/modules/Glossaire/GlossaireService";
 import TenantService from "src/modules/Tenant/TenantService";
 import styled from "styled-components";
-
-import BreadCrumbs from "../shared/BreadCrumbs";
+import Breadcrumb from "../shared/Breadcrumb";
 
 export default function ViewDetails() {
   const params = useParams();
@@ -36,7 +35,6 @@ export default function ViewDetails() {
   return (
     <section>
       <section className="wideContent">
-        <BreadCrumbs view="Glossaire" />
         <MainLayout>
           <section className="rightSection">
             {entityIsLoading ? (
@@ -45,17 +43,7 @@ export default function ViewDetails() {
               <div className="cardContent">
                 {langue === "fr" ? (
                   <>
-                    <div className="dateAndOwner">
-                      <span>
-                        {i18n("common.published")}{" "}
-                        {moment(entity["createdAt"]).format("l")}
-                      </span>
-                      <br />
-                      <span>
-                        {i18n("common.by")}&nbsp;
-                        {<strong>{entity["createdBy"]["fullName"]}</strong>}
-                      </span>
-                    </div>
+                    <Breadcrumb title={entity["nomFR"]} items={[]} />
                     <div className="cardHeader">
                       {entity["categorie"] ? (
                         <span className="categoryBadge">
@@ -68,35 +56,18 @@ export default function ViewDetails() {
                         </span>
                       ) : null}
                     </div>
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.nom")}
-                    </span>
-                    <span>{entity["nomFR"]}</span>
+
                     <br />
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.abreviation")}
-                    </span>
+
                     <span>{entity["abreviationFR"]}</span>
                     <br />
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.definition")}
-                    </span>
+
                     <div className="cardContent">{entity["definitionFR"]}</div>
                     <br />
                   </>
                 ) : langue === "ar" ? (
                   <>
-                    <div className="dateAndOwner">
-                      <span>
-                        {i18n("common.published")}{" "}
-                        {moment(entity["createdAt"]).format("l")}
-                      </span>
-                      <br />
-                      <span>
-                        {i18n("common.by")}&nbsp;
-                        {<strong>{entity["createdBy"]["fullName"]}</strong>}
-                      </span>
-                    </div>
+                    <Breadcrumb title={entity["nomAR"]} items={[]} />
                     <div className="cardHeader">
                       {entity["categorie"] ? (
                         <span className="categoryBadge">
@@ -109,35 +80,18 @@ export default function ViewDetails() {
                         </span>
                       ) : null}
                     </div>
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.nom")}
-                    </span>
-                    <span>{entity["nomAR"]}</span>
+
                     <br />
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.abreviation")}
-                    </span>
+
                     <span>{entity["abreviationAR"]}</span>
                     <br />
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.definition")}
-                    </span>
+
                     <div className="cardContent">{entity["definitionAR"]}</div>
                     <br />
                   </>
                 ) : (
                   <>
-                    <div className="dateAndOwner">
-                      <span>
-                        {i18n("common.published")}{" "}
-                        {moment(entity["createdAt"]).format("l")}
-                      </span>
-                      <br />
-                      <span>
-                        {i18n("common.by")}&nbsp;
-                        {<strong>{entity["createdBy"]["fullName"]}</strong>}
-                      </span>
-                    </div>
+                    <Breadcrumb title={entity["nomEN"]} items={[]} />
                     <div className="cardHeader">
                       {entity["categorie"] ? (
                         <span className="categoryBadge">
@@ -150,26 +104,19 @@ export default function ViewDetails() {
                         </span>
                       ) : null}
                     </div>
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.nom")}
-                    </span>
-                    <span>{entity["nomEN"]}</span>
+
                     <br />
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.abreviation")}
-                    </span>
+
                     <span>{entity["abreviationEN"]}</span>
                     <br />
-                    <span className="titre">
-                      {i18n("entities.glossaire.fields.definition")}
-                    </span>
+
                     <div className="cardContent">{entity["definitionEN"]}</div>
                     <br />
                   </>
                 )}
               </div>
             )}
-            <div className="socials">
+            {/* <div className="socials">
               <span>{i18n("common.Partager")}</span>
               <button>
                 <BsFacebook />
@@ -183,7 +130,7 @@ export default function ViewDetails() {
               <button>
                 <BsLinkedin />
               </button>
-            </div>
+            </div> */}
           </section>
         </MainLayout>
         {/* <RelatedContent type={entity["categorie"]} /> */}
@@ -228,6 +175,7 @@ const MainLayout = styled.section`
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        font-family: "Proxima Nova";
     
         .cardHeader {
           width: 100%;
@@ -261,7 +209,8 @@ const MainLayout = styled.section`
           color: var(--violet);
     
           span {
-            font-family: "Bebas Neue Pro";
+            font-family: "Proxima Nova";
+            // font-family: "Bebas Neue Pro";
             font-style: normal;
             font-weight: 700;
             font-size: 23px;

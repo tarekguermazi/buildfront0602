@@ -4,6 +4,8 @@ const INITIAL_PAGE_SIZE = 10;
 
 const initialData = {
   rows: [],
+  rowsThematique: [],
+  loadingthematique: false,
   count: 0,
   loading: false,
   loadingByCategory: false,
@@ -49,6 +51,21 @@ export default (state = initialData, { type, payload }) => {
       ...state,
       sorter: payload || {},
     };
+  }
+
+  if (type === actions.FETCH_STARTED_THEMATIQUE) {
+    return { ...state, loadingthematique: true };
+  }
+  if (type === actions.FETCH_SUCCESS_THEMATIQUE) {
+    return {
+      ...state,
+      rowsThematique: payload.rows,
+      count: payload.count,
+      loadingthematique: false,
+    };
+  }
+  if (type === actions.FETCH_ERROR_THEMATIQUE) {
+    return { ...state, rowsThematique: [], loadingthematique: false };
   }
 
   if (type === actions.FETCH_STARTED) {

@@ -1769,6 +1769,26 @@ Styling the archeive verison Mobile  */
   width: 673px;
 }
 
+.search__description {
+  display: grid;
+  row-gap: 23px;
+}
+
+.search__description > div {
+  display: flex;
+  column-gap: 22px;
+  padding: 13px 15px;
+  background-color: var(--white);
+  width: 673px;
+}
+.categoryBadge {
+  background: #f8d7da;
+  border-radius: 3px;
+  color: var(--dark--red);
+  padding: 0.4rem 0.5rem;
+  font-size: 12px;
+  font-family: "Proxima Nova";
+}
 .evenement__right {
   display: flex;
   flex-direction: column;
@@ -3869,6 +3889,19 @@ button.splide__arrow--prev {
 /* Styling the archieve__page */
 
 .app__archieve__page {
+  position: relative;
+  top: -15px;
+  background-image: url(/public/images/acheive.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-color: var(--background);
+  padding-top: 0;
+  min-height: 100vh;
+}
+
+.app__archieve__page_search {
+  position: relative;
+  top: -30px;
   background-image: url(/public/images/acheive.png);
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -3878,12 +3911,17 @@ button.splide__arrow--prev {
 }
 
 .app__archieve__page .archeive {
-  padding-top: 19px;
+  padding-top: 0px;
   max-width: 1170px;
   position: relative;
   height: 100%;
 }
-
+.app__archieve__page_search .archeive {
+  padding-top: 0px;
+  max-width: 1170px;
+  position: relative;
+  height: 100%;
+}
 /* styling the publication Version Desktop */
 .publication__page {
   width: 100%;

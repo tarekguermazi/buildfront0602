@@ -32,7 +32,6 @@ export default function SearchResults({ location }) {
       setIsLoading(false);
     });
   };
-
   // HANDLING SUB FILTER (date / name)
   const handleSubFilter = (event) => {
     setIsLoading(true);
@@ -89,7 +88,7 @@ export default function SearchResults({ location }) {
       <SRPTable currentPostsToShow={SRP} />
 
       {/* FOOTER WITH PAGINATION ENABLED */}
-      <SRPFooter totalPosts={SRP.length >= 1 ? SRP[0].count : 0} />
+      {/* <SRPFooter totalPosts={SRP.length >= 1 ? SRP[0].count : 0} /> */}
     </SRPLayout>
   );
 }

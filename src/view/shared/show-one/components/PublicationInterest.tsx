@@ -10,11 +10,15 @@ import { Link } from "react-router-dom";
 function PublicationInterest(props) {
   const { rows, showDetaill } = props;
   const dispatch = useDispatch();
-  const rowsPublication = useSelector(selectorsPublication?.selectRows);
-  const loadingPublication = useSelector(selectorsPublication?.selectLoading);
+  const rowsThematique = useSelector(selectorsPublication?.rowsThematique);
+  const loadingthematique = useSelector(
+    selectorsPublication?.loadingthematique
+  );
 
   useEffect(() => {
-    dispatch(actionsPublication.doFetchValidePublication(rows?.thematique?.id));
+    dispatch(
+      actionsPublication.doFetchPublicationWithThematique(rows?.thematique?.id)
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -25,10 +29,10 @@ function PublicationInterest(props) {
       </div>
 
       <div className='interest__detaill'>
-        {loadingPublication ? (
+        {loadingthematique ? (
           <h1> Loading </h1>
         ) : (
-          rowsPublication.map((item) => (
+          rowsThematique.map((item) => (
             <Link to={`/detail/${item.id}`}>
               <div
                 onClick={() => showDetaill(item.id)}

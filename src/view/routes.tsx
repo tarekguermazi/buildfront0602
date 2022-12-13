@@ -33,6 +33,10 @@ const navigateRoutes = [
     loader: () => import("src/view/shared/show-one/Index"),
   },
   { path: "/Archives", loader: () => import("src/view/Archive/Archives") },
+  {
+    path: "/SearchArchive",
+    loader: () => import("src/view/Archive/SearchArchive"),
+  },
   { path: "/Glossaire", loader: () => import("src/view/Glossaire/Glossaire") },
   {
     path: "/Glossaire/:id",

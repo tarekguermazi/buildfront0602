@@ -15,6 +15,13 @@ const selectPublicationByThematiqueRows = createSelector(
   (raw) => raw.allbythematique
 );
 
+const loadingthematique = createSelector(
+  [selectRaw],
+  (raw) => raw.loadingthematique
+);
+
+const rowsThematique = createSelector([selectRaw], (raw) => raw.rowsThematique);
+
 const slectByCategory = createSelector([selectRaw], (raw) => raw.allbyCategory);
 const loadingByCategory = createSelector(
   [selectRaw],
@@ -94,6 +101,8 @@ const selectSelectedRows = createSelector(
 );
 
 const publicationListSelectors = {
+  loadingthematique,
+  rowsThematique,
   selectPublicationByThematiqueRows,
   selectLoading,
   selectRows,

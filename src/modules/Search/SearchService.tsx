@@ -48,4 +48,12 @@ export default class SearchService {
     );
     return response.data;
   }
+
+  static async getArchivePublications(SEARCH_STRING, FILTER, OFFSET) {
+    const tenantId = AuthCurrentTenant.get();
+    const response = await authAxios.get(
+      `/tenant/${tenantId}/publication/search?filter=${SEARCH_STRING}&limit=10&offset=${OFFSET}&advanced[statut]=${FILTER.statut}&advanced[thematique]=${FILTER.thematique}&advanced[category]=${FILTER.category}`
+    );
+    return response.data;
+  }
 }

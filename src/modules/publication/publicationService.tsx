@@ -135,9 +135,6 @@ export default class PublicationService {
   }
 
   static async listPublicationValide(thematique?) {
-    const limit = 4;
-    const offest = 4;
-    const orderBy = "updatedAt_DESC";
     const params = {
       thematique,
     };

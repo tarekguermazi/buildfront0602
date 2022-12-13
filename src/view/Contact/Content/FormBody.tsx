@@ -10,22 +10,21 @@ export default function FormBody({
   sender,
   type,
   setType,
-  explanation,
-  setExplanation,
+  explication,
+  setExplication,
 }) {
   const [formIsSubmitting, setformIsSubmitting] = useState(false);
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     const formValues = {
       sender: sender.type ?? null,
       type: type === "--" ? null : type,
-      explanation: explanation ?? "N.A",
+      explication: explication,
     };
     setformIsSubmitting(true);
-    ContactService.submitFormData(formValues).then((response: any) => {
-      setformIsSubmitting(false);
-    });
+    await ContactService.submitFormData(formValues);
+    setformIsSubmitting(false);
   };
 
   return (
@@ -52,8 +51,8 @@ export default function FormBody({
             id='problemInput'
             cols={30}
             rows={10}
-            value={explanation}
-            onChange={(e) => setExplanation(e.target.value)}></textarea>
+            value={explication}
+            onChange={(e) => setExplication(e.target.value)}></textarea>
         </div>
         {!formIsSubmitting && (
           <button type='submit' className='sendButton'>
@@ -101,11 +100,15 @@ const BodyLayout = styled.section`
       font-weight: bold;
       display: block;
       margin-top: 1rem;
+      font-family: "Proxima Nova";
     }
-
+    option {
+      font-family: "Proxima Nova";
+    }
     input,
     select,
     textarea {
+      font-family: "Proxima Nova";
       width: 100%;
       margin-top: 0.5rem;
       padding: 1rem;
@@ -116,6 +119,7 @@ const BodyLayout = styled.section`
     }
 
     textarea {
+      font-family: "Proxima Nova";
       resize: none;
       border-radius: 0;
     }

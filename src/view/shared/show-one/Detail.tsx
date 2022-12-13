@@ -9,14 +9,12 @@ import action from "src/modules/publication/view/publicationViewActions";
 import selectors from "src/modules/publication/view/publicationViewSelectors";
 import DescriptionPublication from "./components/DescriptionPublication";
 import PublicationInterest from "./components/PublicationInterest";
-
 function Detail() {
   const dispatch = useDispatch();
   const match = useRouteMatch();
   const id = match.params.id;
   const rows = useSelector(selectors.selectRecord);
   const loading = useSelector(selectors.selectLoading);
-
   const showDetaill = (id) => {
     dispatch(action.doFind(id));
   };
@@ -37,7 +35,7 @@ function Detail() {
             [i18n("entities.publication.label")],
           ]}
         />
-        {loading ? (
+        {loading ? (  
           <h1> Loading ... </h1>
         ) : (
           <div className='page__detaill'>

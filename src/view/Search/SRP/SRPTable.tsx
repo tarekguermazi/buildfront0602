@@ -8,12 +8,13 @@ import SRPCard from "../SRPCard";
 import { BsBox } from "react-icons/bs";
 import Breadcrumb from "src/view/shared/Breadcrumb";
 import { i18n } from "src/i18n";
-
+import { Tabs } from "antd";
 export default function SRPTable({ currentPostsToShow }) {
   // GLOBAL STATE
+  const { TabPane } = Tabs;
+
   const { isLoading } = useContext(SearchContext);
   const langue = localStorage.getItem("language");
-
   // HELPER FUNCTION
   const getValidThumbnail = (attachmentsArray) => {
     const acceptableExtions = "png, jpg, jpeg, gif";
@@ -46,263 +47,254 @@ export default function SRPTable({ currentPostsToShow }) {
             <section>
               {currentPostsToShow.count > 0 ? (
                 <section>
-                  {currentPostsToShow.rows.rowsEvent.length > 0 ? (
-                    <>
-                      <Breadcrumb
-                        title={i18n("menu.Evènements")}
-                        items={
-                          [
-                            // [i18n("dashboard.menu"), "/"],
-                            // [i18n("menu.Evènements")],
-                          ]
-                        }
-                      />
-                      {currentPostsToShow.rows.rowsEvent.map(
-                        (searchResult, index) => {
-                          let thumbnail: any;
-                          if (searchResult.supports.length >= 1) {
-                            thumbnail = getValidThumbnail(
-                              searchResult.supports
-                            );
+                  <Tabs
+                    className='links'
+                    defaultActiveKey={
+                      currentPostsToShow.rows.rowsEvent.length > 0
+                        ? "0"
+                        : currentPostsToShow.rows.rowsPublication.length > 0
+                        ? "1"
+                        : currentPostsToShow.rows.rowsGlosaire.length > 0
+                        ? "2"
+                        : "3"
+                    }
+                    onChange={(key: string) => {}}>
+                    <TabPane
+                      className=''
+                      tab={i18n("menu.Evènements")}
+                      key='0'
+                      disabled={currentPostsToShow.rows.rowsEvent.length <= 0}>
+                      <>
+                        {currentPostsToShow.rows.rowsEvent.map(
+                          (searchResult, index) => {
+                            let thumbnail: any;
+                            if (searchResult.supports.length >= 1) {
+                              thumbnail = getValidThumbnail(
+                                searchResult.supports
+                              );
+                            }
+                            if (langue === "fr") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["category"]["titleFR"]}
+                                  title={searchResult["titleFR"]}
+                                  entite={"Evenements"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionFR"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            } else if (langue === "ar") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["category"]["titleAR"]}
+                                  title={searchResult["titleAR"]}
+                                  entite={"Evenements"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionAR"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            } else if (langue === "en") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["category"]["titleEN"]}
+                                  title={searchResult["titleEN"]}
+                                  entite={"Evenements"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionEN"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            }
                           }
-                          if (langue === "fr") {
-                            return (
-                              <SRPCard
-                                type={searchResult["category"]["titleFR"]}
-                                title={searchResult["titleFR"]}
-                                entite={"Evenements"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionFR"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          } else if (langue === "ar") {
-                            return (
-                              <SRPCard
-                                type={searchResult["category"]["titleAR"]}
-                                title={searchResult["titleAR"]}
-                                entite={"Evenements"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionAR"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          } else if (langue === "en") {
-                            return (
-                              <SRPCard
-                                type={searchResult["category"]["titleEN"]}
-                                title={searchResult["titleEN"]}
-                                entite={"Evenements"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionEN"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
+                        )}
+                      </>
+                    </TabPane>
+                    <TabPane
+                      tab={i18n("menu.Publications")}
+                      key='1'
+                      disabled={
+                        currentPostsToShow.rows.rowsPublication.length <= 0
+                      }>
+                      <>
+                        {currentPostsToShow.rows.rowsPublication.map(
+                          (searchResult, index) => {
+                            let thumbnail: any;
+                            if (searchResult.photos.length >= 1) {
+                              thumbnail = getValidThumbnail(
+                                searchResult.photos
+                              );
+                            }
+                            if (langue === "fr") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["category"]["titleFR"]}
+                                  title={searchResult["titleFR"]}
+                                  entite={"Publications"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionFR"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            } else if (langue === "ar") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["category"]["titleAR"]}
+                                  title={searchResult["titleAR"]}
+                                  entite={"Publications"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionAR"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            } else if (langue === "en") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["category"]["titleEN"]}
+                                  title={searchResult["titleEN"]}
+                                  entite={"Publications"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionEN"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            }
                           }
-                        }
-                      )}
-                    </>
-                  ) : null}
-                  {currentPostsToShow.rows.rowsPublication.length > 0 ? (
-                    <>
-                      <Breadcrumb
-                        title={i18n("menu.Publications")}
-                        items={
-                          [
-                            // [i18n("dashboard.menu"), "/"],
-                            // [i18n("menu.Publications")],
-                          ]
-                        }
-                      />
-                      {currentPostsToShow.rows.rowsPublication.map(
-                        (searchResult, index) => {
-                          let thumbnail: any;
-                          if (searchResult.supports.length >= 1) {
-                            thumbnail = getValidThumbnail(
-                              searchResult.supports
-                            );
+                        )}
+                      </>
+                    </TabPane>
+                    <TabPane
+                      tab={i18n("menu.Glossaire")}
+                      key='2'
+                      disabled={
+                        currentPostsToShow.rows.rowsGlosaire.length <= 0
+                      }>
+                      <>
+                        {currentPostsToShow.rows.rowsGlosaire.map(
+                          (searchResult, index) => {
+                            if (langue === "fr") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["categorie"]["titleFR"]}
+                                  title={searchResult["nomFR"]}
+                                  entite={"Glossaire"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["definitionFR"]}
+                                  thumbnail={""}
+                                />
+                              );
+                            } else if (langue === "ar") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["categorie"]["titleAR"]}
+                                  title={searchResult["nomAR"]}
+                                  entite={"Glossaire"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["definitionAR"]}
+                                  thumbnail={""}
+                                />
+                              );
+                            } else if (langue === "en") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["categorie"]["titleEN"]}
+                                  title={searchResult["nomEN"]}
+                                  entite={"Glossaire"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["definitionEN"]}
+                                  thumbnail={""}
+                                />
+                              );
+                            }
                           }
-                          if (langue === "fr") {
-                            return (
-                              <SRPCard
-                                type={searchResult["category"]["titleFR"]}
-                                title={searchResult["titleFR"]}
-                                entite={"Publications"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionFR"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          } else if (langue === "ar") {
-                            return (
-                              <SRPCard
-                                type={searchResult["category"]["titleAR"]}
-                                title={searchResult["titleAR"]}
-                                entite={"Publications"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionAR"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          } else if (langue === "en") {
-                            return (
-                              <SRPCard
-                                type={searchResult["category"]["titleEN"]}
-                                title={searchResult["titleEN"]}
-                                entite={"Publications"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionEN"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
+                        )}
+                      </>
+                    </TabPane>
+                    <TabPane
+                      tab={i18n("menu.Médiathèque")}
+                      key='3'
+                      disabled={
+                        currentPostsToShow.rows.rowsMediatheque.length <= 0
+                      }>
+                      <>
+                        {currentPostsToShow.rows.rowsMediatheque.map(
+                          (searchResult, index) => {
+                            let thumbnail: any;
+                            if (searchResult.photos.length >= 1) {
+                              thumbnail = getValidThumbnail(
+                                searchResult.photos
+                              );
+                            }
+
+                            if (langue === "fr") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["type"]}
+                                  title={searchResult["titleFR"]}
+                                  entite={"Mediatheque/entity"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionFR"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            } else if (langue === "ar") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["type"]}
+                                  title={searchResult["titleAR"]}
+                                  entite={"Mediatheque/entity"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionAR"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            } else if (langue === "en") {
+                              return (
+                                <SRPCard
+                                  type={searchResult["type"]}
+                                  title={searchResult["titleEN"]}
+                                  entite={"Mediatheque/entity"}
+                                  key={index}
+                                  _id={searchResult["_id"] ?? 0}
+                                  date={searchResult["updatedAt"]}
+                                  content={searchResult["descriptionEN"]}
+                                  thumbnail={thumbnail}
+                                />
+                              );
+                            }
                           }
-                        }
-                      )}
-                    </>
-                  ) : null}
-                  {currentPostsToShow.rows.rowsGlosaire.length > 0 ? (
-                    <>
-                      <Breadcrumb
-                        title={i18n("menu.Glossaire")}
-                        items={
-                          [
-                            // [i18n("dashboard.menu"), "/"],
-                            // [i18n("menu.Glossaire")],
-                          ]
-                        }
-                      />
-                      {currentPostsToShow.rows.rowsGlosaire.map(
-                        (searchResult, index) => {
-                          let thumbnail: any;
-                          // if (searchResult.supports.length >= 1) {
-                          //   thumbnail = getValidThumbnail(
-                          //     searchResult.supports
-                          //   );
-                          // }
-                          if (langue === "fr") {
-                            return (
-                              <SRPCard
-                                type={searchResult["categorie"]["titleFR"]}
-                                title={searchResult["nomFR"]}
-                                entite={"Glossaire"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["definitionFR"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          } else if (langue === "ar") {
-                            return (
-                              <SRPCard
-                                type={searchResult["categorie"]["titleAR"]}
-                                title={searchResult["nomAR"]}
-                                entite={"Glossaire"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["definitionAR"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          } else if (langue === "en") {
-                            return (
-                              <SRPCard
-                                type={searchResult["categorie"]["titleEN"]}
-                                title={searchResult["nomEN"]}
-                                entite={"Glossaire"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["definitionEN"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          }
-                        }
-                      )}
-                    </>
-                  ) : null}
-                  {currentPostsToShow.rows.rowsMediatheque.length > 0 ? (
-                    <>
-                      <Breadcrumb
-                        title={i18n("menu.Médiathèque")}
-                        items={
-                          [
-                            // [i18n("dashboard.menu"), "/"],
-                            // [i18n("menu.Médiathèque")],
-                          ]
-                        }
-                      />
-                      {currentPostsToShow.rows.rowsMediatheque.map(
-                        (searchResult, index) => {
-                          let thumbnail: any;
-                          // if (searchResult.supports.length >= 1) {
-                          //   thumbnail = getValidThumbnail(
-                          //     searchResult.supports
-                          //   );
-                          // }
-                          if (langue === "fr") {
-                            return (
-                              <SRPCard
-                                type={searchResult["type"]}
-                                title={searchResult["titleFR"]}
-                                entite={"Mediatheque/entity"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionFR"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          } else if (langue === "ar") {
-                            return (
-                              <SRPCard
-                                type={searchResult["type"]}
-                                title={searchResult["titleAR"]}
-                                entite={"Mediatheque/entity"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionAR"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          } else if (langue === "en") {
-                            return (
-                              <SRPCard
-                                type={searchResult["type"]}
-                                title={searchResult["titleEN"]}
-                                entite={"Mediatheque/entity"}
-                                key={index}
-                                _id={searchResult["_id"] ?? 0}
-                                date={searchResult["updatedAt"]}
-                                content={searchResult["descriptionEN"]}
-                                thumbnail={thumbnail}
-                              />
-                            );
-                          }
-                        }
-                      )}
-                    </>
-                  ) : null}
+                        )}
+                      </>
+                    </TabPane>
+                  </Tabs>
                 </section>
               ) : (
                 <h3 id='noDataFound'>
                   <BsBox />
-                  &nbsp;No data found !
+                  &nbsp;{i18n("common.noData")}
                 </h3>
               )}
             </section>
