@@ -32,17 +32,17 @@ export default function FormHeader({ setUserType }) {
       <h3>{i18n("ContactPage.EtesVous")}</h3>
       <p>{i18n("ContactPage.Phrase")}</p>
 
-      <div className='radioOptins' onChange={handleUserTypeSelection}>
-        <label htmlFor='chercheur'>
+      <div className="radioOptins" onChange={handleUserTypeSelection}>
+        <label htmlFor="chercheur">
           <input
-            type='radio'
-            name='userType'
-            value='chercheur'
-            id='chercheur'
+            type="radio"
+            name="userType"
+            value="chercheur"
+            id="chercheur"
             defaultChecked
           />
-          <div className='contentContainer'>
-            <GiMicroscope className='icon' />
+          <div className="contentContainer">
+            <GiMicroscope className="icon" />
             <span>{i18n("ContactPage.chercheur")}</span>
           </div>
         </label>
@@ -53,19 +53,19 @@ export default function FormHeader({ setUserType }) {
             return (
               <label htmlFor={userTypes.type} key={index}>
                 <input
-                  type='radio'
-                  name='userType'
+                  type="radio"
+                  name="userType"
                   value={userTypes.type}
                   id={userTypes.type}
                 />
-                <div className='contentContainer'>
+                <div className="contentContainer">
                   {
                     {
-                      microscope: <GiMicroscope className='icon' />,
-                      graduation: <FaGraduationCap className='icon' />,
-                      newPaper: <FaNewspaper className='icon' />,
-                      power: <FaFistRaised className='icon' />,
-                      contact: <IoIosContact className='icon' />,
+                      microscope: <GiMicroscope className="icon" />,
+                      graduation: <FaGraduationCap className="icon" />,
+                      newPaper: <FaNewspaper className="icon" />,
+                      power: <FaFistRaised className="icon" />,
+                      contact: <IoIosContact className="icon" />,
                     }[userTypes.icon]
                   }
                   <span>{i18n(`ContactPage.${userTypes.display}`)} </span>
@@ -115,6 +115,7 @@ const HeaderLayout = styled.section`
         }
         span {
           color: #e1011a;
+          font-family: "Proxima Nova";
         }
       }
     }

@@ -102,11 +102,15 @@ const BodyLayout = styled.section`
       font-weight: bold;
       display: block;
       margin-top: 1rem;
+      font-family: "Proxima Nova";
     }
-
+    option {
+      font-family: "Proxima Nova";
+    }
     input,
     select,
     textarea {
+      font-family: "Proxima Nova";
       width: 100%;
       margin-top: 0.5rem;
       padding: 1rem;
@@ -117,6 +121,7 @@ const BodyLayout = styled.section`
     }
 
     textarea {
+      font-family: "Proxima Nova";
       resize: none;
       border-radius: 0;
     }

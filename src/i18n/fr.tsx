@@ -10,7 +10,7 @@ const fr = {
     new: "Nouveau",
     export: "Exporter vers Excel",
     noDataToExport: "Aucune donnée à exporter",
-    noData: "Aucune données!",
+    noData: "Aucune donnée!",
     all: "Tous",
     archiveSearch: "Rechercher dans l’archive...",
     import: "Importer",

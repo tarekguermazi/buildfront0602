@@ -59,7 +59,7 @@ function SearchArchive({ location }) {
         title={i18n("common.Archives")}
         items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
       />
-      <div className="app__archieve__page">
+      <div className="app__archieve__page_search">
         {loading ? (
           <section>
             <Skeleton height={170} />
@@ -73,7 +73,6 @@ function SearchArchive({ location }) {
                     {publications.length > 0 ? (
                       <div>
                         {publications.map((searchResult, index) => {
-                          console.log("supports", searchResult["supports"]);
                           let thumbnail: any;
                           if (searchResult["supports"]) {
                             thumbnail = getValidThumbnail(

@@ -175,6 +175,7 @@ const MainLayout = styled.section`
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        font-family: "Proxima Nova";
     
         .cardHeader {
           width: 100%;
@@ -208,7 +209,8 @@ const MainLayout = styled.section`
           color: var(--violet);
     
           span {
-            font-family: "Bebas Neue Pro";
+            font-family: "Proxima Nova";
+            // font-family: "Bebas Neue Pro";
             font-style: normal;
             font-weight: 700;
             font-size: 23px;
