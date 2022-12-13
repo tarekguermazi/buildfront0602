@@ -71,30 +71,47 @@ function Publications() {
         <div className='app__pub'>
           <div className='publication__header'>
             <div className='image__pub'>
-              {loadingPublication &&
-                Array.from({ length: 5 }).map((item, i) => (
-                  <Skeleton key={i} height={390} width={269} />
-                ))}
-              {!loadingPublication &&
-                rowsPublication.map((item, index) => (
-                  <div className='pub__relative' key={index}>
-                    <img src={item?.supports[0]?.downloadUrl} alt='header' />
-                    <Link to={`/detail/${item.id}`}>
-                      <PublicationDetaill data={item} />
-                    </Link>
-                  </div>
-                ))}
+              {loadingPublication
+                ? Array.from({ length: 5 }).map((item, i) => (
+                    <Skeleton key={i} height={390} width={269} />
+                  ))
+                : rowsPublication.map((item, index) => (
+                    <div className='pub__relative' key={index}>
+                      <img src={item?.supports[0]?.downloadUrl} alt='header' />
+                      <Link to={`/detail/${item.id}`}>
+                        <PublicationDetaill data={item} />
+                      </Link>
+                    </div>
+                  ))}
             </div>
           </div>
           {/* styling the migration section */}
-          {lodingThematique && <h3>Loading ... </h3>}
-          {rowsPublicationByThematique.map((item, index) => (
-            <PublicationDetaillByThematique
-              data={item?.data}
-              thematique={item?.cat[0]}
-              index={index}
-            />
-          ))}
+          {lodingThematique ? (
+            <div className='pub__migration'>
+              <div>
+                <Skeleton height={60} width={1170} />
+              </div>
+              <div className='sketlon__images'>
+                <div>
+                  <Skeleton
+                    height={370}
+                    width={370}
+                    count={3}
+                    inline={true}
+                    enableAnimation={true}
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            rowsPublicationByThematique.map((item, index) => (
+              <PublicationDetaillByThematique
+                data={item?.data}
+                thematique={item?.cat[0]}
+                index={index}
+              />
+            ))
+          )}
           {/* stlyling the pollution */}
 
           <div className='app__articles'>

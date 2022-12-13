@@ -4047,9 +4047,16 @@ button.splide__arrow--prev {
 
 .migration__images {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   width: 100%;
   column-gap: 30px;
+}
+
+.sketlon__images {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
 }
 
 /*        styling the articles + manifestation + évènement +Rapports      */
