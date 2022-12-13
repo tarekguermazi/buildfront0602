@@ -13,6 +13,7 @@ import selectorsPublication from "src/modules/publication/list/publicationListSe
 import { useDispatch, useSelector } from "react-redux";
 import Date from "../../Date";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 function DescriptionPublication(props) {
   const dispatch = useDispatch();
   const { rows } = props;
@@ -70,33 +71,43 @@ function DescriptionPublication(props) {
             <div className='satestique__bar'></div>
           </div>
           <div className='manification__images'>
-            {rowsPublication.map((item) => (
-              <div
-                onClick={() => props.showDetaill(item.id)}
-                style={{ cursor: "pointer" }}>
-                <Image
-                  src={item.supports[0].downloadUrl}
-                  width='120'
-                  height='78'
-                  alt=''
-                />
-                <div className='list__detaill'>
-                  <div className='detaill__header'>
-                    <div className='header__left'>
-                      <p>{Translate.Trans("title", item.thematique)}</p>
-                    </div>
-                    <div className='header__right'>
-                      {Date.fullDate(item.updatedAt)}
-                    </div>
-                  </div>
+            {loadingPublication ? (
+              <h1> Loading ... </h1>
+            ) : (
+              rowsPublication.map((item) => (
+                <Link to={`/detail/${item.id}`}>
                   <div
-                    className='detaill__content text__wrap'
-                    style={{ width: "233px" }}>
-                    {Translate.Trans("title", item)}
+                    onClick={() => props.showDetaill(item.id)}
+                    style={{
+                      cursor: "pointer",
+                      display: "flex",
+                      columnGap: 17,
+                    }}>
+                    <Image
+                      src={item.supports[0].downloadUrl}
+                      width='120'
+                      height='78'
+                      alt=''
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>{Translate.Trans("title", item.thematique)}</p>
+                        </div>
+                        <div className='header__right'>
+                          {Date.fullDate(item.updatedAt)}
+                        </div>
+                      </div>
+                      <div
+                        className='detaill__content text__wrap'
+                        style={{ width: "233px" }}>
+                        {Translate.Trans("title", item)}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </div>

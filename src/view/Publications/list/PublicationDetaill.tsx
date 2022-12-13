@@ -3,7 +3,6 @@ import Date from "../../shared/Date";
 import Translate from "../../shared/Translate";
 function PublicationDetaill(props) {
   const { data } = props;
-  console.log(data);
 
   return (
     <div className='__detaills'>

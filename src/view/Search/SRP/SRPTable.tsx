@@ -13,7 +13,7 @@ export default function SRPTable({ currentPostsToShow }) {
   // GLOBAL STATE
   const { isLoading } = useContext(SearchContext);
   const langue = localStorage.getItem("language");
-  console.log("currentPostsToShow", currentPostsToShow);
+
   // HELPER FUNCTION
   const getValidThumbnail = (attachmentsArray) => {
     const acceptableExtions = "png, jpg, jpeg, gif";
@@ -300,7 +300,7 @@ export default function SRPTable({ currentPostsToShow }) {
                   ) : null}
                 </section>
               ) : (
-                <h3 id="noDataFound">
+                <h3 id='noDataFound'>
                   <BsBox />
                   &nbsp;No data found !
                 </h3>

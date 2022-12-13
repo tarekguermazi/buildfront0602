@@ -6,7 +6,7 @@ import selectorsPublication from "src/modules/publication/list/publicationListSe
 import Translate from "../../Translate";
 import Date from "../../Date";
 import Image from "../../Image";
-
+import { Link } from "react-router-dom";
 function PublicationInterest(props) {
   const { rows, showDetaill } = props;
   const dispatch = useDispatch();
@@ -25,33 +25,39 @@ function PublicationInterest(props) {
       </div>
 
       <div className='interest__detaill'>
-        {rowsPublication.map((item) => (
-          <div
-            onClick={() => showDetaill(item.id)}
-            style={{ cursor: "pointer" }}>
-            <Image
-              src={item?.supports[0]?.downloadUrl}
-              width='182'
-              height='147'
-              alt=''
-            />
-            <div className='list__detaill'>
-              <div className='detaill__header'>
-                <div className='header__left'>
-                  <p>{Translate.Trans("title", item.thematique)} </p>
-                </div>
-                <div className='header__right'>
-                  {Date.fullDate(item.updatedAt)}
-                </div>
-              </div>
+        {loadingPublication ? (
+          <h1> Loading </h1>
+        ) : (
+          rowsPublication.map((item) => (
+            <Link to={`/detail/${item.id}`}>
               <div
-                className='detaill__content text__wrap'
-                style={{ width: "369px" }}>
-                {Translate.Trans("title", item)}
+                onClick={() => showDetaill(item.id)}
+                style={{ cursor: "pointer", display: "flex", gap: 19 }}>
+                <Image
+                  src={item?.supports[0]?.downloadUrl}
+                  width='182'
+                  height='147'
+                  alt=''
+                />
+                <div className='list__detaill'>
+                  <div className='detaill__header'>
+                    <div className='header__left'>
+                      <p>{Translate.Trans("title", item.thematique)} </p>
+                    </div>
+                    <div className='header__right'>
+                      {Date.fullDate(item.updatedAt)}
+                    </div>
+                  </div>
+                  <div
+                    className='detaill__content text__wrap'
+                    style={{ width: "369px" }}>
+                    {Translate.Trans("title", item)}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </Link>
+          ))
+        )}
       </div>
     </div>
   );

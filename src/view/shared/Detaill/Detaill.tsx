@@ -58,7 +58,7 @@ function Detaill() {
           <div className='detaill'>
             <div className='list__detaills'>
               {rows.map((item) => (
-                <Link to={`/publications/${item.id}`}>
+                <Link to={`/detail/${item.id}`}>
                   <div>
                     <Image
                       src={item.supports[0]?.downloadUrl}

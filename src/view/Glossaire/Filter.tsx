@@ -87,7 +87,6 @@ export default function Filter({ setGroupByCategory }) {
   useEffect(() => {
     if (getCategoriesTrigger) {
       GlossaireService.getGloassaireCategories().then((res) => {
-        console.log(res);
         setGlossaireCategories(res.rows);
         setIsLoading(false);
       });

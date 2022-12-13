@@ -32,7 +32,7 @@ export default function SearchResults({ location }) {
       setIsLoading(false);
     });
   };
-  console.log("SRP ==> ", SRP);
+
   // HANDLING SUB FILTER (date / name)
   const handleSubFilter = (event) => {
     setIsLoading(true);
@@ -68,18 +68,17 @@ export default function SearchResults({ location }) {
               <strong>{SRP[0].count}</strong>
               <span>résultat pour cette recherche</span>
             </div>
-            <div id="filterContainer">
+            <div id='filterContainer'>
               <span>Trier par</span>
               <select
-                name="filterBy"
-                id="filterBySelect"
-                onChange={handleSubFilter}
-              >
-                <option value="">--</option>
-                <option value="createdAt_DESC">Date ( Desc )</option>
-                <option value="createdAt_ASC">Date ( Asc )</option>
-                <option value="az">Name A-Z</option>
-                <option value="za">Name Z-A</option>
+                name='filterBy'
+                id='filterBySelect'
+                onChange={handleSubFilter}>
+                <option value=''>--</option>
+                <option value='createdAt_DESC'>Date ( Desc )</option>
+                <option value='createdAt_ASC'>Date ( Asc )</option>
+                <option value='az'>Name A-Z</option>
+                <option value='za'>Name Z-A</option>
               </select>
             </div>
           </>

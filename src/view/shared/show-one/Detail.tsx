@@ -42,7 +42,7 @@ function Detail() {
         ) : (
           <div className='page__detaill'>
             <DescriptionPublication rows={rows} showDetaill={showDetaill} />
-            <PublicationInterest row={rows} showDetaill={showDetaill} />
+            <PublicationInterest rows={rows} showDetaill={showDetaill} />
           </div>
         )}
       </div>
