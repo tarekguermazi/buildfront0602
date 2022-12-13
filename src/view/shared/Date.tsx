@@ -4,6 +4,13 @@ class Date {
   static Hour(date) {
     return moment(date).format("hh:mm a");
   }
+
+  // this format 12 avril 2022 //
+  static pipeDate = (date) => {
+    let d = date.split("T")[0];
+    return moment(d).format("LL");
+  };
+
   static HourMinute(date) {
     return moment(date).format("DD-MM-YYYY HH:mm");
   }

@@ -77,15 +77,15 @@ const MainLayout = styled.section`
   justify-content: space-between;
   margin: 1rem auto;
 
-    .rightSection{
-        width: 100%;
-        /* margin-right: 2.5rem; */
+  .rightSection {
+    width: 100%;
+    /* margin-right: 2.5rem; */
 
-        .socials{
-            width: 250px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    .socials {
+      width: 250px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       button {
         background-color: transparent;
@@ -95,8 +95,8 @@ const MainLayout = styled.section`
       }
     }
 
-    @media (max-width: 767px){
-        width: 100%; 
+    @media (max-width: 767px) {
+      width: 100%;
     }
   }
 `;

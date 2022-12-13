@@ -15,8 +15,8 @@ const MainSplideStyles = styled.section`
     /* background-color: yellow; */
 
     .splide__pagination__page {
-      height: 7px;
-      width: 7px;
+      height: 10px;
+      width: 10px;
       border-radius: 0;
     }
 
@@ -48,19 +48,20 @@ const MainSplideStyles = styled.section`
     background-position: center;
 
     section {
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 467px 479px;
+      place-items: center;
+      column-gap: 31px;
 
       .cardThumbnail {
-        width: 500px !important;
+        width: 467px !important;
         height: 350px;
         background-size: cover;
         background-position: center;
-        margin-right: 2rem;
         filter: drop-shadow(0px 9px 14px rgba(0, 0, 0, 0.1));
       }
       .hasNoThumbnail {
-        background-image: url("https://imgur.com/N1ZiTM4.jpeg");
+        background-image: url("https://placehold.jp/467x350.png");
       }
 
       .textContent {
@@ -70,14 +71,30 @@ const MainSplideStyles = styled.section`
         text-align: left;
         color: #fff;
 
-        .horizontalPlayerTitle {
-          font-size: 3rem;
+        .horizontalPlayerTitle > p {
+          border: 1px color #000;
+          width: 450px;
+          word-break: break-word;
+          font-family: "Bebas Neue Pro";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 40px;
+          line-height: 43px;
+          text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .horizontalPlayerDescription {
+          font-family: "Proxima Nova";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 22px;
         }
       }
 
       .dateAndType {
         display: block;
-        margin-bottom: 2rem;
+        margin-bottom: 8px;
 
         span {
           color: #fff;
@@ -86,30 +103,28 @@ const MainSplideStyles = styled.section`
         .contentType {
           width: 100px;
           height: 30px;
-          border: 1px solid red;
-          border-radius: 0.5rem;
+          border: 1px solid #e1011a;
+          border-radius: 3px;
           margin-bottom: 1rem;
           font-family: "Proxima Nova";
           font-style: normal;
           font-weight: 400;
-          font-size: 1rem;
+          font-size: 15px;
           line-height: 15px;
           color: red;
           padding: 0.3rem 0.5rem;
-
           display: flex;
           align-items: center;
           justify-content: space-evenly;
-
-          .icon {
-            margin-right: 5px;
-          }
         }
 
         .contentDate {
-          display: block;
-          color: rgba(255, 255, 255, 1) !important;
-          font-size: 1.2rem;
+          font-family: "Proxima Nova";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 15px;
+          color: #ffffff;
         }
       }
     }

@@ -31,18 +31,40 @@ export default function MegaFooter() {
             <div className='footer__content content__menu'>
               <div>
                 <ul>
-                  <li><Link className='footerLink' to='A_propos'>A propos</Link></li>
-                  <li><Link className='footerLink' to='Archives'>Archive</Link></li>
-                  <li><Link className='footerLink' to='Glossaire'>Glossaire</Link></li>
-                  <li><Link className='footerLink' to='Publications'>Publications</Link></li>
+                  <li>
+                    <Link className='footerLink' to='A_propos'>
+                      A propos
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className='footerLink' to='Archives'>
+                      Archive
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className='footerLink' to='Glossaire'>
+                      Glossaire
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className='footerLink' to='Publications'>
+                      Publications
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div>
                 <ul>
-                  <li><Link className='footerLink' to='/'>Galerie</Link></li>
-                  <li><Link className='footerLink' to='/'>Entretiens</Link></li>
-                  <li><Link className='footerLink' to='Evenements'>Evenements</Link></li>
-                  <li><Link className='footerLink' to='Contact'>Contact</Link></li>
+                  <li>
+                    <Link className='footerLink' to='Evenements'>
+                      Evenements
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className='footerLink' to='Contact'>
+                      Contact
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
