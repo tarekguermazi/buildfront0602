@@ -89,10 +89,10 @@ export default function MainSplide({ data }) {
                   </div>
 
                   <div className='textContent'>
-                    <div className='horizontalPlayerTitle'>
-                      <p>{Translate.Trans("title", post)}</p>
+                    <div className='horizontalPlayerTitle ow'>
+                      {Translate.Trans("title", post)}
                     </div>
-                    <div className='horizontalPlayerDescription'>
+                    <div className='horizontalPlayerDescription text__wrap'>
                       {Translate.Trans("description", post)}
                     </div>
                   </div>

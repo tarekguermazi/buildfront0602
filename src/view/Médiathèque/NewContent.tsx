@@ -65,7 +65,7 @@ export default function NewContent({ data }) {
                       {Date.pipeDate(post.updatedAt)}
                     </span>
                   </div>
-                  <div className='verticalPlayerTitle'>
+                  <div className='verticalPlayerTitle text_wrap'>
                     <span>{Translate.Trans("title", post)}</span>
                   </div>
                 </SplideSlide>

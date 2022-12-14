@@ -4,6 +4,7 @@ import moment from "moment";
 
 // ICONS
 import { BiMicrophone } from "react-icons/bi";
+import Translate from "../../shared/Translate";
 
 export default function AudioPlayer({ dataSource }) {
   // HELPER FUNCTIONS
@@ -22,7 +23,9 @@ export default function AudioPlayer({ dataSource }) {
         <span className='contentDate'>{pipeDate(dataSource.updatedAt)}</span>
       </div>
       <div className='verticalPlayerTitle'>
-        <span style={{ textTransform: "lowercase" }}>{dataSource.titleFR}</span>
+        <span style={{ textTransform: "lowercase" }}>
+          {Translate.Trans("title", dataSource)}
+        </span>
       </div>
     </AudioPlayerLayout>
   );

@@ -39,7 +39,6 @@ const MainSplideStyles = styled.section`
   .horizontalPlayer {
     width: 100% !important;
     height: 507px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +48,7 @@ const MainSplideStyles = styled.section`
 
     section {
       display: grid;
-      grid-template-columns: 467px 479px;
+      grid-template-columns: 467px 500px;
       place-items: center;
       column-gap: 31px;
 
@@ -65,15 +64,14 @@ const MainSplideStyles = styled.section`
       }
 
       .textContent {
-        width: 450px;
+        width: 500px;
         font-family: "Bebas Neue Pro";
         line-height: 1.2;
         text-align: left;
         color: #fff;
-
-        .horizontalPlayerTitle > p {
+        .horizontalPlayerTitle {
           border: 1px color #000;
-          width: 450px;
+
           word-break: break-word;
           font-family: "Bebas Neue Pro";
           font-style: normal;

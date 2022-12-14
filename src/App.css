@@ -2,6 +2,9 @@ category__list.app {
   overflow: hidden;
 }
 
+.wideContent ul[id^="splide"][id$="-list"] {
+  column-gap: 31px;
+}
 .app__calendar {
   position: fixed;
   border-radius: 50%;
@@ -1468,6 +1471,12 @@ Styling the archeive verison Mobile  */
   font-size: 20px;
   line-height: 24px;
   color: var(--violet);
+}
+
+.ow {
+  white-space: pre-wrap;
+  overflow: break-word;
+  text-overflow: ellipsis;
 }
 
 .text__wrap {
@@ -3836,10 +3845,6 @@ span {
   color: #fff;
 }
 
-ul.splide__list {
-  column-gap: 15px;
-}
-
 ul.splide__list > li {
   width: 85px !important;
   padding: 0 !important;
@@ -4050,6 +4055,13 @@ button.splide__arrow--prev {
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   width: 100%;
   column-gap: 30px;
+}
+.migration__images > div {
+  max-width: 370px;
+  border: 1px solid #000;
+  inline-size: 370px;
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 
 .sketlon__images {

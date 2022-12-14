@@ -11,8 +11,8 @@ function PublicationDetaillByThematique(props) {
 
   const renderItem = (item) => {
     return (
-      <Link to={`/detail/${item.id}`}>
-        <div>
+      <div>
+        <Link to={`/detail/${item.id}`}>
           <Image
             src={`${baseUrl}/file/download?privateUrl=${item.supports[0].privateUrl}`}
             width='370'
@@ -26,14 +26,12 @@ function PublicationDetaillByThematique(props) {
                 {Date.fullDate(item.updatedAt)}
               </div>
             </div>
-            <div
-              className='detaill__content text__wrap'
-              style={{ maxWidth: 307 }}>
+            <div className='detaill__content text__wrap'>
               {Translate.Trans("title", item)}
             </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     );
   };
 

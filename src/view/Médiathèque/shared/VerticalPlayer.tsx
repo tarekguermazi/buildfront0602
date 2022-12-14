@@ -5,6 +5,7 @@ import moment from "moment";
 
 // ICONS
 import { IoVideocamOutline } from "react-icons/io5";
+import Translate from "../../shared/Translate";
 
 export default function VerticalPlayer({ dataSource }) {
   // HELPER FUNCTIONS
@@ -35,8 +36,8 @@ export default function VerticalPlayer({ dataSource }) {
         </div>
         <span className='contentDate'>{pipeDate(dataSource.updatedAt)}</span>
       </div>
-      <div className='verticalPlayerTitle'>
-        <span>{dataSource.titleFR}</span>
+      <div className='verticalPlayerTitle text__wrap'>
+        <span>{Translate.Trans("title", dataSource)}</span>
       </div>
     </VerticalPlayerCard>
   );

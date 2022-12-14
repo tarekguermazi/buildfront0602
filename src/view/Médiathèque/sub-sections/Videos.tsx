@@ -10,6 +10,7 @@ export default function Videos({ videosList }) {
         <h2>Videos</h2>
         <div className='satestique__bar'></div>
       </div>
+      <div style={{ marginBottom: "3rem" }} />
       <div className='grid'>
         {videosList?.map((vid) => {
           return (
