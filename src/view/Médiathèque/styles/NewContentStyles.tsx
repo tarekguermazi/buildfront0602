@@ -115,7 +115,7 @@ const NewContentStyles = styled.section`
 
       .verticalPlayerTitle {
         height: 70px;
-
+        width: 250px;
         span {
           font-family: "Bebas Neue Pro";
           font-style: normal;

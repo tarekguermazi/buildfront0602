@@ -34,24 +34,24 @@ export default function ViewDetails() {
 
   return (
     <section>
-      <section className="wideContent">
+      <section className='wideContent'>
         <MainLayout>
-          <section className="rightSection">
+          <section className='rightSection'>
             {entityIsLoading ? (
               <Skeleton height={500} />
             ) : (
-              <div className="cardContent">
+              <div className='cardContent'>
                 {langue === "fr" ? (
                   <>
                     <Breadcrumb title={entity["nomFR"]} items={[]} />
-                    <div className="cardHeader">
+                    <div className='cardHeader'>
                       {entity["categorie"] ? (
-                        <span className="categoryBadge">
+                        <span className='categoryBadge'>
                           {entity["categorie"]["titleFR"]}
                         </span>
                       ) : null}
                       {entity["thematique"] ? (
-                        <span className="categoryBadgeTheme">
+                        <span className='categoryBadgeTheme'>
                           {entity["thematique"]["titleFR"]}
                         </span>
                       ) : null}
@@ -62,20 +62,20 @@ export default function ViewDetails() {
                     <span>{entity["abreviationFR"]}</span>
                     <br />
 
-                    <div className="cardContent">{entity["definitionFR"]}</div>
+                    <div className='cardContent'>{entity["definitionFR"]}</div>
                     <br />
                   </>
                 ) : langue === "ar" ? (
                   <>
                     <Breadcrumb title={entity["nomAR"]} items={[]} />
-                    <div className="cardHeader">
+                    <div className='cardHeader'>
                       {entity["categorie"] ? (
-                        <span className="categoryBadge">
+                        <span className='categoryBadge'>
                           {entity["categorie"]["titleAR"]}
                         </span>
                       ) : null}
                       {entity["thematique"] ? (
-                        <span className="categoryBadgeTheme">
+                        <span className='categoryBadgeTheme'>
                           {entity["thematique"]["titleAR"]}
                         </span>
                       ) : null}
@@ -86,20 +86,20 @@ export default function ViewDetails() {
                     <span>{entity["abreviationAR"]}</span>
                     <br />
 
-                    <div className="cardContent">{entity["definitionAR"]}</div>
+                    <div className='cardContent'>{entity["definitionAR"]}</div>
                     <br />
                   </>
                 ) : (
                   <>
                     <Breadcrumb title={entity["nomEN"]} items={[]} />
-                    <div className="cardHeader">
+                    <div className='cardHeader'>
                       {entity["categorie"] ? (
-                        <span className="categoryBadge">
+                        <span className='categoryBadge'>
                           {entity["categorie"]["titleEN"]}
                         </span>
                       ) : null}
                       {entity["thematique"] ? (
-                        <span className="categoryBadgeTheme">
+                        <span className='categoryBadgeTheme'>
                           {entity["thematique"]["titleEN"]}
                         </span>
                       ) : null}
@@ -110,7 +110,7 @@ export default function ViewDetails() {
                     <span>{entity["abreviationEN"]}</span>
                     <br />
 
-                    <div className="cardContent">{entity["definitionEN"]}</div>
+                    <div className='cardContent'>{entity["definitionEN"]}</div>
                     <br />
                   </>
                 )}
