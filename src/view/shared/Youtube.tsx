@@ -1,6 +1,6 @@
 import React from "react";
 import YouTube, { YouTubeProps } from "react-youtube";
-
+import PropTypes from "prop-types";
 function Youtube(props) {
   const { link } = props;
 
@@ -11,6 +11,7 @@ function Youtube(props) {
     rx =
       /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
   let videoId = "";
+
   for (i = 0; i < urls.length; ++i) {
     r = urls[i].match(rx);
     videoId = r[1];
@@ -31,5 +32,9 @@ function Youtube(props) {
   };
   return <YouTube videoId={videoId} opts={opts} onReady={onPlayerReady} />;
 }
+
+Youtube.prototype = {
+  link: PropTypes.string.isRequired,
+};
 
 export default Youtube;

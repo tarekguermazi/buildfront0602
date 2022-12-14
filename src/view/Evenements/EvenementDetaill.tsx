@@ -148,21 +148,26 @@ function EvenementDetaill() {
                   )}
                   <div className='plus__button'>{i18n("common.voirPlus")}</div>
                 </div>
-
-                <div className='left__videos'>
-                  <div className='title__detaillEvenemet'>
-                    {i18n("common.Videos")}
+                {selectRows?.videos[0]?.link && (
+                  <div className='left__videos'>
+                    <div className='title__detaillEvenemet'>
+                      {i18n("common.Videos")}
+                    </div>
+                    <div className='photos__gallery'>
+                      {selectRows?.videos?.map(
+                        (item) =>
+                          item?.link && (
+                            <div className='videos__list'>
+                              <Youtube link={item?.link} />
+                            </div>
+                          )
+                      )}
+                    </div>
+                    <div className='plus__button'>
+                      {i18n("common.voirPlus")}
+                    </div>
                   </div>
-
-                  <div className='photos__gallery'>
-                    {selectRows?.videos?.map((item) => (
-                      <div className='videos__list'>
-                        <Youtube link={item?.link} />
-                      </div>
-                    ))}
-                  </div>
-                  <div className='plus__button'>{i18n("common.voirPlus")}</div>
-                </div>
+                )}
 
                 <div className='left__contact'>
                   <div className='title__detaillEvenemet'>
