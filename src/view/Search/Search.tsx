@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SearchContext } from "./SearchContext";
 import styled from "styled-components";
+
 // COMPONENTS
 import SearchHeader from "./SearchHeader";
 import SearchFilter from "./SearchFilter";
@@ -10,10 +11,11 @@ import SearchResults from "./SRP/SearchResults";
 export default function Search({ location }) {
   // GLOBAL STATE
   const [isLoading, setIsLoading] = useState(false);
-  const [searchString, setSearchString] = useState("");
+  const [searchString, setSearchString] = useState(location.HOME_SEARCH_STRING);
   const [SRP, setSRP] = useState([]);
   const [publicationFilter, setpublicationFilter] = useState("autre");
   // PAGINATION LOGIC
+  console.log("first ", location);
   const [currentPageIndex, setcurrentPageIndex] = useState(0);
   const [numberOfPostsPerPage, setnumberOfPostsPerPage] = useState(5);
 
@@ -36,8 +38,6 @@ export default function Search({ location }) {
     >
       <SearchLayout>
         <section className="wideContent">
-          {/* <SearchHeader location={location} /> */}
-          {/* <SearchFilter /> */}
           <SearchResults location={location} />
         </section>
       </SearchLayout>
