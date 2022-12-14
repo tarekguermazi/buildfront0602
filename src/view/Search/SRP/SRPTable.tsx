@@ -145,7 +145,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 <SRPCard
                                   type={searchResult["category"]["titleFR"]}
                                   title={searchResult["titleFR"]}
-                                  entite={"detaill"}
+                                  entite={"detail"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}
@@ -158,7 +158,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 <SRPCard
                                   type={searchResult["category"]["titleAR"]}
                                   title={searchResult["titleAR"]}
-                                  entite={"detaill"}
+                                  entite={"detail"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}
@@ -171,7 +171,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 <SRPCard
                                   type={searchResult["category"]["titleEN"]}
                                   title={searchResult["titleEN"]}
-                                  entite={"detaill"}
+                                  entite={"detail"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}
