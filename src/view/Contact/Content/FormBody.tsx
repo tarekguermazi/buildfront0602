@@ -6,6 +6,9 @@ import { BiMailSend } from "react-icons/bi";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { i18n } from "src/i18n";
 
+import Message from "src/view/shared/message";
+import Errors from "src/modules/shared/error/errors";
+
 export default function FormBody({
   sender,
   type,
@@ -13,6 +16,8 @@ export default function FormBody({
   explication,
   setExplication,
 }) {
+  console.log("sender", sender);
+
   const [formIsSubmitting, setformIsSubmitting] = useState(false);
 
   const handleFormSubmit = async (event) => {
@@ -23,46 +28,57 @@ export default function FormBody({
       explication: explication,
     };
     setformIsSubmitting(true);
-    await ContactService.submitFormData(formValues);
+    const res = await ContactService.submitFormData(formValues);
+    if (res.status == 200) {
+      Message.success(i18n("entities.contact.create.success"));
+    } else {
+      Message.error(i18n("entities.contact.error"));
+    }
     setformIsSubmitting(false);
   };
-
+  let formValide = explication !== "" && type !== "--";
   return (
     <BodyLayout>
-      <h3>{sender.display}</h3>
+      <h3>{i18n("ContactPage." + sender.display)}</h3>
 
       <form onSubmit={handleFormSubmit}>
         <div>
-          <label htmlFor='contacttype'>{i18n("menu.Contact")}</label>
+          <label htmlFor="contacttype">{i18n("menu.Contact")}</label>
           <select
-            id='contacttype'
-            onChange={(event) => setType(event.target.value)}>
-            <option value='--'>--</option>
-            <option value='contact'>{i18n("menu.Contact")}</option>
-            <option value='question'>{i18n("ContactPage.question")}</option>
-            <option value='problem'>{i18n("ContactPage.problem")}</option>
+            id="contacttype"
+            onChange={(event) => setType(event.target.value)}
+          >
+            <option value="--">--</option>
+            <option value="contact">{i18n("menu.Contact")}</option>
+            <option value="question">{i18n("ContactPage.question")}</option>
+            <option value="problem">{i18n("ContactPage.problem")}</option>
           </select>
         </div>
         <div>
-          <label htmlFor='problemInput'>
+          <label htmlFor="problemInput">
             {i18n("ContactPage.problemInput")}
           </label>
           <textarea
-            id='problemInput'
+            id="problemInput"
             cols={30}
             rows={10}
             value={explication}
-            onChange={(e) => setExplication(e.target.value)}></textarea>
+            onChange={(e) => setExplication(e.target.value)}
+          ></textarea>
         </div>
         {!formIsSubmitting && (
-          <button type='submit' className='sendButton'>
-            <BiMailSend className='icon' />
+          <button
+            type="submit"
+            className={formValide ? "sendButton" : "sendButtonDisabled"}
+            disabled={!formValide}
+          >
+            <BiMailSend className="icon" />
             {i18n("buttons.envoyer")}
           </button>
         )}
         {formIsSubmitting && (
-          <button className='sendButton'>
-            <AiOutlineLoading3Quarters className='loadingIcon' />
+          <button className="sendButton">
+            <AiOutlineLoading3Quarters className="loadingIcon" />
           </button>
         )}
       </form>
@@ -135,6 +151,29 @@ const BodyLayout = styled.section`
       justify-content: center;
       background-color: #e1011a;
       color: #fff;
+      text-transform: uppercase;
+
+      .icon {
+        margin-right: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .loadingIcon {
+        animation: spin 0.7s linear infinite;
+      }
+    }
+    .sendButtonDisabled {
+      width: 100%;
+      padding: 1rem 0;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      // border: 1px solid #999999;
+      background-color: #cccccc;
+      color: #666666;
       text-transform: uppercase;
 
       .icon {

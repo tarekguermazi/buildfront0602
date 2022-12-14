@@ -130,12 +130,12 @@ const fr = {
     acteur_social: "Acteur Social",
     question: "Question",
     problem: "Problème",
-    problemInput: "Registration problem",
+    problemInput: "Description du problème",
   },
 
   buttons: {
-    chercher: "chercher",
-    filtrer: "filtrer",
+    chercher: "Fhercher",
+    filtrer: "Filtrer",
     envoyer: "Envoyer",
   },
   entities: {
@@ -2077,6 +2077,68 @@ const fr = {
         fileName: "Configuration_import_template",
         hint: "Les colonnes Fichiers/Images doivent contenir les URL des fichiers séparés par des espaces.",
       },
+    },
+    contact: {
+      name: "contact",
+      label: "Contacts",
+      menu: "Contacts",
+      exporterFileName: "contact_export",
+      list: {
+        menu: "Contacts",
+        title: "Contacts",
+      },
+      create: {
+        success: "Contact enregistré avec succès",
+      },
+      update: {
+        success: "Contact enregistré avec succès",
+      },
+      destroy: {
+        success: "Contact supprimé avec succès",
+      },
+      destroyAll: {
+        success: "Contact(s) supprimé avec succès",
+      },
+      edit: {
+        title: "Editer Contact",
+      },
+      fields: {
+        id: "Id",
+        type: "Type",
+        sender: "Expéditeur",
+        explication: "Explication",
+        createdAt: "Crée le",
+        updatedAt: "Mis à jour le",
+        createdAtRange: "Crée le",
+      },
+      enumerators: {
+        sender: {
+          chercheur: "Chercheur",
+          etudiant: "Etudiant",
+          presse: "Presse",
+          activiste: "Activiste",
+          acteur_social: "Acteur social",
+        },
+        type: {
+          contact: "Contact",
+          question: "Question",
+          problem: "Problème",
+        },
+      },
+      placeholders: {},
+      hints: {},
+      new: {
+        title: "Nouveau Contact",
+      },
+      view: {
+        title: "Afficher Contact",
+      },
+      importer: {
+        title: "Import Contacts",
+        fileName: "contact_import_template",
+        hint: "Files/Images columns must be the URLs of the files separated by space.",
+      },
+      error: "Un problème est survenu. Veuillez réessayer",
     },
   },
   auth: {
