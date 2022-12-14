@@ -95,7 +95,6 @@ function Header(props) {
   const searchPath = {
     pathname: "/search",
     HOME_SEARCH_STRING: homeSearchString,
-    // refresh: true
   };
 
   return (

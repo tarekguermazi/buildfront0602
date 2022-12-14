@@ -17,6 +17,7 @@ export default function SRPTable({ currentPostsToShow }) {
   const langue = localStorage.getItem("language");
   // HELPER FUNCTION
   const getValidThumbnail = (attachmentsArray) => {
+    console.log("attachmentsArray", attachmentsArray);
     const acceptableExtions = "png, jpg, jpeg, gif";
     let fakeUrl = "https://via.placeholder.com/270x175";
     attachmentsArray.forEach((att) => {
@@ -131,6 +132,10 @@ export default function SRPTable({ currentPostsToShow }) {
                           (searchResult, index) => {
                             let thumbnail: any;
                             if (searchResult.photos.length >= 1) {
+                              console.log(
+                                "searchResult.photos",
+                                searchResult.photos
+                              );
                               thumbnail = getValidThumbnail(
                                 searchResult.photos
                               );
@@ -140,7 +145,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 <SRPCard
                                   type={searchResult["category"]["titleFR"]}
                                   title={searchResult["titleFR"]}
-                                  entite={"Publications"}
+                                  entite={"detaill"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}
@@ -153,7 +158,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 <SRPCard
                                   type={searchResult["category"]["titleAR"]}
                                   title={searchResult["titleAR"]}
-                                  entite={"Publications"}
+                                  entite={"detaill"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}
@@ -166,7 +171,7 @@ export default function SRPTable({ currentPostsToShow }) {
                                 <SRPCard
                                   type={searchResult["category"]["titleEN"]}
                                   title={searchResult["titleEN"]}
-                                  entite={"Publications"}
+                                  entite={"detaill"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}

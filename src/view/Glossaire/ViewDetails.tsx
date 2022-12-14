@@ -116,21 +116,6 @@ export default function ViewDetails() {
                 )}
               </div>
             )}
-            {/* <div className="socials">
-              <span>{i18n("common.Partager")}</span>
-              <button>
-                <BsFacebook />
-              </button>
-              <button>
-                <BsTwitter />
-              </button>
-              <button>
-                <BsInstagram />
-              </button>
-              <button>
-                <BsLinkedin />
-              </button>
-            </div> */}
           </section>
         </MainLayout>
         {/* <RelatedContent type={entity["categorie"]} /> */}
@@ -140,13 +125,22 @@ export default function ViewDetails() {
 }
 
 const MainLayout = styled.section`
-  width: var(--cerntered-content);
+  // width: var(--cerntered-content);
   height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin: 1rem auto;
+  // margin: 1rem auto;
+  max-width: 100%;
+  margin: 2rem auto;
 
+  p{
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--violet);
+    text-align: justify;
+    margin-bottom: 2rem;
+  }
     .rightSection{
         width: 100%;
         /* margin-right: 2.5rem; */
@@ -169,13 +163,12 @@ const MainLayout = styled.section`
         width: 100%; 
     }
     .cardContent {
-        flex-grow: 1;
-        height: 100%;
-        padding-left: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        font-family: "Proxima Nova";
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--violet);
+      text-align: justify;
+      margin-bottom: 2rem;
+      font-family: "Proxima Nova";
     
         .cardHeader {
           width: 100%;
