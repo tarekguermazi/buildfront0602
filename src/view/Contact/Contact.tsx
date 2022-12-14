@@ -1,14 +1,18 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 // COMPONENTS
 import Header from "./Header";
 import Content from "./Content/Content";
-
+import Breadcrumb from "../shared/Breadcrumb";
+import { i18n } from "src/i18n";
 function Contact() {
   return (
     <>
       <ContactLayout>
-        <Header />
+        <Breadcrumb
+          title={i18n("menu.Contact")}
+          items={[[i18n("dashboard.menu"), "/"], [i18n("menu.Contact")]]}
+        />
       </ContactLayout>
       <WideContent>
         <Content />

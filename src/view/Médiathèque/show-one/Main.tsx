@@ -23,7 +23,9 @@ export default function Main({ entity, data }) {
           })}
         </VideoPlayersLayout>
       )}
-      <p>{Translate.Trans("description", entity)}</p>
+      <div className='description__detaillEvenement'>
+        {Translate.Trans("description", entity)}
+      </div>
       {/* RENDERING IMAGES (if there are any) */}
       {entity["photos"]?.length > 0 && (
         <PhotoPlayersLayout>
@@ -49,10 +51,12 @@ const MainLayout = styled.section`
   }
 
   .hiThereMotherFucker {
-    width: 350px !important;
-    height: 350px !important;
+    max-width: 350px !important;
+    max-height: 350px !important;
   }
-
+  .hTKJIQ {
+    margin: -5rem 0 3rem 0 !important;
+  }
   @media (max-width: 767px) {
     width: 100%;
     padding: 0 0.5rem;

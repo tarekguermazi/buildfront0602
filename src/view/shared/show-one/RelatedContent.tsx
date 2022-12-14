@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PublicationService from "src/modules/publication/publicationService";
 // COMPONENTSS
 import SectionHeader from "./components/SectionHeader";
+import Translate from "../Translate";
 
 export default function RelatedContent({ type }) {
   // Fetching related entities based on type
@@ -51,7 +52,7 @@ export default function RelatedContent({ type }) {
                     to={"/Mediatheque/entity/" + entity["_id"]}
                     className='title text__wrap'
                     style={{ maxWidth: 370 }}>
-                    <span>{entity["titleFR"]}</span>
+                    <span>{Translate.Trans("title", entity)}</span>
                   </Link>
                 </div>
               </HorizontalCard>

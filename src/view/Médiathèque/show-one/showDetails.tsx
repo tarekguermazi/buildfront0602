@@ -10,7 +10,6 @@ import "react-loading-skeleton/dist/skeleton.css";
 import BreadCrumbs from "src/view/shared/BreadCrumbs";
 import Header from "./Header";
 import Main from "./Main";
-import FooterSection from "./Footer";
 import RelatedContent from "./RelatedContent";
 
 export default function ShowPublication() {
@@ -59,7 +58,6 @@ export default function ShowPublication() {
             ) : (
               <Main entity={entity} data={data} />
             )}
-            <FooterSection userIsLoading={userIsLoading} user={user} />
           </section>
         </MainLayout>
         <RelatedContent type={entity["type"]} />

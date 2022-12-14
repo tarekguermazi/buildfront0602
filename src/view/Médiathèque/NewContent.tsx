@@ -66,7 +66,9 @@ export default function NewContent({ data }) {
                     </span>
                   </div>
                   <div className='verticalPlayerTitle text__wrap'>
-                    <span>{Translate.Trans("title", post)}</span>
+                    <span style={{ color: "#fff" }}>
+                      {Translate.Trans("title", post)}
+                    </span>
                   </div>
                 </SplideSlide>
                 // <VerticalPlayer dataSource={post} key={post._id} />

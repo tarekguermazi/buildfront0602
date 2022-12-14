@@ -4,41 +4,40 @@ import MediathequeService from "src/modules/mediatheque/MediathequeService";
 // ICONS
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
 import Translate from "../../shared/Translate";
+import Image from "../../shared/Image";
+import {
+  Facebook,
+  Instagramm,
+  Linkedin,
+  twitter,
+} from "../../../assets/images";
+import Date from "../../shared/Date";
+import { i18n } from "src/i18n";
 
 export default function Header({ entity, user, userIsLoading }) {
   return (
     <HeaderLayout>
       <span className='categoryBadge'>{entity["type"]}</span>
       <h1>{Translate.Trans("title", entity)}</h1>
-      <div className='data'>
-        <div className='dateAndOwner'>
-          <span>
-            Publié le {MediathequeService.getDate(entity["createdAt"])} à{" "}
-            {MediathequeService.getTime(entity["createdAt"])}
-          </span>
-          <span>
-            Par&nbsp;
-            {userIsLoading ? (
-              <span>loading...</span>
-            ) : (
-              <strong>{user["name"]}</strong>
-            )}
-          </span>
+
+      <div
+        className='detail__author'
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}>
+        <div className='author__left'>
+          <div className='left__author__date'>
+            {Date.DetaillDate(entity?.updatedAt)}
+          </div>
         </div>
-        <div className='socials'>
-          <span>Partager :</span>
-          <button>
-            <BsFacebook />
-          </button>
-          <button>
-            <BsTwitter />
-          </button>
-          <button>
-            <BsInstagram />
-          </button>
-          <button>
-            <BsLinkedin />
-          </button>
+        <div className='detaillEvenement__socialMedia'>
+          <div className='socialMedia__title'>{i18n("common.Partager")} :</div>
+          <Image src={Facebook} />
+          <Image src={twitter} />
+          <Image src={Instagramm} />
+          <Image src={Linkedin} />
         </div>
       </div>
     </HeaderLayout>

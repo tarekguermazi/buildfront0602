@@ -82,7 +82,8 @@ function EvenementDetaill() {
                       <AiOutlineCalendar /> {Date.date(selectRows?.date)}
                     </div>
                     <div>
-                      <MdLocationOn /> {selectRows?.emplacementAR}
+                      <MdLocationOn />
+                      {Translate.TransEmplacement(selectRows)}
                     </div>
                   </div>
                 </div>

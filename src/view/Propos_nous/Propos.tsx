@@ -1,21 +1,24 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 // COMPONENTS
 import Header from "./Header";
 import Content from "./Content";
+import Breadcrumb from "../shared/Breadcrumb";
+import { i18n } from "src/i18n";
 
 function Propos() {
   return (
     <ProposLayout>
-      <Header />
+      <Breadcrumb
+        title={i18n("menu.propos")}
+        items={[[i18n("dashboard.menu"), "/"], [i18n("menu.propos")]]}
+      />
       <Content />
     </ProposLayout>
   );
 }
 
 export default Propos;
-
-
 
 const ProposLayout = styled.section`
   max-width: 1170px;

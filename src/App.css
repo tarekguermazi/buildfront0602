@@ -4069,10 +4069,7 @@ button.splide__arrow--prev {
 }
 .migration__images > div {
   max-width: 370px;
-  border: 1px solid #000;
   inline-size: 370px;
-  overflow-wrap: break-word;
-  hyphens: manual;
 }
 
 .sketlon__images {
@@ -4155,7 +4152,7 @@ button.splide__arrow--prev {
   justify-content: center;
   align-items: flex-start;
   gap: 15px;
-  padding-top: 56px;
+  padding-top: 10px;
   flex-wrap: wrap;
 }
 
