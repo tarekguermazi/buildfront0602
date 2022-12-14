@@ -66,7 +66,6 @@ const VerticalPlayerCard = styled.div`
   .dateAndType {
     height: 30px;
     color: #fff;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,18 +76,17 @@ const VerticalPlayerCard = styled.div`
 
     .contentType {
       width: 100px;
-      border: 1px solid red;
-      border-radius: 0.5rem;
       height: 30px;
+      border: 1px solid #e1011a;
+      border-radius: 3px;
 
       font-family: "Proxima Nova";
       font-style: normal;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 15px;
       line-height: 15px;
       color: red;
       padding: 0.3rem 0.5rem;
-
       display: flex;
       align-items: center;
       justify-content: space-evenly;
@@ -116,11 +114,12 @@ const VerticalPlayerCard = styled.div`
 
     span {
       width: 100%;
-      font-family: "Proxima Nova";
-      text-transform: capitalize !important;
-      line-height: 1.5;
+      font-family: "Bebas Neue Pro";
+      font-style: normal;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 23px;
+      line-height: 24px;
+      text-transform: capitalize !important;
       color: var(--violet);
     }
   }

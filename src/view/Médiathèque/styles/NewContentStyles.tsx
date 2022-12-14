@@ -83,18 +83,16 @@ const NewContentStyles = styled.section`
 
         .contentType {
           width: 100px;
+          height: 30px;
           border: 1px solid #e1011a;
           border-radius: 3px;
-          height: 30px;
-
           font-family: "Proxima Nova";
           font-style: normal;
           font-weight: 400;
-          font-size: 1rem;
+          font-size: 15px;
           line-height: 15px;
           color: red;
           padding: 0.3rem 0.5rem;
-
           display: flex;
           align-items: center;
           justify-content: space-evenly;
