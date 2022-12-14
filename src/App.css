@@ -1485,6 +1485,17 @@ Styling the archeive verison Mobile  */
   text-overflow: ellipsis;
 }
 
+.text__wrap__height {
+  overflow: hidden !important;
+  max-height: 6rem;
+  -webkit-box-orient: vertical;
+  display: block !important;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+
 .header__right {
   font-size: 12px;
   line-height: 12px;

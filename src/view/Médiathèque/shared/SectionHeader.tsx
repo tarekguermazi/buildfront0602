@@ -4,9 +4,10 @@ import styled from "styled-components";
 export default function SectionHeader({ title }) {
   return (
     <HeaderLayout>
-      <header>
-        <span>{title}</span>
-      </header>
+      <div className='archieve__header'>
+        <h2>Photos</h2>
+        <div className='satestique__bar'></div>
+      </div>
     </HeaderLayout>
   );
 }
