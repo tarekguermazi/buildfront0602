@@ -4,7 +4,6 @@ import { i18n } from "../../i18n";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import Image from "../shared/Image";
-import { BsPlayFill } from "react-icons/bs";
 import { Facebook, Instagramm, Linkedin, Twitter } from "../../assets/images";
 import { useDispatch, useSelector } from "react-redux";
 import action from "src/modules/evenement/view/evenementViewActions";
@@ -22,9 +21,12 @@ function EvenementDetaill() {
   const selectRows = useSelector(selector.selectRecord);
   const selectLoading = useSelector(selector.selectLoading);
   const [image, setImage] = useState<any>(null);
+
+  const id = match.params.id;
+
   useEffect(() => {
-    dispatch(action.doFind(match.params.id));
-  }, [dispatch]);
+    dispatch(action.doFind(id));
+  }, [dispatch, id]);
   const center = useMemo(() => ({ lat: 44, lng: -40 }), []);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyDRX@D21tjCpNmpABQp8bnfNyA99pscQrM",
@@ -208,7 +210,7 @@ function EvenementDetaill() {
               </div>
             </div>
             <EvenementAvenir />
-          </div>{" "}
+          </div>
         </>
       )}
     </>
