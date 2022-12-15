@@ -82,7 +82,11 @@ function SearchArchive({ location }) {
                           if (langue === "fr") {
                             return (
                               <SRPCard
-                                type={searchResult["category"]["titleFR"]}
+                                type={
+                                  searchResult["category"]
+                                    ? searchResult["category"]["titleFR"]
+                                    : null
+                                }
                                 title={searchResult["titleFR"]}
                                 entite={"detail"}
                                 key={index}
@@ -95,7 +99,11 @@ function SearchArchive({ location }) {
                           } else if (langue === "ar") {
                             return (
                               <SRPCard
-                                type={searchResult["category"]["titleAR"]}
+                                type={
+                                  searchResult["category"]
+                                    ? searchResult["category"]["titleAR"]
+                                    : null
+                                }
                                 title={searchResult["titleAR"]}
                                 entite={"detail"}
                                 key={index}
@@ -108,7 +116,11 @@ function SearchArchive({ location }) {
                           } else if (langue === "en") {
                             return (
                               <SRPCard
-                                type={searchResult["category"]["titleEN"]}
+                                type={
+                                  searchResult["category"]
+                                    ? searchResult["category"]["titleEN"]
+                                    : null
+                                }
                                 title={searchResult["titleEN"]}
                                 entite={"detail"}
                                 key={index}
