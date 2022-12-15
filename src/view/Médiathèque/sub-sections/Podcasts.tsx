@@ -1,6 +1,5 @@
 import React from "react";
 import GridContentLayout from "../styles/GridContentLayout";
-import SectionHeader from "../shared/SectionHeader";
 import AudioPlayer from "../shared/AudioPlayer";
 
 export default function Podcasts({ podcastList }) {

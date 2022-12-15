@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 // SERVICES
 import MediathequeService from "src/modules/mediatheque/MediathequeService";
 // COMPONENTSS
-import SectionHeader from "../shared/SectionHeader";
 import Translate from "../../shared/Translate";
 
 export default function RelatedContent({ type }) {
@@ -29,7 +28,10 @@ export default function RelatedContent({ type }) {
 
   return (
     <RelatedCOntentLayout>
-      <SectionHeader title='publications qui peuvent vous intéresser' />
+      <div className='archieve__header'>
+        <h2>Photos</h2>
+        <div className='satestique__bar'></div>
+      </div>
       {entityIsLoading ? (
         <section>
           <h4>Loading related content...</h4>
