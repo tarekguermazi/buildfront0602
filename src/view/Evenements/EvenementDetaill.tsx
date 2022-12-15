@@ -104,16 +104,18 @@ function EvenementDetaill() {
                       __html: Translate.Trans("description", selectRows),
                     }}></div>
                 </div>
-                <div className='left__date'>
-                  <div className='title__detaillEvenemet'>
-                    {i18n("common.Date")}
+                {selectRows?.date && (
+                  <div className='left__date'>
+                    <div className='title__detaillEvenemet'>
+                      {i18n("common.Date")}
+                    </div>
+                    <div className='description__detaillEvenement'>
+                      <b> {Date.DetaillDate(selectRows?.date)} </b> <br />
+                      {i18n("common.horraire")} :{" "}
+                      <b>{Date.Hour(selectRows?.date)}</b>
+                    </div>
                   </div>
-                  <div className='description__detaillEvenement'>
-                    <b> {Date.DetaillDate(selectRows?.date)} </b> <br />
-                    {i18n("common.horraire")} :{" "}
-                    <b>{Date.Hour(selectRows?.date)}</b>
-                  </div>
-                </div>
+                )}
 
                 <div className='left__photos'>
                   <div className='title__detaillEvenemet'>
@@ -168,18 +170,19 @@ function EvenementDetaill() {
                     </div>
                   </div>
                 )}
+                {selectRows?.contact2 && (
+                  <div className='left__contact'>
+                    <div className='title__detaillEvenemet'>
+                      {i18n("common.Contact")}
+                    </div>
 
-                <div className='left__contact'>
-                  <div className='title__detaillEvenemet'>
-                    {i18n("common.Contact")}
+                    <div
+                      className='description__detaillEvenement'
+                      dangerouslySetInnerHTML={{
+                        __html: selectRows?.contact2,
+                      }}></div>
                   </div>
-
-                  <div
-                    className='description__detaillEvenement'
-                    dangerouslySetInnerHTML={{
-                      __html: selectRows?.contact2,
-                    }}></div>
-                </div>
+                )}
               </div>
               <div className='detailEvenement__right'>
                 <div className='title__detaillEvenemet'>
@@ -202,16 +205,18 @@ function EvenementDetaill() {
                   <Image src={Instagramm} />
                   <Image src={Linkedin} />
                 </div>
-                <div className='left__contact'>
-                  <div className='title__detaillEvenemet'>
-                    {i18n("common.Contact")}
+                {selectRows?.contact1 && (
+                  <div className='left__contact'>
+                    <div className='title__detaillEvenemet'>
+                      {i18n("common.Contact")}
+                    </div>
+                    <div
+                      className='description__detaillEvenement'
+                      dangerouslySetInnerHTML={{
+                        __html: selectRows?.contact1,
+                      }}></div>
                   </div>
-                  <div
-                    className='description__detaillEvenement'
-                    dangerouslySetInnerHTML={{
-                      __html: selectRows?.contact1,
-                    }}></div>
-                </div>
+                )}
               </div>
             </div>
             <EvenementAvenir />

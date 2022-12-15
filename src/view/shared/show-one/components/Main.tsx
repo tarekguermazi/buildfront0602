@@ -18,7 +18,7 @@ export default function Main({ PUBLICATION, data }) {
                 url={vid["downloadUrl"]}
                 loop={true}
                 controls={true}
-                className='hiThereMotherFucker'
+                className='video__player'
               />
             );
           })}

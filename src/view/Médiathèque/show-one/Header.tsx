@@ -53,6 +53,17 @@ const HeaderLayout = styled.section`
     font-size: 12px;
     font-family: "Proxima Nova";
   }
+  .author__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    color: #4f4f4f;
+  }
 
   h1 {
     font-family: "Bebas Neue Pro";
@@ -64,7 +75,12 @@ const HeaderLayout = styled.section`
     color: var(--violet);
     margin: 1rem 0;
   }
-
+  .detaillEvenement__socialMedia {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    column-gap: 24px;
+  }
   @media (max-width: 767px) {
     width: 100%;
     padding: 0 0.5rem;

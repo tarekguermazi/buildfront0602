@@ -17,7 +17,7 @@ export default function Main({ entity, data }) {
                 url={vid["downloadUrl"]}
                 loop={true}
                 controls={true}
-                className='hiThereMotherFucker'
+                className='video__player'
               />
             );
           })}
@@ -50,7 +50,7 @@ const MainLayout = styled.section`
     line-height: 25px;
   }
 
-  .hiThereMotherFucker {
+  .video__player {
     max-width: 350px !important;
     max-height: 350px !important;
   }

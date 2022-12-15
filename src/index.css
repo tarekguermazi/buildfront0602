@@ -167,3 +167,8 @@ button {
 .lazy-load-image-background.blur.lazy-load-image-loaded > img {
   object-fit: cover !important;
 }
+
+video {
+  width: 350px !important;
+  height: 350px !important;
+}
