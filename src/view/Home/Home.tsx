@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   arrow__left,
   arrow__right,
@@ -9,17 +7,9 @@ import {
   calendar,
   chart__bar,
   chart_donught,
-  evenement1,
-  evenement2,
-  evenement3,
-  list3,
-  publication2,
-  publication3,
-  publications1,
   slider1,
   time_clock_circle,
   calendar__bttom,
-  school,
   header__image__mobile,
   users,
   sheep,
@@ -28,10 +18,10 @@ import {
 } from "src/assets/images";
 
 import Gallery from "../shared/Gallery";
-import Slider from "../shared/Slider/Slider";
 import { bottomSLider } from "../shared/Slider/dataSlider";
 import Slider2 from "../shared/Slider/slider2";
 import { i18n } from "src/i18n";
+import Image from "../shared/Image";
 
 function Home() {
   const sliderTop = (obj) => {
@@ -400,9 +390,9 @@ function Home() {
             <div className='publication__images'>
               <div className='images__header'>
                 <div className='__header'>
-                  <img
+                  <Image
                     className='lazyload'
-                    src={publications1}
+                    src={`https://placehold.jp/670x354.png`}
                     alt='Publication Image'
                   />
                   <div className='__detaills'>
@@ -421,78 +411,27 @@ function Home() {
                 </div>
               </div>
               <div className='images__bottom'>
-                <div>
-                  <img
-                    className='lazyload'
-                    src={publication2}
-                    alt='publication2 Icon'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Forum</p>
+                {Array.from({ length: 4 }).map((item) => (
+                  <div>
+                    <Image
+                      className='lazyload'
+                      src={`https://placehold.jp/318x209.png`}
+                      alt='publication2 Icon'
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'>
+                          <p>Forum</p>
+                        </div>
+                        <div className='header__right'>10h32</div>
                       </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div className='detaill__content'>
-                      Criminalization of refugees: the dark side of EU and UNHCR
-                      policies...
+                      <div className='detaill__content'>
+                        Criminalization of refugees: the dark side of EU and
+                        UNHCR policies...
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <img
-                    className='lazyload'
-                    src={publication2}
-                    alt='publication2 Icon'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Forum</p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div className='detaill__content'>
-                      Criminalization of refugees: the dark side of EU and UNHCR
-                      policies...
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <img
-                    className='lazyload'
-                    src={publication2}
-                    alt='publication2 Icon'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Forum</p>
-                      </div>
-                      <div className='header__right'>10h32</div>
-                    </div>
-                    <div className='detaill__content'>
-                      Criminalization of refugees: the dark side of EU and UNHCR
-                      policies...
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <img className='lazyload' src={publication3} alt='' />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'>
-                        <p>Forum</p>
-                      </div>
-                      <div className='header__right'>09h18</div>
-                    </div>
-                    <div className='detaill__content'>
-                      Les jeunes médecins en Tunisie : entre le marteau de
-                      l’aliénation...
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -505,135 +444,57 @@ function Home() {
                 <div className='communiquer__bar' />
               </div>
               {/* here i will add the text */}
-              <div className='images__header'>
-                <div className='__header'>
-                  <img
-                    className='lazyload'
-                    src={school}
-                    alt='Publication Image'
-                  />
-                  <div className='__detaills'>
-                    <div className='list__detaill'>
-                      <div className='detaill__header'>
-                        <div className='__left'>
-                          <p>Forum</p>
+              {Array.from({ length: 2 }).map((item) => (
+                <div className='images__header'>
+                  <div className='__header'>
+                    <Image
+                      className='lazyload'
+                      src={`https://placehold.jp/426x248.png`}
+                      alt='Publication Image'
+                    />
+                    <div className='__detaills'>
+                      <div className='list__detaill'>
+                        <div className='detaill__header'>
+                          <div className='__left'>
+                            <p>Forum</p>
+                          </div>
+                          <div className='__right'>10h32</div>
                         </div>
-                        <div className='__right'>10h32</div>
-                      </div>
-                      <div className='__content'>
-                        École publique et intégration des enfants d’immigrants
-                        de retour
+                        <div className='__content'>
+                          École publique et intégration des enfants d’immigrants
+                          de retour
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className='images__header'>
-                <div className='__header'>
-                  <img
-                    className='lazyload'
-                    src={publications1}
-                    alt='Publication Image'
-                  />
-                  <div className='__detaills'>
-                    <div className='list__detaill'>
-                      <div className='detaill__header'>
-                        <div className='__left'>
-                          <p>Forum</p>
-                        </div>
-                        <div className='__right'>10h32</div>
-                      </div>
-                      <div className='__content'>
-                        Appel pour un enterrement décent des corps des migrants
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             <div className='communique'>
               <div className=''>
                 <div className='publication__list'>
-                  <div>
-                    <img
-                      className='lazyload'
-                      src={list3}
-                      alt=''
-                      id='publication__leftImage'
-                    />
-                    <div className='list__detaill'>
-                      <div className='detaill__header'>
-                        <div className='header__left'>
-                          <p>Forum</p>
+                  {Array.from({ length: 4 }).map((item) => (
+                    <div>
+                      <Image
+                        className='lazyload'
+                        src={`https://placehold.jp/120x80.png`}
+                        alt=''
+                        id='publication__leftImage'
+                      />
+                      <div className='list__detaill'>
+                        <div className='detaill__header'>
+                          <div className='header__left'>
+                            <p>Forum</p>
+                          </div>
+                          <div className='header__right'>12/11/222</div>
                         </div>
-                        <div className='header__right'>12/11/222</div>
-                      </div>
-                      <div className='detaill__content'>
-                        Zones urbaines et forestières semi-urbaines. Quelle
-                        relation ?
+                        <div className='detaill__content'>
+                          Zones urbaines et forestières semi-urbaines. Quelle
+                          relation ?
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div>
-                    <img
-                      className='lazyload'
-                      src={list3}
-                      alt=''
-                      id='publication__leftImage'
-                    />
-                    <div className='list__detaill'>
-                      <div className='detaill__header'>
-                        <div className='header__left'>
-                          <p>Forum</p>
-                        </div>
-                        <div className='header__right'>12/11/222</div>
-                      </div>
-                      <div className='detaill__content'>
-                        Zones urbaines et forestières semi-urbaines. Quelle
-                        relation ?
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <img
-                      className='lazyload'
-                      src={list3}
-                      id='publication__leftImage'
-                    />
-                    <div className='list__detaill'>
-                      <div className='detaill__header'>
-                        <div className='header__left'>
-                          <p>Forum</p>
-                        </div>
-                        <div className='header__right'>12/11/222</div>
-                      </div>
-                      <div className='detaill__content'>
-                        Végétation dans le mont Bargou : Ressources naturelles
-                        et pilier...
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <img
-                      className='lazyload'
-                      src={list3}
-                      alt=''
-                      id='publication__leftImage'
-                    />
-                    <div className='list__detaill'>
-                      <div className='detaill__header'>
-                        <div className='header__left'>
-                          <p>Forum</p>
-                        </div>
-                        <div className='header__right'>12/11/222</div>
-                      </div>
-                      <div className='detaill__content'>
-                        Enjeux de gouvernance des forêts urbaines. Cas du parc
-                        urbain Farhat Hached à Radès
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
               <div className='plus__button'>{i18n("common.voirPlus")}</div>
@@ -723,109 +584,47 @@ function Home() {
               </div>
             </div>
             <div className='evenement__description'>
-              <div>
-                <div className='evenement__left'>
-                  <img className='lazyload' src={evenement1} alt='' />
-                </div>
-                <div className='evenement__right'>
-                  <div className='right__date'>
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={calendar}
-                        alt=''
-                        srcSet=''
-                      />
-                      17 avril 2022
-                    </div>
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={time_clock_circle}
-                        alt=''
-                      />
-                      10h00
-                    </div>
+              {Array.from({ length: 3 }).map((item) => (
+                <div>
+                  <div className='evenement__left'>
+                    <Image
+                      className='lazyload'
+                      src={`https://placehold.jp/204x175.png`}
+                      alt=''
+                    />
                   </div>
-                  <div className='righ__desctiption'>
-                    Atelier de restitution de l’événement Echange des Jeunes du
-                    projet Justice Environnementale
-                  </div>
-                  <div className='right__footer'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nulla cursus et augue id consequat. Suspendisse sodales est
-                    lectus...
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className='evenement__left'>
-                  <img className='lazyload' src={evenement2} alt='' />
-                </div>
-                <div className='evenement__right'>
-                  <div className='right__date'>
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={calendar}
-                        alt=''
-                        srcSet=''
-                      />
-                      23 avril 2022
+                  <div className='evenement__right'>
+                    <div className='right__date'>
+                      <div>
+                        <img
+                          className='lazyload'
+                          src={calendar}
+                          alt=''
+                          srcSet=''
+                        />
+                        17 avril 2022
+                      </div>
+                      <div>
+                        <img
+                          className='lazyload'
+                          src={time_clock_circle}
+                          alt=''
+                        />
+                        10h00
+                      </div>
                     </div>
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={time_clock_circle}
-                        alt=''
-                      />
-                      10h00
+                    <div className='righ__desctiption'>
+                      Atelier de restitution de l’événement Echange des Jeunes
+                      du projet Justice Environnementale
+                    </div>
+                    <div className='right__footer'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nulla cursus et augue id consequat. Suspendisse sodales
+                      est lectus...
                     </div>
                   </div>
-                  <div className='righ__desctiption'>
-                    Les jeunes, l’emploi et l’avenir du travail
-                  </div>
-                  <div className='right__footer'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nulla cursus et augue id consequat. Suspendisse sodales est
-                    lectus...
-                  </div>
                 </div>
-              </div>
-              <div>
-                <div className='evenement__left'>
-                  <img className='lazyload' src={evenement3} alt='' />
-                </div>
-                <div className='evenement__right'>
-                  <div className='right__date'>
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={calendar}
-                        alt=''
-                        srcSet=''
-                      />
-                      7 mai 2022
-                    </div>
-                    <div>
-                      <img
-                        className='lazyload'
-                        src={time_clock_circle}
-                        alt=''
-                      />
-                      10h00
-                    </div>
-                  </div>
-                  <div className='righ__desctiption'>
-                    Webinaire: Le covid19, la santé et le budget de l’Etat
-                  </div>
-                  <div className='right__footer'>
-                    Webinaire organisé par le Forum Tunisien pour les Droits
-                    Economiques et Sociaux avec le soutien de la Friedrich Ebert
-                    Stiftung Tunisie
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             <div className='evenement__calendar'>
               <div className='calendar'>
