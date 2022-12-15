@@ -35,7 +35,7 @@ function Home() {
   const sliderBottom = (obj, index, slideIndex) => {
     return (
       <div className={slideIndex === index + 1 ? "active__slideBottom" : ""}>
-        <img className='lazyload' src={slider1} alt=' Slider Icon' />
+        <Image className='lazyload' src={slider1} alt=' Slider Icon' />
         <p
           className={
             slideIndex === index + 1 ? "text__p text__gras" : "text__p"
