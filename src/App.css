@@ -4133,7 +4133,6 @@ button.splide__arrow--prev {
 .app__category {
   max-width: 1170px;
   margin: auto;
-
   padding-bottom: 45px;
 }
 
@@ -4235,4 +4234,16 @@ button.splide__arrow--prev {
   gap: 30px;
   margin: auto;
   max-width: 1170px;
+}
+
+/* Styling the tableau de board   */
+
+.app__tableaudeboard {
+  max-width: 1170px;
+  margin-inline: auto;
+  margin-bottom: 10rem;
+}
+
+.tableaudeboard__ {
+  margin-bottom: 3rem;
 }
