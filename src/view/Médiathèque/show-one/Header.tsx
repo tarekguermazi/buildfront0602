@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MediathequeService from "src/modules/mediatheque/MediathequeService";
 // ICONS
-import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
 import Translate from "../../shared/Translate";
 import Image from "../../shared/Image";
 import {

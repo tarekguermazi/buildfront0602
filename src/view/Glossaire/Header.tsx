@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BreadCrumbs from "../shared/BreadCrumbs";
 import Breadcrumb from "../shared/Breadcrumb";
 
 import styled from "styled-components";

@@ -7,10 +7,10 @@ import TenantService from "src/modules/Tenant/TenantService";
 // COMPONENTS
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import BreadCrumbs from "src/view/shared/BreadCrumbs";
 import Header from "./Header";
 import Main from "./Main";
-import RelatedContent from "./RelatedContent";
+import { i18n } from "../../../i18n";
+import Breadcrumb from "../../shared/Breadcrumb";
 
 export default function ShowPublication() {
   // GET entity id
@@ -49,7 +49,13 @@ export default function ShowPublication() {
   return (
     <section>
       <section className='wideContent'>
-        <BreadCrumbs view='Médiathéque' />
+        <Breadcrumb
+          items={[
+            [i18n("dashboard.menu"), "/"],
+            [i18n("entities.mediatique.label")],
+          ]}
+        />
+
         <MainLayout>
           <section className='rightSection'>
             <Header entity={entity} user={user} userIsLoading={userIsLoading} />
