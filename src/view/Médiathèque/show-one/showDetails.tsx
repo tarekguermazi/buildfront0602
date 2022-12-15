@@ -7,11 +7,10 @@ import TenantService from "src/modules/Tenant/TenantService";
 // COMPONENTS
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import BreadCrumbs from "src/view/shared/BreadCrumbs";
 import Header from "./Header";
 import Main from "./Main";
-import FooterSection from "./Footer";
-import RelatedContent from "./RelatedContent";
+import { i18n } from "../../../i18n";
+import Breadcrumb from "../../shared/Breadcrumb";
 
 export default function ShowPublication() {
   // GET entity id
@@ -50,7 +49,13 @@ export default function ShowPublication() {
   return (
     <section>
       <section className='wideContent'>
-        <BreadCrumbs view='Médiathéque' />
+        <Breadcrumb
+          items={[
+            [i18n("dashboard.menu"), "/"],
+            [i18n("entities.mediatique.label")],
+          ]}
+        />
+
         <MainLayout>
           <section className='rightSection'>
             <Header entity={entity} user={user} userIsLoading={userIsLoading} />
@@ -59,10 +64,8 @@ export default function ShowPublication() {
             ) : (
               <Main entity={entity} data={data} />
             )}
-            <FooterSection userIsLoading={userIsLoading} user={user} />
           </section>
         </MainLayout>
-        <RelatedContent type={entity["type"]} />
       </section>
     </section>
   );
@@ -77,15 +80,15 @@ const MainLayout = styled.section`
   justify-content: space-between;
   margin: 1rem auto;
 
-    .rightSection{
-        width: 100%;
-        /* margin-right: 2.5rem; */
+  .rightSection {
+    width: 100%;
+    /* margin-right: 2.5rem; */
 
-        .socials{
-            width: 250px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    .socials {
+      width: 250px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       button {
         background-color: transparent;
@@ -95,8 +98,8 @@ const MainLayout = styled.section`
       }
     }
 
-    @media (max-width: 767px){
-        width: 100%; 
+    @media (max-width: 767px) {
+      width: 100%;
     }
   }
 `;

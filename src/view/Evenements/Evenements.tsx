@@ -40,7 +40,8 @@ function Evenements() {
               {Date.date(obj?.date)}
             </div>
             <div>
-              <MdLocationOn /> {obj?.emplacementAR}
+              <MdLocationOn />
+              {Translate.TransEmplacement(obj)}
             </div>
           </div>
         </div>

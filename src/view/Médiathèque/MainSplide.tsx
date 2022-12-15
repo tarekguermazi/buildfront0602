@@ -14,6 +14,7 @@ import { BiMicrophone, BiStats } from "react-icons/bi";
 import { AiOutlineQuestion } from "react-icons/ai";
 import { VscGraphScatter } from "react-icons/vsc";
 import moment from "moment";
+import Translate from "../shared/Translate";
 
 export default function MainSplide({ data }) {
   // HELPER FUNCTIONS
@@ -43,33 +44,41 @@ export default function MainSplide({ data }) {
                   ")",
               }}>
               <section>
-                {post.photos?.length ? (
-                  <div
-                    className='cardThumbnail'
-                    style={{
-                      backgroundImage:
-                        "url(" + post.photos[0].downloadUrl + ")",
-                    }}>
-                    <EntityPlayerButton data={post} entity='main' />
-                  </div>
-                ) : (
-                  <div className='cardThumbnail hasNoThumbnail'>
-                    <EntityPlayerButton data={post} entity='main' />
-                  </div>
-                )}
+                <div>
+                  {post.photos?.length ? (
+                    <div
+                      className='cardThumbnail'
+                      style={{
+                        backgroundImage:
+                          "url(" + post.photos[0].downloadUrl + ")",
+                      }}>
+                      <EntityPlayerButton data={post} entity='main' />
+                    </div>
+                  ) : (
+                    <div className='cardThumbnail hasNoThumbnail'>
+                      <EntityPlayerButton data={post} entity='main' />
+                    </div>
+                  )}
+                </div>
                 <div>
                   <div className='dateAndType'>
                     <div className='contentType'>
                       {
                         {
-                          Texte: <GrTextAlignFull className='icon' />,
-                          audio: <BiMicrophone className='icon' />,
-                          videos: <IoVideocamOutline className='icon' />,
-                          "lien web": <CgLink className='icon' />,
-                          photo: <BsCamera className='icon' />,
-                          infographie: <VscGraphScatter className='icon' />,
-                          statistiques: <BiStats className='icon' />,
-                          autres: <AiOutlineQuestion className='icon' />,
+                          Texte: <GrTextAlignFull className='icon' size={20} />,
+                          audio: <BiMicrophone className='icon' size={20} />,
+                          videos: (
+                            <IoVideocamOutline className='icon' size={20} />
+                          ),
+                          "lien web": <CgLink className='icon' size={20} />,
+                          photo: <BsCamera className='icon' size={20} />,
+                          infographie: (
+                            <VscGraphScatter className='icon' size={20} />
+                          ),
+                          statistiques: <BiStats className='icon' size={20} />,
+                          autres: (
+                            <AiOutlineQuestion className='icon' size={20} />
+                          ),
                         }[post.type]
                       }
                       {post.type}
@@ -78,10 +87,13 @@ export default function MainSplide({ data }) {
                       {pipeDate(post.updatedAt)}
                     </span>
                   </div>
+
                   <div className='textContent'>
-                    <div className='horizontalPlayerTitle'>{post.titleFR}</div>
-                    <div className='horizontalPlayerDescription'>
-                      {post.descriptionFR}
+                    <div className='horizontalPlayerTitle ow'>
+                      {Translate.Trans("title", post)}
+                    </div>
+                    <div className='horizontalPlayerDescription text__wrap'>
+                      {Translate.Trans("description", post)}
                     </div>
                   </div>
                 </div>

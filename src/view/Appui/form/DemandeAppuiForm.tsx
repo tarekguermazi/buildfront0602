@@ -71,6 +71,7 @@ function DemandeAppuiForm(props) {
 
   const onSubmit = (values) => {
     values.personne = activeTab;
+    values.statut = "en_attente";
     props.onSubmit(props?.record?.id, values);
   };
   const { saveLoading } = props;

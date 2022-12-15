@@ -88,9 +88,7 @@ export default function MainGridLayout() {
                 <Videos videosList={videos} />
                 <VoirPlusButton contentType='videos' />
               </section>
-            ) : (
-              <h2>No videos were found</h2>
-            )}
+            ) : null}
           </section>
         )}
         {photoIsLoading ? (
@@ -102,9 +100,7 @@ export default function MainGridLayout() {
                 <Photos photosList={photos} />
                 <VoirPlusButton contentType='photos' />
               </section>
-            ) : (
-              <h2>No photos were found</h2>
-            )}
+            ) : null}
           </section>
         )}
       </section>
@@ -119,9 +115,7 @@ export default function MainGridLayout() {
                 <Docs docstList={docs} />
                 <VoirPlusButton contentType='documentaires' />
               </section>
-            ) : (
-              <h2>No Docs were found</h2>
-            )}
+            ) : null}
           </section>
         )}
         {podcastIsLoading ? (
@@ -133,9 +127,7 @@ export default function MainGridLayout() {
                 <Podcasts podcastList={podcast} />
                 <VoirPlusButton contentType='podcasts' />
               </section>
-            ) : (
-              <h2>No podcasts were found</h2>
-            )}
+            ) : null}
           </section>
         )}
       </section>

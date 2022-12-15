@@ -7,6 +7,11 @@ const navigateRoutes = [
     path: "/",
     loader: () => import("src/view/Home/Home"),
   },
+  {
+    path: "/TableaudeBoard",
+    loader: () => import("src/view/TableaudeBoard/TableaudeBoard"),
+  },
+
   { path: "/A_propos", loader: () => import("src/view/Propos_nous/Propos") },
   {
     path: "/detaill/:id",

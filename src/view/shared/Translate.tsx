@@ -1,6 +1,7 @@
 export default class Translate {
   static Trans(field?, item?) {
     let title = "";
+
     const Currentlangue = localStorage.getItem("language");
     if (Currentlangue === "fr") {
       title = this.TransLateFR(field, item);
@@ -14,6 +15,7 @@ export default class Translate {
     }
     return title;
   }
+
   static TransLateFR(field?, data?) {
     let title = " ";
     if (field === "title" && data?.titleFR) {
@@ -46,5 +48,45 @@ export default class Translate {
     }
 
     return title;
+  }
+
+  static TransEmplacement(item?) {
+    let emplacement = "";
+    const Currentlangue = localStorage.getItem("language");
+    if (Currentlangue === "fr") {
+      emplacement = this.TransEmplacementFR(item);
+    }
+    if (Currentlangue === "ar") {
+      emplacement = this.TransEmplacementAR(item);
+    }
+
+    if (Currentlangue === "en") {
+      emplacement = this.TransEmplacementEN(item);
+    }
+    return emplacement;
+  }
+
+  static TransEmplacementFR(data?) {
+    let emplacement = " ";
+    if (data?.emplacementFR) {
+      emplacement = data.emplacementFR;
+    }
+
+    return emplacement;
+  }
+  static TransEmplacementAR(data?) {
+    let emplacement = " ";
+    if (data?.emplacementAR) {
+      emplacement = data.emplacementAR;
+    }
+    return emplacement;
+  }
+  static TransEmplacementEN(data?) {
+    let emplacement = " ";
+    if (data?.emplacementEN) {
+      emplacement = data.emplacementEN;
+    }
+
+    return emplacement;
   }
 }

@@ -4,7 +4,6 @@ import { i18n } from "../../i18n";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import Image from "../shared/Image";
-import { BsPlayFill } from "react-icons/bs";
 import { Facebook, Instagramm, Linkedin, Twitter } from "../../assets/images";
 import { useDispatch, useSelector } from "react-redux";
 import action from "src/modules/evenement/view/evenementViewActions";
@@ -22,9 +21,12 @@ function EvenementDetaill() {
   const selectRows = useSelector(selector.selectRecord);
   const selectLoading = useSelector(selector.selectLoading);
   const [image, setImage] = useState<any>(null);
+
+  const id = match.params.id;
+
   useEffect(() => {
-    dispatch(action.doFind(match.params.id));
-  }, [dispatch]);
+    dispatch(action.doFind(id));
+  }, [dispatch, id]);
   const center = useMemo(() => ({ lat: 44, lng: -40 }), []);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyDRX@D21tjCpNmpABQp8bnfNyA99pscQrM",
@@ -82,7 +84,8 @@ function EvenementDetaill() {
                       <AiOutlineCalendar /> {Date.date(selectRows?.date)}
                     </div>
                     <div>
-                      <MdLocationOn /> {selectRows?.emplacementAR}
+                      <MdLocationOn />
+                      {Translate.TransEmplacement(selectRows)}
                     </div>
                   </div>
                 </div>
@@ -101,16 +104,18 @@ function EvenementDetaill() {
                       __html: Translate.Trans("description", selectRows),
                     }}></div>
                 </div>
-                <div className='left__date'>
-                  <div className='title__detaillEvenemet'>
-                    {i18n("common.Date")}
+                {selectRows?.date && (
+                  <div className='left__date'>
+                    <div className='title__detaillEvenemet'>
+                      {i18n("common.Date")}
+                    </div>
+                    <div className='description__detaillEvenement'>
+                      <b> {Date.DetaillDate(selectRows?.date)} </b> <br />
+                      {i18n("common.horraire")} :{" "}
+                      <b>{Date.Hour(selectRows?.date)}</b>
+                    </div>
                   </div>
-                  <div className='description__detaillEvenement'>
-                    <b> {Date.DetaillDate(selectRows?.date)} </b> <br />
-                    {i18n("common.horraire")} :{" "}
-                    <b>{Date.Hour(selectRows?.date)}</b>
-                  </div>
-                </div>
+                )}
 
                 <div className='left__photos'>
                   <div className='title__detaillEvenemet'>
@@ -145,33 +150,39 @@ function EvenementDetaill() {
                   )}
                   <div className='plus__button'>{i18n("common.voirPlus")}</div>
                 </div>
-
-                <div className='left__videos'>
-                  <div className='title__detaillEvenemet'>
-                    {i18n("common.Videos")}
+                {selectRows?.videos[0]?.link && (
+                  <div className='left__videos'>
+                    <div className='title__detaillEvenemet'>
+                      {i18n("common.Videos")}
+                    </div>
+                    <div className='photos__gallery'>
+                      {selectRows?.videos?.map(
+                        (item) =>
+                          item?.link && (
+                            <div className='videos__list'>
+                              <Youtube link={item?.link} />
+                            </div>
+                          )
+                      )}
+                    </div>
+                    <div className='plus__button'>
+                      {i18n("common.voirPlus")}
+                    </div>
                   </div>
+                )}
+                {selectRows?.contact2 && (
+                  <div className='left__contact'>
+                    <div className='title__detaillEvenemet'>
+                      {i18n("common.Contact")}
+                    </div>
 
-                  <div className='photos__gallery'>
-                    {selectRows?.videos?.map((item) => (
-                      <div className='videos__list'>
-                        <Youtube link={item?.link} />
-                      </div>
-                    ))}
+                    <div
+                      className='description__detaillEvenement'
+                      dangerouslySetInnerHTML={{
+                        __html: selectRows?.contact2,
+                      }}></div>
                   </div>
-                  <div className='plus__button'>{i18n("common.voirPlus")}</div>
-                </div>
-
-                <div className='left__contact'>
-                  <div className='title__detaillEvenemet'>
-                    {i18n("common.Contact")}
-                  </div>
-
-                  <div
-                    className='description__detaillEvenement'
-                    dangerouslySetInnerHTML={{
-                      __html: selectRows?.contact2,
-                    }}></div>
-                </div>
+                )}
               </div>
               <div className='detailEvenement__right'>
                 <div className='title__detaillEvenemet'>
@@ -194,20 +205,22 @@ function EvenementDetaill() {
                   <Image src={Instagramm} />
                   <Image src={Linkedin} />
                 </div>
-                <div className='left__contact'>
-                  <div className='title__detaillEvenemet'>
-                    {i18n("common.Contact")}
+                {selectRows?.contact1 && (
+                  <div className='left__contact'>
+                    <div className='title__detaillEvenemet'>
+                      {i18n("common.Contact")}
+                    </div>
+                    <div
+                      className='description__detaillEvenement'
+                      dangerouslySetInnerHTML={{
+                        __html: selectRows?.contact1,
+                      }}></div>
                   </div>
-                  <div
-                    className='description__detaillEvenement'
-                    dangerouslySetInnerHTML={{
-                      __html: selectRows?.contact1,
-                    }}></div>
-                </div>
+                )}
               </div>
             </div>
             <EvenementAvenir />
-          </div>{" "}
+          </div>
         </>
       )}
     </>

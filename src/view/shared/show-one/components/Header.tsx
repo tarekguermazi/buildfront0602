@@ -24,6 +24,7 @@ export default function Header({
             Publié le {PublicationService.pipeDate(PUBLICATION_CREATED_AT)}
           </span>
         </div>
+        <br />
         <div className='socials'>
           <span>Partager :</span>
           <button>

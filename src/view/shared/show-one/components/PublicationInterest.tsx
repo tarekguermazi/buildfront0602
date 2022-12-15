@@ -7,6 +7,7 @@ import Translate from "../../Translate";
 import Date from "../../Date";
 import Image from "../../Image";
 import { Link } from "react-router-dom";
+import { i18n } from "../../../../i18n";
 function PublicationInterest(props) {
   const { rows, showDetaill } = props;
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function PublicationInterest(props) {
   return (
     <div className='publication__interest'>
       <div className='archieve__header'>
-        <h2>PUBLICATIONS QUI PEUVENT VOUS INTÉRESSER</h2>
+        <h2>{i18n("entities.publication.publicationInteresser")}</h2>
         <div className='satestique__bar'></div>
       </div>
 

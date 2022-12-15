@@ -2,6 +2,9 @@ category__list.app {
   overflow: hidden;
 }
 
+.wideContent ul[id^="splide"][id$="-list"] {
+  column-gap: 31px;
+}
 .app__calendar {
   position: fixed;
   border-radius: 50%;
@@ -1470,10 +1473,27 @@ Styling the archeive verison Mobile  */
   color: var(--violet);
 }
 
+.ow {
+  white-space: pre-wrap;
+  overflow: break-word;
+  text-overflow: ellipsis;
+}
+
 .text__wrap {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.text__wrap__height {
+  overflow: hidden !important;
+  max-height: 6rem;
+  -webkit-box-orient: vertical;
+  display: block !important;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
 }
 
 .header__right {
@@ -3855,10 +3875,6 @@ span {
   color: #fff;
 }
 
-ul.splide__list {
-  column-gap: 15px;
-}
-
 ul.splide__list > li {
   width: 85px !important;
   padding: 0 !important;
@@ -4070,6 +4086,10 @@ button.splide__arrow--prev {
   width: 100%;
   column-gap: 30px;
 }
+.migration__images > div {
+  max-width: 370px;
+  inline-size: 370px;
+}
 
 .sketlon__images {
   display: flex;
@@ -4132,7 +4152,6 @@ button.splide__arrow--prev {
 .app__category {
   max-width: 1170px;
   margin: auto;
-
   padding-bottom: 45px;
 }
 
@@ -4151,7 +4170,7 @@ button.splide__arrow--prev {
   justify-content: center;
   align-items: flex-start;
   gap: 15px;
-  padding-top: 56px;
+  padding-top: 10px;
   flex-wrap: wrap;
 }
 
@@ -4234,4 +4253,16 @@ button.splide__arrow--prev {
   gap: 30px;
   margin: auto;
   max-width: 1170px;
+}
+
+/* Styling the tableau de board   */
+
+.app__tableaudeboard {
+  max-width: 1170px;
+  margin-inline: auto;
+  margin-bottom: 10rem;
+}
+
+.tableaudeboard__ {
+  margin-bottom: 3rem;
 }

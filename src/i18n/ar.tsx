@@ -179,6 +179,9 @@ const ar = {
       label: "المنشورات",
       menu: "المنشورات",
       exporterFileName: "publication_export",
+      lastNews: "آخر الأخبار",
+      publicationInteresser: "المنشورات التي قد تهمك",
+
       list: {
         menu: "المنشورات",
         title: "المنشورات",
@@ -534,6 +537,69 @@ const ar = {
         title: "Import الأحداث",
         fileName: "evenement_import_template",
         hint: "يجب أن تكون أعمدة الملفات / الصور عناوين URL للملفات مفصولة بمسافة.",
+      },
+    },
+    mediatique: {
+      name: "mediatique",
+      label: "Médiathèques",
+      menu: "Médiathèques",
+      exporterFileName: "exportation_mediatique",
+
+      list: {
+        menu: "Médiathèques",
+        title: "Médiathèques",
+      },
+      create: {
+        success: "Médiathèque enregistré avec succès",
+      },
+      update: {
+        success: "Médiathèque enregistré avec succès",
+      },
+      destroy: {
+        success: "Médiathèque supprimé avec succès",
+      },
+      destroyAll: {
+        success: "Médiathèque(s) supprimé avec succès",
+      },
+      edit: {
+        title: "Éditer Médiathèque",
+      },
+      fields: {
+        id: "Id",
+        title: "Titre",
+        titleFR: "Titre en Français",
+        titleAR: "Titre en Arabe",
+        titleEN: "Titre en Anglais",
+        description: "Description",
+        type: "Type",
+        photos: "Photos",
+        videos: "Vidéos",
+        attachements: "Attachements",
+        createdAt: "Crée le",
+        updatedAt: "Mis à jour le",
+        createdAtRange: "Crée le",
+      },
+      enumerators: {
+        type: {
+          podcast: "Podcast",
+          documentaire: "Documentaires",
+          videos: "Vidéos",
+          exposition: "Expositions Virtuelles",
+          autres: "Autres (Stickers, Flyers, Banderôles ...)",
+        },
+      },
+      placeholders: {},
+      hints: {},
+      new: {
+        title: "Nouveau Médiathèque",
+      },
+      view: {
+        title: "Afficher Médiathèque",
+      },
+      importer: {
+        title: "Importer Médiathèques",
+        fileName: "mediatique_import_template",
+        hint: "Les colonnes Fichiers/Images doivent contenir les URL des fichiers séparés par des espaces.",
       },
     },
 

@@ -71,6 +71,8 @@ const fr = {
     by: "Par",
     retour: "retour",
   },
+
+  footer: { newsLettre: "" },
   app: {
     title: "Al-Forum",
   },
@@ -1062,6 +1064,8 @@ const fr = {
       label: "Publications",
       menu: "Publications",
       exporterFileName: "exportation_publication",
+      lastNews: "LES DERNIÈRES NEWS",
+      publicationInteresser: "PUBLICATIONS QUI PEUVENT VOUS INTÉRESSER",
       list: {
         menu: "Publications",
         title: "Publications",

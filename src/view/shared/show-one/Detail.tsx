@@ -35,8 +35,8 @@ function Detail() {
             [i18n("entities.publication.label")],
           ]}
         />
-        {loading ? (  
-          <h1> Loading ... </h1>
+        {loading ? (
+          <h3> Loading ... </h3>
         ) : (
           <div className='page__detaill'>
             <DescriptionPublication rows={rows} showDetaill={showDetaill} />

@@ -67,7 +67,7 @@ function DescriptionPublication(props) {
         </div>
         <div>
           <div className='archieve__header'>
-            <h2> Les dernières news</h2>
+            <h2>{i18n("entities.publication.lastNews")}</h2>
             <div className='satestique__bar'></div>
           </div>
           <div className='manification__images'>

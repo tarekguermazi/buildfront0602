@@ -21,7 +21,7 @@ export default [
   { path: "/Glossaire", label: "Glossaire" },
   { path: "/Evenements", label: "Evènements" },
   {
-    path: "/",
+    path: "/TableaudeBoard",
     label: "Tableau",
   },
   {

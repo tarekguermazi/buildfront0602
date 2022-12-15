@@ -28,7 +28,9 @@ function EvenementItem(props) {
       </Link>
       <div className='contentVenir__bottom'>
         <div className='venir__localistaion'>
-          <MdLocationOn /> {data.emplacementAR}
+          <MdLocationOn />
+
+          {Translate.TransEmplacement(data)}
         </div>
         <div className='venir__description'>
           {Translate.Trans("title", data)}
