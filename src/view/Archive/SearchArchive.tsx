@@ -57,17 +57,17 @@ function SearchArchive({ location }) {
     <>
       <Breadcrumb
         title={i18n("common.Archives")}
-        items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
+        items={[[i18n("app.title"), "/"], [i18n("common.Archives")]]}
       />
-      <div className="app__archieve__page_search">
+      <div className='app__archieve__page_search'>
         {loading ? (
           <section>
             <Skeleton height={170} />
           </section>
         ) : (
-          <div className="archeive">
-            <div className="archieve__content">
-              <div className="archieve__left">
+          <div className='archeive'>
+            <div className='archieve__content'>
+              <div className='archieve__left'>
                 <SearchArchiveLayout>
                   <div>
                     {publications.length > 0 ? (
@@ -134,7 +134,7 @@ function SearchArchive({ location }) {
                         })}
                       </div>
                     ) : (
-                      <h3 id="noDataFound">
+                      <h3 id='noDataFound'>
                         <BsBox />
                         &nbsp;{i18n("common.noData")}
                       </h3>

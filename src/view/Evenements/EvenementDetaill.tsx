@@ -55,7 +55,7 @@ function EvenementDetaill() {
         <>
           {" "}
           <Breadcrumb
-            items={[[i18n("dashboard.menu"), "/"], [i18n("common.Evènements")]]}
+            items={[[i18n("app.title"), "/"], [i18n("common.Evènements")]]}
           />
           <div className='page__evenement'>
             <div className='evenment__header'>

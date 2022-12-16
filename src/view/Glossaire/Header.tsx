@@ -26,7 +26,7 @@ export default function Header() {
     <div>
       <Breadcrumb
         title={i18n("menu.Glossaire")}
-        items={[[i18n("dashboard.menu"), "/"], [i18n("menu.Glossaire")]]}
+        items={[[i18n("app.title"), "/"], [i18n("menu.Glossaire")]]}
       />
 
       {/* DESCRIPTION PLACEHOLDER */}

@@ -24,10 +24,7 @@ function TableaudeBoard() {
         <img src={calendar__bttom} alt='' />
       </div>
       <Breadcrumb
-        items={[
-          [i18n("dashboard.menu"), "/"],
-          [i18n("entities.publication.label")],
-        ]}
+        items={[[i18n("app.title"), "/"], [i18n("entities.publication.label")]]}
       />
 
       {loading && <h4>Loading ...</h4>}

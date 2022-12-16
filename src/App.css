@@ -1542,7 +1542,10 @@ Styling the archeive verison Mobile  */
   display: flex;
   margin: 0;
 }
-
+.publication_list > li:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
 .plus__button {
   display: grid;
   place-items: center;

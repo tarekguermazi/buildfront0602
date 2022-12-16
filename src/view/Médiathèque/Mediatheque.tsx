@@ -9,10 +9,7 @@ function Mediatheque() {
     <section>
       <Breadcrumb
         title={i18n("entities.mediatique.label")}
-        items={[
-          [i18n("dashboard.menu"), "/"],
-          [i18n("entities.mediatique.label")],
-        ]}
+        items={[[i18n("app.title"), "/"], [i18n("entities.mediatique.label")]]}
       />
       <HeroSection />
       <MainGridLayout />

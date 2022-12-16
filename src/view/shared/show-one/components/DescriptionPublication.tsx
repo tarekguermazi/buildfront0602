@@ -44,6 +44,14 @@ function DescriptionPublication(props) {
               <div className='socialMedia__title'>
                 {i18n("common.Partager")} :
               </div>
+
+              <iframe
+                src={`https://www.facebook.com/plugins/share_button.php?href=http://178.79.177.14:3000/detail/${rows.id}`}
+                width='81'
+                height='20'
+                scrolling='no'
+                allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+              />
               <Image src={Facebook} />
               <Image src={twitter} />
               <Image src={Instagramm} />
@@ -72,7 +80,7 @@ function DescriptionPublication(props) {
           </div>
           <div className='manification__images'>
             {loadingPublication ? (
-              <h1> Loading ... </h1>
+              <h4> Loading ... </h4>
             ) : (
               rowsPublication.map((item) => (
                 <Link to={`/detail/${item.id}`}>

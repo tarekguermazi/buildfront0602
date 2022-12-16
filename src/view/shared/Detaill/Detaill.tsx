@@ -17,6 +17,7 @@ import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
 function Detaill() {
   const match = useRouteMatch();
+  const id = match.params.id;
   const dispatch = useDispatch();
   const rows = useSelector(selectors.selectRows);
   const loading = useSelector(selectors.selectLoading);
@@ -24,9 +25,9 @@ function Detaill() {
 
   const doFetch = async () => {
     if (match.path === "/detaill/category/:id") {
-      dispatch(actions.doFindAllByCategory(match.params.id));
+      dispatch(actions.doFindAllByCategory(id));
     } else if (match.path === "/detaill/:id") {
-      dispatch(actions.doFindAllByThematique(match.params.id));
+      dispatch(actions.doFindAllByThematique(id));
     }
   };
 
@@ -38,18 +39,18 @@ function Detaill() {
   useEffect(() => {
     doFetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <div className='app__detaill'>
-      {loading && <h3 className='detaill__sketlon'>Loading .... </h3>}
+      {loading && <h4 className='detaill__sketlon'>Loading .... </h4>}
       {!selectHasRows && <Empty />}
       {!loading && rows && selectHasRows && (
         <>
           {
             <Breadcrumb
               title={titleBreadcrumb}
-              items={[[i18n("dashboard.menu"), "/"], [i18n(titleBreadcrumb)]]}
+              items={[[i18n("app.title"), "/"], [i18n(titleBreadcrumb)]]}
             />
           }
           <div className='app__calendar'>

@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+
 export default [
   { path: "/", label: "Menue", icon: "fa-sharp fa-solid fa-bars" },
   { path: "/A_propos", label: "propos" },
