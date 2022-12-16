@@ -223,16 +223,26 @@ function Header(props) {
                       item.label === "Médiathèque" && (
                         <ul className='links__sub'>
                           {item.subMenue?.map((item, index) => (
-                            <div key={index}>
-                              <li>
-                                <img
-                                  className='lazyload'
-                                  src={Etudes}
-                                  alt='Etudes Icon'
-                                />
-                                {i18n(`menu.submenu.${item.label}`)}
-                              </li>
-                            </div>
+                            <Link to={`${item.path}`} style={{ color: "#000" }}>
+                              <div key={index} className='publication_list'>
+                                <li
+                                  className='ul__hover'
+                                  style={{
+                                    display: "flex",
+                                    width: "100%",
+                                    justifyContent: "flex-start",
+                                    columnGap: "10px",
+                                    alignItems: "center",
+                                  }}>
+                                  <img
+                                    className='lazyload'
+                                    src={Etudes}
+                                    alt='Etudes Icon'
+                                  />
+                                  {i18n(`menu.submenu.${item.label}`)}
+                                </li>
+                              </div>
+                            </Link>
                           ))}
                         </ul>
                       )
