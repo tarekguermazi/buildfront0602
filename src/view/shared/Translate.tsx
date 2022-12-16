@@ -89,4 +89,18 @@ export default class Translate {
 
     return emplacement;
   }
+
+  static TransLink(item?) {
+    let link = "";
+
+    const Currentlangue = localStorage.getItem("language");
+    if (Currentlangue === "fr") {
+      link = item?.linkFR;
+    }
+    if (Currentlangue === "ar") {
+      link = item?.linkAR;
+    }
+
+    return link;
+  }
 }
