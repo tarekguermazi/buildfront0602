@@ -222,9 +222,18 @@ function Header(props) {
                       item.class &&
                       item.label === "Médiathèque" && (
                         <ul className='links__sub'>
-                          {mediatiqueLink?.map((item, index) =>
-                            generateList(item, index)
-                          )}
+                          {item.subMenue?.map((item, index) => (
+                            <div key={index}>
+                              <li>
+                                <img
+                                  className='lazyload'
+                                  src={Etudes}
+                                  alt='Etudes Icon'
+                                />
+                                {i18n(`menu.submenu.${item.label}`)}
+                              </li>
+                            </div>
+                          ))}
                         </ul>
                       )
                     )}
