@@ -3,8 +3,7 @@ import { SearchContext } from "./SearchContext";
 import styled from "styled-components";
 
 // COMPONENTS
-import SearchHeader from "./SearchHeader";
-import SearchFilter from "./SearchFilter";
+
 import SearchResults from "./SRP/SearchResults";
 // OTHER
 
