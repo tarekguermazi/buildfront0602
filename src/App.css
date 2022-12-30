@@ -302,7 +302,7 @@ category__list.app {
     display: flex;
     flex-direction: column;
     min-width: 300px;
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 999;
     top: 0;
@@ -336,6 +336,7 @@ category__list.app {
     align-items: center;
     height: 45px;
     background-color: var(--red);
+    padding: 0 10px;
   }
 
   .links__menue {
@@ -357,7 +358,7 @@ category__list.app {
     position: fixed;
     z-index: 9999;
     width: calc(100% - 75%);
-    min-width: 100px;
+    min-width: 200px;
     inset: 144.5px 0 0 0;
     height: 100%;
     padding-top: 14px;
@@ -366,6 +367,11 @@ category__list.app {
   }
   .sidebar__menu > ul li {
     padding: 10px 0;
+  }
+  @media (pointer: fine) {
+    .sidebar__menu > ul li:hover {
+      background-color: #d0d0d0;
+    }
   }
 }
 

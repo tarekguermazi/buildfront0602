@@ -315,7 +315,7 @@ function Header(props) {
             <ul>
               {menus.map((item) => (
                 <Link to={item.path}>
-                  <li>{item.label}</li>
+                  <li>{i18n(`menu.${item.label}`)}</li>
                 </Link>
               ))}
             </ul>
