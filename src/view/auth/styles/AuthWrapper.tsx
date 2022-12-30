@@ -10,7 +10,17 @@ const AuthWrapper = styled.div`
   .app__login {
     width: 501px;
   }
-  @media (max-width: 550px) {
+  @media (max-width: 1170px) {
+    .app__signin {
+      width: 100%;
+      display: grid;
+      place-items: center;
+      place-content: center;
+      position: relative;
+      height: 100vh;
+      z-index: 1;
+    }
+
     .app__login {
       width: calc(100vw - 10%);
     }
@@ -106,7 +116,6 @@ const AuthWrapper = styled.div`
   .Login__container {
     padding-top: 44px;
     position: relative;
-    
   }
   .form__link {
     display: flex;

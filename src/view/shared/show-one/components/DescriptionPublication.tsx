@@ -45,13 +45,6 @@ function DescriptionPublication(props) {
                 {i18n("common.Partager")} :
               </div>
 
-              <iframe
-                src={`https://www.facebook.com/plugins/share_button.php?href=http://178.79.177.14:3000/detail/${rows.id}`}
-                width='81'
-                height='20'
-                scrolling='no'
-                allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
-              />
               <Image src={Facebook} />
               <Image src={twitter} />
               <Image src={Instagramm} />

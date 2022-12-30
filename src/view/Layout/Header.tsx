@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   logos,
   arrow__down,
-  down,
   facebook,
   instagram,
   Logo__mobile,
@@ -42,6 +41,8 @@ function Header(props) {
   const doSignout = () => {
     dispatch(authActions.doSignout());
   };
+
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     dispatch(actions.doFetch());
@@ -270,19 +271,34 @@ function Header(props) {
               alt='Logo Mobile Icon'
             />
           </div>
-          <div className='button__connexion'>
-            <i className='fa-solid fa-user' />
-          </div>
+          <Link to='/auth/signin'>
+            <div className='button__connexion'>
+              <i className='fa-solid fa-user' />
+            </div>
+          </Link>
         </div>
         <div className='mobile__links'>
-          <div className='links__menue'>
+          <div
+            style={{ cursor: "pointer" }}
+            className='links__menue'
+            onClick={() => setActive(!active)}>
             <img className='lazyload' src={Menue} alt='Menue Icon' />
           </div>
           <div className='links__translate'>
             <p>FR</p>
-            <img className='lazyload' src={down} alt='arrow down' />
           </div>
         </div>
+        {active && (
+          <div className='sidebar__menu'>
+            <ul>
+              {menus.map((item) => (
+                <Link to={item.path}>
+                  <li>{item.label}</li>
+                </Link>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </React.Fragment>
   );
