@@ -28,6 +28,10 @@ import { useHistory, useLocation } from "react-router-dom";
 import actions from "src/modules/categoryPublication/list/categoryPublicationListActions";
 import selectors from "src/modules/categoryPublication/list/categoryPublicationListSelectors";
 import Translate from "../shared/Translate";
+
+import { getLanguages, getLanguageCode } from "src/i18n";
+import actionsLanguage from "src/modules/layout/layoutActions";
+
 function Header(props) {
   const dispatch = useDispatch();
   const currentUser = useSelector(authSelectors.selectCurrentUser);
@@ -40,6 +44,10 @@ function Header(props) {
   const loadingCategory = useSelector(selectors.selectLoading);
   const doSignout = () => {
     dispatch(authActions.doSignout());
+  };
+
+  const doChangeLanguage = (language) => {
+    actionsLanguage.doChangeLanguage(language);
   };
 
   const [active, setActive] = useState(false);
@@ -271,11 +279,20 @@ function Header(props) {
               alt='Logo Mobile Icon'
             />
           </div>
-          <Link to='/auth/signin'>
-            <div className='button__connexion'>
-              <i className='fa-solid fa-user' />
-            </div>
-          </Link>
+
+          {currentUser ? (
+            <Link to='/profile'>
+              <div className='button__connexion'>
+                <i className='fa-solid fa-user' />
+              </div>
+            </Link>
+          ) : (
+            <Link to='/auth/signin'>
+              <div className='button__connexion'>
+                <i className='fa-solid fa-user' />
+              </div>
+            </Link>
+          )}
         </div>
         <div className='mobile__links'>
           <div
@@ -284,8 +301,13 @@ function Header(props) {
             onClick={() => setActive(!active)}>
             <img className='lazyload' src={Menue} alt='Menue Icon' />
           </div>
-          <div className='links__translate'>
-            <p>FR</p>
+
+          <div className='links__translate' style={{ cursor: "pointer" }}>
+            {getLanguageCode() === "fr" ? (
+              <p onClick={() => doChangeLanguage("ar")}> Français</p>
+            ) : (
+              <p onClick={() => doChangeLanguage("fr")}>Arabic</p>
+            )}
           </div>
         </div>
         {active && (

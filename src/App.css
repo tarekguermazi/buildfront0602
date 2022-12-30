@@ -362,7 +362,7 @@ category__list.app {
     height: 100%;
     padding-top: 14px;
     display: flex;
-    padding-left: 10px;
+    padding: 0 10px;
   }
   .sidebar__menu > ul li {
     padding: 10px 0;
