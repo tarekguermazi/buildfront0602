@@ -2500,6 +2500,8 @@ styling the newsLettre */
   background-color: var(--violet);
 }
 
+
+
 .newsLettre {
   max-width: 1170px;
   margin: auto;
@@ -2696,6 +2698,13 @@ styling the newsLettre */
 }
 
 @media screen and (max-width: 600px) {
+.newsLettre__content { 
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+
   .right__text > .text__content {
     display: none;
   }
@@ -2831,6 +2840,28 @@ styling the newsLettre */
 .footer__socialmedia,
 .footer__contact {
   padding-top: 36px;
+}
+
+@media screen and (max-width : 600px){ 
+  .app__footer{ 
+height: 100%;
+    padding: 0 10px;
+  }
+  .footer { 
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+  }
+  .hr__bar{ 
+    height: 0;
+    margin: 10px 0 !important;
+    width: 100%;
+  }
+  .footer__menu ,.footer__socialmedia, .footer__contact{ 
+    padding-top: 0;
+  }
+
 }
 
 /* styling the copywrite  */

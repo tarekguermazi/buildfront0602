@@ -73,4 +73,6 @@ const ContentLayout = styled.section`
   .Skeleton {
     margin-top: 1rem;
   }
+
+
 `;
