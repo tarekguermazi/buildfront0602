@@ -103,7 +103,7 @@ const HeaderLayout = styled.section`
     width: 100%;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 
     input[type="radio"] {
       display: none;

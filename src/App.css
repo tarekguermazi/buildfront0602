@@ -1567,12 +1567,12 @@ Styling the archeive verison Mobile  */
   padding-top: 1.3rem;
 }
 
-@media screen and (max-width: 1171px) {
+@media screen and (max-width: 1025px) {
   .publication {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 18px;
+    padding: 0 180px;
     justify-content: center;
   }
 
@@ -2197,6 +2197,18 @@ Styling the archeive verison Mobile  */
   font-size: 23px;
   line-height: 29px;
   color: var(--violet);
+}
+
+@media screen and (max-width: 1024px) {
+
+.__evenement{ 
+  padding : 0 10px ;
+}
+
+  .evenment__header {
+    display: none;
+  }
+  
 }
 
 /* stlying the detaill Evenement */
@@ -3974,6 +3986,12 @@ button.splide__arrow--prev {
   width: 100%;
 }
 
+@media screen and (max-width: 1024px) {
+  .publication__page{ 
+    padding: 0 10px ;
+  }
+  
+}
 .app__pub {
   width: 100%;
 }
@@ -3985,6 +4003,24 @@ button.splide__arrow--prev {
   display: grid;
   place-items: center;
 }
+
+@media screen and (max-width: 1025px) {
+  .image__pub{ 
+    width: 100%;
+    display: flex ; 
+    flex-direction: column;
+    background-color: #4aace0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .publication__header{ 
+    display: none;
+  }
+  
+}
+
+
 
 .image__pub {
   max-width: 1171px;
@@ -4096,7 +4132,7 @@ button.splide__arrow--prev {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   width: 100%;
-  column-gap: 30px;
+  gap: 30px;
 }
 .migration__images > div {
   max-width: 370px;
@@ -4148,6 +4184,15 @@ button.splide__arrow--prev {
   grid-template-columns: repeat(3, 1fr);
   -webkit-column-gap: 36px;
   gap: 36px;
+}
+@media screen and (max-width: 1025px) {
+  .__top {
+    display: grid;
+grid-template-columns: repeat(auto-fit ,minmax(360px , 1fr));
+width: 100%;
+gap: 30px;
+  } 
+  
 }
 
 .app__rapports {

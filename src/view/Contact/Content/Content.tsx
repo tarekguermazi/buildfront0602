@@ -17,10 +17,15 @@ export default function Content() {
 const MainLayout = styled.section`
     margin: 0 auto;
     margin-bottom: 1rem;
-    width: 1170px;
+    max-width: 1170px;
+    margin:auto;
     min-height: 200px;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @media screen and (max-width: 1024px){ 
+            flex-direction:column; 
+            row-gap : 55px;
+    }
 `;

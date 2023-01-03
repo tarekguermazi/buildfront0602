@@ -25,7 +25,8 @@ const ProposLayout = styled.section`
   font-family: "Proxima Nova";
   font-style: normal;
 
-  @media screen and (max-width: 600px){ 
+
+  @media screen and (max-width: 1024px){ 
     margin : 0 10px ;
   }
 `;

@@ -27,6 +27,10 @@ const ContactLayout = styled.section`
   margin: 1rem auto;
   font-family: "Proxima Nova";
   font-style: normal;
+  @media screen and (max-width : 1024px){ 
+    margin : 0 10px ;
+  }
+ 
 `;
 
 const WideContent = styled.section`
@@ -34,4 +38,7 @@ const WideContent = styled.section`
   margin-top: 2rem;
   /* background-color: var(--gray6); */
   /* border-top: 5px solid var(--violet); */
+  @media screen and (max-width : 1024px){ 
+    margin : 0 10px ;
+  }
 `;
