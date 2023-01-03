@@ -127,14 +127,19 @@ const BodyLayout = styled.section`
       width: 100%;
       padding: 1rem 0;
       margin-top: 1rem;
-      font-size: 1.2rem;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      background-color: #e1011a;
-      color: #fff;
       text-transform: uppercase;
+      font-family: "Bebas Neue";
+      background-color: var(--red);
+      cursor: pointer;
+      color: var(--white);
+      font-size: 21px;
+      line-height: 25px;
+   
+ 
 
       .icon {
         margin-right: 1rem;
