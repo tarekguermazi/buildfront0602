@@ -3992,8 +3992,6 @@ button.splide__arrow--prev {
 /* styling the publication Version Desktop */
 .publication__page {
   width: 100%;
-
-  position: relative;
   z-index: -1;
 }
 
