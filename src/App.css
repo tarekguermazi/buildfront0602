@@ -6,7 +6,6 @@ category__list.app {
 	column-gap: 31px;
 }
 
-
 .app__calendar {
 	position: fixed;
 	border-radius: 50%;
@@ -4088,7 +4087,6 @@ button.splide__arrow--prev {
 	.publication__page {
 		padding: 0 10px;
 		display: block;
-		position: relative;
 		margin: 180px 0 0 0;
 	}
 }
