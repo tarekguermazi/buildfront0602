@@ -5,6 +5,8 @@ category__list.app {
 .wideContent ul[id^="splide"][id$="-list"] {
 	column-gap: 31px;
 }
+
+
 .app__calendar {
 	position: fixed;
 	border-radius: 50%;
