@@ -51,6 +51,5 @@ const SearchLayout = styled.section`
   .wideContent {
   display:flex; 
   justify-content : flex-start;
-   
   }
 `;

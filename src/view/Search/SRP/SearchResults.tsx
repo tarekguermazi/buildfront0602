@@ -95,7 +95,6 @@ const SRPHeader = styled.div`
   width: 100%;
   padding: 1rem 0;
   font-size: 14px;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
