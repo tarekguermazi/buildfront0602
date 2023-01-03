@@ -80,7 +80,7 @@ const privateRoutes = [
   {
     path: "/profile",
     loader: () => import("src/view/auth/Profile"),
-    permissionRequired: permissions.userRead,
+    permissionRequired: null,
     exact: true,
   },
   {
