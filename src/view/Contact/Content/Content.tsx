@@ -15,14 +15,11 @@ export default function Content() {
 }
 
 const MainLayout = styled.section`
-    margin: 0 auto;
-    margin-bottom: 1rem;
-    max-width: 1170px;
-    margin:auto;
-    min-height: 200px;
+   
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin:2rem 0 1rem 0;
 
     @media screen and (max-width: 1024px){ 
             flex-direction:column; 

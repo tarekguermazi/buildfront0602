@@ -71,8 +71,7 @@ export default function FormBody({
 }
 
 const BodyLayout = styled.section`
-  width: 700px;
-  background-color: #fff;
+  max-width: 700px;
   padding-top: 1rem;
   border-top: 2px solid #e1011a;
 
