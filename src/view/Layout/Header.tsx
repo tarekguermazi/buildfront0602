@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   logos,
   arrow__down,
-  down,
   facebook,
   instagram,
   Logo__mobile,
@@ -26,6 +25,12 @@ import I18nSelect from "./I18nSelect";
 import { i18n } from "../../i18n";
 
 import { useHistory, useLocation } from "react-router-dom";
+import actions from "src/modules/categoryPublication/list/categoryPublicationListActions";
+import selectors from "src/modules/categoryPublication/list/categoryPublicationListSelectors";
+import Translate from "../shared/Translate";
+
+import { getLanguages, getLanguageCode } from "src/i18n";
+import actionsLanguage from "src/modules/layout/layoutActions";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -34,9 +39,23 @@ function Header(props) {
   const userDropdownAvatar = useSelector(authSelectors.selectCurrentUserAvatar);
   const history = useHistory();
   const location = useLocation();
+
+  const selectRowsCategory = useSelector(selectors.selectRows);
+  const loadingCategory = useSelector(selectors.selectLoading);
   const doSignout = () => {
     dispatch(authActions.doSignout());
   };
+
+  const doChangeLanguage = (language) => {
+    actionsLanguage.doChangeLanguage(language);
+  };
+
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    dispatch(actions.doFetch());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
   const selectedKeys = () => {
     const url = props.url;
     var token = url.split("/").slice(0, 2),
@@ -55,6 +74,7 @@ function Header(props) {
     return className;
   };
 
+  const mediatiqueLink = [{}];
   const userMenu = (
     <ul className="header__dropdown">
       <Link to="/publication/new">
@@ -84,6 +104,28 @@ function Header(props) {
     </ul>
   );
 
+  const generateList = (item, index) => {
+    return (
+      <Link to={`/detaill/category/${item.id}`} style={{ color: "#000" }}>
+        <div key={index} className="publication_list">
+          <li
+            className="ul__hover"
+            style={{
+              display: "flex",
+              width: "100%",
+              justifyContent: "flex-start",
+              columnGap: "10px",
+              alignItems: "center",
+            }}
+          >
+            <img className="lazyload" src={Etudes} alt="Etudes Icon" />
+            {Translate.Trans("title", item)}
+          </li>
+        </div>
+      </Link>
+    );
+  };
+
   // HANDLING SEARCH LOGIC
   const [homeSearchString, setHomeSearchString] = useState("");
   const handleChange = (event) => {
@@ -95,7 +137,6 @@ function Header(props) {
   const searchPath = {
     pathname: "/search",
     HOME_SEARCH_STRING: homeSearchString,
-    // refresh: true
   };
 
   return (
@@ -182,21 +223,41 @@ function Header(props) {
                     {item.icon && (
                       <i className={item.icon} style={{ color: "red" }} />
                     )}
-                    {item.class && (
+                    {item.class && item.label === "Publications" ? (
                       <ul className="links__sub">
-                        {item.subMenue?.map((item, index) => (
-                          <div key={index}>
-                            <li>
-                              <img
-                                className="lazyload"
-                                src={Etudes}
-                                alt="Etudes Icon"
-                              />
-                              {i18n(`menu.submenu.${item.label}`)}
-                            </li>
-                          </div>
-                        ))}
+                        {selectRowsCategory?.map((item, index) =>
+                          generateList(item, index)
+                        )}
                       </ul>
+                    ) : (
+                      item.class &&
+                      item.label === "Médiathèque" && (
+                        <ul className="links__sub">
+                          {item.subMenue?.map((item, index) => (
+                            <Link to={`${item.path}`} style={{ color: "#000" }}>
+                              <div key={index} className="publication_list">
+                                <li
+                                  className="ul__hover"
+                                  style={{
+                                    display: "flex",
+                                    width: "100%",
+                                    justifyContent: "flex-start",
+                                    columnGap: "10px",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <img
+                                    className="lazyload"
+                                    src={Etudes}
+                                    alt="Etudes Icon"
+                                  />
+                                  {i18n(`menu.submenu.${item.label}`)}
+                                </li>
+                              </div>
+                            </Link>
+                          ))}
+                        </ul>
+                      )
                     )}
                   </li>
                 </Link>
@@ -221,19 +282,49 @@ function Header(props) {
               alt="Logo Mobile Icon"
             />
           </div>
-          <div className="button__connexion">
-            <i className="fa-solid fa-user" />
-          </div>
+
+          {currentUser ? (
+            <Link to="/profile">
+              <div className="button__connexion">
+                <i className="fa-solid fa-user" />
+              </div>
+            </Link>
+          ) : (
+            <Link to="/auth/signin">
+              <div className="button__connexion">
+                <i className="fa-solid fa-user" />
+              </div>
+            </Link>
+          )}
         </div>
         <div className="mobile__links">
-          <div className="links__menue">
+          <div
+            style={{ cursor: "pointer" }}
+            className="links__menue"
+            onClick={() => setActive(!active)}
+          >
             <img className="lazyload" src={Menue} alt="Menue Icon" />
           </div>
-          <div className="links__translate">
-            <p>FR</p>
-            <img className="lazyload" src={down} alt="arrow down" />
+
+          <div className="links__translate" style={{ cursor: "pointer" }}>
+            {getLanguageCode() === "fr" ? (
+              <p onClick={() => doChangeLanguage("ar")}> Français</p>
+            ) : (
+              <p onClick={() => doChangeLanguage("fr")}>Arabic</p>
+            )}
           </div>
         </div>
+        {active && (
+          <div className="sidebar__menu">
+            <ul>
+              {menus.map((item) => (
+                <Link to={item.path}>
+                  <li>{i18n(`menu.${item.label}`)}</li>
+                </Link>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </React.Fragment>
   );

@@ -12,14 +12,8 @@ import Breadcrumb from "src/view/shared/Breadcrumb";
 
 export default function SearchResults({ location }) {
   // GLOBAL STATE
-  const {
-    setIsLoading,
-    SRP,
-    setSRP,
-    searchString,
-    publicationFilter,
-    setcurrentPageIndex,
-  } = useContext(SearchContext);
+  const { setIsLoading, SRP, setSRP, searchString, setcurrentPageIndex } =
+    useContext(SearchContext);
 
   const searchPublications = (SEARCH_STRING: string) => {
     setIsLoading(true);
@@ -33,23 +27,23 @@ export default function SearchResults({ location }) {
     });
   };
   // HANDLING SUB FILTER (date / name)
-  const handleSubFilter = (event) => {
-    setIsLoading(true);
-    setSRP([]);
-    const FILTER_STRING = `&orderBy=[${event.target.value}]`;
-    // redo the search using chosen option
-    SearchService.getSearchResultsForPublicationsBasedOnSearchString(
-      searchString,
-      0
-    )
-      .then((res) => {
-        setSRP((SRP) => SRP.concat(res));
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
+  // const handleSubFilter = (event) => {
+  //   setIsLoading(true);
+  //   setSRP([]);
+  //   const FILTER_STRING = `&orderBy=[${event.target.value}]`;
+  //   // redo the search using chosen option
+  //   SearchService.getSearchResultsForPublicationsBasedOnSearchString(
+  //     searchString,
+  //     0
+  //   )
+  //     .then((res) => {
+  //       setSRP((SRP) => SRP.concat(res));
+  //       setIsLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // };
   useEffect(() => {
     searchPublications(location.HOME_SEARCH_STRING);
   }, []);
@@ -60,7 +54,7 @@ export default function SearchResults({ location }) {
   return (
     <SRPLayout>
       {/* SUB FILTER AND SRP METADA */}
-      <SRPHeader>
+      {/* <SRPHeader>
         {SRP.length >= 1 && (
           <>
             <div>
@@ -82,7 +76,7 @@ export default function SearchResults({ location }) {
             </div>
           </>
         )}
-      </SRPHeader>
+      </SRPHeader> */}
 
       {/* RESULT CONTENT DISPLAYED IN ARRAY FORMAT */}
       <SRPTable currentPostsToShow={SRP} />

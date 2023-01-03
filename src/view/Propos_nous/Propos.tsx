@@ -10,7 +10,7 @@ function Propos() {
     <ProposLayout>
       <Breadcrumb
         title={i18n("menu.propos")}
-        items={[[i18n("dashboard.menu"), "/"], [i18n("menu.propos")]]}
+        items={[[i18n("app.title"), "/"], [i18n("menu.propos")]]}
       />
       <Content />
     </ProposLayout>

@@ -37,16 +37,24 @@ export default function SRPCard({
               )}
             </div>
             <div className="evenement__right">
-              <div className="right__date">
+              <div className="date">
                 <div>
                   <img className="lazyload" src={calendar} alt="" srcSet="" />
                   {formattedDate}
                 </div>
-                <div className="cardHeader">
-                  <span className="categoryBadge">{type}</span>
-                </div>
+                {type ? (
+                  <div className="cardHeader">
+                    <span className="categoryBadge">{type}</span>
+                  </div>
+                ) : null}
               </div>
-              <div className="righ__desctiption">{title}</div>
+              {title ? (
+                <div className="title">
+                  {title.length > 100
+                    ? parse(title.substring(0, 100) + "...")
+                    : parse(title)}
+                </div>
+              ) : null}
               {content ? (
                 <div className="right__footer">
                   {content.length > 100
@@ -65,6 +73,11 @@ export default function SRPCard({
 
 const CardLayout = styled.div`
   /* LEFT SECTION */
+  hr {
+    height: 1px;
+    background-color: #2b2840;
+    border: none;
+  }
   .cardContent {
     flex-grow: 1;
     height: 100%;

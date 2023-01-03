@@ -7,7 +7,7 @@ import demandeAppui from "src/modules/demandeAppui/demandeAppuiReducers";
 import categoryPublication from "src/modules/categoryPublication/categoryPublicationReducers";
 import categoryEvenement from "src/modules/categoryEvenement/categoryEvenementReducers";
 import evenement from "src/modules/evenement/evenementReducers";
-
+import tableaudeBoard from "src/modules/tableaudeBoard/tableaudeBoardReducers";
 export default (history) =>
   combineReducers({
     router: connectRouter(history),
@@ -18,4 +18,5 @@ export default (history) =>
     categoryPublication,
     categoryEvenement,
     evenement,
+    tableaudeBoard,
   });

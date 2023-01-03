@@ -17,6 +17,7 @@ export default function SRPTable({ currentPostsToShow }) {
   const langue = localStorage.getItem("language");
   // HELPER FUNCTION
   const getValidThumbnail = (attachmentsArray) => {
+    console.log("attachmentsArray", attachmentsArray);
     const acceptableExtions = "png, jpg, jpeg, gif";
     let fakeUrl = "https://via.placeholder.com/270x175";
     attachmentsArray.forEach((att) => {
@@ -48,7 +49,7 @@ export default function SRPTable({ currentPostsToShow }) {
               {currentPostsToShow.count > 0 ? (
                 <section>
                   <Tabs
-                    className='links'
+                    className="links"
                     defaultActiveKey={
                       currentPostsToShow.rows.rowsEvent.length > 0
                         ? "0"
@@ -58,12 +59,14 @@ export default function SRPTable({ currentPostsToShow }) {
                         ? "2"
                         : "3"
                     }
-                    onChange={(key: string) => {}}>
+                    onChange={(key: string) => {}}
+                  >
                     <TabPane
-                      className=''
+                      className=""
                       tab={i18n("menu.Evènements")}
-                      key='0'
-                      disabled={currentPostsToShow.rows.rowsEvent.length <= 0}>
+                      key="0"
+                      disabled={currentPostsToShow.rows.rowsEvent.length <= 0}
+                    >
                       <>
                         {currentPostsToShow.rows.rowsEvent.map(
                           (searchResult, index) => {
@@ -76,7 +79,11 @@ export default function SRPTable({ currentPostsToShow }) {
                             if (langue === "fr") {
                               return (
                                 <SRPCard
-                                  type={searchResult["category"]["titleFR"]}
+                                  type={
+                                    searchResult["category"]
+                                      ? searchResult["category"]["titleFR"]
+                                      : null
+                                  }
                                   title={searchResult["titleFR"]}
                                   entite={"Evenements"}
                                   key={index}
@@ -89,7 +96,11 @@ export default function SRPTable({ currentPostsToShow }) {
                             } else if (langue === "ar") {
                               return (
                                 <SRPCard
-                                  type={searchResult["category"]["titleAR"]}
+                                  type={
+                                    searchResult["category"]
+                                      ? searchResult["category"]["titleAR"]
+                                      : null
+                                  }
                                   title={searchResult["titleAR"]}
                                   entite={"Evenements"}
                                   key={index}
@@ -102,7 +113,11 @@ export default function SRPTable({ currentPostsToShow }) {
                             } else if (langue === "en") {
                               return (
                                 <SRPCard
-                                  type={searchResult["category"]["titleEN"]}
+                                  type={
+                                    searchResult["category"]
+                                      ? searchResult["category"]["titleEN"]
+                                      : null
+                                  }
                                   title={searchResult["titleEN"]}
                                   entite={"Evenements"}
                                   key={index}
@@ -119,15 +134,20 @@ export default function SRPTable({ currentPostsToShow }) {
                     </TabPane>
                     <TabPane
                       tab={i18n("menu.Publications")}
-                      key='1'
+                      key="1"
                       disabled={
                         currentPostsToShow.rows.rowsPublication.length <= 0
-                      }>
+                      }
+                    >
                       <>
                         {currentPostsToShow.rows.rowsPublication.map(
                           (searchResult, index) => {
                             let thumbnail: any;
                             if (searchResult.photos.length >= 1) {
+                              console.log(
+                                "searchResult.photos",
+                                searchResult.photos
+                              );
                               thumbnail = getValidThumbnail(
                                 searchResult.photos
                               );
@@ -135,9 +155,13 @@ export default function SRPTable({ currentPostsToShow }) {
                             if (langue === "fr") {
                               return (
                                 <SRPCard
-                                  type={searchResult["category"]["titleFR"]}
+                                  type={
+                                    searchResult["category"]
+                                      ? searchResult["category"]["titleFR"]
+                                      : null
+                                  }
                                   title={searchResult["titleFR"]}
-                                  entite={"Publications"}
+                                  entite={"detail"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}
@@ -148,9 +172,13 @@ export default function SRPTable({ currentPostsToShow }) {
                             } else if (langue === "ar") {
                               return (
                                 <SRPCard
-                                  type={searchResult["category"]["titleAR"]}
+                                  type={
+                                    searchResult["category"]
+                                      ? searchResult["category"]["titleAR"]
+                                      : null
+                                  }
                                   title={searchResult["titleAR"]}
-                                  entite={"Publications"}
+                                  entite={"detail"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}
@@ -161,9 +189,13 @@ export default function SRPTable({ currentPostsToShow }) {
                             } else if (langue === "en") {
                               return (
                                 <SRPCard
-                                  type={searchResult["category"]["titleEN"]}
+                                  type={
+                                    searchResult["category"]
+                                      ? searchResult["category"]["titleEN"]
+                                      : null
+                                  }
                                   title={searchResult["titleEN"]}
-                                  entite={"Publications"}
+                                  entite={"detail"}
                                   key={index}
                                   _id={searchResult["_id"] ?? 0}
                                   date={searchResult["updatedAt"]}
@@ -178,17 +210,22 @@ export default function SRPTable({ currentPostsToShow }) {
                     </TabPane>
                     <TabPane
                       tab={i18n("menu.Glossaire")}
-                      key='2'
+                      key="2"
                       disabled={
                         currentPostsToShow.rows.rowsGlosaire.length <= 0
-                      }>
+                      }
+                    >
                       <>
                         {currentPostsToShow.rows.rowsGlosaire.map(
                           (searchResult, index) => {
                             if (langue === "fr") {
                               return (
                                 <SRPCard
-                                  type={searchResult["categorie"]["titleFR"]}
+                                  type={
+                                    searchResult["categorie"]
+                                      ? searchResult["categorie"]["titleFR"]
+                                      : null
+                                  }
                                   title={searchResult["nomFR"]}
                                   entite={"Glossaire"}
                                   key={index}
@@ -201,7 +238,11 @@ export default function SRPTable({ currentPostsToShow }) {
                             } else if (langue === "ar") {
                               return (
                                 <SRPCard
-                                  type={searchResult["categorie"]["titleAR"]}
+                                  type={
+                                    searchResult["categorie"]
+                                      ? searchResult["categorie"]["titleAR"]
+                                      : null
+                                  }
                                   title={searchResult["nomAR"]}
                                   entite={"Glossaire"}
                                   key={index}
@@ -214,7 +255,11 @@ export default function SRPTable({ currentPostsToShow }) {
                             } else if (langue === "en") {
                               return (
                                 <SRPCard
-                                  type={searchResult["categorie"]["titleEN"]}
+                                  type={
+                                    searchResult["categorie"]
+                                      ? searchResult["categorie"]["titleEN"]
+                                      : null
+                                  }
                                   title={searchResult["nomEN"]}
                                   entite={"Glossaire"}
                                   key={index}
@@ -231,10 +276,11 @@ export default function SRPTable({ currentPostsToShow }) {
                     </TabPane>
                     <TabPane
                       tab={i18n("menu.Médiathèque")}
-                      key='3'
+                      key="3"
                       disabled={
                         currentPostsToShow.rows.rowsMediatheque.length <= 0
-                      }>
+                      }
+                    >
                       <>
                         {currentPostsToShow.rows.rowsMediatheque.map(
                           (searchResult, index) => {
@@ -292,7 +338,7 @@ export default function SRPTable({ currentPostsToShow }) {
                   </Tabs>
                 </section>
               ) : (
-                <h3 id='noDataFound'>
+                <h3 id="noDataFound">
                   <BsBox />
                   &nbsp;{i18n("common.noData")}
                 </h3>

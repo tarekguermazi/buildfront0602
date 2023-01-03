@@ -8,6 +8,6 @@ export default class ContactService {
     };
     const tenantId = AuthCurrentTenant.get();
     const response = await authAxios.post(`/tenant/${tenantId}/contact`, body);
-    return response.data;
+    return response;
   }
 }

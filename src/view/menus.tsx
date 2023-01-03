@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+
 export default [
   { path: "/", label: "Menue", icon: "fa-sharp fa-solid fa-bars" },
   { path: "/A_propos", label: "propos" },
@@ -10,11 +11,12 @@ export default [
     subMenue: [
       {
         label: "Communiqués",
+        path: "/",
       },
-      { label: "Articles" },
-      { label: "Etudes" },
-      { label: "Cahiers" },
-      { label: "Appels" },
+      { label: "Articles", path: "/" },
+      { label: "Etudes", path: "/" },
+      { label: "Cahiers", path: "/" },
+      { label: "Appels", path: "/" },
     ],
   },
   { path: "/Archives", label: "Archives" },
@@ -32,12 +34,12 @@ export default [
     subMenue: [
       {
         label: "Vidéos",
-        path: "/",
+        path: "/Mediatheque/type/videos",
       },
-      { label: "Podcast" },
-      { label: "Photos" },
-      { label: "Documentaires" },
-      { label: "Autres" },
+      { label: "Podcast", path: "/Mediatheque/type/podcasts" },
+      { label: "Photos", path: "/Mediatheque/type/photos" },
+      { label: "Documentaires", path: "/Mediatheque/type/documentaires" },
+      { label: "Autres", path: "/Mediatheque/type/autres" },
     ],
   },
   { path: "/Contact", label: "Contact" },

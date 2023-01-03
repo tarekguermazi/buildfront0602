@@ -57,17 +57,17 @@ function SearchArchive({ location }) {
     <>
       <Breadcrumb
         title={i18n("common.Archives")}
-        items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
+        items={[[i18n("app.title"), "/"], [i18n("common.Archives")]]}
       />
-      <div className="app__archieve__page_search">
+      <div className='app__archieve__page_search'>
         {loading ? (
           <section>
             <Skeleton height={170} />
           </section>
         ) : (
-          <div className="archeive">
-            <div className="archieve__content">
-              <div className="archieve__left">
+          <div className='archeive'>
+            <div className='archieve__content'>
+              <div className='archieve__left'>
                 <SearchArchiveLayout>
                   <div>
                     {publications.length > 0 ? (
@@ -82,9 +82,13 @@ function SearchArchive({ location }) {
                           if (langue === "fr") {
                             return (
                               <SRPCard
-                                type={searchResult["category"]["titleFR"]}
+                                type={
+                                  searchResult["category"]
+                                    ? searchResult["category"]["titleFR"]
+                                    : null
+                                }
                                 title={searchResult["titleFR"]}
-                                entite={"Publications"}
+                                entite={"detail"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["date"]}
@@ -95,9 +99,13 @@ function SearchArchive({ location }) {
                           } else if (langue === "ar") {
                             return (
                               <SRPCard
-                                type={searchResult["category"]["titleAR"]}
+                                type={
+                                  searchResult["category"]
+                                    ? searchResult["category"]["titleAR"]
+                                    : null
+                                }
                                 title={searchResult["titleAR"]}
-                                entite={"Publications"}
+                                entite={"detail"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["date"]}
@@ -108,9 +116,13 @@ function SearchArchive({ location }) {
                           } else if (langue === "en") {
                             return (
                               <SRPCard
-                                type={searchResult["category"]["titleEN"]}
+                                type={
+                                  searchResult["category"]
+                                    ? searchResult["category"]["titleEN"]
+                                    : null
+                                }
                                 title={searchResult["titleEN"]}
-                                entite={"Publications"}
+                                entite={"detail"}
                                 key={index}
                                 _id={searchResult["_id"] ?? 0}
                                 date={searchResult["date"]}
@@ -122,7 +134,7 @@ function SearchArchive({ location }) {
                         })}
                       </div>
                     ) : (
-                      <h3 id="noDataFound">
+                      <h3 id='noDataFound'>
                         <BsBox />
                         &nbsp;{i18n("common.noData")}
                       </h3>

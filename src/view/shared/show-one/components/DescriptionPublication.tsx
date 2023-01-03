@@ -44,6 +44,7 @@ function DescriptionPublication(props) {
               <div className='socialMedia__title'>
                 {i18n("common.Partager")} :
               </div>
+
               <Image src={Facebook} />
               <Image src={twitter} />
               <Image src={Instagramm} />
@@ -72,7 +73,7 @@ function DescriptionPublication(props) {
           </div>
           <div className='manification__images'>
             {loadingPublication ? (
-              <h1> Loading ... </h1>
+              <h4> Loading ... </h4>
             ) : (
               rowsPublication.map((item) => (
                 <Link to={`/detail/${item.id}`}>

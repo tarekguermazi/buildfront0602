@@ -32,22 +32,22 @@ export default function MegaFooter() {
               <div>
                 <ul>
                   <li>
-                    <Link className='footerLink' to='A_propos'>
+                    <Link className='footerLink' to='/A_propos'>
                       A propos
                     </Link>
                   </li>
                   <li>
-                    <Link className='footerLink' to='Archives'>
+                    <Link className='footerLink' to='/Archives'>
                       Archive
                     </Link>
                   </li>
                   <li>
-                    <Link className='footerLink' to='Glossaire'>
+                    <Link className='footerLink' to='/Glossaire'>
                       Glossaire
                     </Link>
                   </li>
                   <li>
-                    <Link className='footerLink' to='Publications'>
+                    <Link className='footerLink' to='/Publications'>
                       Publications
                     </Link>
                   </li>
@@ -56,12 +56,12 @@ export default function MegaFooter() {
               <div>
                 <ul>
                   <li>
-                    <Link className='footerLink' to='Evenements'>
+                    <Link className='footerLink' to='/Evenements'>
                       Evenements
                     </Link>
                   </li>
                   <li>
-                    <Link className='footerLink' to='Contact'>
+                    <Link className='footerLink' to='/Contact'>
                       Contact
                     </Link>
                   </li>

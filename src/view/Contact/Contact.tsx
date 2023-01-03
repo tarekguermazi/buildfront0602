@@ -10,7 +10,7 @@ function Contact() {
       <ContactLayout>
         <Breadcrumb
           title={i18n("menu.Contact")}
-          items={[[i18n("dashboard.menu"), "/"], [i18n("menu.Contact")]]}
+          items={[[i18n("app.title"), "/"], [i18n("menu.Contact")]]}
         />
         <Content />
       </ContactLayout>

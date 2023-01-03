@@ -31,7 +31,7 @@ function PublicationInterest(props) {
 
       <div className='interest__detaill'>
         {loadingthematique ? (
-          <h1> Loading </h1>
+          <h4>Loading ... </h4>
         ) : (
           rowsThematique.map((item) => (
             <Link to={`/detail/${item.id}`}>

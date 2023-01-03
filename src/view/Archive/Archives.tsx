@@ -59,46 +59,46 @@ function Archives() {
     <>
       <Breadcrumb
         title={i18n("common.Archives")}
-        items={[[i18n("dashboard.menu"), "/"], [i18n("common.Archives")]]}
+        items={[[i18n("app.title"), "/"], [i18n("common.Archives")]]}
       />
-      <div className="app__archieve__page">
-        <div className="archeive">
-          <div className="archieve__content">
-            <div className="archieve__left">
-              <div className="left__search">
+      <div className='app__archieve__page'>
+        <div className='archeive'>
+          <div className='archieve__content'>
+            <div className='archieve__left'>
+              <div className='left__search'>
                 <input
-                  type="text"
+                  type='text'
                   placeholder={i18n("common.archiveSearch")}
                   onChange={handleChange}
                   value={archiveSearchString}
                 />
                 {archiveSearchString.length >= 1 ? (
                   <Link to={searchPath}>
-                    <div className="button__search">
-                      <i className="fa-solid fa-magnifying-glass" />
+                    <div className='button__search'>
+                      <i className='fa-solid fa-magnifying-glass' />
                       {i18n("common.search")}
                     </div>
                   </Link>
                 ) : (
-                  <div className="button__search">
-                    <i className="fa-solid fa-magnifying-glass" />
+                  <div className='button__search'>
+                    <i className='fa-solid fa-magnifying-glass' />
                     {i18n("common.search")}
                   </div>
                 )}
                 {/* <div className="search__advanced">Recherche avancée</div> */}
               </div>
-              <div className="mobile__archeiveSearch">
-                <div className="archeiveSearch__form">
+              <div className='mobile__archeiveSearch'>
+                <div className='archeiveSearch__form'>
                   <input
-                    type="text"
+                    type='text'
                     placeholder={i18n("common.archiveSearch")}
                   />
-                  <div className="button_search">
+                  <div className='button_search'>
                     <img
-                      className="lazyload"
+                      className='lazyload'
                       src={search__archeive}
-                      alt="Search Archeive ICon"
-                      srcSet=""
+                      alt='Search Archeive ICon'
+                      srcSet=''
                     />
                   </div>
                 </div>
@@ -108,19 +108,19 @@ function Archives() {
                 {categoriesListIsLoading === false && (
                   <>
                     <Link to={searchPath}>
-                      <label className="filterArchiveContianer" htmlFor="all">
+                      <label className='filterArchiveContianer' htmlFor='all'>
                         <input
-                          type="radio"
-                          name="archiveFilter"
-                          value="autre"
-                          id="all"
+                          type='radio'
+                          name='archiveFilter'
+                          value='autre'
+                          id='all'
                         />
-                        <div className="contentContainer">
+                        <div className='contentContainer'>
                           <div>
                             <img
-                              className="lazyload"
+                              className='lazyload'
                               src={Etudes}
-                              alt="Etudes Icon"
+                              alt='Etudes Icon'
                             />
                           </div>
                           <div>
@@ -142,25 +142,23 @@ function Archives() {
                                   thematique: "",
                                   category: category._id,
                                 },
-                              }}
-                            >
+                              }}>
                               <label
-                                className="filterArchiveContianer"
+                                className='filterArchiveContianer'
                                 htmlFor={category._id}
-                                key={category._id}
-                              >
+                                key={category._id}>
                                 <input
-                                  type="radio"
-                                  name="archiveFilter"
-                                  value="etude"
+                                  type='radio'
+                                  name='archiveFilter'
+                                  value='etude'
                                   id={category._id}
                                 />
-                                <div className="contentContainer">
+                                <div className='contentContainer'>
                                   <div>
                                     <img
-                                      className="lazyload"
+                                      className='lazyload'
                                       src={Etudes}
-                                      alt="Etudes Icon"
+                                      alt='Etudes Icon'
                                     />
                                   </div>
                                   <div>

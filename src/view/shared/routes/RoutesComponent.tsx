@@ -13,9 +13,10 @@ import EmptyPermissionsRoute from "./EmptyPermissionsRoute";
 function RoutesComponent(props) {
   const isInitialMount = useRef(true);
   const currentUser = useSelector(authSelectors.selectCurrentUser);
-  const currentTenant = useSelector(authSelectors.selectCurrentTenant);
+  // const currentTenant = useSelector(authSelectors.selectCurrentTenant);
   const authLoading = useSelector(authSelectors.selectLoadingInit);
   const loading = authLoading;
+  const currentTenant = localStorage.getItem("tenant");
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;

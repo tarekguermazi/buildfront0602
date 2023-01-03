@@ -301,6 +301,12 @@ category__list.app {
   .header__nav_mobile {
     display: flex;
     flex-direction: column;
+    min-width: 300px;
+    position: relative;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    background-color: #fff;
   }
 
   .mobile__top {
@@ -330,6 +336,7 @@ category__list.app {
     align-items: center;
     height: 45px;
     background-color: var(--red);
+    padding: 0 10px;
   }
 
   .links__menue {
@@ -343,6 +350,28 @@ category__list.app {
     display: flex;
     color: var(--white);
     align-items: center;
+  }
+
+  .sidebar__menu {
+    background-color: var(--background);
+    width: 50vh;
+    position: fixed;
+    z-index: 9999;
+    width: calc(100% - 75%);
+    min-width: 200px;
+    inset: 144.5px 0 0 0;
+    height: 100%;
+    padding-top: 14px;
+    display: flex;
+    padding: 0 10px;
+  }
+  .sidebar__menu > ul li {
+    padding: 10px 0;
+  }
+  @media (pointer: fine) {
+    .sidebar__menu > ul li:hover {
+      background-color: #d0d0d0;
+    }
   }
 }
 
@@ -1542,7 +1571,10 @@ Styling the archeive verison Mobile  */
   display: flex;
   margin: 0;
 }
-
+.publication_list > li:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
 .plus__button {
   display: grid;
   place-items: center;
@@ -1812,6 +1844,25 @@ Styling the archeive verison Mobile  */
 .evenement__right {
   display: flex;
   flex-direction: column;
+}
+.date {
+  padding-top: 5px;
+  display: flex;
+  /* border-bottom: 1px solid #e0e0e0; */
+  column-gap: 21px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 15px;
+}
+.date > div {
+  font-size: 12px;
+  line-height: 15px;
+  font-family: "Proxima Nova";
+  color: var(--gray2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
 }
 
 .right__date {
@@ -3989,6 +4040,7 @@ button.splide__arrow--prev {
 /* styling the publication Version Desktop */
 .publication__page {
   width: 100%;
+  z-index: -1;
 }
 
 @media screen and (max-width: 1024px) {

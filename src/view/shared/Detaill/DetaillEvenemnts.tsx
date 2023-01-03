@@ -15,7 +15,7 @@ import selectors from "src/modules/evenement/list/evenementListSelectors";
 
 import Date from "../Date";
 import Empty from "../Nodatafound/Empty";
-
+import { Link } from "react-router-dom";
 function Detaill() {
   const match = useRouteMatch();
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ function Detaill() {
 
   return (
     <div className='app__detaill'>
-      {loading && <h3 className='detaill__sketlon'>Loading .... </h3>}
+      {loading && <h4 className='detaill__sketlon'>Loading .... </h4>}
       {!loading && rows.length <= 0 ? (
         <Empty />
       ) : (
@@ -53,7 +53,7 @@ function Detaill() {
           {
             <Breadcrumb
               title={titleBreadcrumb}
-              items={[[i18n("dashboard.menu"), "/"], [i18n(titleBreadcrumb)]]}
+              items={[[i18n("app.title"), "/"], [i18n(titleBreadcrumb)]]}
             />
           }
           <div className='app__calendar'>
@@ -63,24 +63,26 @@ function Detaill() {
             <div className='list__detaills'>
               {rows.map((item) => (
                 <div>
-                  <Image
-                    src={item.supports[0]?.downloadUrl}
-                    alt='publication2 Icon'
-                    id='image__desktop'
-                    width='370'
-                    height='300'
-                  />
-                  <div className='list__detaill'>
-                    <div className='detaill__header'>
-                      <div className='header__left'></div>
-                      <div className='header__right'>
-                        {Date.HourMinute(item.date)}
+                  <Link to={`/Evenements/${item.id}`}>
+                    <Image
+                      src={item.supports[0]?.downloadUrl}
+                      alt='publication2 Icon'
+                      id='image__desktop'
+                      width='370'
+                      height='300'
+                    />
+                    <div className='list__detaill'>
+                      <div className='detaill__header'>
+                        <div className='header__left'></div>
+                        <div className='header__right'>
+                          {Date.HourMinute(item.date)}
+                        </div>
+                      </div>{" "}
+                      <div className='detaill__content text__wrap'>
+                        {Translate.Trans("title", item)}
                       </div>
-                    </div>{" "}
-                    <div className='detaill__content'>
-                      {Translate.Trans("title", item)}
                     </div>
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>

@@ -110,7 +110,7 @@ const en = {
     acteur_social: "Social Actor",
     question: "Question",
     problem: "Problem",
-    problemInput: "",
+    problemInput: "Problem description",
   },
 
   buttons: {
@@ -119,6 +119,68 @@ const en = {
     envoyer: "Send",
   },
   entities: {
+    contact: {
+      name: "contact",
+      label: "Contacts",
+      menu: "Contacts",
+      exporterFileName: "contact_export",
+      list: {
+        menu: "Contacts",
+        title: "Contacts",
+      },
+      create: {
+        success: "Contact enregistré avec succès",
+      },
+      update: {
+        success: "Contact enregistré avec succès",
+      },
+      destroy: {
+        success: "Contact supprimé avec succès",
+      },
+      destroyAll: {
+        success: "Contact(s) supprimé avec succès",
+      },
+      edit: {
+        title: "Editer Contact",
+      },
+      fields: {
+        id: "Id",
+        type: "Type",
+        sender: "Expéditeur",
+        explication: "Explication",
+        createdAt: "Crée le",
+        updatedAt: "Mis à jour le",
+        createdAtRange: "Crée le",
+      },
+      enumerators: {
+        sender: {
+          chercheur: "Chercheur",
+          etudiant: "Etudiant",
+          presse: "Presse",
+          activiste: "Activiste",
+          acteur_social: "Acteur social",
+        },
+        type: {
+          contact: "Contact",
+          question: "Question",
+          problem: "Problème",
+        },
+      },
+      placeholders: {},
+      hints: {},
+      new: {
+        title: "Nouveau Contact",
+      },
+      view: {
+        title: "Afficher Contact",
+      },
+      importer: {
+        title: "Import Contacts",
+        fileName: "contact_import_template",
+        hint: "Files/Images columns must be the URLs of the files separated by space.",
+      },
+      error: "A problem has occurred. Try Again",
+    },
     publication: {
       name: "publication",
       label: "Publications",

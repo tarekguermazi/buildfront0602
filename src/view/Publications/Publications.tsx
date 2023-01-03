@@ -51,7 +51,7 @@ function Publications() {
         <Breadcrumb
           title={i18n("entities.publication.label")}
           items={[
-            [i18n("dashboard.menu"), "/"],
+            [i18n("app.title"), "/"],
             [i18n("entities.publication.label")],
           ]}
         />
