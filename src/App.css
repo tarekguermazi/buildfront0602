@@ -2117,7 +2117,7 @@ Styling the archeive verison Mobile  */
 }
 
 .passe__content > div {
-  width: 370px;
+  max-width: 370px;
   height: 404px;
   background-color: var(--gray4);
   display: grid;

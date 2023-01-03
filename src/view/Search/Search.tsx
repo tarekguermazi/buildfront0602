@@ -46,8 +46,12 @@ export default function Search({ location }) {
 }
 
 const SearchLayout = styled.section`
-  height: 100%;
+
+  max-width: 1170px;
+  margin: auto;
   .wideContent {
-    padding: 0 7rem;
+  display:flex; 
+  justify-content : flex-start;
+   
   }
 `;

@@ -76,4 +76,8 @@ const GlossaireLayout = styled.section`
 
   font-family: "Proxima Nova";
   font-style: normal;
+
+  @media screen and (max-width:1071px){ 
+    padding : 0 10px;
+  }
 `;
