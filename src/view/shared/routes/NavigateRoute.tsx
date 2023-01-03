@@ -26,7 +26,7 @@ function NavigateRoute({
           permissionChecker.isAuthenticated &&
           permissionChecker.isEmptyPermissions
         ) {
-          return <Redirect to='/auth/empty-permissions' />;
+          return <Redirect to="/auth/empty-permissions" />;
         }
         return (
           <div style={{ minHeight: "100%" }}>

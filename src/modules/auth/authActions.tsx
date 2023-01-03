@@ -6,6 +6,7 @@ import { getHistory } from "src/modules/store";
 import AuthToken from "src/modules/auth/authToken";
 import AuthCurrentTenant from "src/modules/auth/authCurrentTenant";
 import selectors from "src/modules/auth/authSelectors";
+import TenantService from "../Tenant/TenantService";
 
 const prefix = "AUTH";
 
@@ -156,6 +157,9 @@ const authActions = {
 
   doInit: () => async (dispatch) => {
     try {
+      await TenantService.getTenants().then((res) => {
+        localStorage.setItem("tenant", JSON.stringify(res.rows[0]));
+      });
       const token = AuthToken.get();
       let currentUser = null;
 
