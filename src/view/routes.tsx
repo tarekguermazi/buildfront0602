@@ -77,55 +77,56 @@ const navigateRoutes = [
 	},
 ];
 const privateRoutes = [
-	{
-		path: "/profile",
-		loader: () => import("src/view/auth/Profile"),
-		permissionRequired: null,
-		exact: true,
-	},
-	{
-		path: "/profile/update",
-		loader: () => import("src/view/auth/ProfileForm"),
-		permissionRequired: permissions.userEdit,
-		exact: true,
-	},
-	{
-		path: "/password-change",
-		loader: () => import("src/view/auth/PasswordChangeFormPage"),
-		permissionRequired: null,
-		exact: true,
-	},
-	{
-		path: "/appui/new",
-		loader: () => import("src/view/Appui/form/AppuiFormPage"),
-		permissionRequired: permissions.demandeAppuiCreate,
-		exact: true,
-	},
-	{
-		path: "/appui/:id/edit",
-		loader: () => import("src/view/Appui/form/AppuiFormPage"),
-		permissionRequired: permissions.demandeAppuiEdit,
-		exact: true,
-	},
+  {
+    path: "/profile",
+    loader: () => import("src/view/auth/Profile"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/profile/update",
+    loader: () => import("src/view/auth/ProfileForm"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/password-change",
+    loader: () => import("src/view/auth/PasswordChangeFormPage"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/appui/new",
+    loader: () => import("src/view/Appui/form/AppuiFormPage"),
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/appui/:id/edit",
+    loader: () => import("src/view/Appui/form/AppuiFormPage"),
+    permissionRequired: permissions.demandeAppuiEdit,
+    exact: true,
+  },
 
-	{
-		path: "/publication/new",
-		loader: () => import("src/view/Publications/form/PublicationFormPage"),
-		permissionRequired: permissions.publicationCreate,
-		exact: true,
-	},
-	{
-		path: "/publication/:id/edit",
-		loader: () => import("src/view/Publications/form/PublicationFormPage"),
-		permissionRequired: permissions.publicationEdit,
-		exact: true,
-	},
-	{
-		path: "/favoris",
-		loader: () => import("src/view/Favoris/Favoris"),
-		permissionRequired: null,
-		exact: true,
-	},
+  {
+    path: "/publication/new",
+    loader: () => import("src/view/Publications/form/PublicationFormPage"),
+    // permissionRequired: permissions.publicationCreate,
+    permissionRequired: null,
+    exact: true,
+  },
+  {
+    path: "/publication/:id/edit",
+    loader: () => import("src/view/Publications/form/PublicationFormPage"),
+    permissionRequired: permissions.publicationEdit,
+    exact: true,
+  },
+  {
+    path: "/favoris",
+    loader: () => import("src/view/Favoris/Favoris"),
+    permissionRequired: null,
+    exact: true,
+  },
 ].filter(Boolean);
 const publicRoutes = [
 	{ path: "/auth/signin", loader: () => import("src/view/auth/SigninPage") },
