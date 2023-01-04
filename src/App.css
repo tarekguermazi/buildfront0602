@@ -3264,6 +3264,13 @@ styling the newsLettre */
 	width: 100%;
 }
 
+@media screen and (max-width: 1171px) {
+	.app__updateprofile {
+		overflow-x: hidden;
+		margin: 100px 0 0 0;
+	}
+}
+
 .updateprofile {
 	max-width: 970px;
 	margin: auto;
