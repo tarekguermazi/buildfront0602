@@ -80,10 +80,8 @@ export default function FormHeader({ setUserType }) {
 }
 
 const HeaderLayout = styled.section`
-  width: 700px;
-  background-color: #fff;
+  max-width: 700px;
   padding-bottom: 1rem;
-
   font-family: "Proxima Nova";
   font-size: 1.2rem;
   line-height: 1.5;
@@ -103,7 +101,7 @@ const HeaderLayout = styled.section`
     width: 100%;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 
     input[type="radio"] {
       display: none;

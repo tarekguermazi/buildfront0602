@@ -32,6 +32,6 @@ export default function RightSection() {
 }
 
 const RightLayout = styled.section`
-  width: 700px;
-  position: relative;
+
+
 `;

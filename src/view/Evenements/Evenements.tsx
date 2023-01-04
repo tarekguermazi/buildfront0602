@@ -50,7 +50,7 @@ function Evenements() {
   };
 
   return (
-    <>
+    <div className="__evenement">
       <Breadcrumb
         title={i18n("common.Evènements")}
         items={[[i18n("app.title"), "/"], [i18n("common.Evènements")]]}
@@ -58,7 +58,7 @@ function Evenements() {
       <div className='page__evenement'>
         <div className='evenment__header'>
           <Slider
-            rows={rows}
+            rows={rows} 
             height={404}
             width={1170}
             label='slider'
@@ -69,7 +69,7 @@ function Evenements() {
         <EvenementAvenir />
         <EvenementPasse />
       </div>
-    </>
+    </div>
   );
 }
 

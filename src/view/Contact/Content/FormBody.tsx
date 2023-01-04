@@ -10,189 +10,188 @@ import Message from "src/view/shared/message";
 import Errors from "src/modules/shared/error/errors";
 
 export default function FormBody({
-  sender,
-  type,
-  setType,
-  explication,
-  setExplication,
+	sender,
+	type,
+	setType,
+	explication,
+	setExplication,
 }) {
-  console.log("sender", sender);
+	console.log("sender", sender);
 
-  const [formIsSubmitting, setformIsSubmitting] = useState(false);
+	const [formIsSubmitting, setformIsSubmitting] = useState(false);
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    const formValues = {
-      sender: sender.type ?? null,
-      type: type === "--" ? null : type,
-      explication: explication,
-    };
-    setformIsSubmitting(true);
-    const res = await ContactService.submitFormData(formValues);
-    if (res.status == 200) {
-      Message.success(i18n("entities.contact.create.success"));
-    } else {
-      Message.error(i18n("entities.contact.error"));
-    }
-    setformIsSubmitting(false);
-  };
-  let formValide = explication !== "" && type !== "--";
-  return (
-    <BodyLayout>
-      <h3>{i18n("ContactPage." + sender.display)}</h3>
+	const handleFormSubmit = async (event) => {
+		event.preventDefault();
+		const formValues = {
+			sender: sender.type ?? null,
+			type: type === "--" ? null : type,
+			explication: explication,
+		};
+		setformIsSubmitting(true);
+		const res = await ContactService.submitFormData(formValues);
+		if (res.status == 200) {
+			Message.success(i18n("entities.contact.create.success"));
+		} else {
+			Message.error(i18n("entities.contact.error"));
+		}
+		setformIsSubmitting(false);
+	};
+	let formValide = explication !== "" && type !== "--";
+	return (
+		<BodyLayout>
+			<h3>{i18n("ContactPage." + sender.display)}</h3>
 
-      <form onSubmit={handleFormSubmit}>
-        <div>
-          <label htmlFor="contacttype">{i18n("menu.Contact")}</label>
-          <select
-            id="contacttype"
-            onChange={(event) => setType(event.target.value)}
-          >
-            <option value="--">--</option>
-            <option value="contact">{i18n("menu.Contact")}</option>
-            <option value="question">{i18n("ContactPage.question")}</option>
-            <option value="problem">{i18n("ContactPage.problem")}</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="problemInput">
-            {i18n("ContactPage.problemInput")}
-          </label>
-          <textarea
-            id="problemInput"
-            cols={30}
-            rows={10}
-            value={explication}
-            onChange={(e) => setExplication(e.target.value)}
-          ></textarea>
-        </div>
-        {!formIsSubmitting && (
-          <button
-            type="submit"
-            className={formValide ? "sendButton" : "sendButtonDisabled"}
-            disabled={!formValide}
-          >
-            <BiMailSend className="icon" />
-            {i18n("buttons.envoyer")}
-          </button>
-        )}
-        {formIsSubmitting && (
-          <button className="sendButton">
-            <AiOutlineLoading3Quarters className="loadingIcon" />
-          </button>
-        )}
-      </form>
-    </BodyLayout>
-  );
+			<form onSubmit={handleFormSubmit}>
+				<div>
+					<label htmlFor="contacttype">{i18n("menu.Contact")}</label>
+					<select
+						id="contacttype"
+						onChange={(event) => setType(event.target.value)}>
+						<option value="--">--</option>
+						<option value="contact">{i18n("menu.Contact")}</option>
+						<option value="question">{i18n("ContactPage.question")}</option>
+						<option value="problem">{i18n("ContactPage.problem")}</option>
+					</select>
+				</div>
+				<div>
+					<label htmlFor="problemInput">
+						{i18n("ContactPage.problemInput")}
+					</label>
+					<textarea
+						id="problemInput"
+						cols={30}
+						rows={10}
+						value={explication}
+						onChange={(e) => setExplication(e.target.value)}></textarea>
+				</div>
+				{!formIsSubmitting && (
+					<button
+						type="submit"
+						className={formValide ? "sendButton" : "sendButtonDisabled"}
+						disabled={!formValide}>
+						<BiMailSend className="icon" />
+						{i18n("buttons.envoyer")}
+					</button>
+				)}
+				{formIsSubmitting && (
+					<button className="sendButton">
+						<AiOutlineLoading3Quarters className="loadingIcon" />
+					</button>
+				)}
+			</form>
+		</BodyLayout>
+	);
 }
 
 const BodyLayout = styled.section`
-  width: 700px;
-  background-color: #fff;
-  padding-top: 1rem;
-  border-top: 2px solid #e1011a;
+	max-width: 700px;
+	padding-top: 1rem;
+	border-top: 2px solid #e1011a;
 
-  h3 {
-    font-family: "Proxima Nova";
-    text-transform: capitalize;
-    color: var(--violet);
-  }
-  p {
-    margin-top: 1rem;
-    font-family: "Proxima Nova";
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--violet);
-  }
+	h3 {
+		font-family: "Proxima Nova";
+		text-transform: capitalize;
+		color: var(--violet);
+	}
+	p {
+		margin-top: 1rem;
+		font-family: "Proxima Nova";
+		font-size: 1rem;
+		line-height: 1.5;
+		color: var(--violet);
+	}
 
-  form {
-    font-family: "Proxima Nova";
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--violet);
+	form {
+		font-family: "Proxima Nova";
+		font-size: 1rem;
+		line-height: 1.5;
+		color: var(--violet);
 
-    label {
-      font-size: 1.1rem;
-      font-weight: bold;
-      display: block;
-      margin-top: 1rem;
-      font-family: "Proxima Nova";
-    }
-    option {
-      font-family: "Proxima Nova";
-    }
-    input,
-    select,
-    textarea {
-      font-family: "Proxima Nova";
-      width: 100%;
-      margin-top: 0.5rem;
-      padding: 1rem;
-      font-size: 1rem;
-      color: var(--violet);
-      border: 1px solid var(--gray3);
-      border-radius: 0.3rem;
-    }
+		label {
+			font-size: 1.1rem;
+			font-weight: bold;
+			display: block;
+			margin-top: 1rem;
+			font-family: "Proxima Nova";
+		}
+		option {
+			font-family: "Proxima Nova";
+		}
+		input,
+		select,
+		textarea {
+			font-family: "Proxima Nova";
+			width: 100%;
+			margin-top: 0.5rem;
+			padding: 1rem;
+			font-size: 1rem;
+			color: var(--violet);
+			border: 1px solid var(--gray3);
+			border-radius: 0.3rem;
+		}
 
-    textarea {
-      font-family: "Proxima Nova";
-      resize: none;
-      border-radius: 0;
-    }
+		textarea {
+			font-family: "Proxima Nova";
+			resize: none;
+			border-radius: 0;
+		}
 
-    .sendButton {
-      width: 100%;
-      padding: 1rem 0;
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      background-color: #e1011a;
-      color: #fff;
-      text-transform: uppercase;
+		.sendButton {
+			width: 100%;
+			padding: 1rem 0;
+			margin-top: 1rem;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			text-transform: uppercase;
+			font-family: "Bebas Neue";
+			background-color: var(--red);
+			cursor: pointer;
+			color: var(--white);
+			font-size: 21px;
+			line-height: 25px;
 
-      .icon {
-        margin-right: 1rem;
-        font-size: 1.5rem;
-      }
+			.icon {
+				margin-right: 1rem;
+				font-size: 1.5rem;
+			}
 
-      .loadingIcon {
-        animation: spin 0.7s linear infinite;
-      }
-    }
-    .sendButtonDisabled {
-      width: 100%;
-      padding: 1rem 0;
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      // border: 1px solid #999999;
-      background-color: #cccccc;
-      color: #666666;
-      text-transform: uppercase;
+			.loadingIcon {
+				animation: spin 0.7s linear infinite;
+			}
+		}
+		.sendButtonDisabled {
+			width: 100%;
+			padding: 1rem 0;
+			margin-top: 1rem;
+			font-size: 1.2rem;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			// border: 1px solid #999999;
+			background-color: #cccccc;
+			color: #666666;
+			text-transform: uppercase;
 
-      .icon {
-        margin-right: 1rem;
-        font-size: 1.5rem;
-      }
+			.icon {
+				margin-right: 1rem;
+				font-size: 1.5rem;
+			}
 
-      .loadingIcon {
-        animation: spin 0.7s linear infinite;
-      }
-    }
-  }
+			.loadingIcon {
+				animation: spin 0.7s linear infinite;
+			}
+		}
+	}
 
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+	@keyframes spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
 `;

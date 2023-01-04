@@ -13,93 +13,96 @@ import { i18n } from "../../../i18n";
 import Breadcrumb from "../../shared/Breadcrumb";
 
 export default function ShowPublication() {
-  // GET entity id
-  const params = useParams();
-  let entityID = params.entity_id;
+	// GET entity id
+	const params = useParams();
+	let entityID = params.entity_id;
 
-  // FETCH DETAILS OF THAT ONE ENETITY
-  const [entity, setEntity] = useState({});
-  const [entityIsLoading, setEntityIsLoading] = useState(true);
-  const [data, setData] = useState([]);
-  const [user, setUser] = useState({});
-  const [userIsLoading, setUserIsLoading] = useState(true);
+	// FETCH DETAILS OF THAT ONE ENETITY
+	const [entity, setEntity] = useState({});
+	const [entityIsLoading, setEntityIsLoading] = useState(true);
+	const [data, setData] = useState([]);
+	const [user, setUser] = useState({});
+	const [userIsLoading, setUserIsLoading] = useState(true);
 
-  const fetchTypeEntitYDetails = (entityID) => {
-    MediathequeService.getOneMediatheque(entityID).then((value) => {
-      setEntity((entity) => ({ ...entity, ...value }));
-      setEntityIsLoading(false);
+	const fetchTypeEntitYDetails = (entityID) => {
+		MediathequeService.getOneMediatheque(entityID).then((value) => {
+			setEntity((entity) => ({ ...entity, ...value }));
+			setEntityIsLoading(false);
 
-      // loadig photos to be used in the grid
-      value.photos?.map((p) => {
-        setData((data) => data.concat(p.downloadUrl));
-      });
+			// loadig photos to be used in the grid
+			value.photos?.map((p) => {
+				setData((data) => data.concat(p.downloadUrl));
+			});
 
-      // fetching user's data once entity is loaded
-      TenantService.getTenant(value.tenant).then((userDetails) => {
-        setUser((user) => ({ ...user, ...userDetails }));
-        setUserIsLoading(false);
-      });
-    });
-  };
+			// fetching user's data once entity is loaded
+			TenantService.getTenant(value.tenant).then((userDetails) => {
+				setUser((user) => ({ ...user, ...userDetails }));
+				setUserIsLoading(false);
+			});
+		});
+	};
 
-  useEffect(() => {
-    fetchTypeEntitYDetails(entityID);
-  }, []);
+	useEffect(() => {
+		fetchTypeEntitYDetails(entityID);
+	}, []);
 
-  return (
-    <section>
-      <section className='wideContent'>
-        <Breadcrumb
-          items={[
-            [i18n("dashboard.menu"), "/"],
-            [i18n("entities.mediatique.label")],
-          ]}
-        />
+	return (
+		<section>
+			<section className="wideContent">
+				<Breadcrumb
+					items={[
+						[i18n("dashboard.menu"), "/"],
+						[i18n("entities.mediatique.label")],
+					]}
+				/>
 
-        <MainLayout>
-          <section className='rightSection'>
-            <Header entity={entity} user={user} userIsLoading={userIsLoading} />
-            {entityIsLoading ? (
-              <Skeleton height={500} />
-            ) : (
-              <Main entity={entity} data={data} />
-            )}
-          </section>
-        </MainLayout>
-      </section>
-    </section>
-  );
+				<MainLayout>
+					<section className="rightSection">
+						<Header entity={entity} user={user} userIsLoading={userIsLoading} />
+						{entityIsLoading ? (
+							<Skeleton height={500} />
+						) : (
+							<Main entity={entity} data={data} />
+						)}
+					</section>
+				</MainLayout>
+			</section>
+		</section>
+	);
 }
 
 // =========== STYLES ===========
 const MainLayout = styled.section`
-  width: var(--cerntered-content);
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin: 1rem auto;
+	width: var(--cerntered-content);
+	height: auto;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin: 1rem auto;
 
-  .rightSection {
-    width: 100%;
-    /* margin-right: 2.5rem; */
+	@media (max-width: 1171px) {
+		width: 100%;
+		margin: 120px 10px 10px 10px;
+		white-space: break-spaces;
+		overflow-x: hidden;
+	}
 
-    .socials {
-      width: 250px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+	.rightSection {
+		width: 100%;
+		/* margin-right: 2.5rem; */
 
-      button {
-        background-color: transparent;
-        border-radius: 50%;
-        color: var(--violet);
-        font-size: 1.8rem;
-      }
-    }
+		.socials {
+			width: 250px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 
-    @media (max-width: 767px) {
-      width: 100%;
-    }
-  }
+			button {
+				background-color: transparent;
+				border-radius: 50%;
+				color: var(--violet);
+				font-size: 1.8rem;
+			}
+		}
+	}
 `;

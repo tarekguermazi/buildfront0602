@@ -10,118 +10,118 @@ import styled from "styled-components";
 import Breadcrumb from "../shared/Breadcrumb";
 
 export default function ViewDetails() {
-  const params = useParams();
-  let entityID = params.id;
-  const langue = localStorage.getItem("language");
+	const params = useParams();
+	let entityID = params.id;
+	const langue = localStorage.getItem("language");
 
-  // FETCH DETAILS OF THAT ONE ENETITY
-  const [entity, setEntity] = useState({});
-  const [entityIsLoading, setEntityIsLoading] = useState(true);
+	// FETCH DETAILS OF THAT ONE ENETITY
+	const [entity, setEntity] = useState({});
+	const [entityIsLoading, setEntityIsLoading] = useState(true);
 
-  const fetchTypeEntitYDetails = (entityID) => {
-    GlossaireService.getGloassaireById(entityID).then((value) => {
-      setEntity((entity) => ({ ...entity, ...value }));
-      setEntityIsLoading(false);
+	const fetchTypeEntitYDetails = (entityID) => {
+		GlossaireService.getGloassaireById(entityID).then((value) => {
+			setEntity((entity) => ({ ...entity, ...value }));
+			setEntityIsLoading(false);
 
-      // fetching user's data once entity is loaded
-      TenantService.getTenant(value.tenant).then((userDetails) => {});
-    });
-  };
+			// fetching user's data once entity is loaded
+			TenantService.getTenant(value.tenant).then((userDetails) => {});
+		});
+	};
 
-  useEffect(() => {
-    fetchTypeEntitYDetails(entityID);
-  }, []);
+	useEffect(() => {
+		fetchTypeEntitYDetails(entityID);
+	}, []);
 
-  return (
-    <section>
-      <section className='wideContent'>
-        <MainLayout>
-          <section className='rightSection'>
-            {entityIsLoading ? (
-              <Skeleton height={500} />
-            ) : (
-              <div className='cardContent'>
-                {langue === "fr" ? (
-                  <>
-                    <Breadcrumb title={entity["nomFR"]} items={[]} />
-                    <div className='cardHeader'>
-                      {entity["categorie"] ? (
-                        <span className='categoryBadge'>
-                          {entity["categorie"]["titleFR"]}
-                        </span>
-                      ) : null}
-                      {entity["thematique"] ? (
-                        <span className='categoryBadgeTheme'>
-                          {entity["thematique"]["titleFR"]}
-                        </span>
-                      ) : null}
-                    </div>
+	return (
+		<section>
+			<section className="wideContent">
+				<MainLayout>
+					<section className="rightSection">
+						{entityIsLoading ? (
+							<Skeleton height={500} />
+						) : (
+							<div className="cardContent">
+								{langue === "fr" ? (
+									<>
+										<Breadcrumb title={entity["nomFR"]} items={[]} />
+										<div className="cardHeader">
+											{entity["categorie"] ? (
+												<span className="categoryBadge">
+													{entity["categorie"]["titleFR"]}
+												</span>
+											) : null}
+											{entity["thematique"] ? (
+												<span className="categoryBadgeTheme">
+													{entity["thematique"]["titleFR"]}
+												</span>
+											) : null}
+										</div>
 
-                    <br />
+										<br />
 
-                    <span>{entity["abreviationFR"]}</span>
-                    <br />
+										<span>{entity["abreviationFR"]}</span>
+										<br />
 
-                    <div className='cardContent'>{entity["definitionFR"]}</div>
-                    <br />
-                  </>
-                ) : langue === "ar" ? (
-                  <>
-                    <Breadcrumb title={entity["nomAR"]} items={[]} />
-                    <div className='cardHeader'>
-                      {entity["categorie"] ? (
-                        <span className='categoryBadge'>
-                          {entity["categorie"]["titleAR"]}
-                        </span>
-                      ) : null}
-                      {entity["thematique"] ? (
-                        <span className='categoryBadgeTheme'>
-                          {entity["thematique"]["titleAR"]}
-                        </span>
-                      ) : null}
-                    </div>
+										<div className="cardContent">{entity["definitionFR"]}</div>
+										<br />
+									</>
+								) : langue === "ar" ? (
+									<>
+										<Breadcrumb title={entity["nomAR"]} items={[]} />
+										<div className="cardHeader">
+											{entity["categorie"] ? (
+												<span className="categoryBadge">
+													{entity["categorie"]["titleAR"]}
+												</span>
+											) : null}
+											{entity["thematique"] ? (
+												<span className="categoryBadgeTheme">
+													{entity["thematique"]["titleAR"]}
+												</span>
+											) : null}
+										</div>
 
-                    <br />
+										<br />
 
-                    <span>{entity["abreviationAR"]}</span>
-                    <br />
+										<span>{entity["abreviationAR"]}</span>
+										<br />
 
-                    <div className='cardContent'>{entity["definitionAR"]}</div>
-                    <br />
-                  </>
-                ) : (
-                  <>
-                    <Breadcrumb title={entity["nomEN"]} items={[]} />
-                    <div className='cardHeader'>
-                      {entity["categorie"] ? (
-                        <span className='categoryBadge'>
-                          {entity["categorie"]["titleEN"]}
-                        </span>
-                      ) : null}
-                      {entity["thematique"] ? (
-                        <span className='categoryBadgeTheme'>
-                          {entity["thematique"]["titleEN"]}
-                        </span>
-                      ) : null}
-                    </div>
+										<div className="cardContent">{entity["definitionAR"]}</div>
+										<br />
+									</>
+								) : (
+									<>
+										<Breadcrumb title={entity["nomEN"]} items={[]} />
+										<div className="cardHeader">
+											{entity["categorie"] ? (
+												<span className="categoryBadge">
+													{entity["categorie"]["titleEN"]}
+												</span>
+											) : null}
+											{entity["thematique"] ? (
+												<span className="categoryBadgeTheme">
+													{entity["thematique"]["titleEN"]}
+												</span>
+											) : null}
+										</div>
 
-                    <br />
+										<br />
 
-                    <span>{entity["abreviationEN"]}</span>
-                    <br />
+										<span>{entity["abreviationEN"]}</span>
+										<br />
 
-                    <div className='cardContent'>{entity["definitionEN"]}</div>
-                    <br />
-                  </>
-                )}
-              </div>
-            )}
-          </section>
-        </MainLayout>
-        {/* <RelatedContent type={entity["categorie"]} /> */}
-      </section>
-    </section>
-  );
+										<div className="cardContent">{entity["definitionEN"]}</div>
+										<br />
+									</>
+								)}
+							</div>
+						)}
+					</section>
+				</MainLayout>
+				{/* <RelatedContent type={entity["categorie"]} /> */}
+			</section>
+		</section>
+	);
 }
 
 const MainLayout = styled.section`
@@ -133,6 +133,11 @@ const MainLayout = styled.section`
   // margin: 1rem auto;
   max-width: 100%;
   margin: 2rem auto;
+
+  @media (max-width : 1171px){ 
+    margin : 150px 10px 20px 10px;
+    
+  }
 
   p{
     font-size: 1rem;
