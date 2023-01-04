@@ -2291,7 +2291,10 @@ Styling the archeive verison Mobile  */
 	color: var(--violet);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1171px) {
+	.page__evenement {
+		margin: 60px 10px 0 10px;
+	}
 	.__evenement {
 		padding: 0 10px;
 		margin: 170px auto 0 auto;
@@ -2299,6 +2302,16 @@ Styling the archeive verison Mobile  */
 
 	.evenment__header {
 		display: none;
+	}
+}
+
+@media screen and (max-width: 1025px) {
+	.detaill__evenement {
+		display: flex !important;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		width: 100%;
+		overflow-x: hidden;
 	}
 }
 

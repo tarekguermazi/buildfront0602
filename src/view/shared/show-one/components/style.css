@@ -29,6 +29,7 @@
 	text-transform: uppercase;
 	color: var(--violet);
 }
+
 .detail__author {
 	display: flex;
 	width: 100%;
@@ -76,4 +77,11 @@
 .interest__detaill > div {
 	display: flex;
 	gap: 19px;
+}
+
+@media screen and (max-width: 1171px) {
+	.detail__title {
+		font-size: clamp(25px, 5vw, 40px);
+		line-height: 1.2;
+	}
 }
