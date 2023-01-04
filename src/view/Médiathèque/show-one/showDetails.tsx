@@ -82,7 +82,7 @@ const MainLayout = styled.section`
 
 	@media (max-width: 1171px) {
 		width: 100%;
-		margin: 120px 10px 10px 10px;
+		margin: 120px 0 10px;
 		white-space: break-spaces;
 		overflow-x: hidden;
 	}

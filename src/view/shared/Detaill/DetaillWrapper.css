@@ -9,6 +9,7 @@
 @media screen and (max-width: 1171px) {
 	.__detaillwrapper {
 		margin: 160px 10px 20px 10px;
+		overflow-x: hidden;
 	}
 }
 .list__detaills {

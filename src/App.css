@@ -2294,6 +2294,7 @@ Styling the archeive verison Mobile  */
 @media screen and (max-width: 1171px) {
 	.page__evenement {
 		margin: 60px 10px 0 10px;
+		overflow-x: hidden;
 	}
 	.__evenement {
 		padding: 0 10px;
@@ -4109,6 +4110,7 @@ button.splide__arrow--prev {
 		padding: 0 10px;
 		display: block;
 		margin: 180px 0 0 0;
+		overflow-x: hidden;
 	}
 }
 .app__pub {
@@ -4261,6 +4263,13 @@ button.splide__arrow--prev {
 	flex-direction: row;
 }
 
+@media screen and (max-width: 1171px) {
+	.pub__migration,
+	.pub__migration {
+		overflow-x: hidden;
+	}
+}
+
 /*        styling the articles + manifestation + évènement +Rapports      */
 
 .app__articles {
@@ -4365,6 +4374,7 @@ button.splide__arrow--prev {
 .wideContent {
 	max-width: 1170px;
 	margin: auto;
+	overflow-x: hidden;
 }
 
 .wideContent h1 {
