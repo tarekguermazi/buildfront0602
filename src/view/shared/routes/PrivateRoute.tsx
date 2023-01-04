@@ -15,7 +15,13 @@ function PrivateRoute({
   ...rest
 }) {
   const location = useLocation();
-
+  const permissionChecker = new PermissionChecker(currentTenant, currentUser);
+  console.log("currentTenant", currentTenant);
+  console.log("currentUser", currentUser);
+  console.log(
+    "permissionChecker.match(permissionRequired)",
+    permissionChecker.match(permissionRequired)
+  );
   return (
     <Route
       {...rest}
@@ -36,10 +42,10 @@ function PrivateRoute({
           );
         }
         if (permissionChecker.isEmptyPermissions) {
-          return <Redirect to='/auth/empty-permissions' />;
+          return <Redirect to="/auth/empty-permissions" />;
         }
         if (!permissionChecker.match(permissionRequired)) {
-          return <Redirect to='/403' />;
+          return <Redirect to="/403" />;
         }
         return (
           <div style={{ minHeight: "100%" }}>

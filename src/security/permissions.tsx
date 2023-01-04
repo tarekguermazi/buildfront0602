@@ -113,7 +113,12 @@ class Permissions {
       },
       publicationCreate: {
         id: "publicationCreate",
-        allowedRoles: [roles.admin, roles.Super_admin],
+        allowedRoles: [
+          roles.admin,
+          roles.Super_admin,
+          roles.chercheur,
+          roles.civile_ONG_international,
+        ],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
         allowedStorage: [storage.publicationSupports],
       },

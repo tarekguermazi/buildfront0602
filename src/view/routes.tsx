@@ -86,7 +86,7 @@ const privateRoutes = [
   {
     path: "/profile/update",
     loader: () => import("src/view/auth/ProfileForm"),
-    permissionRequired: permissions.userEdit,
+    permissionRequired: null,
     exact: true,
   },
   {
@@ -98,7 +98,7 @@ const privateRoutes = [
   {
     path: "/appui/new",
     loader: () => import("src/view/Appui/form/AppuiFormPage"),
-    permissionRequired: permissions.demandeAppuiCreate,
+    permissionRequired: null,
     exact: true,
   },
   {
@@ -111,7 +111,8 @@ const privateRoutes = [
   {
     path: "/publication/new",
     loader: () => import("src/view/Publications/form/PublicationFormPage"),
-    permissionRequired: permissions.publicationCreate,
+    // permissionRequired: permissions.publicationCreate,
+    permissionRequired: null,
     exact: true,
   },
   {
