@@ -3655,10 +3655,10 @@ td {
 	margin-inline: auto;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1171px) {
 	.contenu {
 		max-width: calc(100vw - 10%);
-		margin-inline: auto;
+		margin: 80px 10px 0 10px;
 	}
 }
 
