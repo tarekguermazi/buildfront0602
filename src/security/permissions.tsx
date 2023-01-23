@@ -254,7 +254,15 @@ class Permissions {
       },
       demandeAppuiCreate: {
         id: "demandeAppuiCreate",
-        allowedRoles: [roles.admin, roles.Super_admin],
+        allowedRoles: [
+          roles.admin,
+          roles.Super_admin,
+          roles.chercheur,
+          roles.acteur_social,
+          roles.civile_ONG_international,
+          roles.decideur,
+          roles.independant,
+        ],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
         allowedStorage: [storage.demandeAppuiSupports],
       },

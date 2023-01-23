@@ -11,24 +11,47 @@ import Spinner from "../shared/Spinner";
 import PublicationList from "src/view/Publications/list/PublicationList";
 import { i18n } from "../../i18n";
 
+import Permissions from "src/security/permissions";
+import PermissionChecker from "src/modules/auth/permissionChecker";
+
 function Profile() {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectors.selectCurrentUser);
+  const currentTenant = useSelector(selectors.selectCurrentTenant);
+
   const userDropdownAvatar = useSelector(selectors.selectCurrentUserAvatar);
   const [activeTab, setActiveTab] = useState("tab1");
   const countAppui = useSelector(selectorsAppui.selectCount);
   const countPublications = useSelector(selectorsPublication.selectCount);
   const publicationLoding = useSelector(selectorsPublication.selectLoading);
   const appuiLoading = useSelector(selectorsAppui.selectLoading);
-
+  //permissions
+  const permissions = Permissions.values;
+  const permissionChecker = new PermissionChecker(currentTenant, currentUser);
+  const demandeAppuiPermission = permissionChecker.match(
+    permissions.demandeAppuiCreate
+  );
+  const publicationPermission = permissionChecker.match(
+    permissions.publicationCreate
+  );
   const loading = appuiLoading || publicationLoding;
   const fetchAll = () => {
-    Promise.all([
-      dispatch(actionsPublication.doFetch()),
-      dispatch(actionsAppui.doFetch()),
-    ])
-      .then((res) => {})
-      .catch((error) => {});
+    if (demandeAppuiPermission) {
+      Promise.all([dispatch(actionsAppui.doFetch())])
+        .then((res) => {})
+        .catch((error) => {});
+    }
+    if (publicationPermission) {
+      Promise.all([dispatch(actionsPublication.doFetch())])
+        .then((res) => {})
+        .catch((error) => {});
+    }
+    // Promise.all([
+    //   dispatch(actionsPublication.doFetch()),
+    //   dispatch(actionsAppui.doFetch()),
+    // ])
+    //   .then((res) => {})
+    //   .catch((error) => {});
   };
   useEffect(() => {
     fetchAll();
@@ -48,8 +71,8 @@ function Profile() {
   // };
 
   return (
-    <div className='app__updateprofile'>
-      <div className='updateprofile'>
+    <div className="app__updateprofile">
+      <div className="updateprofile">
         {loading && <Spinner styles={134.545} />}
         {!loading && (
           <ProfileHeader
@@ -59,25 +82,35 @@ function Profile() {
             Image={userDropdownAvatar}
           />
         )}
-        <div className='profile__list'>
-          <div className='tabs'>
-            <ul className='nav'>
-              <li
-                className={activeTab === "tab1" ? "active__li__tabs" : ""}
-                onClick={handleTab1}>
-                {i18n("menu.contenu")}
-              </li>
-              <li
-                className={activeTab === "tab2" ? "active__li__tabs" : ""}
-                onClick={handleTab2}>
-                {i18n("menu.demande_appui")}
-              </li>
+        <div className="profile__list">
+          <div className="tabs">
+            <ul className="nav">
+              {publicationPermission ? (
+                <li
+                  className={activeTab === "tab1" ? "active__li__tabs" : ""}
+                  onClick={handleTab1}
+                >
+                  {i18n("menu.contenu")}
+                </li>
+              ) : null}
+              {demandeAppuiPermission ? (
+                <li
+                  className={activeTab === "tab2" ? "active__li__tabs" : ""}
+                  onClick={handleTab2}
+                >
+                  {i18n("menu.demande_appui")}
+                </li>
+              ) : null}
             </ul>
           </div>
 
           <React.Fragment>
-            {activeTab === "tab1" && <PublicationList />}
-            {activeTab === "tab2" && <AppuiList />}
+            {publicationPermission ? (
+              <>{activeTab === "tab1" && <PublicationList />}</>
+            ) : null}
+            {demandeAppuiPermission ? (
+              <>{activeTab === "tab2" && <AppuiList />}</>
+            ) : null}
           </React.Fragment>
         </div>
       </div>

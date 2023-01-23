@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 import { i18n } from "src/i18n";
 import { BsPencil } from "react-icons/bs";
 import Translate from "../../shared/Translate";
+import authSelectors from "src/modules/auth/authSelectors";
+import Permissions from "src/security/permissions";
+import PermissionChecker from "src/modules/auth/permissionChecker";
 
 function ListAppui(props) {
   const dispatch = useDispatch();
@@ -24,6 +27,17 @@ function ListAppui(props) {
   const doChangePagination = (pagination) => {
     dispatch(actions.doChangePaginationAndSort(pagination, {}));
   };
+  const currentUser = useSelector(authSelectors.selectCurrentUser);
+  const currentTenant = useSelector(authSelectors.selectCurrentTenant);
+  //permissions
+  const permissions = Permissions.values;
+  const permissionChecker = new PermissionChecker(currentTenant, currentUser);
+  const demandeNewPermission = permissionChecker.match(
+    permissions.demandeAppuiCreate
+  );
+  const demandePermission = permissionChecker.match(
+    permissions.demandeAppuiEdit
+  );
 
   const actionButtons = {
     fontSize: "1.2rem",
@@ -31,16 +45,18 @@ function ListAppui(props) {
   };
   return (
     <>
-      <div className='list__button'>
-        <div className='list__title'>
+      <div className="list__button">
+        <div className="list__title">
           <h2>{i18n("menu.contenu_recent")}</h2>
         </div>
-        <Link to='/appui/new'>
-          <div className='button__contenue'>{i18n("menu.demande_appui")}</div>
-        </Link>
+        {demandeNewPermission ? (
+          <Link to="/appui/new">
+            <div className="button__contenue">{i18n("menu.demande_appui")}</div>
+          </Link>
+        ) : null}
       </div>
-      <div className='list__search'>
-        <div className='search__left'>
+      <div className="list__search">
+        <div className="search__left">
           {count} {i18n("menu.contenus")}
         </div>
 
@@ -55,7 +71,7 @@ function ListAppui(props) {
           </div>
         </div> */}
       </div>
-      <div className='list__items'>
+      <div className="list__items">
         <table>
           <thead>
             <tr>
@@ -77,7 +93,7 @@ function ListAppui(props) {
             {!loading && !hasRows && (
               <tr>
                 <td colSpan={100}>
-                  <div className='d-flex justify-content-center'>
+                  <div className="d-flex justify-content-center">
                     {i18n("table.noData")}
                   </div>
                 </td>
@@ -90,11 +106,13 @@ function ListAppui(props) {
                   <td>{row.email}</td>
                   <td>{row.phoneNumber}</td>
                   <td>{Translate.Trans("description", row)}</td>
-                  <td style={actionButtons}>
-                    <Link to={`/appui/${row.id}/edit`}>
-                      <BsPencil className='icon' color='#a3a3a9' />
-                    </Link>
-                  </td>
+                  {demandePermission ? (
+                    <td style={actionButtons}>
+                      <Link to={`/appui/${row.id}/edit`}>
+                        <BsPencil className="icon" color="#a3a3a9" />
+                      </Link>
+                    </td>
+                  ) : null}
                 </tr>
               ))}
           </tbody>

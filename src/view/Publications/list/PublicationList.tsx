@@ -16,6 +16,10 @@ import { VscGraphScatter } from "react-icons/vsc";
 import PublicationListItem from "src/view/Publications/list/PublicationListItem";
 import { i18n } from "src/i18n";
 
+import authSelectors from "src/modules/auth/authSelectors";
+import Permissions from "src/security/permissions";
+import PermissionChecker from "src/modules/auth/permissionChecker";
+
 function PublicationList(props) {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,10 +32,22 @@ function PublicationList(props) {
   const hasRows = useSelector(selectors.selectHasRows);
   const count = useSelector(selectors.selectCount);
   const pagination = useSelector(selectors.selectPagination);
+
+  const currentUser = useSelector(authSelectors.selectCurrentUser);
+  const currentTenant = useSelector(authSelectors.selectCurrentTenant);
+
   const doChangePagination = (pagination) => {
     dispatch(actions.doChangePaginationAndSort(pagination, {}));
   };
-
+  //permissions
+  const permissions = Permissions.values;
+  const permissionChecker = new PermissionChecker(currentTenant, currentUser);
+  const publicationNewPermission = permissionChecker.match(
+    permissions.publicationCreate
+  );
+  const publicationPermission = permissionChecker.match(
+    permissions.publicationEdit
+  );
   const IconAndType = {
     width: "70px",
     display: "flex",
@@ -45,18 +61,20 @@ function PublicationList(props) {
 
   return (
     <>
-      <div className='list__button'>
-        <div className='list__title'>
+      <div className="list__button">
+        <div className="list__title">
           <h2>{i18n("menu.contenu_recent")}</h2>
         </div>
-        <Link to='/publication/new'>
-          <div className='button__contenue'>
-            {i18n("menu.suggerer_de_contenu")}
-          </div>
-        </Link>
+        {publicationNewPermission ? (
+          <Link to="/publication/new">
+            <div className="button__contenue">
+              {i18n("menu.suggerer_de_contenu")}
+            </div>
+          </Link>
+        ) : null}
       </div>
-      <div className='list__search'>
-        <div className='search__left'>
+      <div className="list__search">
+        <div className="search__left">
           {count} {i18n("menu.contenus")}
         </div>
 
@@ -71,7 +89,7 @@ function PublicationList(props) {
           </div>
         </div> */}
       </div>
-      <div className='list__items'>
+      <div className="list__items">
         <table>
           <thead>
             <tr>
@@ -94,7 +112,7 @@ function PublicationList(props) {
             {!loading && !hasRows && (
               <tr>
                 <td colSpan={100}>
-                  <div className='d-flex justify-content-center'>
+                  <div className="d-flex justify-content-center">
                     {i18n("table.noData")}
                   </div>
                 </td>
@@ -114,24 +132,24 @@ function PublicationList(props) {
                       {
                         {
                           Texte: (
-                            <GrTextAlignFull className='icon' fontSize={20} />
+                            <GrTextAlignFull className="icon" fontSize={20} />
                           ),
                           audio: (
-                            <BiMicrophone className='icon' fontSize={20} />
+                            <BiMicrophone className="icon" fontSize={20} />
                           ),
                           vidéo: (
-                            <IoVideocamOutline className='icon' fontSize={20} />
+                            <IoVideocamOutline className="icon" fontSize={20} />
                           ),
-                          "lien web": <CgLink className='icon' fontSize={20} />,
-                          photo: <BsCamera className='icon' fontSize={20} />,
+                          "lien web": <CgLink className="icon" fontSize={20} />,
+                          photo: <BsCamera className="icon" fontSize={20} />,
                           infographie: (
-                            <VscGraphScatter className='icon' fontSize={20} />
+                            <VscGraphScatter className="icon" fontSize={20} />
                           ),
                           statistiques: (
-                            <BiStats className='icon' fontSize={20} />
+                            <BiStats className="icon" fontSize={20} />
                           ),
                           autre: (
-                            <AiOutlineQuestion className='icon' fontSize={20} />
+                            <AiOutlineQuestion className="icon" fontSize={20} />
                           ),
                         }[row.type]
                       }
@@ -146,11 +164,13 @@ function PublicationList(props) {
                     </span>
                   </td>
                   <td> {row.date}</td>
-                  <td style={actionButtons}>
-                    <Link to={`/publication/${row.id}/edit`}>
-                      <BsPencil className='icon' color='#a3a3a9' />
-                    </Link>
-                  </td>
+                  {publicationPermission ? (
+                    <td style={actionButtons}>
+                      <Link to={`/publication/${row.id}/edit`}>
+                        <BsPencil className="icon" color="#a3a3a9" />
+                      </Link>
+                    </td>
+                  ) : null}
                 </tr>
               ))}
           </tbody>
