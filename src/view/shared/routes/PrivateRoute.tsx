@@ -15,19 +15,17 @@ function PrivateRoute({
   ...rest
 }) {
   const location = useLocation();
-  const permissionChecker = new PermissionChecker(currentTenant, currentUser);
-  console.log("currentTenant", currentTenant);
-  console.log("currentUser", currentUser);
-  console.log(
-    "permissionChecker.match(permissionRequired)",
-    permissionChecker.match(permissionRequired)
+  const permissionChecker = new PermissionChecker(
+    JSON.parse(currentTenant),
+    currentUser
   );
+
   return (
     <Route
       {...rest}
       render={(props) => {
         const permissionChecker = new PermissionChecker(
-          currentTenant,
+          JSON.parse(currentTenant),
           currentUser
         );
 
