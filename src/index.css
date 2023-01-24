@@ -1,174 +1,176 @@
 *,
 ::after,
 ::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 @font-face {
-  font-family: "Proxima Nova";
-  src: url(/public/fonts/Proxima\ Nova\ Font.otf);
-  font-style: normal;
-  font-display: fallback;
+	font-family: "Proxima Nova";
+	src: url(/public/fonts/Proxima\ Nova\ Font.otf);
+	font-style: normal;
+	font-display: fallback;
 }
 
 @font-face {
-  font-family: "Bebas Neue Pro";
-  src: url(/public/fonts/BebasNeue\ Bold.ttf);
-  font-style: normal;
-  font-display: fallback;
+	font-family: "Bebas Neue Pro";
+	src: url(/public/fonts/BebasNeue\ Bold.ttf);
+	font-style: normal;
+	font-display: fallback;
 }
 
 :root {
-  /* Primary Color  */
-  --red: #e1011a;
-  --white: #ffffff;
-  --violet: #2b2840;
-  --violet-dark: #201e31;
-  /* Secodary Color */
-  --background: #f1f1f1;
-  --gray1: #e5e5e5;
-  --gray2: #4f4f4f;
-  --gray3: #828282;
-  --gray4: #f1f1f1;
-  --gray5: #a3a3a9;
-  --gray6: #f4f4f4;
-  --navigate__left: #bfbfc6;
-  --dark--red: #c40720;
-  --green: #14b685;
-  --border__green: #8bdfc7;
-  --background__green: #eaf9f6;
-  --hover__select: rgb(222, 235, 255);
+	/* Primary Color  */
+	--red: #e1011a;
+	--white: #ffffff;
+	--violet: #2b2840;
+	--violet-dark: #201e31;
+	/* Secodary Color */
+	--background: #f1f1f1;
+	--gray1: #e5e5e5;
+	--gray2: #4f4f4f;
+	--gray3: #828282;
+	--gray4: #f1f1f1;
+	--gray5: #a3a3a9;
+	--gray6: #f4f4f4;
+	--navigate__left: #bfbfc6;
+	--dark--red: #c40720;
+	--green: #14b685;
+	--border__green: #8bdfc7;
+	--background__green: #eaf9f6;
+	--hover__select: rgb(222, 235, 255);
 
-  /* SIZES */
-  --cerntered-content: 1170px;
+	/* SIZES */
+	--cerntered-content: 1170px;
 }
 
 h1 {
-  font-family: "Bebas Neue", cursive;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 54px;
-  line-height: 32px;
+	font-family: "Bebas Neue", cursive;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 54px;
+	line-height: 32px;
 }
 
 h2 {
-  font-family: "Bebas Neue";
-  font-size: 40px;
-  line-height: 39px;
-  color: var(--violet);
-  text-transform: uppercase;
-  font-weight: 400;
+	font-family: "Bebas Neue";
+	font-size: 40px;
+	line-height: 39px;
+	color: var(--violet);
+	text-transform: uppercase;
+	font-weight: 400;
 }
 
 h3 {
-  font-size: 38px;
-  line-height: 42px;
-  font-weight: 700;
+	font-size: 38px;
+	line-height: 42px;
+	font-weight: 700;
 }
 
 h4 {
-  font-size: 27px;
-  line-height: 32px;
-  font-weight: 400;
-  color: var(--violet);
-  text-transform: uppercase;
-  font-family: "Bebas Neue Pro";
-  white-space: nowrap;
+	font-size: 27px;
+	line-height: 32px;
+	font-weight: 400;
+	color: var(--violet);
+	text-transform: uppercase;
+	font-family: "Bebas Neue Pro";
+	white-space: nowrap;
 }
 
 h5 {
-  color: var(--violet);
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 39px;
-  font-family: "Bebas Neue Pro";
-  white-space: nowrap;
+	color: var(--violet);
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 40px;
+	line-height: 39px;
+	font-family: "Bebas Neue Pro";
+	white-space: nowrap;
 }
 
 li {
-  font-family: "Bebas Neue", cursive;
-  white-space: nowrap;
-  color: var(--violet);
-  list-style: none;
-  font-size: 19px;
-  line-height: 32px;
-  cursor: pointer;
+	font-family: "Bebas Neue", cursive;
+	white-space: nowrap;
+	color: var(--violet);
+	list-style: none;
+	font-size: 19px;
+	line-height: 32px;
+	cursor: pointer;
 }
 .ant-tabs-tab {
-  font-family: "Bebas Neue", cursive;
-  white-space: nowrap;
-  color: var(--violet);
-  list-style: none;
-  font-size: 19px !important;
-  line-height: 32px;
-  cursor: pointer;
+	font-family: "Bebas Neue", cursive;
+	white-space: nowrap;
+	color: var(--violet);
+	list-style: none;
+	font-size: 19px !important;
+	line-height: 32px;
+	cursor: pointer;
 }
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: var(--red) !important;
-  text-shadow: 0 0 0.25px var(--red) !important;
+	color: var(--red) !important;
+	text-shadow: 0 0 0.25px var(--red) !important;
 }
 .ant-tabs-tab-btn:focus,
 .ant-tabs-tab-remove:focus,
 .ant-tabs-tab-btn:active,
 .ant-tabs-tab-remove:active {
-  color: var(--red) !important;
+	color: var(--red) !important;
 }
 .ant-tabs-tab-remove:hover {
-  color: rgba(0, 0, 0, 0.85) !important;
+	color: rgba(0, 0, 0, 0.85) !important;
 }
 
 .ant-tabs-tab:hover {
-  color: var(--red) !important;
+	color: var(--red) !important;
 }
 .ant-tabs-ink-bar {
-  border-bottom: 2px solid var(--red) !important;
+	border-bottom: 2px solid var(--red) !important;
 }
 p {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
 }
 
 a {
-  text-decoration: none;
-  white-space: nowrap;
+	text-decoration: none;
+	white-space: nowrap;
 }
 
 input {
-  color: var(--gray3);
-  border: 0;
-  background-color: transparent;
+	color: var(--gray3);
+	border: 0;
+	background-color: transparent;
 }
 
 input:focus {
-  outline: 0;
+	outline: 0;
 }
 
 select:focus {
-  outline: 0;
+	outline: 0;
 }
 
 html,
 body {
-  font-family: "Proxima Nova Pro";
-  font-weight: 400;
+	font-family: "Proxima Nova Pro";
+	font-weight: 400;
 }
 button {
-  border: 0;
-  cursor: pointer;
+	border: 0;
+	cursor: pointer;
 }
 
 .lazy-load-image-background.blur.lazy-load-image-loaded > img {
-  object-fit: cover !important;
+	object-fit: cover !important;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 video {
-  width: 350px !important;
-  height: 350px !important;
+	width: 350px !important;
+	height: 350px !important;
 }

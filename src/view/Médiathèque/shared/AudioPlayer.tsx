@@ -28,7 +28,9 @@ export default function AudioPlayer({ dataSource }) {
 					{Translate.Trans("title", dataSource)}
 				</span>
 			</div>
-			{dataSource?.link && <ReactPlayer url={dataSource?.link} width={280} />}
+			{dataSource?.link && (
+				<ReactPlayer url={dataSource?.link} width={280} height={100} />
+			)}
 		</AudioPlayerLayout>
 	);
 }
