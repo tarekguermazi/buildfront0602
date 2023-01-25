@@ -50,6 +50,7 @@ function ProfileForm() {
   const dispatch = useDispatch();
   const loading = useSelector(selectors.selectLoadingUpdateProfile);
   const currentUser = useSelector(selectors.selectCurrentUser);
+  console.log("current user", currentUser);
   const [initialValues] = useState(() => {
     const record = currentUser || {};
     return {
@@ -60,6 +61,7 @@ function ProfileForm() {
       occupation: record.occupation,
       region: record.region,
       avatars: record.avatars || [],
+      membership: record.membership,
     };
   });
   const form = useForm({
@@ -73,47 +75,51 @@ function ProfileForm() {
     });
   };
   const onSubmit = (values) => {
-    dispatch(actions.doUpdateProfile(values));
+    const data = {
+      ...values,
+      membership: currentUser.membership,
+    };
+    dispatch(actions.doUpdateProfile(data));
   };
 
   return (
-    <div className='app__updateprofile'>
-      <Link to='/profile'>
+    <div className="app__updateprofile">
+      <Link to="/profile">
         <Retour />
       </Link>
       <FormWrapper>
         <FormProvider {...form}>
-          <div className='modifyprofile'>
+          <div className="modifyprofile">
             <ImagesFormItem
-              name='avatars'
+              name="avatars"
               label={"user.fields.avatars"}
               storage={Storage.values.userAvatarsProfiles}
               max={1}
             />
-            <div className='profile__user'>
-              <div className='profile__detaill'>
-                <div className='title__profile'>{currentUser.fullName}</div>
-                <div className='title__description'>
+            <div className="profile__user">
+              <div className="profile__detaill">
+                <div className="title__profile">{currentUser.fullName}</div>
+                <div className="title__description">
                   {currentUser.occupation}, {currentUser.pays}
                 </div>
               </div>
 
               <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className='Login__container'>
-                  <div className='container__form'>
+                <div className="Login__container">
+                  <div className="container__form">
                     <InputFormItem
-                      name='firstName'
+                      name="firstName"
                       label={i18n("user.fields.firstName")}
-                      placeholder='Nom'
-                      autoComplete='firstName'
+                      placeholder="Nom"
+                      autoComplete="firstName"
                       autoFocus
                     />
 
                     <InputFormItem
-                      name='lastName'
+                      name="lastName"
                       label={i18n("user.fields.lastName")}
-                      placeholder='Prénom'
-                      autoComplete='Prénom'
+                      placeholder="Prénom"
+                      autoComplete="Prénom"
                     />
                     <SelectFormItem
                       name={"pays"}
@@ -143,44 +149,46 @@ function ProfileForm() {
                     />
 
                     <InputFormItem
-                      name='phoneNumber'
+                      name="phoneNumber"
                       label={i18n("user.fields.phoneNumber")}
-                      autoComplete='phoneNumber'
+                      autoComplete="phoneNumber"
                     />
-                    <div className='form__group'>
+                    <div className="form__group">
                       <div className={"input-group"}>
-                        <label htmlFor='email'>
+                        <label htmlFor="email">
                           {i18n("user.fields.email")}
                         </label>
                         <input
-                          type='text'
-                          className='form-control'
-                          id='email'
+                          type="text"
+                          className="form-control"
+                          id="email"
                           name={"email"}
                           value={currentUser.email}
                           readOnly
                         />
                       </div>
                     </div>
-                    <div className='form__oublier'>
-                      <div className='oublier'>
-                        <Link to='/password-change' className='reset'>
+                    <div className="form__oublier">
+                      <div className="oublier">
+                        <Link to="/password-change" className="reset">
                           Changer mot de passe
                         </Link>
                       </div>
                     </div>
-                    <div className='item__button'>
+                    <div className="item__button">
                       <button
-                        className='cancel__button'
+                        className="cancel__button"
                         onClick={onReset}
-                        type='button'
-                        disabled={loading}>
+                        type="button"
+                        disabled={loading}
+                      >
                         {i18n("common.reset")}
                       </button>
                       <button
-                        className='form__button'
+                        className="form__button"
                         onClick={form.handleSubmit(onSubmit)}
-                        disabled={loading}>
+                        disabled={loading}
+                      >
                         <ButtonIcon loading={loading} />
                         {i18n("common.save")}
                       </button>

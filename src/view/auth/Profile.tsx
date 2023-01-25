@@ -18,13 +18,6 @@ function Profile() {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectors.selectCurrentUser);
   const currentTenant = useSelector(selectors.selectCurrentTenant);
-
-  const userDropdownAvatar = useSelector(selectors.selectCurrentUserAvatar);
-  const [activeTab, setActiveTab] = useState("tab1");
-  const countAppui = useSelector(selectorsAppui.selectCount);
-  const countPublications = useSelector(selectorsPublication.selectCount);
-  const publicationLoding = useSelector(selectorsPublication.selectLoading);
-  const appuiLoading = useSelector(selectorsAppui.selectLoading);
   //permissions
   const permissions = Permissions.values;
   const permissionChecker = new PermissionChecker(currentTenant, currentUser);
@@ -34,6 +27,15 @@ function Profile() {
   const publicationPermission = permissionChecker.match(
     permissions.publicationCreate
   );
+  const userDropdownAvatar = useSelector(selectors.selectCurrentUserAvatar);
+  const [activeTab, setActiveTab] = useState(
+    publicationPermission ? "tab1" : "tab2"
+  );
+  const countAppui = useSelector(selectorsAppui.selectCount);
+  const countPublications = useSelector(selectorsPublication.selectCount);
+  const publicationLoding = useSelector(selectorsPublication.selectLoading);
+  const appuiLoading = useSelector(selectorsAppui.selectLoading);
+
   const loading = appuiLoading || publicationLoding;
   const fetchAll = () => {
     if (demandeAppuiPermission) {
