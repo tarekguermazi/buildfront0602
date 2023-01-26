@@ -48,7 +48,13 @@ const en = {
     category: "By category",
     published: "Published",
     by: "By",
-    retour: "Retour",
+    retour: "Back",
+    FTDES:
+      "The Tunisian Forum for Economic and Social Rights is a non-governmental organization, neutral, independent of any political party and any religious institution.",
+    social_media: "Social Media",
+    address: `Address: 47, Avenue Farhat Hached 2nd floor 1001 Tunis Tel. : 71
+    257 664 Email: contact@ftdes.net`,
+    laUne: "Featured",
   },
 
   app: {
@@ -114,11 +120,74 @@ const en = {
   },
 
   buttons: {
-    chercher: "look for",
-    filtrer: "filter",
+    chercher: "Search",
+    filtrer: "Filter",
     envoyer: "Send",
   },
   entities: {
+    mediatique: {
+      name: "mediatique",
+      label: "Media libraries",
+      menu: "Media libraries",
+      exporterFileName: "exportation_mediatique",
+
+      list: {
+        menu: "Media libraries",
+        title: "Media libraries",
+      },
+      create: {
+        success: "Media library successfully saved",
+      },
+      update: {
+        success: "Media library successfully saved",
+      },
+      destroy: {
+        success: "Media library successfully deleted",
+      },
+      destroyAll: {
+        success: "Media library(s) successfully deleted",
+      },
+      edit: {
+        title: "Éditer Media library",
+      },
+      fields: {
+        id: "Id",
+        title: "Title",
+        titleFR: "French title",
+        titleAR: "Arabic title",
+        titleEN: "English title",
+        description: "Description",
+        type: "Type",
+        photos: "Photos",
+        videos: "Vidéos",
+        attachements: "Attachements",
+        createdAt: "Crée le",
+        updatedAt: "Mis à jour le",
+        createdAtRange: "Crée le",
+      },
+      enumerators: {
+        type: {
+          podcast: "Podcast",
+          documentaire: "Documentaries",
+          videos: "Videos",
+          exposition: "Virtual Exhibitions",
+          autres: "Others (Stickers, Flyers, Banners ...)",
+        },
+      },
+      placeholders: {},
+      hints: {},
+      new: {
+        title: "Nouveau Media library",
+      },
+      view: {
+        title: "Afficher Media library",
+      },
+      importer: {
+        title: "Importer Media libraries",
+        fileName: "mediatique_import_template",
+        hint: "Les colonnes Fichiers/Images doivent contenir les URL des fichiers séparés par des espaces.",
+      },
+    },
     contact: {
       name: "contact",
       label: "Contacts",
@@ -129,16 +198,16 @@ const en = {
         title: "Contacts",
       },
       create: {
-        success: "Contact enregistré avec succès",
+        success: "Contact successfully saved",
       },
       update: {
-        success: "Contact enregistré avec succès",
+        success: "Contact successfully saved",
       },
       destroy: {
-        success: "Contact supprimé avec succès",
+        success: "Contact successfully deleted",
       },
       destroyAll: {
-        success: "Contact(s) supprimé avec succès",
+        success: "Contact(s) successfully deleted",
       },
       edit: {
         title: "Editer Contact",
@@ -270,16 +339,16 @@ const en = {
         title: "Glossaires",
       },
       create: {
-        success: "Glossaire enregistré avec succès",
+        success: "Glossaire successfully saved",
       },
       update: {
-        success: "Glossaire enregistré avec succès",
+        success: "Glossaire successfully saved",
       },
       destroy: {
         success: "Glossaire successfully deleted",
       },
       destroyAll: {
-        success: "Glossaire(s) supprimé avec succès",
+        success: "Glossaire(s) successfully deleted",
       },
       edit: {
         title: "Éditer Glossaire",
@@ -339,7 +408,7 @@ const en = {
       },
       fields: {
         id: "Id",
-        title: "Titre",
+        title: "Title",
         sujet: "Sujet",
         visibilite: "Visibilite",
         statut: "Statut",
@@ -570,7 +639,7 @@ const en = {
       },
       fields: {
         id: "Id",
-        title: "Titre",
+        title: "Title",
         description: "Description",
         tags: "Tags",
         createdAt: "Created at",
@@ -619,7 +688,7 @@ const en = {
       },
       fields: {
         id: "Id",
-        title: "Titre",
+        title: "Title",
         description: "Description",
         createdAt: "Created at",
         updatedAt: "Updated at",
@@ -723,7 +792,7 @@ const en = {
         id: "Id",
         artiste: "Artiste",
         supports: "Supports",
-        title: "Titre",
+        title: "Title",
         description: "Description",
         createdAt: "Created at",
         updatedAt: "Updated at",

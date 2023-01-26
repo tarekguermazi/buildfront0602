@@ -66,12 +66,15 @@ export default class AuthService {
     return response.data;
   }
 
-  static async passwordReset(token, password) {
-    const response = await authAxios.put("/auth/password-reset", {
-      token,
-      password,
-    });
-
+  static async passwordReset(password) {
+    const response = await authAxios.put(
+      "/auth/send-password-reset-email-portail",
+      {
+        // token,
+        password,
+      }
+    );
+    console.log("response", response);
     return response.data;
   }
 

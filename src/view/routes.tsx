@@ -5,7 +5,7 @@ const permissions = Permissions.values;
 const navigateRoutes = [
   {
     path: "/",
-    loader: () => import("src/view/Home/Home"),
+    loader: () => import("src/view/Publications/Publications"),
   },
   {
     path: "/TableaudeBoard",

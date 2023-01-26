@@ -289,13 +289,13 @@ const authActions = {
     }
   },
 
-  doResetPassword: (token, password) => async (dispatch) => {
+  doResetPassword: (password) => async (dispatch) => {
     try {
       dispatch({
         type: authActions.PASSWORD_RESET_START,
       });
 
-      await service.passwordReset(token, password);
+      await service.passwordReset(password);
 
       Message.success(i18n("auth.passwordResetSuccess"));
       dispatch({
