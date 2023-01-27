@@ -10,45 +10,46 @@ import {
 import CopyWrite from "./CopyWrite";
 import NewsLettre from "./NewsLettre";
 import { Link } from "react-router-dom";
+import { i18n } from "../../i18n";
 
 export default function MegaFooter() {
+  const langue = localStorage.getItem("language");
+
   return (
     <>
       <NewsLettre />
-      <div className='app__footer'>
-        <div className='footer'>
-          <div className='footer__logo'>
-            <img src={logo__footer} alt='' />
-            <div className='footer__content detaill__footer'>
-              Le Forum Tunsien pour les Droits Economiques et Sociaux est une
-              organisation non gouvernementale, neutre, indépendante de tout
-              parti politique et de toute institution religieuse.
+      <div className="app__footer">
+        <div className="footer">
+          <div className="footer__logo">
+            <img src={logo__footer} alt="" />
+            <div className="footer__content detaill__footer">
+              {i18n("common.FTDES")}
             </div>
           </div>
-          <div className='hr__bar'></div>
-          <div className='footer__menu'>
-            <div className='label__footer'>Menu</div>
-            <div className='footer__content content__menu'>
+          <div className="hr__bar"></div>
+          <div className="footer__menu">
+            <div className="label__footer">{i18n("common.Menue")}</div>
+            <div className="footer__content content__menu">
               <div>
                 <ul>
                   <li>
-                    <Link className='footerLink' to='/A_propos'>
-                      A propos
+                    <Link className="footerLink" to="/A_propos">
+                      {i18n("menu.propos")}
                     </Link>
                   </li>
                   <li>
-                    <Link className='footerLink' to='/Archives'>
-                      Archive
+                    <Link className="footerLink" to="/Archives">
+                      {i18n("menu.Archives")}
                     </Link>
                   </li>
                   <li>
-                    <Link className='footerLink' to='/Glossaire'>
-                      Glossaire
+                    <Link className="footerLink" to="/Glossaire">
+                      {i18n("menu.Glossaire")}
                     </Link>
                   </li>
                   <li>
-                    <Link className='footerLink' to='/Publications'>
-                      Publications
+                    <Link className="footerLink" to="/Publications">
+                      {i18n("menu.Publications")}
                     </Link>
                   </li>
                 </ul>
@@ -56,47 +57,46 @@ export default function MegaFooter() {
               <div>
                 <ul>
                   <li>
-                    <Link className='footerLink' to='/Evenements'>
-                      Evenements
+                    <Link className="footerLink" to="/Evenements">
+                      {i18n("menu.Evènements")}
                     </Link>
                   </li>
                   <li>
-                    <Link className='footerLink' to='/Contact'>
-                      Contact
+                    <Link className="footerLink" to="/Contact">
+                      {i18n("menu.Contact")}
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <div className='hr__bar'></div>
-          <div className='footer__socialmedia'>
-            <div className='label__footer'> Social media</div>
-            <div className='footer__content content__socialmedia'>
-              <div className='socialmedia__facebook'>
-                <img className='lazyload' src={facebook} alt='' />
+          <div className="hr__bar"></div>
+          <div className="footer__socialmedia">
+            <div className="label__footer">{i18n("common.social_media")}</div>
+            <div className="footer__content content__socialmedia">
+              <div className="socialmedia__facebook">
+                <img className="lazyload" src={facebook} alt="" />
                 Facebook
               </div>
-              <div className='socialmedia__Twitter'>
-                <img className='lazyload' src={twitter} alt='' />
+              <div className="socialmedia__Twitter">
+                <img className="lazyload" src={twitter} alt="" />
                 Twitter
               </div>
-              <div className='socialmedia__Youtube'>
-                <img className='lazyload' src={youtube} alt='' />
+              <div className="socialmedia__Youtube">
+                <img className="lazyload" src={youtube} alt="" />
                 Youtube
               </div>
-              <div className='socialmedia__Instagram'>
-                <img className='lazyload' src={instagram} alt='' />
+              <div className="socialmedia__Instagram">
+                <img className="lazyload" src={instagram} alt="" />
                 Instagram
               </div>
             </div>
           </div>
-          <div className='hr__bar'></div>
-          <div className='footer__contact'>
-            <div className='label__footer'> Contact</div>
-            <div className='footer__content contact__desctioption'>
-              Adresse : 47, Avenue Farhat Hached 2eme étage 1001 Tunis Tél. : 71
-              257 664 Email : contact@ftdes.net
+          <div className="hr__bar"></div>
+          <div className="footer__contact">
+            <div className="label__footer">{i18n("common.Contact")}</div>
+            <div className="footer__content contact__desctioption">
+              {i18n("common.address")}
             </div>
           </div>
         </div>

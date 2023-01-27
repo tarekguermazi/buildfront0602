@@ -7,7 +7,7 @@ export default function VoirPlusButton({ contentType }) {
   return (
     <LinkLayout>
       <Link to={"/Mediatheque/type/" + contentType}>
-        <div className='plus__button'>Voir plus</div>
+        <div className="plus__button">{i18n("common.voirPlus")}</div>
       </Link>
     </LinkLayout>
   );

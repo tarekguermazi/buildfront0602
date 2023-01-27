@@ -6,6 +6,7 @@ import moment from "moment";
 // ICONS
 import { IoVideocamOutline } from "react-icons/io5";
 import Translate from "../../shared/Translate";
+import { i18n } from "src/i18n";
 
 export default function VerticalPlayer({ dataSource }) {
   // HELPER FUNCTIONS
@@ -15,28 +16,29 @@ export default function VerticalPlayer({ dataSource }) {
   };
 
   return (
-    <VerticalPlayerCard key={dataSource._id} className='videoCardVertical'>
+    <VerticalPlayerCard key={dataSource._id} className="videoCardVertical">
       {dataSource.photos?.length > 0 ? (
         <div
-          className='cardThumbnail'
+          className="cardThumbnail"
           style={{
             backgroundImage: "url(" + dataSource.photos[0].downloadUrl + ")",
-          }}>
-          <EntityPlayerButton data={dataSource} entity='mainGridPlayer' />
+          }}
+        >
+          <EntityPlayerButton data={dataSource} entity="mainGridPlayer" />
         </div>
       ) : (
-        <div className='cardThumbnail hasNoThumbnail'>
-          <EntityPlayerButton data={dataSource} entity='mainGridPlayer' />
+        <div className="cardThumbnail hasNoThumbnail">
+          <EntityPlayerButton data={dataSource} entity="mainGridPlayer" />
         </div>
       )}
-      <div className='dateAndType'>
-        <div className='contentType'>
-          <IoVideocamOutline className='icon' />
-          {dataSource.type}
+      <div className="dateAndType">
+        <div className="contentType">
+          <IoVideocamOutline className="icon" />
+          {i18n(`entities.mediatique.enumerators.type.${dataSource.type}`)}
         </div>
-        <span className='contentDate'>{pipeDate(dataSource.updatedAt)}</span>
+        <span className="contentDate">{pipeDate(dataSource.updatedAt)}</span>
       </div>
-      <div className='verticalPlayerTitle text__wrap'>
+      <div className="verticalPlayerTitle text__wrap">
         <span>{Translate.Trans("title", dataSource)}</span>
       </div>
     </VerticalPlayerCard>

@@ -15,6 +15,7 @@ import { AiOutlineQuestion } from "react-icons/ai";
 import { VscGraphScatter } from "react-icons/vsc";
 import moment from "moment";
 import Translate from "../shared/Translate";
+import { i18n } from "src/i18n";
 
 export default function MainSplide({ data }) {
   // HELPER FUNCTIONS
@@ -31,68 +32,73 @@ export default function MainSplide({ data }) {
           pagination: true,
           wheel: false,
         }}
-        className='splide'>
+        className="splide"
+      >
         {data?.map((post) => {
           return (
             <SplideSlide
               key={post._id}
-              className='horizontalPlayer'
+              className="horizontalPlayer"
               style={{
                 background:
                   "linear-gradient(115.19deg, #2B2840 28.27%, rgba(43, 40, 64, 0) 68.81%), linear-gradient(0deg, rgba(43, 40, 64, 0.7), rgba(43, 40, 64, 0.7)), url(" +
                   post.photos[0]?.downloadUrl +
                   ")",
-              }}>
+              }}
+            >
               <section>
                 <div>
                   {post.photos?.length ? (
                     <div
-                      className='cardThumbnail'
+                      className="cardThumbnail"
                       style={{
                         backgroundImage:
                           "url(" + post.photos[0].downloadUrl + ")",
-                      }}>
-                      <EntityPlayerButton data={post} entity='main' />
+                      }}
+                    >
+                      <EntityPlayerButton data={post} entity="main" />
                     </div>
                   ) : (
-                    <div className='cardThumbnail hasNoThumbnail'>
-                      <EntityPlayerButton data={post} entity='main' />
+                    <div className="cardThumbnail hasNoThumbnail">
+                      <EntityPlayerButton data={post} entity="main" />
                     </div>
                   )}
                 </div>
                 <div>
-                  <div className='dateAndType'>
-                    <div className='contentType'>
+                  <div className="dateAndType">
+                    <div className="contentType">
                       {
                         {
-                          Texte: <GrTextAlignFull className='icon' size={20} />,
-                          audio: <BiMicrophone className='icon' size={20} />,
+                          Texte: <GrTextAlignFull className="icon" size={20} />,
+                          audio: <BiMicrophone className="icon" size={20} />,
                           videos: (
-                            <IoVideocamOutline className='icon' size={20} />
+                            <IoVideocamOutline className="icon" size={20} />
                           ),
-                          "lien web": <CgLink className='icon' size={20} />,
-                          photo: <BsCamera className='icon' size={20} />,
+                          "lien web": <CgLink className="icon" size={20} />,
+                          photo: <BsCamera className="icon" size={20} />,
                           infographie: (
-                            <VscGraphScatter className='icon' size={20} />
+                            <VscGraphScatter className="icon" size={20} />
                           ),
-                          statistiques: <BiStats className='icon' size={20} />,
+                          statistiques: <BiStats className="icon" size={20} />,
                           autres: (
-                            <AiOutlineQuestion className='icon' size={20} />
+                            <AiOutlineQuestion className="icon" size={20} />
                           ),
                         }[post.type]
                       }
-                      {post.type}
+                      {i18n(
+                        `entities.mediatique.enumerators.type.${post.type}`
+                      )}
                     </div>
-                    <span className='contentDate'>
+                    <span className="contentDate">
                       {pipeDate(post.updatedAt)}
                     </span>
                   </div>
 
-                  <div className='textContent'>
-                    <div className='horizontalPlayerTitle ow'>
+                  <div className="textContent">
+                    <div className="horizontalPlayerTitle ow">
                       {Translate.Trans("title", post)}
                     </div>
-                    <div className='horizontalPlayerDescription text__wrap'>
+                    <div className="horizontalPlayerDescription text__wrap">
                       {Translate.Trans("description", post)}
                     </div>
                   </div>

@@ -69,7 +69,6 @@ function DescriptionPublication(props) {
 							<div className="socialMedia__title">
 								{i18n("common.Partager")} :
 							</div>
-
 							<Image src={Facebook} />
 							<Image src={twitter} />
 							<Image src={Instagramm} />

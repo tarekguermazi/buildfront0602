@@ -33,6 +33,7 @@
     "md5": "2.3.0",
     "moment": "^2.29.4",
     "nprogress": "0.2.0",
+    "pspdfkit": "^2022.5.5",
     "qs": "6.9.4",
     "query-string": "6.13.8",
     "rc-pagination": "^3.1.17",

@@ -70,6 +70,11 @@ const ar = {
 		published: "تمّ النّشر",
 		by: "حسب",
 		retour: "الرجوع",
+		FTDES: `المنتدى التونسي للحقوق الاقتصادية والاجتماعية هو منظمة غير حكومية ومحايدة ومستقلة عن أي حزب سياسي وأي مؤسسة دينية.`,
+		social_media: "وسائل التواصل الاجتماعي",
+		address: `العنوان: 47 شارع فرحات حاشد الطابق الثاني 1001 تونس هاتف. : 71
+    257664 البريد الإلكتروني: contact@ftdes.net`,
+		laUne: "الرئيسية",
 	},
 
 	footer: { newsLettre: "" },
@@ -95,7 +100,7 @@ const ar = {
 		demander_d_appui: "طلب مساندة",
 		favoris: "قائمة المفضّلات",
 		deconnexion: "اغلاق الحساب",
-		espace_membre: "مساحة المشتركين.ات",
+		espace_membre: "مساحة المشتركين",
 		contenu: "المحتوى",
 		demande_appui: "طلب مساندة",
 		contenu_recent: "آخر محتوى",
@@ -571,7 +576,7 @@ const ar = {
 		},
 		mediatique: {
 			name: "mediatique",
-			label: "Médiathèques",
+			label: "المكتبة الرّقميّة",
 			menu: "Médiathèques",
 			exporterFileName: "exportation_mediatique",
 
@@ -611,11 +616,11 @@ const ar = {
 			},
 			enumerators: {
 				type: {
-					podcast: "Podcast",
-					documentaire: "Documentaires",
-					videos: "Vidéos",
-					exposition: "Expositions Virtuelles",
-					autres: "Autres (Stickers, Flyers, Banderôles ...)",
+					podcast: "تدوين صوتي",
+					documentaire: "الافلام الوثائقية",
+					videos: "أشرطة فيديو",
+					exposition: "المعارض الافتراضية",
+					autres: "أخرى (ملصقات ، منشورات ، لافتات ...)",
 				},
 			},
 			placeholders: {},
@@ -850,6 +855,7 @@ const ar = {
 		alreadyHaveAnAccount: `تسجيل الدخول`,
 		already: "Déjà inscrit?",
 		HaveAnAccount: "لم تسجل حسابا بعد؟",
+		changePassword: "غير كلمة السر",
 		social: {
 			errors: {
 				"auth-invalid-provider":

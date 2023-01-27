@@ -69,7 +69,13 @@ const fr = {
 		category: "Par catégorie",
 		published: "Publié",
 		by: "Par",
-		retour: "retour",
+		retour: "Retour",
+		FTDES:
+			"Le Forum Tunsien pour les Droits Economiques et Sociaux est une organisation non gouvernementale, neutre, indépendante de tout parti politique et de toute institution religieuse.",
+		social_media: "Réseaux sociaux",
+		address: `Adresse : 47, Avenue Farhat Hached 2eme étage 1001 Tunis Tél. : 71
+    257 664 Email : contact@ftdes.net`,
+		laUne: "A la une",
 	},
 
 	footer: { newsLettre: "" },
@@ -81,7 +87,7 @@ const fr = {
 		menu: "API",
 	},
 	menu: {
-		Menue: "Menue",
+		Menue: "Menu",
 		propos: "A propos",
 		Publications: "Publications",
 		Archives: "Archives",
@@ -2160,6 +2166,7 @@ const fr = {
 		alreadyHaveAnAccount: `Connectez-vous.`,
 		already: "Déjà inscrit?",
 		HaveAnAccount: "Pas encore membre?",
+		changePassword: "Changer mot de passe",
 		social: {
 			errors: {
 				"auth-invalid-provider":
@@ -2181,7 +2188,7 @@ const fr = {
 			message: `Vous n'avez pas encore les autorisations. Attendez que l'administrateur vous accorde des privilèges.`,
 		},
 		passwordResetEmail: {
-			message: "Envoyer un e-mail de réinitialisation du mot de passe",
+			message: "Envoyer un e-mail de réinitialisation",
 			error: "E-mail non reconnu",
 		},
 		passwordReset: {
