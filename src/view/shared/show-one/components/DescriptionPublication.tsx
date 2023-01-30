@@ -105,7 +105,7 @@ function DescriptionPublication(props) {
 								{rows?.supports[0].sizeInBytes} KB)
 							</a>
 
-							<MyPDFViewer />
+							<MyPDFViewer pdf={rows?.supports[0]?.downloadUrl} />
 						</div>
 					</div>
 				</div>

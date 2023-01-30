@@ -1,9 +1,9 @@
 import { Worker, Viewer, SpecialZoomLevel } from "@react-pdf-viewer/core";
+import PropTypes from "prop-types";
 import React, { useState } from "react";
-function PDFPage() {
-	const [url, seturl] = useState(
-		"http://178.79.177.14:8080/api/file/download?privateUrl=tenant/6368fcb72fdd40001e4da469/publication/supports/5ec5b61f-1d9e-4044-a16c-7009c532fff1.pdf",
-	);
+function PDFPage(props) {
+	const { pdf } = props;
+	const [url, seturl] = useState(pdf);
 
 	return (
 		<div style={{ maxHeight: "750px", overflowY: "scroll" }}>
@@ -26,11 +26,13 @@ function PDFPage() {
 						justifyContent: "center",
 						width: "100%",
 					}}>
-					Preview area
+					Not pdf Found
 				</div>
 			)}
 		</div>
 	);
 }
-
+PDFPage.propTypes = {
+	pdf: PropTypes.string,
+};
 export default PDFPage;
