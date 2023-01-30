@@ -16,7 +16,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import SinglePagePDFViewer from "./SinglePage";
-import AllPagesPDFViewer from "./AllPages";
+import MyPDFViewer from "./MyPDFViewer";
 
 import { Document, Page } from "react-pdf";
 
@@ -97,14 +97,15 @@ function DescriptionPublication(props) {
 
 					<div className="App">
 						<div>
-							<Document
-								file={rows?.supports[0].downloadUrl}
-								onLoadSuccess={onDocumentLoadSuccess}>
-								<Page pageNumber={pageNumber} />
-							</Document>
-							<p>
-								Page {pageNumber} of {numPages}
-							</p>
+							<a
+								href={rows?.supports[0].downloadUrl}
+								download
+								style={{ color: "#9a0000" }}>
+								Télécharger ({rows?.supports[0].name},&nbsp;
+								{rows?.supports[0].sizeInBytes} KB)
+							</a>
+
+							<MyPDFViewer />
 						</div>
 					</div>
 				</div>
