@@ -36,7 +36,9 @@ function Detail() {
 					]}
 				/>
 				{loading ? (
-					<h4> Loading ... </h4>
+					<div className="page__detaill">
+						<h4> Loading ... </h4>
+					</div>
 				) : (
 					<div className="page__detaill">
 						<DescriptionPublication rows={rows} showDetaill={showDetaill} />

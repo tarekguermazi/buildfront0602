@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 import SinglePagePDFViewer from "./SinglePage";
 import AllPagesPDFViewer from "./AllPages";
 
-import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+import { Document, Page } from "react-pdf";
 
 function DescriptionPublication(props) {
 	const dispatch = useDispatch();
@@ -95,7 +95,7 @@ function DescriptionPublication(props) {
 						</div>
 					</div>
 
-					{/* <div className="App">
+					<div className="App">
 						<div>
 							<Document
 								file={rows?.supports[0].downloadUrl}
@@ -106,7 +106,7 @@ function DescriptionPublication(props) {
 								Page {pageNumber} of {numPages}
 							</p>
 						</div>
-					</div> */}
+					</div>
 				</div>
 				<div>
 					<div className="archieve__header">
