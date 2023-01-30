@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 
 import SinglePagePDFViewer from "./SinglePage";
 import AllPagesPDFViewer from "./AllPages";
+
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
 
 function DescriptionPublication(props) {
@@ -28,10 +29,10 @@ function DescriptionPublication(props) {
 	const [numPages, setNumPages] = useState(0);
 	const [pageNumber, setPageNumber] = useState(1);
 
-	function onDocumentLoadSuccess({ numPages }) {
-		setNumPages(numPages);
-		setPageNumber(1);
-	}
+	// function onDocumentLoadSuccess({ numPages }) {
+	// 	setNumPages(numPages);
+	// 	setPageNumber(1);
+	// }
 
 	function changePage(offSet) {
 		setPageNumber((prevPageNumber) => prevPageNumber + offSet);
@@ -49,6 +50,10 @@ function DescriptionPublication(props) {
 		dispatch(actionsPublication.doFetchValidePublication());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	const onDocumentLoadSuccess = ({ numPages }) => {
+		setNumPages(numPages);
+	};
 
 	return (
 		<>
@@ -90,33 +95,18 @@ function DescriptionPublication(props) {
 						</div>
 					</div>
 
-					<div className="App">
-						<Document
-							file={rows?.supports[0].downloadUrl}
-							onLoadSuccess={onDocumentLoadSuccess}>
-							<Page height="600" pageNumber={pageNumber} />
-						</Document>
-						<p>
-							{" "}
-							Page {pageNumber} of {numPages}
-						</p>
-						{pageNumber > 1 && (
-							<button onClick={changePageBack}>Previous Page</button>
-						)}
-						{pageNumber < numPages && (
-							<button onClick={changePageNext}>Next Page</button>
-						)}
-
+					{/* <div className="App">
 						<div>
 							<Document
-								file="/sample.pdf"
+								file={rows?.supports[0].downloadUrl}
 								onLoadSuccess={onDocumentLoadSuccess}>
-								{Array.from(new Array(numPages), (el, index) => (
-									<Page key={`page_${index + 1}`} pageNumber={index + 1} />
-								))}
+								<Page pageNumber={pageNumber} />
 							</Document>
+							<p>
+								Page {pageNumber} of {numPages}
+							</p>
 						</div>
-					</div>
+					</div> */}
 				</div>
 				<div>
 					<div className="archieve__header">
