@@ -4,7 +4,29 @@ import PublicationService from "src/modules/publication/publicationService";
 // ICONS
 import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
 import Translate from "../../Translate";
-
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon,
+} from "react-share";
 export default function Header({
   PUBLICATION_TITLE,
   PUBLICATION_CREATED_AT,
@@ -12,23 +34,23 @@ export default function Header({
 }) {
   return (
     <HeaderLayout>
-      <span className='categoryBadge'>
+      <span className="categoryBadge">
         {Translate.Trans("title", PUBLICATION_TYPE)}
       </span>
 
       <h1>{Translate.Trans("title", PUBLICATION_TITLE)}</h1>
 
-      <div className='data'>
-        <div className='dateAndOwner'>
+      <div className="data">
+        <div className="dateAndOwner">
           <span>
             Publié le {PublicationService.pipeDate(PUBLICATION_CREATED_AT)}
           </span>
         </div>
         <br />
-        <div className='socials'>
+        <div className="socials">
           <span>Partager :</span>
           <button>
-            <BsFacebook />
+            <FacebookIcon />
           </button>
           <button>
             <BsTwitter />

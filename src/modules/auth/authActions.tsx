@@ -289,19 +289,43 @@ const authActions = {
     }
   },
 
-  doResetPassword: (password) => async (dispatch) => {
+  doResetPasswordEmail: (email) => async (dispatch) => {
+    try {
+      dispatch({
+        type: authActions.PASSWORD_RESET_EMAIL_START,
+      });
+
+      await service.passwordResetEmail(email);
+
+      Message.success(i18n("auth.passwordResetEmailSuccess"));
+      dispatch({
+        type: authActions.PASSWORD_RESET_EMAIL_START,
+      });
+      getHistory().push("/");
+    } catch (error) {
+      Errors.handle(error);
+
+      dispatch({
+        type: authActions.PASSWORD_RESET_EMAIL_ERROR,
+      });
+
+      dispatch(authActions.doSignout());
+      getHistory().push("/");
+    }
+  },
+  doResetPassword: (token, password) => async (dispatch) => {
     try {
       dispatch({
         type: authActions.PASSWORD_RESET_START,
       });
 
-      await service.passwordReset(password);
+      await service.passwordReset(token, password);
 
       Message.success(i18n("auth.passwordResetSuccess"));
       dispatch({
-        type: authActions.PASSWORD_RESET_SUCCESS,
+        type: authActions.PASSWORD_RESET_START,
       });
-      getHistory().push("/");
+      getHistory().push("/auth/signin");
     } catch (error) {
       Errors.handle(error);
 

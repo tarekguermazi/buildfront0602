@@ -73,9 +73,16 @@ const fr = {
 		FTDES:
 			"Le Forum Tunsien pour les Droits Economiques et Sociaux est une organisation non gouvernementale, neutre, indépendante de tout parti politique et de toute institution religieuse.",
 		social_media: "Réseaux sociaux",
-		address: `Adresse : 47, Avenue Farhat Hached 2eme étage 1001 Tunis Tél. : 71
-    257 664 Email : contact@ftdes.net`,
+		address: `Adresse: 47, Avenue Farhat Hached 2eme étage 1001 Tunis`,
+		email: "Email: contact@ftdes.net",
+		phone: "Tél: 71 257 664 ",
 		laUne: "A la une",
+		condition_utilisation: "Conditions d’utilisation",
+		mention_legal: "Mentions légales",
+		copyright: "© 2023 FTDES - Tous droits réservés.",
+		subscribe: "Abonnez vous",
+		newsletter: "Newsletter",
+		newsletterText: "Pour recevoir la Newsletter, merci de vous abonnez",
 	},
 
 	footer: { newsLettre: "" },

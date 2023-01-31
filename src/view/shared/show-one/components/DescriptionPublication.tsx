@@ -15,10 +15,16 @@ import Date from "../../Date";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import SinglePagePDFViewer from "./SinglePage";
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+import {
+	TwitterIcon,
+	TwitterShareButton,
+	FacebookShareButton,
+	FacebookIcon,
+	LinkedinIcon,
+	LinkedinShareButton,
+} from "react-share";
 import MyPDFViewer from "./MyPDFViewer";
-
-import { Document, Page } from "react-pdf";
 
 function DescriptionPublication(props) {
 	const dispatch = useDispatch();
@@ -74,24 +80,22 @@ function DescriptionPublication(props) {
 							<div className="socialMedia__title">
 								{i18n("common.Partager")} :
 							</div>
-							<Image src={Facebook} />
-							<Image src={twitter} />
-							<Image src={Instagramm} />
-							<Image src={Linkedin} />
-						</div>
-					</div>
+							<div>
+								<FacebookShareButton url={window.location.href}>
+									<FacebookIcon size={35} round />
+								</FacebookShareButton>
+							</div>
 
-					<div className="detail__description">
-						<div
-							className="description__detaillEvenement"
-							dangerouslySetInnerHTML={{
-								__html: Translate.Trans("description", rows),
-							}}
-						/>
-						<div style={{ paddingTop: "19px" }}>
-							{rows?.supports?.map((item) => (
-								<Image width={"670"} height={"333"} src={item.downloadUrl} />
-							))}
+							<div>
+								<TwitterShareButton url={window.location.href}>
+									<TwitterIcon size={35} round />
+								</TwitterShareButton>
+							</div>
+							<div>
+								<LinkedinShareButton url={window.location.href}>
+									<LinkedinIcon size={35} round />
+								</LinkedinShareButton>
+							</div>
 						</div>
 					</div>
 

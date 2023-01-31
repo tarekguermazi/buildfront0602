@@ -16,12 +16,14 @@ import AuthWrapper from "./styles/AuthWrapper";
 import { Link } from "react-router-dom";
 
 const schema = yup.object().shape({
-  email: yupFormSchemas.string(i18n("user.fields.email"), {
+  password: yupFormSchemas.string(i18n("user.fields.password"), {
     required: true,
   }),
 });
 
 function PasswordResetPage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get("token");
   const dispatch = useDispatch();
   const loading = useSelector(selectors.selectLoading);
   const externalErrorMessage = useSelector(selectors.selectErrorMessage);
@@ -33,8 +35,8 @@ function PasswordResetPage() {
     mode: "onSubmit",
     defaultValues: initialValues,
   });
-  const onSubmit = ({ email }) => {
-    dispatch(actions.doResetPasswordEmail(email));
+  const onSubmit = ({ password }) => {
+    dispatch(actions.doResetPassword(token, password));
   };
   const clearErrorMessage = () => {
     dispatch(actions.doClearErrorMessage());
@@ -48,9 +50,6 @@ function PasswordResetPage() {
       clearErrorMessage();
     }
   };
-  // const onSubmit = (email) => {
-  //   dispatch(actions.doResetPassword(email));
-  // };
 
   return (
     <div className="app__resetPassword">
@@ -60,7 +59,7 @@ function PasswordResetPage() {
         <div className="app__signin">
           <div className="app__login">
             <div className="archieve__header">
-              <h2>{i18n("auth.passwordResetEmail.message")}</h2>
+              <h2>{i18n("auth.passwordReset.message")}</h2>
               <div className="communiquer__bar"></div>
             </div>
             <div className="Login__container">
@@ -69,10 +68,10 @@ function PasswordResetPage() {
                   <form onSubmit={form.handleSubmit(onSubmit)}>
                     <div className="container__form">
                       <InputFormItem
-                        name="email"
-                        label={i18n("user.fields.email")}
-                        placeholder="email"
-                        autoComplete="email"
+                        name="password"
+                        label={i18n("user.fields.password")}
+                        placeholder="password"
+                        autoComplete="password"
                         onChange={handleChange}
                         externalErrorMessage={externalErrorMessage}
                       />
