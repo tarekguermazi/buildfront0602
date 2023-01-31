@@ -24,6 +24,7 @@ import {
   LinkedinIcon,
   LinkedinShareButton,
 } from "react-share";
+import MyPDFViewer from "./MyPDFViewer";
 
 function DescriptionPublication(props) {
   const dispatch = useDispatch();
@@ -98,31 +99,18 @@ function DescriptionPublication(props) {
             </div>
           </div>
 
-          <div className="detail__description">
-            <div
-              className="description__detaillEvenement"
-              dangerouslySetInnerHTML={{
-                __html: Translate.Trans("description", rows),
-              }}
-            />
-            <div style={{ paddingTop: "19px" }}>
-              {rows?.supports?.map((item) => (
-                <Image width={"670"} height={"333"} src={item.downloadUrl} />
-              ))}
-            </div>
-          </div>
-
           <div className="App">
             <div>
-              <Document
-                file={rows?.supports[0].downloadUrl}
-                onLoadSuccess={onDocumentLoadSuccess}
+              <a
+                href={rows?.supports[0].downloadUrl}
+                download
+                style={{ color: "#9a0000" }}
               >
-                <Page pageNumber={pageNumber} />
-              </Document>
-              <p>
-                Page {pageNumber} of {numPages}
-              </p>
+                Télécharger ({rows?.supports[0].name},&nbsp;
+                {rows?.supports[0].sizeInBytes} KB)
+              </a>
+
+              <MyPDFViewer pdf={rows?.supports[0]?.downloadUrl} />
             </div>
           </div>
         </div>
