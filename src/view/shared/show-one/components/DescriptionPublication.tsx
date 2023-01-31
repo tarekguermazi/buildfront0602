@@ -101,10 +101,9 @@ function DescriptionPublication(props) {
 								href={rows?.supports[0].downloadUrl}
 								download
 								style={{ color: "#9a0000" }}>
-								Télécharger ({rows?.supports[0].name},&nbsp;
+								{i18n("telecharger")} ({rows?.supports[0].name},&nbsp;
 								{rows?.supports[0].sizeInBytes} KB)
 							</a>
-
 							<MyPDFViewer pdf={rows?.supports[0]?.downloadUrl} />
 						</div>
 					</div>

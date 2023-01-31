@@ -82,6 +82,7 @@ const fr = {
 	app: {
 		title: "Al-Forum",
 	},
+	telecharger: "telecharger",
 
 	api: {
 		menu: "API",

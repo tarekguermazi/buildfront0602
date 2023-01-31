@@ -79,9 +79,9 @@ const ar = {
 
 	footer: { newsLettre: "" },
 	app: {
-		title: "Al-Forum",
+		title: "المنتدى التونسي للحقوق الاقتصادية والاجتماعية ",
 	},
-
+	telecharger: "تحميل",
 	api: {
 		menu: "API",
 	},
