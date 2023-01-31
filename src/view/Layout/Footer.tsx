@@ -98,6 +98,12 @@ export default function MegaFooter() {
             <div className="footer__content contact__desctioption">
               {i18n("common.address")}
             </div>
+            <div className="footer__content contact__desctioption">
+              {i18n("common.email")}
+            </div>
+            <div className="footer__content contact__desctioption">
+              {i18n("common.phone")}
+            </div>
           </div>
         </div>
       </div>

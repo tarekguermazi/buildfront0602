@@ -52,9 +52,16 @@ const en = {
     FTDES:
       "The Tunisian Forum for Economic and Social Rights is a non-governmental organization, neutral, independent of any political party and any religious institution.",
     social_media: "Social Media",
-    address: `Address: 47, Avenue Farhat Hached 2nd floor 1001 Tunis Tel. : 71
-    257 664 Email: contact@ftdes.net`,
+    address: `Address: 47, Avenue Farhat Hached 2nd floor 1001 Tunis`,
+    email: "Email: contact@ftdes.net",
+    phone: " Tel: 71 257 664",
     laUne: "Featured",
+    condition_utilisation: "Terms of use",
+    mention_legal: "Legal Notice",
+    copyright: "© 2023 FTDES - All rights reserved.",
+    subscribe: "Subscribe",
+    newsletter: "Newsletter",
+    newsletterText: "To receive the Newsletter, please subscribe",
   },
 
   app: {

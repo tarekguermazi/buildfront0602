@@ -15,6 +15,14 @@ import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import EvenementAvenir from "./EvenementAvenir";
 import ImageModal from "../shared/modals/ImageModal";
 import Translate from "../shared/Translate";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
 function EvenementDetaill() {
   const dispatch = useDispatch();
   const match = useRouteMatch();
@@ -57,29 +65,29 @@ function EvenementDetaill() {
           <Breadcrumb
             items={[[i18n("app.title"), "/"], [i18n("common.Evènements")]]}
           />
-          <div className='page__evenement'>
-            <div className='evenment__header'>
+          <div className="page__evenement">
+            <div className="evenment__header">
               <Image
                 width={1170}
                 height={404}
                 src={selectRows?.supports[0]?.downloadUrl}
-                alt='Placeholder'
+                alt="Placeholder"
               />
 
-              <div className='evenement__message'>
-                <div className='messageEvenement__left'>
-                  <div className='left__number'>
+              <div className="evenement__message">
+                <div className="messageEvenement__left">
+                  <div className="left__number">
                     {Date.Day(selectRows?.date)}
                   </div>
-                  <div className='left__months'>
+                  <div className="left__months">
                     {Date.Month(selectRows?.date)}
                   </div>
                 </div>
-                <div className='messageEvenement__right'>
-                  <div className='messageEvenement__title'>
+                <div className="messageEvenement__right">
+                  <div className="messageEvenement__title">
                     {Translate.Trans("title", selectRows)}
                   </div>
-                  <div className='messageEvenement__description'>
+                  <div className="messageEvenement__description">
                     <div>
                       <AiOutlineCalendar /> {Date.date(selectRows?.date)}
                     </div>
@@ -92,24 +100,25 @@ function EvenementDetaill() {
               </div>
             </div>
 
-            <div className='detaill__evenement'>
-              <div className='detaillEvenement__left'>
-                <div className='left__description'>
-                  <div className='title__detaillEvenemet'>
+            <div className="detaill__evenement">
+              <div className="detaillEvenement__left">
+                <div className="left__description">
+                  <div className="title__detaillEvenemet">
                     {i18n("common.Description")}
                   </div>
                   <div
-                    className='description__detaillEvenement'
+                    className="description__detaillEvenement"
                     dangerouslySetInnerHTML={{
                       __html: Translate.Trans("description", selectRows),
-                    }}></div>
+                    }}
+                  ></div>
                 </div>
                 {selectRows?.date && (
-                  <div className='left__date'>
-                    <div className='title__detaillEvenemet'>
+                  <div className="left__date">
+                    <div className="title__detaillEvenemet">
                       {i18n("common.Date")}
                     </div>
-                    <div className='description__detaillEvenement'>
+                    <div className="description__detaillEvenement">
                       <b> {Date.DetaillDate(selectRows?.date)} </b> <br />
                       {i18n("common.horraire")} :{" "}
                       <b>{Date.Hour(selectRows?.date)}</b>
@@ -117,25 +126,26 @@ function EvenementDetaill() {
                   </div>
                 )}
 
-                <div className='left__photos'>
-                  <div className='title__detaillEvenemet'>
+                <div className="left__photos">
+                  <div className="title__detaillEvenemet">
                     {i18n("common.Photos")}
                   </div>
-                  <div className='photos__gallery'>
+                  <div className="photos__gallery">
                     {selectRows?.supports?.map((item) => (
                       <>
                         <Image
                           width={165}
                           height={159}
                           src={item.downloadUrl}
-                          alt='Placeholder'
+                          alt="Placeholder"
                         />
 
                         <button
-                          type='button'
-                          className='btn btn-link'
-                          onClick={() => doPreviewImage(item)}>
-                          <i className='fas fa-search'></i>
+                          type="button"
+                          className="btn btn-link"
+                          onClick={() => doPreviewImage(item)}
+                        >
+                          <i className="fas fa-search"></i>
                         </button>
                       </>
                     ))}
@@ -148,73 +158,88 @@ function EvenementDetaill() {
                       onClose={() => doCloseImageModal()}
                     />
                   )}
-                  <div className='plus__button'>{i18n("common.voirPlus")}</div>
+                  <div className="plus__button">{i18n("common.voirPlus")}</div>
                 </div>
                 {selectRows?.videos[0]?.link && (
-                  <div className='left__videos'>
-                    <div className='title__detaillEvenemet'>
+                  <div className="left__videos">
+                    <div className="title__detaillEvenemet">
                       {i18n("common.Videos")}
                     </div>
-                    <div className='photos__gallery'>
+                    <div className="photos__gallery">
                       {selectRows?.videos?.map(
                         (item) =>
                           item?.link && (
-                            <div className='videos__list'>
+                            <div className="videos__list">
                               <Youtube link={item?.link} />
                             </div>
                           )
                       )}
                     </div>
-                    <div className='plus__button'>
+                    <div className="plus__button">
                       {i18n("common.voirPlus")}
                     </div>
                   </div>
                 )}
                 {selectRows?.contact2 && (
-                  <div className='left__contact'>
-                    <div className='title__detaillEvenemet'>
+                  <div className="left__contact">
+                    <div className="title__detaillEvenemet">
                       {i18n("common.Contact")}
                     </div>
 
                     <div
-                      className='description__detaillEvenement'
+                      className="description__detaillEvenement"
                       dangerouslySetInnerHTML={{
                         __html: selectRows?.contact2,
-                      }}></div>
+                      }}
+                    ></div>
                   </div>
                 )}
               </div>
-              <div className='detailEvenement__right'>
-                <div className='title__detaillEvenemet'>
+              <div className="detailEvenement__right">
+                <div className="title__detaillEvenemet">
                   {i18n("common.Lieu")}
                 </div>
                 <div>
                   <GoogleMap
                     zoom={10}
                     center={center}
-                    mapContainerStyle={containerStyle}>
+                    mapContainerStyle={containerStyle}
+                  >
                     <Marker position={center} />
                   </GoogleMap>
                 </div>
-                <div className='detaillEvenement__socialMedia'>
-                  <div className='socialMedia__title'>
+                <div className="detaillEvenement__socialMedia">
+                  <div className="socialMedia__title">
                     {i18n("common.Partager")} :
                   </div>
-                  <Image src={Facebook} />
-                  <Image src={Twitter} />
-                  <Image src={Instagramm} />
-                  <Image src={Linkedin} />
+                  <div>
+                    <FacebookShareButton url={window.location.href}>
+                      <FacebookIcon size={35} round />
+                    </FacebookShareButton>
+                  </div>
+
+                  <div>
+                    <TwitterShareButton url={window.location.href}>
+                      <TwitterIcon size={35} round />
+                    </TwitterShareButton>
+                  </div>
+                  <div>
+                    <LinkedinShareButton url={window.location.href}>
+                      <LinkedinIcon size={35} round />
+                    </LinkedinShareButton>
+                  </div>
                 </div>
                 {selectRows?.contact1 && (
-                  <div className='left__contact'>
-                    <div className='title__detaillEvenemet'>
+                  <div className="left__contact">
+                    <div className="title__detaillEvenemet">
                       {i18n("common.Contact")}
                     </div>
                     <div
-                      className='description__detaillEvenement'
+                      className="description__detaillEvenement"
                       dangerouslySetInnerHTML={{
                         __html: selectRows?.contact1,
-                      }}></div>
+                      }}
+                    ></div>
                   </div>
                 )}
               </div>
