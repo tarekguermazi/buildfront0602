@@ -6,6 +6,7 @@ import PublicationService from "src/modules/publication/publicationService";
 // COMPONENTSS
 import SectionHeader from "./components/SectionHeader";
 import Translate from "../Translate";
+import { i18n } from "src/i18n";
 
 export default function RelatedContent({ type }) {
   // Fetching related entities based on type
@@ -26,32 +27,33 @@ export default function RelatedContent({ type }) {
 
   return (
     <RelatedCOntentLayout>
-      <SectionHeader title='publications qui peuvent vous intéresser' />
+      <SectionHeader title="publications qui peuvent vous intéresser" />
       {entityIsLoading ? (
         <section>
-          <h4>Loading related content...</h4>
+          <h4>{i18n("table.loadingContent")}</h4>
         </section>
       ) : (
-        <div className='gridLayout'>
+        <div className="gridLayout">
           {related?.map((entity) => {
             return (
               <HorizontalCard key={entity["_id"]}>
                 {entity["photos"].length > 0 ? (
-                  <img src={entity["photos"][0].downloadUrl} alt='' />
+                  <img src={entity["photos"][0].downloadUrl} alt="" />
                 ) : (
-                  <div className='cardImage cardThumbnail hasNoThumbnail'></div>
+                  <div className="cardImage cardThumbnail hasNoThumbnail"></div>
                 )}
-                <div className='cardContent'>
-                  <div className='cardHeader'>
-                    <span className='categoryBadge'>{entity["type"]}</span>
+                <div className="cardContent">
+                  <div className="cardHeader">
+                    <span className="categoryBadge">{entity["type"]}</span>
                     <span>
                       {PublicationService.pipeDate(entity["updatedAt"])}
                     </span>
                   </div>
                   <Link
                     to={"/Mediatheque/entity/" + entity["_id"]}
-                    className='title text__wrap'
-                    style={{ maxWidth: 370 }}>
+                    className="title text__wrap"
+                    style={{ maxWidth: 370 }}
+                  >
                     <span>{Translate.Trans("title", entity)}</span>
                   </Link>
                 </div>

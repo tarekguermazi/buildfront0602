@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import MediathequeService from "src/modules/mediatheque/MediathequeService";
 // COMPONENTSS
 import Translate from "../../shared/Translate";
+import { i18n } from "src/i18n";
 
 export default function RelatedContent({ type }) {
   // Fetching related entities based on type
@@ -28,39 +29,41 @@ export default function RelatedContent({ type }) {
 
   return (
     <RelatedCOntentLayout>
-      <div className='archieve__header'>
-        <h2>Photos</h2>
-        <div className='satestique__bar'></div>
+      <div className="archieve__header">
+        <h2>{i18n("common.Photos")}</h2>
+        <div className="satestique__bar"></div>
       </div>
       {entityIsLoading ? (
         <section>
-          <h4>Loading related content...</h4>
+          <h4>{i18n("table.loadingContent")}</h4>
         </section>
       ) : (
-        <div className='gridLayout'>
+        <div className="gridLayout">
           {related?.map((entity) => {
             return (
               <HorizontalCard key={entity["_id"]}>
                 {entity["photos"].length > 0 ? (
                   <div
-                    className='cardImage cardThumbnail'
+                    className="cardImage cardThumbnail"
                     style={{
                       backgroundImage:
                         "url(" + entity["photos"][0].downloadUrl + ")",
-                    }}></div>
+                    }}
+                  ></div>
                 ) : (
-                  <div className='cardImage cardThumbnail hasNoThumbnail'></div>
+                  <div className="cardImage cardThumbnail hasNoThumbnail"></div>
                 )}
-                <div className='cardContent'>
-                  <div className='cardHeader'>
-                    <span className='categoryBadge'>{entity["type"]}</span>
+                <div className="cardContent">
+                  <div className="cardHeader">
+                    <span className="categoryBadge">{entity["type"]}</span>
                     <span>
                       {MediathequeService.pipeDate(entity["createdAt"])}
                     </span>
                   </div>
                   <Link
                     to={"/Mediatheque/entity/" + entity["_id"]}
-                    className='title ow'>
+                    className="title ow"
+                  >
                     <span>{Translate.Trans("title", entity)}</span>
                   </Link>
                 </div>

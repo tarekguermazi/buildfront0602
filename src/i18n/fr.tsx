@@ -2953,6 +2953,7 @@ const fr = {
     loading: "Chargement...",
     suivant: "Suivant",
     precedent: "Precedent",
+    loadingContent: "Chargement du contenu associé...",
   },
   autocomplete: {
     loading: "Chargement...",

@@ -1567,6 +1567,7 @@ const en = {
     loading: "Chargement...",
     suivant: "Next",
     precedent: "previous",
+    loadingContent: "Loading related content...",
   },
   autocomplete: {
     loading: "Loading...",

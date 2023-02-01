@@ -121,7 +121,7 @@ function DescriptionPublication(props) {
           </div>
           <div className="manification__images">
             {loadingPublication ? (
-              <h4> Loading ... </h4>
+              <h4>{i18n("table.loading")}</h4>
             ) : (
               rowsPublication.map((item) => (
                 <Link to={`/detail/${item.id}`}>

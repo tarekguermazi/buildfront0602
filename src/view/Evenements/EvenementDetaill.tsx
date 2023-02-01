@@ -44,7 +44,7 @@ function EvenementDetaill() {
     width: "398px",
     height: "386px",
   };
-  if (!isLoaded) return <div>Loading ... </div>;
+  if (!isLoaded) return <div>{i18n("table.loading")}</div>;
 
   const doPreviewImage = (image) => {
     setImage({
@@ -58,7 +58,7 @@ function EvenementDetaill() {
   };
   return (
     <>
-      {selectLoading && <h1>Loading</h1>}
+      {selectLoading && <h1>{i18n("table.loading")}</h1>}
       {!selectLoading && (
         <>
           {" "}

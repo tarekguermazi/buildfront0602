@@ -23,7 +23,9 @@ import {
 export default function Header({ entity, user, userIsLoading }) {
   return (
     <HeaderLayout>
-      <span className="categoryBadge">{entity["type"]}</span>
+      <span className="categoryBadge">
+        {i18n(`entities.mediatique.enumerators.type.${entity["type"]}`)}
+      </span>
       <h1>{Translate.Trans("title", entity)}</h1>
 
       <div

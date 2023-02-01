@@ -23,39 +23,41 @@ function PublicationInterest(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className='publication__interest'>
-      <div className='archieve__header'>
+    <div className="publication__interest">
+      <div className="archieve__header">
         <h2>{i18n("entities.publication.publicationInteresser")}</h2>
-        <div className='satestique__bar'></div>
+        <div className="satestique__bar"></div>
       </div>
 
-      <div className='interest__detaill'>
+      <div className="interest__detaill">
         {loadingthematique ? (
-          <h4>Loading ... </h4>
+          <h4>{i18n("table.loading")}</h4>
         ) : (
           rowsThematique.map((item) => (
             <Link to={`/detail/${item.id}`}>
               <div
                 onClick={() => showDetaill(item.id)}
-                style={{ cursor: "pointer", display: "flex", gap: 19 }}>
+                style={{ cursor: "pointer", display: "flex", gap: 19 }}
+              >
                 <Image
                   src={item?.supports[0]?.downloadUrl}
-                  width='182'
-                  height='147'
-                  alt=''
+                  width="182"
+                  height="147"
+                  alt=""
                 />
-                <div className='list__detaill'>
-                  <div className='detaill__header'>
-                    <div className='header__left'>
+                <div className="list__detaill">
+                  <div className="detaill__header">
+                    <div className="header__left">
                       <p>{Translate.Trans("title", item.thematique)} </p>
                     </div>
-                    <div className='header__right'>
+                    <div className="header__right">
                       {Date.fullDate(item.updatedAt)}
                     </div>
                   </div>
                   <div
-                    className='detaill__content text__wrap'
-                    style={{ width: "369px" }}>
+                    className="detaill__content text__wrap"
+                    style={{ width: "369px" }}
+                  >
                     {Translate.Trans("title", item)}
                   </div>
                 </div>

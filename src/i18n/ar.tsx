@@ -1641,6 +1641,7 @@ const ar = {
     loading: "في طور التحميل..",
     suivant: "التالي",
     precedent: "الفائت",
+    loadingContent: "تحميل المحتوى ذي الصلة ...",
   },
   autocomplete: {
     loading: "في طور التحميل..",

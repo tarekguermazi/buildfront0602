@@ -50,9 +50,9 @@ export default function SpecificEntityList() {
 
   return (
     <section>
-      <section className='wideContent'>
+      <section className="wideContent">
         <Breadcrumb
-          title={i18n(`${param}`)}
+          title={i18n(`entities.mediatique.enumerators.type.${param}`)}
           items={[
             [i18n("dashboard.menu"), "/"],
             [i18n("entities.mediatique.label")],
