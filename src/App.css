@@ -3008,6 +3008,31 @@ styling the newsLettre */
   justify-content: space-between;
 }
 
+.copywrite__left > ul {
+  display: flex;
+}
+
+.copywrite__left > ul > li {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  color: var(--white);
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.copywrite__left > ul > li:nth-child(1) {
+  padding-left: 68px;
+}
+
+.copywrite__left > ul > li:nth-child(2) {
+  font-weight: 400;
+  padding-left: 72px;
+}
+
 .copywrite__right > ul {
   display: flex;
 }
